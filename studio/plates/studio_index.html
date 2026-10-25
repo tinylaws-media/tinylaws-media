@@ -1,0 +1,88 @@
+<title>Studio — Not Just You</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+/* Layout: one narrow night column, the pilot's cover beside the recipe; single dark look on purpose (the channel's world). */
+:root {
+  --night: #0A0F1E; --deep: #18243A; --amber: #F2B35B; --rose: #C9A7B8; --cream: #F3E9DA; --line: #2A3854;
+  --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+body { background: var(--night); color: var(--cream); font-family: var(--serif); font-size: 21px; line-height: 1.45; }
+.wrap { max-width: 980px; margin: 0 auto; padding-block: 48px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 36px; align-items: end; }
+h1 { font-weight: 400; font-size: clamp(42px, 7vw, 68px); line-height: 1; margin: 0 0 14px; text-wrap: balance; }
+h1 em { color: var(--amber); }
+.lede { color: var(--rose); font-style: italic; margin: 0; max-width: 60ch; }
+.cover { width: 100%; max-width: 220px; border-radius: 14px; border: 1px solid var(--line); display: block; }
+h2 { font-weight: 400; font-size: 30px; margin: 48px 0 12px; color: var(--amber); font-style: italic; }
+p { max-width: 65ch; }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 18px; }
+td, th { text-align: left; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-weight: 400; color: var(--rose); font-style: italic; }
+code, pre { font-family: var(--mono); font-size: 14px; }
+td code { color: var(--amber); white-space: nowrap; }
+pre { background: var(--deep); border: 1px solid var(--line); border-radius: 10px; padding: 16px; overflow-x: auto; line-height: 1.6; margin: 0; }
+ul { padding-left: 1.1em; max-width: 68ch; }
+li { margin: 6px 0; }
+.swatches { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+.sw { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 13px; color: var(--rose); }
+.sw i { width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--line); display: inline-block; }
+@media (max-width: 640px) { header { grid-template-columns: 1fr; } .cover { max-width: 180px; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Not Just You, <em>the studio</em></h1>
+      <p class="lede">The code that makes each 61–66 second episode: a bedroom at night, one warm lamp, Lumen the moth, sourced captions and a calm voice. Everything is generated; nothing to license.</p>
+    </div>
+    <img class="cover" src="cover.jpg" alt="Pilot cover: a dark bedroom, a glowing phone on the bed, a small moth beside it, and the words Can't look away from terrible news?">
+  </header>
+
+  <h2>The look</h2>
+  <p>Cold blues everywhere except the lamp, which stands for help and other people. Lumen never speaks: he circles the phone's light, and settles by the lamp when the episode offers a way out. Fixed rain and grain, slow camera, no flashes, no shakes. Type is Instrument Serif, roman and italic.</p>
+  <div class="swatches">
+    <span class="sw"><i style="background:#0A0F1E"></i>#0A0F1E night</span>
+    <span class="sw"><i style="background:#18243A"></i>#18243A deep blue</span>
+    <span class="sw"><i style="background:#F2B35B"></i>#F2B35B amber</span>
+    <span class="sw"><i style="background:#C9A7B8"></i>#C9A7B8 faded rose</span>
+    <span class="sw"><i style="background:#F3E9DA"></i>#F3E9DA cream</span>
+  </div>
+
+  <h2>Files in plates/</h2>
+  <div class="scroll"><table>
+    <tr><th>File</th><th>What it does</th></tr>
+    <tr><td><code>njy_engine.py</code></td><td>Renderer: room, lamp, phone feed, Lumen, captions, source lines, bars, loop arrows</td></tr>
+    <tr><td><code>njy_ep001.py</code></td><td>Pilot “The bad-news loop”. Copy it to start an episode</td></tr>
+    <tr><td><code>njy_voice.py</code></td><td>Kokoro narration: casting, measure each line, build the voice track</td></tr>
+    <tr><td><code>njy_audio.py</code></td><td>Night pad, felt piano, soft rain, quiet effects, the mix</td></tr>
+    <tr><td><code>njy_render.py</code></td><td>Contact sheets, single frames, full render</td></tr>
+    <tr><td><code>njy_cover.py</code></td><td>Cover image</td></tr>
+    <tr><td><code>njy_subtitles.py</code></td><td>One .srt per language</td></tr>
+    <tr><td><code>voice.py</code>, <code>audio.py</code>, <code>finish.py</code></td><td>Unchanged copies of the shared helpers (model download, DSP, −14 LUFS finish)</td></tr>
+    <tr><td><code>README.md</code></td><td>Full recipe and episode rules</td></tr>
+  </table></div>
+
+  <h2>Next episode</h2>
+<pre>cp njy_ep001.py njy_ep002.py          # EP, LINES, SOURCES, panels, SFX
+python3 njy_voice.py measure njy_ep002 # timeline from real durations (61–66 s)
+python3 njy_render.py njy_ep002 --sheet sheet_first8 0 0.5 1 … 8
+python3 njy_voice.py build njy_ep002 &amp;&amp; python3 njy_audio.py njy_ep002
+python3 njy_render.py njy_ep002
+python3 finish.py njy_ep002 NotJustYou_002_slug
+python3 njy_cover.py njy_ep002 "hook line one" "hook *line two*"
+python3 njy_subtitles.py njy_ep002 njy_ep002_subs.json</pre>
+
+  <h2>Rules that held up in review</h2>
+  <ul>
+    <li>Sensation from frame 0, reframe with one sourced number by about 10 s, mechanism, one path for you and one together, “it's not just you” looping into the first line.</li>
+    <li>Every figure carries its source under the caption; “a link, not proof” for surveys, “predicts, not proves” for long studies; no invented chart data.</li>
+    <li>Captions mirror the voice, five words a line, two lines, nothing past x 900.</li>
+    <li>Helpline on screen when the topic touches distress; no names, no titles, no treatment advice.</li>
+    <li>Every episode goes through an independent reviewer before anyone sees it.</li>
+  </ul>
+</div>
