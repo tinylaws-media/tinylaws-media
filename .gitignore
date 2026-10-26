@@ -1,0 +1,7 @@
+work/out/
+work/tts/
+__pycache__/
+*.pyc
+studio/
+tinylaws/
+work/site/
