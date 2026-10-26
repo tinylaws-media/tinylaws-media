@@ -1,0 +1,64 @@
+<title>Studio — The Exit Manual</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=IBM+Plex+Sans:wght@400;600&display=swap">
+<style>
+/* Layout: one terminal column; a file table; the episode recipe as a code block. Single dark look, like the channel. */
+:root {
+  --bg: #05060A; --panel: #0B0E16; --fg: #E8ECEF; --muted: #8A93A3;
+  --green: #39FF88; --magenta: #FF2E88; --cyan: #00E5FF;
+  --term: "VT323", ui-monospace, Menlo, monospace;
+  --body: "IBM Plex Sans", system-ui, sans-serif;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font: 16px/1.55 var(--body); }
+main { max-width: 760px; margin: 0 auto; padding-block: 40px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 28px; }
+h1 { font: 56px/1 var(--term); color: var(--green); margin: 0; text-shadow: -2px 0 var(--cyan), 2px 0 var(--magenta); text-wrap: balance; }
+h2 { font: 30px/1.1 var(--term); color: var(--cyan); margin: 0 0 8px; letter-spacing: .03em; }
+p { margin: 0; max-width: 65ch; }
+.sub { color: var(--muted); }
+.wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+td { border-top: 1px solid #1A1F2B; padding: 8px 10px 8px 0; vertical-align: top; }
+td:first-child { font-family: var(--term); font-size: 20px; color: var(--green); white-space: nowrap; }
+pre { background: var(--panel); border: 1px solid #1A1F2B; border-radius: 10px; padding: 14px; overflow-x: auto;
+  font: 17px/1.4 var(--term); color: var(--fg); margin: 0; }
+ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+code { font-family: var(--term); font-size: 18px; color: var(--green); }
+.sign { font-family: var(--term); color: var(--magenta); }
+</style>
+<main>
+  <header>
+    <h1>&gt; THE EXIT MANUAL · STUDIO</h1>
+    <p class="sub">Code for the channel's 61–66 s shorts. v2 (26 Oct 2026): the demo remade as a manifesto — natural voice, a quieter look, animations that open the machine behind the screen. All files are under <code>plates/</code>; <code>plates/README.md</code> is the full guide.</p>
+  </header>
+  <section>
+    <h2>EPISODE V2 · FORTY DAYS A YEAR</h2>
+    <p>Our feeds take about 40 full days a year. Meta's own annual report says its results depend on "engaging active users". Sixteen cents a day each, times 3.5 billion. A sleep study, checked honestly. Step one: tonight, the phone sleeps outside your room. Stop scrolling. Go to sleep.</p>
+  </section>
+  <section>
+    <h2>FILES</h2>
+    <div class="wrap"><table>
+      <tr><td>exit_look2.py</td><td>v2 look: no synthwave grid, one meaning per colour, IBM Plex type; year grid, phone + endless feed, eye-to-pixels, dot-field zoom, document highlighter.</td></tr>
+      <tr><td>exit_ep002.py</td><td>Transmission 001 v2 · Exit (scenes, sound cues, facts and sources). Script in exit_ep002_lines.py.</td></tr>
+      <tr><td>exit_voice.py</td><td>Natural Kokoro voice (am_fenrir, speed 1.0, no pitch shift, very light warmth). Casting mode renders 4 ranked takes.</td></tr>
+      <tr><td>exit_audio.py</td><td>Synth bed; music 13 dB under the voice, effects 19 dB under.</td></tr>
+      <tr><td>exit_render.py</td><td>Parallel render, contact sheets.</td></tr>
+      <tr><td>exit_finish.py</td><td>-14 LUFS, true peak under -1 dBTP, MP4 and cover.</td></tr>
+      <tr><td>exit_subtitles.py</td><td>One .srt per language (EN + FR in exit_ep002_subs.json).</td></tr>
+      <tr><td>exit_engine.py · exit_ep001.py</td><td>v1 look and the v1 pilot, kept as they were.</td></tr>
+    </table></div>
+    <p class="sub">Also needs <code>voice.py</code> and <code>audio.py</code> from the Tiny Laws studio, unchanged.</p>
+  </section>
+  <section>
+    <h2>RULES FROM THE V2 REVIEW</h2>
+    <ul>
+      <li>Quote documents exactly and in context; short excerpts on screen, large type.</li>
+      <li>Every spoken line captioned. No unsourced comparisons.</li>
+      <li>Name the company, never an unnamed "they". Label illustrations.</li>
+      <li>A study: say what it measured, and that a link is not a cause.</li>
+      <li>One legal step, then <span class="sign">build the commons.</span> and the loop.</li>
+    </ul>
+  </section>
+</main>
