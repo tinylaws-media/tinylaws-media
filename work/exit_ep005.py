@@ -34,7 +34,7 @@ from exit_look2 import (Ctx2, Assets2, CAP_CX, phone, feed, feed_card, is_ad, ey
                         doc_lines, ease_io5)
 from exit_engine import W, H, FPS, clamp01, prog, lerp, ease_out, ease_in_out, relay
 from exit_ep005_lines import LINES, CAPS
-from exit_logo import Logo
+import exit_outro as outro          # the signature ending, identical in every episode (owner, 26 Oct 2026)
 
 EPISODE = "001"
 SERIES = "EXIT"
@@ -750,148 +750,19 @@ def scene_stop(X, t):
         X.c.drawCircle(x, y, r_, X.paint("white", s * a_))
 
 
-HEART_BPM = 64                                # the logo's heartbeat = the score's tempo (exit_score5.BPM)
-HEART = 60.0 / HEART_BPM
-LOGO = Logo()
-LOGO_CX, LOGO_CY, LOGO_PX = CAP_CX, 750, 300  # centre and radius (px) of the formed logo: x 185..785, y 450..1050
-_LR = np.random.default_rng(55)
-# each fragment's far starting point: outward along its own direction, swung round, far in depth
-FRAG_FROM = [(LOGO.pieces[i][2] + _LR.uniform(-0.7, 0.7), _LR.uniform(2600, 4200), _LR.uniform(4200, 6800),
-              _LR.uniform(-2.6, 2.6)) for i in range(len(LOGO.pieces))]
-for _k in LOGO.order[:2]:                     # the first two come in close to the camera: big, visible at once
-    FRAG_FROM[_k] = (FRAG_FROM[_k][0], 1500.0, 2300.0, FRAG_FROM[_k][3])
-
-
-def frag_times():
-    """When each fragment (in arrival order) leaves and locks in. All locked 0.25 s before 'build the commons.'"""
-    t0, t_lock = E("stop") + 0.05, T("sign") - 0.25
-    fly = 1.05
-    st = (t_lock - fly - t0) / (len(LOGO.pieces) - 1)
-    return [(t0 + k * st, t0 + k * st + fly) for k in range(len(LOGO.pieces))]
-
-
-def heart_pulse(t):
-    """0..1 lub-dub envelope: a strong beat then a softer one 0.30 s later, every HEART s from 'sign'."""
-    if not TIM or t < T("sign") - 0.05:
-        return 0.0
-    k = math.floor((t - T("sign")) / HEART)
-    x = t - (T("sign") + k * HEART)
-
-    def bump_(u):                               # fast smooth rise (40 ms), soft fall (no flash)
-        if u < 0:
-            return 0.0
-        return (1 - math.exp(-u / 0.018)) * math.exp(-u / 0.13)
-    return clamp01(bump_(x) * 1.25 + 0.55 * bump_(x - 0.30) * 1.25)
-
-
-def draw_logo(X, t, alpha=1.0, scale=1.0):
-    """The fragments arrive one by one from depth and converge; once formed, the logo beats like a heart."""
-    if alpha <= 0:
-        return
-    c = X.c
-    times = frag_times()
-    cam = Cam(cx=LOGO_CX, cy=LOGO_CY, x=0, y=0, z=0)
-    k_unit = LOGO_PX / LOGO.R * scale
-    formed = prog(t, times[-1][1], times[-1][1] + 0.2)
-    hp_ = heart_pulse(t)
-    beat_s = 1 + 0.095 * hp_
-    # the camera eases in as the logo forms, and rolls very slightly back to level
-    roll = 0.06 * (1 - smooth(prog(t, times[0][0], times[-1][1])))
-    c.save()
-    c.translate(LOGO_CX, LOGO_CY)
-    c.rotate(math.degrees(roll))
-    c.translate(-LOGO_CX, -LOGO_CY)
-    # soft green halo behind the logo: grows as it forms, breathes with the heart (alpha change is small)
-    halo = 0.10 * formed + 0.10 * hp_ * formed
-    if halo > 0:
-        c.drawCircle(LOGO_CX, LOGO_CY, LOGO_PX * 1.15 * beat_s, X.paint("green", halo * alpha, blur=90))
-    # a thin ring (the owner's white disc, reduced to its outline in our palette)
-    ring_a = 0.35 * formed * alpha
-    if ring_a > 0:
-        c.drawCircle(LOGO_CX, LOGO_CY, LOGO_PX * 1.12 * beat_s, X.paint("white", ring_a * 0.6, stroke=2.5))
-        c.drawCircle(LOGO_CX, LOGO_CY, LOGO_PX * 1.12 * beat_s, X.paint("green", ring_a * 0.5, stroke=6, blur=6))
-    # a thin ring ripples outward on each beat (a shape moving out, not a brightness flash)
-    if TIM and t >= T("sign"):
-        kb = math.floor((t - T("sign")) / HEART)
-        for dk, (dt, g) in enumerate(((0.0, 1.0), (0.30, 0.6))):
-            x = t - (T("sign") + kb * HEART) - dt
-            if 0 <= x < 0.9:
-                u = x / 0.9
-                c.drawCircle(LOGO_CX, LOGO_CY, LOGO_PX * (1.15 + 0.45 * ease_out(u, 2)),
-                             X.paint("green", 0.28 * g * (1 - u) * alpha * formed, stroke=3))
-    for n_, i in enumerate(LOGO.order):
-        path, (fx, fy), ang = LOGO.pieces[i]
-        ta, tb = times[n_]
-        if t < ta:
-            continue
-        u = clamp01((t - ta) / (tb - ta))
-        e = 1 - (1 - u) ** 3.2                                 # fast from far, gentle landing
-        th, rad, z0, spin = FRAG_FROM[i]
-        tx, ty = fx * k_unit * beat_s, fy * k_unit * beat_s
-        trail = [0.0] if u >= 1 else [0.0, 0.05, 0.1, 0.16]   # motion trail while flying (ghosts, dim)
-        for j, dt in enumerate(trail):
-            ee = 1 - (1 - clamp01(u - dt * 1.4)) ** 3.2
-            wx = lerp(tx + math.cos(th) * rad, tx, ee)
-            wy = lerp(ty + math.sin(th) * rad, ty, ee)
-            wz = lerp(z0, 1100, ee)
-            sx, sy, kk = cam.p(wx, wy, wz)
-            fade = clamp01((7600 - wz) / 2500)
-            a = alpha * fade * (1.0 if j == 0 else 0.22 * (1 - j / len(trail)))
-            if a <= 0.01:
-                continue
-            c.save()
-            c.translate(sx, sy)
-            c.scale(kk * k_unit * beat_s, kk * k_unit * beat_s)
-            c.rotate(math.degrees(spin * (1 - ee)))
-            c.translate(-fx, -fy)
-            if j == 0:
-                lock = bump(t, tb - 0.05, 0.5) if u >= 0.95 else 0.0
-                c.drawPath(path, X.paint("green", (0.30 + 0.25 * lock + 0.25 * hp_ * formed) * a, blur=3.5 / kk / k_unit))
-            c.drawPath(path, X.paint("white", a))
-            c.restore()
-    # the centre star appears once the ring of fragments is closed
-    if LOGO.star is not None and formed > 0:
-        sa = alpha * formed
-        c.save()
-        c.translate(LOGO_CX, LOGO_CY)
-        ss = k_unit * beat_s * (0.6 + 0.4 * smooth(formed)) * (1 + 0.08 * hp_)
-        c.scale(ss, ss)
-        c.rotate(25 * (1 - smooth(formed)))
-        c.drawPath(LOGO.star, X.paint("green", 0.7 * sa, blur=2.5 / ss * 3))
-        c.drawPath(LOGO.star, X.paint("green", sa))
-        c.restore()
-    c.restore()
+# ------------------------------------------------------------------ the signature ending (exit_outro.py, locked)
+HEART_BPM = outro.HEART_BPM                   # the logo's heartbeat = the score's tempo (exit_score5.BPM)
 
 
 def scene_world(X, t):
-    t0 = E("stop")
-    a = ease_in_out(prog(t, t0, t0 + 1.2))
-    for (x, y, r_, a_) in STARS:
-        X.c.drawCircle(x, y, r_, X.paint("white", (1 - a * 0.6) * a_))
-    # the stars of "go to sleep" are pulled into the depth as the fragments come in
-    draw_logo(X, t)
-    sa = prog(t, T("sign") - 0.05, T("sign") + 0.3) * (1 - prog(t, T("loop") - 0.55, T("loop") - 0.22))
-    if sa > 0:
-        X.panel(110, 1190, 750, 200, alpha=0.8 * sa, border=None)
-        kin_text(X, "build the commons.", CAP_CX, 1290, 64, T("sign") - 0.05, "green", kind="sign", dur=0.45, glow=0.5,
-                 track0=0.12, rise=14)
-        X.text("THE EXIT MANUAL", CAP_CX, 1358, 40, "white", kind="sansm", alpha=0.8 * prog(t, T("sign") + 0.3,
-                                                                                            T("sign") + 0.6))
+    # the stars of "go to sleep" dim, the 12 fragments converge, the logo beats on "build the commons."
+    outro.scene(X, t, T("sign"))
 
 
 # ------------------------------------------------------------------ 11 · loop (ends on frame 0)
 def scene_loop(X, t):
-    # the logo keeps beating while it falls back into the depth, to a point; then the year returns
-    u = ease_in_out(prog(t, T("loop") + 0.7, T("loop") + 1.4))
-    la = 1 - prog(t, T("loop") + 1.05, T("loop") + 1.4)
-    if la > 0:
-        X.c.save()
-        X.c.translate(LOGO_CX, LOGO_CY)
-        z = lerp(1.0, 0.12, u)
-        X.c.scale(z, z)
-        X.c.translate(-LOGO_CX, -LOGO_CY)
-        draw_logo(X, t, alpha=la)
-        X.c.restore()
+    # the logo keeps beating while it falls back into the depth, to a point (outro.fall); then the year returns
+    outro.fall(X, t, T("sign"))
     a = ease_in_out(prog(t, T("loop") + 0.95, T("loop") + 1.75))
     X.c.saveLayerAlpha(None, int(255 * a))
     year_grid(X, 0.0, alpha=1.0)
@@ -909,9 +780,9 @@ def scenes():
         (T("design") - 0.2, T("other") - 0.2, scene_design),
         (T("other") - 0.2, T("step") - 0.2, scene_net),
         (T("step") - 0.2, T("stop") - 0.2, scene_step),
-        (T("stop") - 0.2, E("stop") + 0.05, scene_stop),
-        (E("stop") + 0.05, T("loop") - 0.2, scene_world),
-        (T("loop") - 0.2, DURATION + 1, scene_loop),
+        (T("stop") - 0.2, outro.start(T("sign")), scene_stop),
+        (outro.start(T("sign")), outro.fall_at(T("sign")) - 0.2, scene_world),
+        (outro.fall_at(T("sign")) - 0.2, DURATION + 1, scene_loop),
     ]
 
 
@@ -919,10 +790,26 @@ def cut_glitches():
     return [T("name") - 0.2, T("cents") - 0.2, T("nolast") - 0.2, T("design") - 0.2, T("other") - 0.2]
 
 
+def _rain_ep(t):
+    return 1 - 0.7 * prog(t, T("stop") - 0.2, T("stop") + 1.0)
+
+
 def rain_alpha(t):
     if t < T("stop") - 0.2:
-        return 1.0 if t > 0.0 else 1.0
-    return 1 - 0.7 * prog(t, T("stop") - 0.2, T("stop") + 1.0) + 0.5 * prog(t, T("loop") - 0.2, T("loop") + 0.8)
+        return 1.0
+    t0 = outro.start(T("sign"))
+    if t < t0:
+        return _rain_ep(t)
+    return outro.rain_level(t, T("sign"), _rain_ep(t0))
+
+
+def _dust_ep(t):
+    return 1.0 - 0.6 * prog(t, T("stop") - 0.2, T("stop") + 0.8)
+
+
+def dust_alpha(t):
+    t0 = outro.start(T("sign"))
+    return _dust_ep(t) if t < t0 else outro.dust_level(t, T("sign"), _dust_ep(t0))
 
 
 _SC = None
@@ -937,8 +824,13 @@ def _scene_at(t):
 
 
 def cam_move(t, k):
-    """Every scene gets a slow camera: a push-in over its length, a gentle drift and a tiny roll (no shake)."""
-    a, b, _ = _SC[k]
+    """Every scene gets a slow camera: a push-in over its length, a gentle drift and a tiny roll (no shake).
+    The two ending scenes use the locked ending's camera (exit_outro.cam)."""
+    a, b, fn = _SC[k]
+    if fn is scene_world:
+        return outro.cam(t, T("sign"), "world")
+    if fn is scene_loop:
+        return outro.cam(t, T("sign"), "loop")
     u = smooth(prog(t, a, b))
     z = 1.0 + 0.035 * u
     dx = 10 * math.sin(t * 0.21 + k * 1.3)
@@ -1017,7 +909,7 @@ def draw_frame(X, t):
         glitch(X, img, 0.32 * g, t, seed=int(t * 3) % 7)
     else:
         _scene(X, t)
-    dust(X, t, 1.0 - 0.6 * prog(t, T("stop") - 0.2, T("stop") + 0.8) + 0.6 * prog(t, T("world") - 0.3, T("world") + 0.8))
+    dust(X, t, dust_alpha(t))
     vignette(X)
     hud(X, t, ep=EPISODE, series=SERIES)
     for cap in CAPTIONS:
@@ -1034,27 +926,25 @@ def music_dips():
     """Lines the music dips under (a further -3 dB): where the words carry the story."""
     if not TIM:
         return []
-    return [(T(i) - 0.1, E(i) + 0.2) for i in ("hook", "name", "cents", "design", "commons", "step", "sign")]
+    return [(T(i) - 0.1, E(i) + 0.2) for i in ("hook", "name", "cents", "design", "commons", "step")] + [
+        outro.dip(T("sign"), E("sign"))]
 
 
 def music_plan():
-    """The score's shape (exit_score5.score): intensity over time, where the beat stops, the climb, the heart."""
-    return dict(
-        anchor=T("sign"),                        # a downbeat lands on "build the commons."
+    """The score's shape (exit_score5.score): intensity over time, where the beat stops. The ending's cues (the
+    climb, the downbeat and hit on "build the commons.", the heart) come from exit_outro.plan, identical every time."""
+    ep = dict(
         intensity=[(0.0, 0.32), (T("added"), 0.36), (T("look") - 0.3, 0.6), (T("name"), 0.62), (T("us"), 0.66),
                    (T("cents"), 0.7), (CH("cents", 2) + 1.4, 0.8), (T("nolast") - 0.3, 0.3), (T("tired") + 1.0, 0.25),
                    (T("design") - 0.2, 0.5), (CH("design", 2), 0.6), (T("other") - 0.2, 0.66), (T("commons"), 0.78),
-                   (CH("commons", 2), 0.88), (T("step") - 0.3, 0.42), (T("stop"), 0.3), (T("world") - 0.3, 0.45),
-                   (T("sign") - 0.1, 0.98), (T("sign") + 0.6, 0.6), (T("loop"), 0.45), (DURATION, 0.3)],
-        beat_off=[(T("nolast") - 0.25, T("design") - 0.25), (T("step") - 0.3, T("world") + 0.2),
-                  (T("sign") - 0.35, DURATION + 1)],
-        climb=(T("world") + 0.15, T("sign")),
-        heart=(T("sign"), DURATION + 0.6, T("loop") + 0.9),
+                   (CH("commons", 2), 0.88), (T("step") - 0.3, 0.42), (T("stop"), 0.3)],
+        beat_off=[(T("nolast") - 0.25, T("design") - 0.25), (T("step") - 0.3, T("world") + 0.2)],
         heart_ghost=[(T("nolast") + 0.1, T("design") - 0.5, 0.3)],   # a faint heartbeat in the night: foreshadow
-        hits=[0.04, CH("commons", 2) - 0.1, T("sign")],
-        risers=[(T("other") - 0.2, 1.6), (T("sign"), 3.0)],
+        hits=[0.04, CH("commons", 2) - 0.1],
+        risers=[(T("other") - 0.2, 1.6)],
         cuts=cut_glitches(),
     )
+    return outro.plan(ep, T("sign"), DURATION)
 
 
 def sfx_list():
@@ -1085,7 +975,7 @@ SUBTITLE_EXTRAS = []
 EXTRA_KEYS = []
 if TIM:
     SUBTITLE_EXTRAS = [(0.0, T("added") - 0.04, "Forty days a year."),
-                       (T("sign") - 0.04, T("loop") - 0.04, "build the commons.")]
+                       outro.subtitle(T("sign"))]
     EXTRA_KEYS = [0.9, 1.6, round(T("look") - 0.5, 2), round(T("look") + 1.9, 2), round(T("name") + 1.0, 2),
                   round(T("name") + 1.6, 2), round(CH("name", 1) + 1.2, 2), round((T("us") + 0.55) + 0.6, 2),
                   round(CH("cents", 1) + 0.5, 2), round(CH("cents", 2) + 0.9, 2), round(E("cents") + 0.5, 2),

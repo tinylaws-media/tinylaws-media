@@ -3,6 +3,26 @@
 Code for the channel's shorts. Everything is made in code (skia + Kokoro TTS + synthesised music); nothing to license.
 Channel bible: Claude Docs 7adc0a97-b49c-4479-be53-963ffafc0403 (its "Retours de direction" section decides).
 
+## The signature ending — LOCKED (26 Oct 2026)
+
+Owner: "the logo animation exactly as in v5, at the end of every video, always the same animation."
+`exit_outro.py` holds the v5 ending, frozen: the 12 fragments fly in from far away and converge (4.35 s), lock
+0.25 s before "build the commons.", the logo beats like a heart (64/min, lub-dub, ripple rings) under the
+"build the commons." / THE EXIT MANUAL panel, then keeps beating as it falls back into the depth. Same fragments,
+paths, timing, camera drift and music cues (climb, downbeat + hit + riser on the word, heartbeat) in every episode.
+Everything hangs on one time, `t_sign` (when the voice starts "build the commons."). Never edit its numbers:
+change what comes before the ending instead.
+
+An episode uses it like `exit_ep005.py` (refactored onto it; 18 frames from 56.9 s to 65.4 s and the whole sound
+plan checked identical to the approved v5 render):
+- LINES end with `("sign", "build the commons.", 0.6)` (+ an optional short loop line); `CAPS["sign"] = [None]`.
+- scenes: its last own scene ends at `outro.start(ts)`; then `(outro.start(ts), outro.fall_at(ts) - 0.2, scene_world)`
+  where `scene_world` calls `outro.scene(X, t, ts)`, and a last scene that calls `outro.fall(X, t, ts)` before its
+  own loop image (`ts = T("sign")`).
+- `cam_move` returns `outro.cam(t, ts, "world" | "loop")` in those two scenes; `outro.rain_level` and
+  `outro.dust_level` drive the background layers; `music_plan()` returns `outro.plan(ep_plan, ts, DURATION)`;
+  `music_dips()` adds `outro.dip(ts, E("sign"))`; `SUBTITLE_EXTRAS` adds `outro.subtitle(ts)`.
+
 ## v5 (26 Oct 2026) — original dark-epic score, the logo's heartbeat as signature, more camera
 
 - **Episode:** `exit_ep005.py` + `exit_ep005_lines.py` (same script as v4) + `exit_ep005_subs.json` (65.46 s). Owner on v4:
@@ -17,7 +37,7 @@ Channel bible: Claude Docs 7adc0a97-b49c-4479-be53-963ffafc0403 (its "Retours de
   after 4 dB ducking under speech and 3 dB dips under key lines); effects 17 dB under.
   `python3 exit_score5.py --test` -> `out/exit_music_test_v5.wav` + analysis (key, pulse period, snare-roll test,
   organ test, phone check through a 200 Hz high-pass).
-- **Logo:** `exit_logo.py` parses `logo/btc_logo_final.svg` (paths + matrix transforms) into 12 fragment paths and
+- **Logo:** (now frozen in `exit_outro.py`, see above) `exit_logo.py` parses `logo/btc_logo_final.svg` (paths + matrix transforms) into 12 fragment paths and
   the centre star. In the episode, `draw_logo()`: fragments fly in one by one from far away/off-screen (spin, motion
   trail, depth fade), lock in clockwise, the ring, halo and star appear, then the logo beats (lub +9.5 %, dub
   0.30 s later, ripple ring, glow; no flash) on the score's beat grid anchored on "build the commons."; it keeps
@@ -31,8 +51,9 @@ Channel bible: Claude Docs 7adc0a97-b49c-4479-be53-963ffafc0403 (its "Retours de
 - **27 Oct 2026, owner's note:** Mastodon must not sound like an ad. The "other" and "commons" lines now say
   "Some places are built the other way. No ads. No owner selling your nights. / Wikipedia. Open networks. Run by
   the people who use them. That's a commons..." On screen: WIKIPEDIA (non-profit · no ads · written by volunteers),
-  then MASTODON · PEERTUBE (open networks · servers run by communities), shown like evidence. 65.92 s.
-  Rule: the commons is the idea; examples stay plural and secondary, never one product, no absolute claim.
+  then MASTODON · PEERTUBE (open networks · servers run by communities), shown like evidence. 65.93 s; the locked
+  ending (exit_outro.py) is untouched. Rule: the commons is the idea; examples stay plural and secondary, never one
+  product, no absolute claim.
 
 ### Make v5
 ```bash
@@ -119,7 +140,8 @@ python3 exit_subtitles.py exit_ep003 exit_ep003_subs.json
 
 | File | What it does |
 | --- | --- |
-| `exit_ep005.py`, `exit_ep005_lines.py`, `exit_ep005_subs.json` | the v5 episode (current) |
+| `exit_outro.py` | the signature ending (logo convergence + heartbeat), locked: the same in every episode |
+| `exit_ep005.py`, `exit_ep005_lines.py`, `exit_ep005_subs.json` | the v5 episode (current), built on `exit_outro.py` |
 | `exit_score5.py` | v5 original dark-epic score, music test, episode mix |
 | `exit_logo.py` | the owner's logo as 12 fragment paths + centre star |
 | `sheets5.py` | contact sheets (hook, keys, last 8 s) |
