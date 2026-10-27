@@ -28,6 +28,12 @@ Channel bible: Claude Docs 7adc0a97-b49c-4479-be53-963ffafc0403 (its "Retours de
   ends (no dead stretch), first two close to the camera; "check your screen time · comment your number" during step
   one; "ARPP" in the 16¢ label; the wordmark appears whole.
 
+- **27 Oct 2026, owner's note:** Mastodon must not sound like an ad. The "other" and "commons" lines now say
+  "Some places are built the other way. No ads. No owner selling your nights. / Wikipedia. Open networks. Run by
+  the people who use them. That's a commons..." On screen: WIKIPEDIA (non-profit · no ads · written by volunteers),
+  then MASTODON · PEERTUBE (open networks · servers run by communities), shown like evidence. 65.92 s.
+  Rule: the commons is the idea; examples stay plural and secondary, never one product, no absolute claim.
+
 ### Make v5
 ```bash
 python3 exit_voice.py exit_ep005

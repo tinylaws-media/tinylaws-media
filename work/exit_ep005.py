@@ -105,11 +105,11 @@ SRC = {
     "10k": "source: Meta, annual report (Form 10-K), 2025",
     "sleep": "source: Hjetland et al., Frontiers in Psychiatry, 2025",
     "eu": "source: European Commission, 6 Feb 2026 (preliminary)",
-    "masto": "source: joinmastodon.org (Oct 2026) · W3C ActivityPub, 2018",
+    "masto": "sources: wikimediafoundation.org · joinmastodon.org",
 }
 
 
-SRC2 = {"meta": "worldwide averages"}   # v4: details live in the description
+SRC2 = {"meta": "worldwide averages", "masto": "joinpeertube.org · Oct 2026"}   # v4: details live in the description
 
 
 def source(X, key, alpha=1.0):
@@ -657,15 +657,27 @@ def scene_net(X, t):
         X.c.drawCircle(hp_[0], hp_[1], 60 * hp_[2] * (1 - k) + 1, X.paint("magenta", 0.95 * (1 - k)))
         X.c.drawCircle(hp_[0], hp_[1], 120 * hp_[2] * (1 - k) + 1, X.paint("magenta", 0.3 * (1 - k), blur=20))
         X.text("ONE OWNER", hp_[0], hp_[1] - 90, 44, "white", kind="sans", alpha=(1 - k) * fade_in(t, t0 - 0.1))
-    X.text("illustration", 80, 420, 26, "grey", kind="mono", align="left", alpha=fade_in(t, t0 - 0.1))
+    X.text("illustration", 80, 446, 26, "grey", kind="mono", align="left", alpha=fade_in(t, t0 - 0.1))
     kin_text(X, "NO ADS", CAP_CX, 500, 96, CH("other", 1) - 0.05, "green", kind="sans", dur=0.4, glow=0.3,
              out_t=T("commons") - 0.3)
     X.text("by design", CAP_CX, 598, 32, "grey", kind="mono",
            alpha=fade_in(t, CH("other", 1) + 0.3) * (1 - prog(t, T("commons") - 0.3, T("commons"))))
-    kin_text(X, "NO SINGLE OWNER", CAP_CX, 1100, 66, CH("other", 1) + 1.0, "white", kind="sans", dur=0.45,
+    kin_text(X, "NOBODY SELLS YOUR NIGHTS", CAP_CX, 1100, 58, CH("other", 1) + 0.7, "white", kind="sans", dur=0.45,
              out_t=T("commons") - 0.3)
-    X.text("independent servers, one open standard", CAP_CX, 1160, 30, "grey", kind="mono",
-           alpha=fade_in(t, CH("other", 1) + 1.4) * (1 - prog(t, T("commons") - 0.3, T("commons"))))
+    # examples, shown small and side by side like evidence: the idea is the commons, not one product
+    ex_out = 1 - prog(t, CH("commons", 2) - 0.35, CH("commons", 2) - 0.05)
+    if t >= T("commons") - 0.05 and ex_out > 0:
+        bed = fade_in(t, T("commons") - 0.05, 0.3) * ex_out
+        X.c.drawRRect(skia.RRect.MakeRectXY(skia.Rect(150, 440, 820, 600), 40, 40), X.paint(0xFF000000, 0.7 * bed, blur=30))
+        X.c.drawRRect(skia.RRect.MakeRectXY(skia.Rect(150, 1040, 820, 1170), 40, 40), X.paint(0xFF000000, 0.7 * bed, blur=30))
+        kin_text(X, "WIKIPEDIA", CAP_CX, 520, 96, T("commons") - 0.05, "white", kind="sans", dur=0.45, glow=0.15,
+                 alpha=ex_out)
+        X.text("non-profit · no ads · written by volunteers", CAP_CX, 572, 30, "grey", kind="mono",
+               alpha=fade_in(t, T("commons") + 0.3) * ex_out)
+        kin_text(X, "MASTODON · PEERTUBE", CAP_CX, 1096, 50, CH("commons", 0) + 0.75, "green", kind="sans", dur=0.45,
+                 alpha=ex_out)
+        X.text("open networks · servers run by communities", CAP_CX, 1146, 28, "grey", kind="mono",
+               alpha=fade_in(t, CH("commons", 0) + 1.1) * ex_out)
     kin_text(X, "COMMONS", CAP_CX, 540, 150, CH("commons", 2) - 0.1, "green", kind="sans", dur=0.6, glow=0.5,
              track0=0.8)
     X.text("what we run together, for ourselves", CAP_CX, 1120, 34, "grey", kind="mono",
