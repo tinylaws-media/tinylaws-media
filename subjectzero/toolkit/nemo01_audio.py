@@ -21,7 +21,8 @@ SR = 44100
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "out")
 D = P.DURATION
-BPM = 97.5                  # 26 bars = 64.0 s: the music ends on a bar line as the lab says "two..."
+BPM = 97.5                  # 27 bars = 66.46 s: the music ends on a bar line with the respawn flash
+NBARS = 27
 BEAT = 60 / BPM
 BAR = 4 * BEAT
 rng = np.random.default_rng(1)
@@ -88,7 +89,7 @@ DUCK_MOTIF = [(0, 6), (0.25, 7), (0.5, 8), (1.5, 6), (2, 7)]
 def music():
     n = int(D * SR) + 2 * SR
     out = np.zeros((n, 2))
-    nbars = int(64.0 / BAR + 0.5)
+    nbars = NBARS
     t_drama = P.L["n20"] - 0.05
     t_dend = P.L["n23"]
     for b in range(nbars):
@@ -126,7 +127,7 @@ def music():
             tt = t_(dd)
             dr = sum(np.sin(2 * np.pi * midi(root - 12) * r * tt) for r in (1, 1.5, 2.0)) / 3
             TA.place(out, dr * 0.12 * np.minimum(1, tt / 0.3) * np.minimum(1, (dd - tt) / 0.3), t0, 1.0)
-    out = out[: int(64.0 * SR)]
+    out = out[: int(NBARS * BAR * SR)]
     out = np.pad(out, ((0, n - len(out)), (0, 0)))
     return out
 
@@ -196,12 +197,12 @@ def build():
     TA.place(fx, splash_fx(1.0), 0.0, 1.0)
     TA.place(fx, TA.sfx("pop"), 0.0, 0.8)
     # map: whoosh in, circle draws, pins pop
-    TA.place(fx, TA.sfx("whoosh"), P.SHOTS[1][0] - 0.1, 0.7)
+    TA.place(fx, TA.sfx("whoosh"), P.shot_start("map") - 0.1, 0.7)
     TA.place(fx, TA.sfx("scribble"), L["n3"] + 0.2, 0.5)
     for name, _, key, word, _ in P.PLACES:
         TA.place(fx, TA.sfx("pop"), WT(key, word), 0.8)
     # tilt up, the station, "400 km"
-    TA.place(fx, TA.sfx("whoosh"), P.SHOTS[2][0] - 0.05, 0.7)
+    TA.place(fx, TA.sfx("whoosh"), P.shot_start("sky") - 0.05, 0.7)
     TA.place(fx, TA.sfx("sparkle"), WT("n5", "space"), 0.6)
     TA.place(fx, TA.sfx("stamp"), WT("n5", "space") + 0.35, 0.7)
     # the lab speaks: squelch before each line
@@ -210,19 +211,31 @@ def build():
             TA.place(fx, radio(0.7), L[k] - 0.22, 1.0, pan=0.4)
     # cold: a shiver of ice, the gasp
     TA.place(fx, TA.sfx("glass"), L["n8"] + 0.3, 0.4)
-    TA.place(fx, TA.sfx("whoosh"), P.SHOTS[3][0] - 0.05, 0.5)
+    TA.place(fx, TA.sfx("whoosh"), P.shot_start("close", 1) - 0.05, 0.5)
     TA.place(fx, TA.sfx("boing_up"), P.T_GASP - 0.05, 0.5)
     # the clock ticks while it runs
     t = L["n9"]
     while t < L["n16"]:
         TA.place(fx, TA.sfx("tick"), t, 0.18, pan=-0.5)
         t += 0.5
-    # swim: splashes on the strokes
+    # swim: splashes on the strokes; the duck zips past; on the chart the days fly by, one tick a day
     t = L["n11"] + 0.2
-    while t < P.T_18:
+    while t < P.T_GO:
         TA.place(fx, splash_fx(0.35, 0.3), t, 1.0, pan=0.3 * math.sin(t * 7))
         t += 0.42
+    TA.place(fx, TA.sfx("whoosh"), P.T_DUCK_PASS[0], 0.45, pan=-0.3)
+    TA.place(fx, squeak(0.4, up=True), P.T_DUCK_PASS[0] + 0.15, 1.0, pan=-0.4)
+    TA.place(fx, TA.sfx("whoosh"), P.shot_start("swim_map") - 0.05, 0.6)
+    for d in range(18):
+        TA.place(fx, TA.sfx("tick"), P.T_GO + (P.T_18 - P.T_GO) * d / 18, 0.35, pan=0.3)
     TA.place(fx, TA.sfx("stamp"), P.T_18, 1.0)
+    # half underwater: a dip, the bubbles; the strike sign
+    TA.place(fx, splash_fx(0.5, 0.5), P.shot_start("under") - 0.05, 1.0)
+    TA.place(fx, TA.sfx("whoosh_down"), P.shot_start("under"), 0.5)
+    TA.place(fx, TA.sfx("pop"), P.T_ARMS + 0.05, 0.8)
+    # the big clock slams in
+    TA.place(fx, TA.sfx("whoosh"), P.shot_start("clock") - 0.08, 0.6)
+    TA.place(fx, TA.sfx("glass"), P.shot_start("clock") + 0.05, 0.35)
     # the NOPEs: bigger each time
     for key, lvl in P.NOPES.items():
         # the word first, clean; the damage lands as it ends (an effect on top of a word masks it)
@@ -231,7 +244,7 @@ def build():
             # the two small ones between the words, then the big one
             for i in (0, 1):      # short and between the words, so the next "nope" stays clear
                 TA.place(fx, boom(0.18 + 0.1 * i, 0.22), P.W3[i + 1] - 0.14, 1.0)
-            TA.place(fx, boom(1.2, 2.2), hit, 1.0)
+            TA.place(fx, boom(1.15, 1.0), hit, 1.0)          # short: it must not sit under the next line
             TA.place(fx, splash_fx(1.3, 1.1), hit + 0.05, 1.0)
             TA.place(fx, TA.sfx("crack"), hit + 0.1, 0.8)
             TA.place(fx, squeak(0.6, up=True), hit + 0.3, 1.0, pan=0.5)
@@ -250,11 +263,15 @@ def build():
     TA.place(fx, TA.sfx("stamp"), WT("n18", "floated"), 0.9)
     TA.place(fx, TA.sfx("tap"), L["n19"] + 0.05, 0.8)
     # the graveyard: whistles and splashes
-    a = P.SHOTS[5][0]
+    a = P.shot_start("graveyard")
     for (d0, x0, y0, x1, y1, w_) in P.FALLERS:
         st = a + 0.2 + d0
-        TA.place(fx, whistle_down(1.2, 0.18 + 0.006 * w_), st, 1.0, pan=(x1 - 540) / 540)
-        TA.place(fx, splash_fx(0.25 + 0.012 * w_, 0.5), st + 1.2, 1.0, pan=(x1 - 540) / 540)
+        g = 0.5 if 48.3 <= st + 0.6 <= 51.1 else 1.0      # -6 dB under "Look up: spacecraft come here to die"
+        hole = (P.E["n20"] - 0.55, P.E["n20"] + 0.15)       # nothing lands on "die": it is the punchline
+        if not hole[0] - 0.6 <= st <= hole[1]:
+            TA.place(fx, whistle_down(1.2, (0.18 + 0.006 * w_) * g), st, 1.0, pan=(x1 - 540) / 540)
+        if not hole[0] - 0.3 <= st + 1.2 <= hole[1]:
+            TA.place(fx, splash_fx((0.25 + 0.012 * w_) * g, 0.5), st + 1.2, 1.0, pan=(x1 - 540) / 540)
     TA.place(fx, TA.sfx("whoosh_down"), L["n21"] - 0.2, 0.6)
     TA.place(fx, TA.sfx("stamp"), WT("n22", "2030"), 0.9)
     TA.place(fx, TA.sfx("riser"), L["n23"] - 1.5, 0.6)
@@ -273,6 +290,12 @@ def build():
     vsr, v = wavfile.read(os.path.join(OUT, "nemo01_voice.wav"))
     v = v.astype(np.float32) / 32768
     v = np.pad(v, (0, max(0, n - len(v))))[:n]
+    # NOPE 2 a little louder, so each NOPE is at least 3 dB above the one before (-21.2, -17.7, -13.8 dB)
+    a, b = int((L["n15"] - 0.05) * SR), int((E["n15"] + 0.1) * SR)
+    gain = np.ones(n, np.float32)
+    gain[a:b] = 10 ** (1.0 / 20)
+    gain = np.convolve(gain, np.ones(240) / 240, mode="same")
+    v = v * gain
     voice = np.stack([v, v], 1)
 
     def rms(x):

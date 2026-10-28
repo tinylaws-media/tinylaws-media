@@ -220,25 +220,55 @@ def mist_band(c, x, y, w, h, alpha=0.92, col=None):
 
 
 def iss(c, x, y, s=1.0, alpha=1.0, glint=0.0, light=False):
-    """The space station, as a woodblock silhouette. light=True for a night sky (pale lines on dark)."""
+    """The space station as a woodblock silhouette: the long truss, four pairs of wide gold solar wings, white
+    radiators and the row of modules across the middle. light=True for a night sky (pale lines on dark)."""
     line = FOAM if light else INKC
+    gold, gold_d = (rgb("#E0AE4E"), rgb("#A77A2C")) if light else (rgb("#C9973E"), rgb("#8E6524"))
     c.save()
     c.translate(x, y)
     c.scale(s, s)
     if light:
         g = skia.Paint(AntiAlias=True)
-        g.setShader(skia.GradientShader.MakeRadial((0, 0), 80, [skia.Color4f(1, 0.95, 0.8, 0.35 * alpha), skia.Color4f(1, 1, 1, 0)]))
-        c.drawCircle(0, 0, 80, g)
-    c.drawRect(skia.Rect.MakeXYWH(-46, -2.5, 92, 5), fill(FOAM if light else INKC, alpha))
-    for px in (-40, -28, 28, 40):
-        c.drawRect(skia.Rect.MakeXYWH(px - 5, -16, 10, 32), fill(rgb("#D9A646") if light else rgb("#B9873A"), alpha))
-        c.drawRect(skia.Rect.MakeXYWH(px - 5, -16, 10, 32), ink(1.5, col=line, alpha=alpha))
-    c.drawRect(skia.Rect.MakeXYWH(-6, -14, 12, 28), fill(FOAM, alpha))
-    c.drawRect(skia.Rect.MakeXYWH(-6, -14, 12, 28), ink(1.5, col=line, alpha=alpha))
+        g.setShader(skia.GradientShader.MakeRadial((0, 0), 90, [skia.Color4f(1, 0.95, 0.8, 0.35 * alpha), skia.Color4f(1, 1, 1, 0)]))
+        c.drawCircle(0, 0, 90, g)
+    # the truss
+    c.drawRect(skia.Rect.MakeXYWH(-58, -2, 116, 4), fill(FOAM if light else rgb("#D8D4CC"), alpha))
+    c.drawRect(skia.Rect.MakeXYWH(-58, -2, 116, 4), ink(1.2, col=line, alpha=alpha))
+    # four pairs of solar wings (each wing a long gold panel with cell lines)
+    for px in (-50, -38, 38, 50):
+        for sy in (-1, 1):
+            r = skia.Rect.MakeXYWH(px - 4.5, 3 if sy > 0 else -27, 9, 24)
+            c.drawRect(r, fill(gold, alpha))
+            for k in range(1, 4):
+                yy = r.top() + r.height() * k / 4
+                c.drawLine(r.left(), yy, r.right(), yy, ink(0.8, col=gold_d, alpha=alpha))
+            c.drawRect(r, ink(1.2, col=line, alpha=alpha))
+    # radiators (white, angled) and the modules
+    for px in (-20, 20):
+        r = skia.Rect.MakeXYWH(px - 3, -14, 6, 12)
+        c.drawRect(r, fill(WHITE, alpha))
+        c.drawRect(r, ink(1.0, col=line, alpha=alpha))
+    mod = rrect(-12, -5, 24, 10, 4)
+    c.drawPath(mod, fill(WHITE, alpha))
+    c.drawPath(mod, ink(1.2, col=line, alpha=alpha))
+    c.drawPath(rrect(-4, -12, 8, 24, 3), fill(WHITE, alpha))
+    c.drawPath(rrect(-4, -12, 8, 24, 3), ink(1.2, col=line, alpha=alpha))
     if glint > 0:
         g = skia.Paint(AntiAlias=True)
         g.setShader(skia.GradientShader.MakeRadial((0, 0), 60, [skia.Color4f(1, 0.98, 0.9, 0.85 * glint), skia.Color4f(1, 1, 1, 0)]))
         c.drawCircle(0, 0, 60, g)
+    c.restore()
+
+
+def woodgrain(c, path, alpha=0.10, seed=5, fx=0.0016, fy=0.045):
+    """Wood grain printed through a flat colour: long horizontal streaks (very different x and y frequencies)."""
+    c.save()
+    c.clipPath(path, doAntiAlias=True)
+    p = skia.Paint()
+    p.setShader(skia.PerlinNoiseShader.MakeFractalNoise(fx, fy, 2, seed))
+    p.setBlendMode(skia.BlendMode.kMultiply)
+    p.setAlphaf(alpha)
+    c.drawPath(path, p)
     c.restore()
 
 
@@ -275,6 +305,7 @@ class Sea:
         col = SEA[min(i, len(SEA) - 1)]
         c.drawPath(path, fill(col))
         mottle(c, path, col, alpha=0.10 + 0.02 * i, scale=0.006 + 0.002 * i, seed=11 + i)
+        woodgrain(c, path, alpha=0.08 + 0.012 * i, seed=21 + i)
         # engraved lines: the crest repeated inside the wave, a little lighter
         if i >= 2:
             for j, (dy, a) in enumerate(((14 + 4 * i, 0.22), (30 + 8 * i, 0.13))):
@@ -557,9 +588,11 @@ def draw_duck(c, cx, cy, s=1.0, boil=None, tilt=0.0, look=0.0, quack=0.0):
     c.translate(cx, cy)
     c.rotate(tilt)
     c.scale(s, s)
+    if boil is not None and s > 1.5:
+        boil = (boil[0], boil[1] / s)        # the wobble is in drawing units: keep it small when the duck is huge
     L = ink(5.0 / s, boil=boil)
     body = smooth_path([(-58, 0), (-50, -34), (-6, -42), (40, -36), (66, -10), (50, 18), (-40, 18)])
-    tail = smooth_path([(-52, -14), (-78, -50), (-60, -22)])
+    tail = smooth_path([(-50, -6), (-70, -26), (-76, -46), (-62, -40), (-54, -26), (-44, -16)])
     c.drawPath(tail, fill(DUCK))
     c.drawPath(tail, L)
     c.drawPath(body, fill(DUCK))
@@ -595,19 +628,24 @@ def seal(c, x, y, size=86, label="0", alpha=1.0):
 
 
 def hud_card(c, x, y, rows, alpha=1.0, w=560):
-    """A cream card with ink lines, like the title cartouche of a print. rows = [(label, value, colour, pulse)]."""
-    hgt = 30 + 74 * len(rows)
+    """A cream cartouche, like the title panel of a woodblock print: double ink border, notched corners.
+    rows = [(label, value, colour, pulse)]. Labels at 30 px, values at 48 px (readable on a phone)."""
+    hgt = 30 + 78 * len(rows)
     card = rrect(x, y, w, hgt, 14)
     sh = rrect(x + 8, y + 10, w, hgt, 14)
     c.drawPath(sh, fill(INKC, 0.25 * alpha))
     c.drawPath(card, fill(PAPER_HI, 0.96 * alpha))
+    mottle(c, card, PAPER, alpha=0.12 * alpha, scale=0.03, seed=8)
     c.drawPath(card, ink(4, alpha=alpha))
+    c.drawPath(rrect(x + 8, y + 8, w - 16, hgt - 16, 9), ink(1.6, alpha=0.7 * alpha))
+    for cx_, cy_ in ((x + 8, y + 8), (x + w - 8, y + 8), (x + 8, y + hgt - 8), (x + w - 8, y + hgt - 8)):
+        c.drawCircle(cx_, cy_, 5, fill(SEAL, alpha))
     yy = y + 22
     for label, value, col, pulse in rows:
-        text(c, label, x + 24, yy + 26, font("mono", 24), mixc(INKC, PAPER, 0.35), alpha=alpha)
-        f = font("mono", 46 * (1 + 0.08 * pulse))
-        text(c, value, x + w - 24, yy + 52, f, col or INKC, align="right", alpha=alpha)
-        yy += 74
+        text(c, label, x + 26, yy + 30, font("mono", 32), mixc(INKC, PAPER, 0.3), alpha=alpha)
+        f = font("mono", 48 * (1 + 0.08 * pulse))
+        text(c, value, x + w - 26, yy + 56, f, col or INKC, align="right", alpha=alpha)
+        yy += 78
 
 
 def words_caption(c, words, active, y=1190, size=76, alpha=1.0):
