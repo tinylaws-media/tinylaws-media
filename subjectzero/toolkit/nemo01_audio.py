@@ -229,8 +229,8 @@ def build():
         hit = P.E[key] + 0.02
         if lvl == 3:
             # the two small ones between the words, then the big one
-            for i in (0, 1):
-                TA.place(fx, boom(0.25 + 0.15 * i, 0.6), P.W3[i + 1] - 0.03, 1.0)
+            for i in (0, 1):      # short and between the words, so the next "nope" stays clear
+                TA.place(fx, boom(0.18 + 0.1 * i, 0.22), P.W3[i + 1] - 0.14, 1.0)
             TA.place(fx, boom(1.2, 2.2), hit, 1.0)
             TA.place(fx, splash_fx(1.3, 1.1), hit + 0.05, 1.0)
             TA.place(fx, TA.sfx("crack"), hit + 0.1, 0.8)
