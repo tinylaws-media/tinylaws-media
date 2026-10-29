@@ -7,6 +7,7 @@ Everything is drawn and synthesised in code: no image generator, no stock footag
 |---|---|
 | `sz2d.py` | The look: palette (Prussian blue, cream paper, coral, her yellow hoodie), paper grain, gouache mottling, wood grain (`woodgrain`), ink line that boils every 2 frames, woodblock sea (`Sea`), sky with bokashi band, mist bands, the ISS (long truss, eight gold wings), **Subject Zero** (`draw_hero`: faces `FACES`, arm poses, squash, shiver, blink), the duck, the red seal, the HUD cartouche (`hud_card`), word-by-word captions |
 | `cys02*.py` | Episode #02, Everest: same machinery; new in `sz2d.py`: `alpine_sky`, `peak` (woodblock mountain with snow mantle, shadow side, carved hatching), `snow_plume`, `snowfall`, `trilobite`, `crinoid`, `shell_fossil`, `thermometer` |
+| `cys03*.py` | Episode #03, Death Valley; new in `sz2d.py`: `desert_sky`, `heat_haze`, `mirage`, `SaltFlat` (perspective polygon crust with `crack` and `shatter`), `dust_devil`, `water_bottle`, `draw_legs` (she stands on dry ground), `covered_wagon`, arm modes `raise` and `fan`, `thermometer(col=…)` |
 | `szvoice.py` | Several speakers per episode (`SPEAKERS`, per-line `LINE_FX`): Kokoro voices, ffmpeg chains (radio for the lab), auto layout on targets with pull; writes `out/<ep>_voice.wav`, `out/<ep>_lines.json` and one loudness envelope per speaker (`out/<ep>_env_<WHO>.npy`, drives mouths and the intercom) |
 | `voice.py` | Kokoro model download and helpers (shared with Tiny Laws) |
 | `listen.py` | The listening gate: Whisper small transcribes each line; PASS = at most 8 % misheard words overall and no line over 20 % |
@@ -78,3 +79,16 @@ Then the mix gate: copy `out/<ep>_lines.json` to `out/<ep>mix_lines.json`, write
 - **Each NOPE's damage must be visible in its own shot** (start it on the word if the cut comes soon).
 - **Word the facts at their honest edge:** "under five minutes" (not "about five") when the source gives 5 min typical
   and 1 min in storms; "still holds fossils", not "packed".
+
+## Lessons from the review of #03
+
+- **Never zoom a shot out below 1.0**: the frame edge shows (black bands). Push in, or draw the background oversize.
+- **A HUD count must land when the number is said** (the caption lights the figure at that moment); put the count in
+  its own insert shot so the hook is not one setup held for 6 s.
+- **Hide the HUD while the lab chip is on screen**; never a stamp + a note + the chip + a caption together.
+- **Clamp every NOPE word to end 0.15 s before the next line**, and write what she says ("NOPE!", not "NOOOPE!").
+- **Damage must be big and in front**: a dust devil behind her in sand colours disappears into the background.
+- **NOPE levels are measured on the final mix** (mean over the word): the limiter eats the last one, so add gain to it
+  in the mix, not only in the voice chain.
+- **The end shot is a setup too** (≤ 8 s): cut to her close-up for her reaction, clear the end cards first.
+- **Hedge reported speech** ("supposedly said") even when a park page tells the story.

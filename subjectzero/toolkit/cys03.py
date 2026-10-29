@@ -43,9 +43,9 @@ SPEAKERS = {
 NOPE = "rubberband=pitch={p}:formant=preserved,acompressor=threshold=-18dB:ratio=4,volume={v}dB"
 LINE_FX = {
     "n16": dict(overlap=-0.45),          # 0.65 s of silence before the answer
-    "n7": dict(voice="am_onyx", speed=0.95, chain=NOPE.format(p=0.86, v=1)),
+    "n7": dict(voice="am_onyx", speed=0.95, chain=NOPE.format(p=0.86, v=-2)),
     "n11": dict(voice="am_onyx", speed=1.0, chain=NOPE.format(p=0.86, v=4)),
-    "n19": dict(voice="am_onyx", speed=1.0, chain=NOPE.format(p=0.86, v=7) + ",volume='if(gte(t,0.86),2.8,1)':eval=frame"),
+    "n19": dict(voice="am_onyx", speed=1.0, chain=NOPE.format(p=0.86, v=8) + ",volume='if(gte(t,0.86),2.8,1)':eval=frame"),
 }
 
 # key, target start (s), speaker, what is said (numbers spelled out: the gate compares words)
@@ -66,12 +66,12 @@ VOICE_LINES = [
     ("n14", 32.1, "N", "Even at night, it can stay over a hundred."),
     ("n15", 34.9, "N", "So how long would you last? The answer is weird. The name is weirder."),
     ("n16", 39.7, "N", "About two days."),
-    ("n17", 41.0, "N", "With the bottle or without. And only resting in shade."),
+    ("n17", 41.0, "N", "Bottle or no bottle. Only resting in shade."),
     ("n18", 44.4, "LAB", "Noted. There is no shade."),
     ("n19", 46.5, "HERO", "Nope. Nope. NOPE!"),
     ("n20", 48.3, "N", "The twist? In eighteen forty-nine, lost travelers crossed this valley.",
      "The twist? In 1849, lost travelers crossed this valley."),
-    ("n21", 52.0, "N", "Leaving, one said: goodbye, Death Valley. Only one had died."),
+    ("n21", 52.0, "N", "Leaving, one supposedly said: goodbye, Death Valley. Only one had died."),
     ("n22", 56.6, "N", "Next spawn: Roman winter camp, Mars, or a medieval farm?"),
     ("n23", 60.6, "HERO", "Somewhere cold. Please."),
     ("n24", 62.0, "LAB", "Respawning in three... two..."),

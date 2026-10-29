@@ -563,6 +563,13 @@ def _arms(c, mode, t, L, s, boil=None):
         elif mode == "limp":         # arms gave up: hanging, a little noodly
             hx, hy = side * (176 + 6 * math.sin(t * 3 + side)), 330
             mx, my = side * 236, 210
+        elif mode == "raise" and side > 0:   # right hand held up at shoulder height (holding something up)
+            hx, hy = 196, -60 + 6 * math.sin(t * 6)
+            mx, my = 236, 120
+        elif mode == "fan" and side > 0:     # right hand fanning her face
+            ph = math.sin(t * 16)
+            hx, hy = 150 + 16 * ph, -10 + 10 * ph
+            mx, my = 220, 140
         elif mode == "hug":
             hx, hy = side * 60, 230 + 6 * math.sin(t * 40)
             mx, my = side * 170, 230
@@ -864,15 +871,17 @@ def shell_fossil(c, x, y, s=1.0, rot=0.0, col=None, line=None, alpha=1.0):
     c.restore()
 
 
-def thermometer(c, x, y, h, frac, label=None, alpha=1.0, boil=None):
-    """A glass thermometer, cream with a coral column: frac 0..1 of the tube filled. (x, y) = top of the tube."""
+def thermometer(c, x, y, h, frac, label=None, alpha=1.0, boil=None, col=None):
+    """A glass thermometer, cream with a coral column: frac 0..1 of the tube filled. (x, y) = top of the tube.
+    col = the colour of the bulb and column (Prussian by default, as in #02)."""
+    col = col or PRUSSIAN
     tube = rrect(x - 22, y, 44, h, 22)
     c.drawPath(rrect(x - 14, y + 8, 44, h, 22), fill(INKC, 0.25 * alpha))
     c.drawPath(tube, fill(PAPER_HI, alpha))
     bulb = oval(x, y + h + 26, 44, 44)
-    c.drawPath(bulb, fill(PRUSSIAN, alpha))
+    c.drawPath(bulb, fill(col, alpha))
     col_h = max(0.0, min(1.0, frac)) * (h - 30)
-    c.drawPath(rrect(x - 10, y + h - col_h, 20, col_h + 20, 10), fill(PRUSSIAN, alpha))
+    c.drawPath(rrect(x - 10, y + h - col_h, 20, col_h + 20, 10), fill(col, alpha))
     for k in range(9):
         yy = y + 30 + k * (h - 60) / 8
         c.drawLine(x + 22, yy, x + (36 if k % 2 == 0 else 30), yy, ink(3, alpha=alpha))
@@ -880,3 +889,322 @@ def thermometer(c, x, y, h, frac, label=None, alpha=1.0, boil=None):
     c.drawPath(bulb, ink(4, alpha=alpha, boil=boil))
     if label:
         text(c, label, x, y - 24, font("mono", 32), INKC, align="center", alpha=alpha)
+
+
+# ---------------------------------------------------------------- desert, salt flat, heat (added for #03 Death Valley)
+SAND, SAND_D, SAND_L = rgb("#E2B77A"), rgb("#B9814E"), rgb("#F0D3A0")
+SALT, SALT_SH, SALT_D = rgb("#F6F0E2"), rgb("#DCD1BC"), rgb("#AE9F86")
+DESERT_ROSE, DESERT_ROSE_D = rgb("#C77A5E"), rgb("#9A5644")
+PANTS, PANTS_D, BOOT = rgb("#2E3F5C"), rgb("#223049"), rgb("#6A4430")
+BOTTLE, WATER, BOTTLE_CAP = rgb("#DCEBEF"), rgb("#78B3CF"), rgb("#2E6FA0")
+NIGHT_SKY = [rgb("#0E1A30"), rgb("#1B2E4E"), rgb("#3C557A")]
+
+
+def desert_sky(c, t, horizon=1000, sun=None, sun_r=110, night=0.0, stars=0.0):
+    """The sky over a desert: a pale, bleached bokashi (light Prussian at the top melting into hot cream at the
+    horizon), a big coral sun with carved glow rings. night 0..1 turns it to a deep blue with stars."""
+    day = [mixc(PRUSSIAN, rgb("#8DB0C6"), 0.55), rgb("#EBD5A8"), rgb("#F8E7C3")]
+    cols = [mixc(day[i], NIGHT_SKY[i], night) for i in range(3)]
+    p = skia.Paint()
+    p.setShader(skia.GradientShader.MakeLinear([(0, 0), (0, horizon)], cols, [0.0, 0.62, 1.0]))
+    c.drawRect(skia.Rect.MakeWH(W, horizon + 4), p)
+    if stars > 0:
+        rng = np.random.default_rng(23)
+        for _ in range(80):
+            x, y = rng.uniform(0, W), rng.uniform(0, horizon * 0.7)
+            k = 0.5 + 0.5 * math.sin(t * rng.uniform(1.5, 4) + x)
+            c.drawCircle(x, y, rng.uniform(1.4, 3.2), fill(FOAM, stars * (0.35 + 0.5 * k)))
+    if sun:
+        sx, sy = sun
+        g = skia.Paint(AntiAlias=True)
+        g.setShader(skia.GradientShader.MakeRadial((sx, sy), sun_r * 3.2,
+                                                    [skia.Color4f(1, 0.86, 0.62, 0.55 * (1 - night)), skia.Color4f(1, 0.9, 0.7, 0)]))
+        c.drawCircle(sx, sy, sun_r * 3.2, g)
+        for i, r in enumerate((1.45, 1.85, 2.3)):      # carved rings of heat around the sun
+            pulse = 0.04 * math.sin(t * 2.0 - i)
+            c.drawCircle(sx, sy, sun_r * (r + pulse), ink(3.0, col=CORAL, alpha=(0.45 - 0.12 * i) * (1 - night)))
+        sp = oval(sx, sy, sun_r, sun_r)
+        c.drawPath(sp, fill(mixc(CORAL, rgb("#F2D9A8"), night)))
+        mottle(c, sp, CORAL, alpha=0.14, scale=0.03)
+
+
+def heat_haze(c, t, y0, y1, alpha=0.5, n=7, x0=-40, x1=W + 40, col=None):
+    """Shimmer: thin wavy strokes drifting up over hot ground (drawn on twos by the caller's t)."""
+    col = col or PAPER_HI
+    for j in range(n):
+        ph = (t * 0.35 + j / n) % 1.0
+        y = y1 - (y1 - y0) * ph
+        p = skia.Path()
+        steps = 14
+        for i in range(steps + 1):
+            x = x0 + (x1 - x0) * i / steps
+            yy = y + 7 * math.sin(i * 1.3 + t * 5 + j)
+            (p.moveTo if i == 0 else p.lineTo)(x, yy)
+        c.drawPath(p, ink(3.0, col=col, alpha=alpha * math.sin(ph * math.pi)))
+
+
+def mirage(c, t, x0, x1, y, h=26, alpha=1.0, boil=None):
+    """The 'lake' on the horizon: a flat band of sky-blue light, wobbling at its edges, broken into slivers."""
+    top = skia.Path()
+    bot = skia.Path()
+    steps = 22
+    for i in range(steps + 1):
+        x = x0 + (x1 - x0) * i / steps
+        e = 1 - abs(2 * i / steps - 1) ** 2.2
+        a = y - h * 0.5 * e + 3 * math.sin(i * 1.9 + t * 7)
+        b = y + h * 0.5 * e + 3 * math.sin(i * 2.3 - t * 6)
+        (top.moveTo if i == 0 else top.lineTo)(x, a)
+        (bot.moveTo if i == 0 else bot.lineTo)(x, b)
+    band = skia.Path(top)
+    for i in range(steps, -1, -1):
+        x = x0 + (x1 - x0) * i / steps
+        e = 1 - abs(2 * i / steps - 1) ** 2.2
+        band.lineTo(x, y + h * 0.5 * e + 3 * math.sin(i * 2.3 - t * 6))
+    band.close()
+    c.drawPath(band, fill(rgb("#A9CAD6"), 0.9 * alpha))
+    for j in range(5):                                 # glints
+        gx = x0 + (x1 - x0) * ((j * 0.23 + t * 0.05) % 1.0)
+        c.drawLine(gx - 30, y + (j % 2) * 4 - 2, gx + 30, y + (j % 2) * 4 - 2, ink(3, col=WHITE, alpha=0.8 * alpha))
+    c.drawPath(top, ink(2.0, col=PRUSSIAN, alpha=0.35 * alpha, boil=boil))
+
+
+class SaltFlat:
+    """Badwater's salt crust in perspective: a field of raised polygon ridges (mostly hexagons) running to the
+    horizon. World units are metres; the camera sits cam_h m above the crust, the horizon at screen y `horizon`.
+    draw(): crack = a ring of fresh cracks around (u0, z0); shatter = the near plates flip up and fly (0..1)."""
+
+    def __init__(self, horizon=1000, cx=450, f=1000.0, cam_h=1.6, r=1.5, seed=3, zmax=70.0):
+        self.horizon, self.cx, self.f, self.cam_h = horizon, cx, f, cam_h
+        rng = np.random.default_rng(seed)
+        self.cells = []
+        dz = r * 1.5
+        dx = r * math.sqrt(3)
+        z = 1.2
+        row = 0
+        while z < zmax:
+            half = z * (W / 2 + 200) / f + r
+            off = (row % 2) * dx / 2
+            u = -half + off
+            while u < half:
+                pts = []
+                for k in range(6):
+                    a = math.pi / 6 + k * math.pi / 3
+                    jr = r * rng.uniform(0.82, 1.08)
+                    pts.append((u + jr * math.cos(a) + rng.uniform(-0.12, 0.12) * r,
+                                z + jr * math.sin(a) * 0.98 + rng.uniform(-0.12, 0.12) * r))
+                self.cells.append(dict(u=u, z=z, pts=pts, spin=rng.uniform(-1, 1), lift=rng.uniform(0.6, 1.4),
+                                       tone=rng.uniform(0, 1)))
+                u += dx
+            z += dz
+            row += 1
+        self.cells.sort(key=lambda d: -d["z"])
+
+    def proj(self, u, z):
+        z = max(0.3, z)
+        return self.cx + u * self.f / z, self.horizon + self.cam_h * self.f / z
+
+    def ground(self, c, alpha=1.0):
+        p = skia.Paint()
+        p.setShader(skia.GradientShader.MakeLinear([(0, self.horizon), (0, H)],
+                                                    [mixc(SALT_SH, rgb("#EBD5A8"), 0.5), SALT_SH, SALT], [0.0, 0.25, 1.0]))
+        p.setAlphaf(alpha)
+        c.drawRect(skia.Rect.MakeXYWH(0, self.horizon, W, H - self.horizon), p)
+
+    def draw(self, c, t=0.0, boil=None, crack=0.0, u0=0.0, z0=3.5, shatter=0.0, alpha=1.0, near=11.0):
+        self.ground(c, alpha)
+        flying = []
+        ridges = skia.Path()
+        thin = skia.Path()
+        for d in self.cells:
+            sp = [self.proj(u, z) for (u, z) in d["pts"]]
+            if max(x for x, _ in sp) < -40 or min(x for x, _ in sp) > W + 40 or min(y for _, y in sp) > H + 40:
+                continue
+            if shatter > 0 and d["z"] < near and abs(d["u"] - u0) < 9:
+                flying.append((d, sp))
+                continue
+            path = skia.Path()
+            path.addPoly([skia.Point(x, y) for x, y in sp], True)
+            if d["z"] < 18:
+                c.drawPath(path, fill(mixc(SALT, SALT_SH, 0.35 * d["tone"]), alpha))
+            (ridges if d["z"] < 22 else thin).addPath(path)
+        # the raised ridges: a cream crest with a shadow under it, thinner with distance (two widths are enough)
+        c.save()
+        c.translate(0, 4)
+        c.drawPath(ridges, ink(7, col=SALT_D, alpha=0.55 * alpha))
+        c.restore()
+        c.drawPath(ridges, ink(6, col=WHITE, alpha=0.95 * alpha))
+        c.drawPath(ridges, ink(1.6, col=SALT_D, alpha=0.5 * alpha, boil=boil))
+        c.drawPath(thin, ink(2.2, col=WHITE, alpha=0.8 * alpha))
+        if crack > 0:
+            self._crack(c, crack, u0, z0, boil, alpha)
+        if flying:
+            self._fly(c, flying, shatter, u0, z0, boil, alpha)
+
+    def _crack(self, c, k, u0, z0, boil, alpha):
+        """NOPE 1: a ring of fresh dark cracks races out from her boots across the crust."""
+        rng = np.random.default_rng(11)
+        for j in range(14):
+            a = j * 2 * math.pi / 14 + rng.uniform(-0.2, 0.2)
+            ln = (2.0 + rng.uniform(0, 3.5)) * ease_io(min(1.0, k * 1.6))
+            p = skia.Path()
+            u, z = u0, z0
+            x, y = self.proj(u + 0.35 * math.cos(a), z + 0.35 * math.sin(a))
+            p.moveTo(x, y)
+            steps = 5
+            for s_ in range(1, steps + 1):
+                rr = 0.35 + ln * s_ / steps
+                aa = a + rng.uniform(-0.25, 0.25)
+                x, y = self.proj(u + rr * math.cos(aa), z + rr * math.sin(aa))
+                p.lineTo(x, y)
+            fade = alpha * (1 - max(0.0, k - 0.8) * 2)
+            c.drawPath(p, ink(12, col=SALT_D, alpha=0.6 * fade))
+            c.drawPath(p, ink(7, col=INKC, alpha=0.9 * fade, boil=boil))
+        # a puff of salt dust where it broke
+        if k < 0.7:
+            x, y = self.proj(u0, z0)
+            for j in range(5):
+                c.drawPath(oval(x + (j - 2) * 70 * (0.5 + k), y - 30 * k - 10 * j % 3, 60 * (0.5 + k), 26 * (0.5 + k)),
+                           fill(SALT, 0.75 * (1 - k / 0.7) * alpha))
+
+    def _fly(self, c, flying, k, u0, z0, boil, alpha):
+        """NOPE 3: the near plates jump off the ground, spin and fall back, thick slabs of salt seen edge-on."""
+        for d, sp in sorted(flying, key=lambda e: -e[0]["z"]):
+            cx = sum(x for x, _ in sp) / 6
+            cy = sum(y for _, y in sp) / 6
+            dist = math.hypot(d["u"] - u0, d["z"] - z0)
+            delay = min(0.35, dist * 0.04)
+            kk = max(0.0, min(1.0, (k - delay) / (1 - delay)))
+            hgt = 900 * d["lift"] * math.sin(kk * math.pi) * (1.0 / (1 + 0.25 * dist))
+            ang = 260 * d["spin"] * kk
+            dx = (d["u"] - u0) * 50 * kk
+            c.save()
+            c.translate(cx + dx, cy - hgt)
+            c.rotate(ang)
+            c.scale(1.0, 1.0 - 0.6 * abs(math.sin(math.radians(ang))))
+            path = skia.Path()
+            path.addPoly([skia.Point(x - cx, y - cy) for x, y in sp], True)
+            side = skia.Path()
+            side.addPoly([skia.Point(x - cx, y - cy + 26) for x, y in sp], True)
+            c.drawPath(side, fill(SALT_D, alpha))
+            c.drawPath(path, fill(SALT, alpha))
+            c.drawPath(path, ink(5, col=INKC, alpha=0.8 * alpha, boil=boil))
+            c.restore()
+            if kk <= 0:   # still waiting its turn: draw it in place
+                pass
+
+
+def dust_devil(c, x, y, h, t, k=1.0, alpha=1.0, boil=None):
+    """A whirl of sand: stacked tilted ellipses of carved strokes, wider at the top, leaning with the wind,
+    k 0..1 = how grown it is."""
+    if k <= 0:
+        return
+    n = 11
+    for i in range(n):
+        f = i / (n - 1)
+        yy = y - h * k * f
+        lean = 60 * f * f * k
+        rx = (22 + 150 * f ** 1.4) * k
+        ry = rx * 0.22
+        ph = t * 9 + i * 0.7
+        p = skia.Path()
+        p.addArc(skia.Rect.MakeLTRB(x + lean - rx, yy - ry, x + lean + rx, yy + ry), math.degrees(ph) % 360, 230)
+        c.drawPath(oval(x + lean, yy, rx * 0.9, ry * 1.6), fill(SAND, 0.45 * alpha))
+        c.drawPath(p, ink(9 - 3 * f, col=mixc(SAND_D, INKC, 0.25), alpha=(0.95 - 0.25 * f) * alpha, boil=boil))
+    rng = np.random.default_rng(5)
+    for j in range(16):                       # grains flung around it
+        a = t * 6 + j * 0.9
+        f = rng.uniform(0, 1)
+        rx = (40 + 160 * f) * k
+        gx, gy = x + 60 * f * f * k + rx * math.cos(a), y - h * k * f + rx * 0.22 * math.sin(a)
+        c.drawCircle(gx, gy, rng.uniform(3, 7), fill(SAND_D, 0.8 * alpha))
+
+
+def water_bottle(c, x, y, s=1.0, level=1.0, boil=None, alpha=1.0, label="1 L", rot=0.0):
+    """A plain plastic water bottle (no brand): (x, y) = its centre, about 260 px tall at s = 1."""
+    c.save()
+    c.translate(x, y)
+    c.rotate(rot)
+    c.scale(s, s)
+    body = smooth_path([(-52, -70), (-56, 0), (-54, 100), (-46, 124), (46, 124), (54, 100), (56, 0), (52, -70),
+                        (30, -100), (22, -114), (-22, -114), (-30, -100)])
+    c.drawPath(rrect(-40, -0 + 12, 104, 136, 20), fill(INKC, 0.18 * alpha))
+    c.drawPath(body, fill(BOTTLE, 0.95 * alpha))
+    lv = max(0.0, min(1.0, level))
+    if lv > 0:
+        top = 120 - 210 * lv
+        c.save()
+        c.clipPath(body, doAntiAlias=True)
+        wp = skia.Path()
+        wp.moveTo(-70, top)
+        for i in range(9):
+            wp.lineTo(-70 + i * 17.5, top + 4 * math.sin(i * 1.4))
+        wp.lineTo(80, 140)
+        wp.lineTo(-70, 140)
+        wp.close()
+        c.drawPath(wp, fill(WATER, 0.9 * alpha))
+        c.restore()
+    for yy in (-40, 60):                          # moulded rings
+        c.drawLine(-54, yy, 54, yy, ink(2.5, col=PRUSSIAN, alpha=0.35 * alpha))
+    c.drawPath(rrect(-50, -14, 100, 52, 6), fill(CORAL, 0.92 * alpha))
+    text(c, label, 0, 22, font("display", 34), FOAM, align="center", alpha=alpha)
+    c.drawLine(-36, -64, -40, 90, ink(9, col=WHITE, alpha=0.6 * alpha))
+    c.drawPath(body, ink(5, alpha=alpha, boil=boil))
+    cap = rrect(-26, -140, 52, 30, 7)
+    c.drawPath(cap, fill(BOTTLE_CAP, alpha))
+    c.drawPath(cap, ink(4.5, alpha=alpha, boil=boil))
+    c.restore()
+
+
+def draw_legs(c, cx, cy, s=1.0, boil=None, t=0.0, hop=0.0, squash=0.0, shiver=0.0):
+    """Her legs under the hoodie (for the episodes where she stands on dry ground): navy trousers, brown boots.
+    Same origin and scale as draw_hero (cx, cy = centre of her head); draw it BEFORE draw_hero. hop lifts her
+    (0..1, the feet tuck up)."""
+    c.save()
+    c.translate(cx + (math.sin(t * 60) * 3 * shiver), cy - 160 * hop)
+    sy = 1 - 0.18 * squash
+    c.scale(s * (1 + 0.14 * squash), s * sy)
+    L = ink(6.0 / s, boil=boil)
+    tuck = 80 * hop
+    for side in (-1, 1):
+        leg = smooth_path([(side * 18, 300), (side * 150, 300), (side * 140, 470 - tuck * 0.5), (side * 120, 580 - tuck),
+                           (side * 40, 580 - tuck), (side * 30, 450 - tuck * 0.5)])
+        c.drawPath(leg, fill(PANTS if side < 0 else PANTS_D))
+        c.drawPath(leg, L)
+        boot = smooth_path([(side * 34, 572 - tuck), (side * 126, 572 - tuck), (side * 150, 610 - tuck),
+                            (side * 150, 640 - tuck), (side * 20, 640 - tuck), (side * 24, 600 - tuck)])
+        c.drawPath(boot, fill(BOOT))
+        c.drawLine(side * 24, 626 - tuck, side * 150, 626 - tuck, ink(4.0 / s, col=INKC, alpha=0.6))
+        c.drawPath(boot, L)
+    c.restore()
+
+
+def covered_wagon(c, x, y, s=1.0, boil=None, alpha=1.0, t=0.0):
+    """A pioneer wagon in side view (no people, no animals): wooden box, arched canvas with its ribs, two wheels.
+    (x, y) = where the wheels touch the ground, about 360 px long at s = 1."""
+    c.save()
+    c.translate(x, y)
+    c.scale(s, s)
+    L = ink(4.5 / s, alpha=alpha, boil=boil)
+    canvas = smooth_path([(-170, -120), (-196, -190), (-150, -270), (-50, -296), (60, -296), (160, -270), (200, -190),
+                          (172, -120)])
+    c.drawPath(canvas, fill(PAPER_HI, alpha))
+    mottle(c, canvas, PAPER, alpha=0.25 * alpha, scale=0.03, seed=4)
+    for rx in (-110, -40, 30, 100):
+        rib = skia.Path()
+        rib.moveTo(rx * 1.05, -124)
+        rib.quadTo(rx * 1.25, -230, rx * 1.0, -292)
+        c.drawPath(rib, ink(2.5 / s, alpha=0.5 * alpha))
+    c.drawPath(canvas, L)
+    box = rrect(-180, -128, 360, 70, 6)
+    c.drawPath(box, fill(rgb("#8A5A3A"), alpha))
+    woodgrain(c, box, alpha=0.2 * alpha)
+    c.drawPath(box, L)
+    c.drawLine(-200, -70, -290, -40, ink(6 / s, col=rgb("#6A4430"), alpha=alpha))     # the tongue
+    for wx, r in ((-110, 62), (120, 70)):
+        c.drawCircle(wx, -r + 4, r, fill(rgb("#6A4430"), alpha * 0.25))
+        c.drawCircle(wx, -r + 4, r, ink(9 / s, col=rgb("#5A3A2A"), alpha=alpha))
+        for k in range(8):
+            a = k * math.pi / 4 + t * 2
+            c.drawLine(wx, -r + 4, wx + r * math.cos(a), -r + 4 + r * math.sin(a), ink(3.5 / s, col=rgb("#5A3A2A"), alpha=alpha))
+        c.drawCircle(wx, -r + 4, 12, fill(rgb("#5A3A2A"), alpha))
+    c.restore()
