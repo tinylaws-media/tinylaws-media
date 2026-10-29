@@ -664,3 +664,219 @@ def words_caption(c, words, active, y=1190, size=76, alpha=1.0):
         col = YEL_L if i == active else (CORAL if any(ch.isdigit() for ch in w) else FOAM)
         text(c, w, x, y, f, col, alpha=alpha, stroke=14)
         x += ww + sp
+
+
+# ---------------------------------------------------------------- mountains, snow, rock (added for #02 Everest)
+SNOW, SNOW_SH, SNOW_D = rgb("#F7F2E6"), rgb("#B8C8D8"), rgb("#8EA6BF")
+ROCK, ROCK_D = rgb("#6E7A8A"), rgb("#4C5666")
+LIME, LIME_D, LIME_L = rgb("#B3A68C"), rgb("#8C7F67"), rgb("#D2C6AA")
+ALPINE_SKY = [rgb("#132A47"), rgb("#24456B"), rgb("#5F86A8")]
+
+
+def alpine_sky(c, t, horizon=900, stars=0.0, sun=None, sun_r=70):
+    """The sky up high: deep Prussian at the top (thin air), a pale bokashi band near the horizon."""
+    p = skia.Paint()
+    p.setShader(skia.GradientShader.MakeLinear([(0, 0), (0, horizon)],
+                                                [ALPINE_SKY[0], ALPINE_SKY[1], mixc(ALPINE_SKY[2], PAPER, 0.55)], [0.0, 0.55, 1.0]))
+    c.drawRect(skia.Rect.MakeWH(W, horizon + 4), p)
+    c.drawRect(skia.Rect.MakeXYWH(0, horizon, W, H - horizon), fill(mixc(ALPINE_SKY[2], PAPER, 0.55)))
+    if stars > 0:
+        rng = np.random.default_rng(17)
+        for _ in range(60):
+            x, y = rng.uniform(0, W), rng.uniform(0, horizon * 0.55)
+            k = 0.5 + 0.5 * math.sin(t * rng.uniform(1.5, 4) + x)
+            c.drawCircle(x, y, rng.uniform(1.4, 3.0), fill(FOAM, stars * (0.35 + 0.45 * k)))
+    if sun:
+        g = skia.Paint(AntiAlias=True)
+        g.setShader(skia.GradientShader.MakeRadial(sun, sun_r * 2.6, [skia.Color4f(1, 0.93, 0.8, 0.45), skia.Color4f(1, 1, 1, 0)]))
+        c.drawCircle(sun[0], sun[1], sun_r * 2.6, g)
+        sp = oval(sun[0], sun[1], sun_r, sun_r)
+        c.drawPath(sp, fill(rgb("#FBE7C2")))
+        mottle(c, sp, CORAL, alpha=0.10, scale=0.03)
+
+
+def peak(c, pts, col=None, snow_y=None, boil=None, light_left=True, seed=1, hatch=True, line=4.0, alpha=1.0):
+    """A woodblock mountain: pts = the skyline from left to right (x, y); it is closed down to the bottom of the
+    frame. The sunlit side is cream snow, the other side blue snow (split at the highest point); rock below snow_y.
+    Hatching = the carved lines of a print, following the slope."""
+    col = col or ROCK
+    top = min(pts, key=lambda p: p[1])
+    path = smooth_path(pts, closed=False)
+    path.lineTo(pts[-1][0], H + 50)
+    path.lineTo(pts[0][0], H + 50)
+    path.close()
+    c.drawPath(path, fill(col, alpha))
+    mottle(c, path, col, alpha=0.16 * alpha, scale=0.01, seed=seed)
+    c.save()
+    c.clipPath(path, doAntiAlias=True)
+    if snow_y is not None:     # the snow mantle: everything above snow_y, ragged lower edge
+        rng = np.random.default_rng(seed)
+        edge = []
+        for i, x in enumerate(np.linspace(pts[0][0], pts[-1][0], 26)):
+            edge.append((float(x), snow_y + rng.uniform(-40, 70) + (abs(x - top[0]) * 0.12)))
+        sn = skia.Path()
+        sn.moveTo(pts[0][0], -10)
+        sn.lineTo(pts[-1][0], -10)
+        for x, y in reversed(edge):
+            sn.lineTo(x, y)
+        sn.close()
+        c.drawPath(sn, fill(SNOW, alpha))
+        # shadow side
+        sh = skia.Path()
+        if light_left:
+            sh.moveTo(top[0], top[1] - 5)
+            sh.lineTo(pts[-1][0] + 10, -10 + 0 * top[1])
+            sh.lineTo(pts[-1][0] + 10, H + 50)
+            sh.lineTo(top[0] + 30, H + 50)
+            sh.cubicTo(top[0] + 60, top[1] + 400, top[0] - 10, top[1] + 160, top[0], top[1] - 5)
+        else:
+            sh.moveTo(top[0], top[1] - 5)
+            sh.lineTo(pts[0][0] - 10, -10)
+            sh.lineTo(pts[0][0] - 10, H + 50)
+            sh.lineTo(top[0] - 30, H + 50)
+            sh.cubicTo(top[0] - 60, top[1] + 400, top[0] + 10, top[1] + 160, top[0], top[1] - 5)
+        sh.close()
+        c.drawPath(sh, fill(SNOW_SH, 0.85 * alpha))
+        c.drawPath(sh, fill(ROCK_D, 0.18 * alpha))
+    if hatch:                  # carved lines running down the faces
+        rng = np.random.default_rng(seed + 7)
+        for _ in range(int(abs(pts[-1][0] - pts[0][0]) / 26)):
+            x = rng.uniform(pts[0][0], pts[-1][0])
+            y0 = np.interp(x, [p[0] for p in pts], [p[1] for p in pts]) + rng.uniform(20, 80)
+            ln = rng.uniform(40, 160)
+            dx = (x - top[0]) * 0.25
+            hp = skia.Path()
+            hp.moveTo(x, y0)
+            hp.quadTo(x + dx * 0.5, y0 + ln * 0.5, x + dx, y0 + ln)
+            c.drawPath(hp, ink(2.2, col=INKC, alpha=0.22 * alpha))
+    c.restore()
+    c.drawPath(smooth_path(pts, closed=False), ink(line, alpha=0.9 * alpha, boil=boil))
+    return path
+
+
+def snow_plume(c, x, y, t, strength=1.0, length=520, alpha=1.0, direction=1):
+    """The plume of blown snow streaming off a summit (the jet stream made visible). direction 1 = to the right."""
+    if strength <= 0:
+        return
+    rng = np.random.default_rng(23)
+    for i in range(14):
+        ph = (t * (0.9 + 0.5 * strength) + i / 14) % 1.0
+        ln = length * strength * (0.4 + 0.6 * rng.uniform())
+        px = x + direction * ph * ln
+        py = y - 10 + rng.uniform(-30, 30) - 60 * ph * (0.5 + rng.uniform() * 0.5)
+        w = 26 + 90 * ph
+        h = 14 + 34 * ph
+        c.drawPath(oval(px, py, w, h), fill(SNOW, alpha * 0.8 * (1 - ph) * min(1.0, strength * 1.4)))
+    for j in range(5):         # wind lines, the woodblock way: long thin curved strokes
+        ph = (t * 1.6 * (0.6 + strength) + j * 0.21) % 1.0
+        x0 = x + direction * (ph * 700 - 120)
+        yy = y - 120 + j * 46
+        p = skia.Path()
+        p.moveTo(x0, yy)
+        p.cubicTo(x0 + direction * 90, yy - 18, x0 + direction * 170, yy + 14, x0 + direction * 260, yy - 4)
+        c.drawPath(p, ink(3.0, col=FOAM, alpha=alpha * 0.75 * math.sin(ph * math.pi) * min(1.0, strength * 1.3)))
+
+
+def snowfall(c, t, density=60, alpha=0.9, wind=0.0, seed=4, area=(0, 0, W, H)):
+    rng = np.random.default_rng(seed)
+    x0, y0, w, h = area
+    for _ in range(density):
+        bx, by, sp = rng.uniform(0, w), rng.uniform(0, h), rng.uniform(40, 120)
+        y = y0 + (by + t * sp) % h
+        x = x0 + (bx + t * (20 + 400 * wind) + 14 * math.sin(t * 2 + bx)) % w
+        r = rng.uniform(2, 5)
+        if wind > 0.4:
+            c.drawLine(x, y, x - 30 * wind, y - 4, ink(r * 0.9, col=SNOW, alpha=alpha))
+        else:
+            c.drawCircle(x, y, r, fill(SNOW, alpha))
+
+
+def trilobite(c, x, y, s=1.0, rot=0.0, col=None, line=None, alpha=1.0, boil=None):
+    """A trilobite fossil, the woodblock way: head shield, segmented body in three lobes, tail."""
+    col = col or LIME_L
+    line = line or LIME_D
+    c.save()
+    c.translate(x, y)
+    c.rotate(rot)
+    c.scale(s, s)
+    body = smooth_path([(0, -70), (34, -62), (48, -38), (40, -10), (34, 30), (24, 58), (0, 70), (-24, 58), (-34, 30),
+                        (-40, -10), (-48, -38), (-34, -62)])
+    c.drawPath(body, fill(col, alpha))
+    c.drawPath(body, ink(4 / s, col=line, alpha=alpha, boil=boil))
+    c.drawPath(oval(0, -46, 15, 18), fill(mixc(col, line, 0.25), alpha))
+    c.drawPath(oval(0, -46, 15, 18), ink(3 / s, col=line, alpha=alpha))
+    for k in range(9):                 # thorax segments
+        yy = -18 + k * 8.5
+        hw = 38 - k * 2.6
+        p = skia.Path()
+        p.moveTo(-hw, yy)
+        p.quadTo(0, yy + 6, hw, yy)
+        c.drawPath(p, ink(2.6 / s, col=line, alpha=alpha))
+    for side in (-1, 1):               # the three lobes
+        p = skia.Path()
+        p.moveTo(side * 12, -22)
+        p.lineTo(side * 9, 60)
+        c.drawPath(p, ink(2.6 / s, col=line, alpha=alpha))
+        c.drawCircle(side * 24, -50, 5, fill(line, alpha))
+    c.restore()
+
+
+def crinoid(c, x, y, s=1.0, rot=0.0, col=None, line=None, alpha=1.0):
+    """A sea lily fossil: a stalk of discs and a crown of feathery arms."""
+    col = col or LIME_L
+    line = line or LIME_D
+    c.save()
+    c.translate(x, y)
+    c.rotate(rot)
+    c.scale(s, s)
+    for k in range(10):
+        yy = 20 + k * 13
+        c.drawPath(rrect(-9, yy, 18, 10, 4), fill(col, alpha))
+        c.drawPath(rrect(-9, yy, 18, 10, 4), ink(2.2 / s, col=line, alpha=alpha))
+    c.drawPath(oval(0, 8, 20, 16), fill(col, alpha))
+    c.drawPath(oval(0, 8, 20, 16), ink(3 / s, col=line, alpha=alpha))
+    for k in range(5):
+        a = math.radians(-150 + k * 30)
+        p = skia.Path()
+        p.moveTo(0, 0)
+        p.quadTo(math.cos(a) * 40, math.sin(a) * 70 - 10, math.cos(a) * 46 + (k - 2) * 6, math.sin(a) * 96)
+        c.drawPath(p, ink(7 / s, col=col, alpha=alpha))
+        c.drawPath(p, ink(2.2 / s, col=line, alpha=alpha))
+    c.restore()
+
+
+def shell_fossil(c, x, y, s=1.0, rot=0.0, col=None, line=None, alpha=1.0):
+    """A brachiopod shell: a ribbed fan."""
+    col = col or LIME_L
+    line = line or LIME_D
+    c.save()
+    c.translate(x, y)
+    c.rotate(rot)
+    c.scale(s, s)
+    p = smooth_path([(0, 26), (-38, 6), (-44, -22), (-22, -40), (0, -44), (22, -40), (44, -22), (38, 6)])
+    c.drawPath(p, fill(col, alpha))
+    for k in range(-4, 5):
+        q = skia.Path()
+        q.moveTo(0, 24)
+        q.lineTo(k * 10, -40 + abs(k) * 4)
+        c.drawPath(q, ink(2.0 / s, col=line, alpha=alpha))
+    c.drawPath(p, ink(3 / s, col=line, alpha=alpha))
+    c.restore()
+
+
+def thermometer(c, x, y, h, frac, label=None, alpha=1.0, boil=None):
+    """A glass thermometer, cream with a coral column: frac 0..1 of the tube filled. (x, y) = top of the tube."""
+    tube = rrect(x - 22, y, 44, h, 22)
+    c.drawPath(rrect(x - 14, y + 8, 44, h, 22), fill(INKC, 0.25 * alpha))
+    c.drawPath(tube, fill(PAPER_HI, alpha))
+    bulb = oval(x, y + h + 26, 44, 44)
+    c.drawPath(bulb, fill(PRUSSIAN, alpha))
+    col_h = max(0.0, min(1.0, frac)) * (h - 30)
+    c.drawPath(rrect(x - 10, y + h - col_h, 20, col_h + 20, 10), fill(PRUSSIAN, alpha))
+    for k in range(9):
+        yy = y + 30 + k * (h - 60) / 8
+        c.drawLine(x + 22, yy, x + (36 if k % 2 == 0 else 30), yy, ink(3, alpha=alpha))
+    c.drawPath(tube, ink(4, alpha=alpha, boil=boil))
+    c.drawPath(bulb, ink(4, alpha=alpha, boil=boil))
+    if label:
+        text(c, label, x, y - 24, font("mono", 32), INKC, align="center", alpha=alpha)
