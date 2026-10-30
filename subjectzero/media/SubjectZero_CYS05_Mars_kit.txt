@@ -1,0 +1,29 @@
+SUBJECT ZERO · COULD YOU SURVIVE? #05 · Mars, no suit — posting kit (30 Oct 2026)
+Status: ready (Produit). Goes out as soon as the Subject Zero brand exists in Metricool (YouTube + TikTok + Instagram connected), after #01–#04.
+Video: SubjectZero_CYS05_Mars.mp4 (66.0 s, 1080x1920, 24 fps, -14 LUFS) · cover: SubjectZero_CYS05_Mars_cover.jpg
+Listening gate: voice 2.7 % misheard words, final mix 2.2 % (PASS). Independent review: FIX THEN PUBLISH -> fixes applied.
+AI labels: off (a clearly non-realistic drawing; the bios say "animated in code · synthetic voices"). YouTube: not made for kids.
+
+CAPTION (all three networks)
+Could you survive on Mars without a suit? 🔴
+The air is under 1% of Earth's pressure, so the water on your tongue boils at body temperature.
+About 15 seconds before you black out; about 90 to get you back to air. And Mars sunsets glow blue.
+Next spawn: a medieval farm, Pompeii or the Mariana Trench? You choose in the comments.
+Could You Survive? #05
+Sources: ESA Mars facts, Scientific American (Buckey, Space Physiology), NASA/JPL PIA19400.
+#couldyousurvive #mars #space #science #physics
+
+YOUTUBE
+Title: Could You Survive on Mars Without a Suit? #05
+Tags: mars, could you survive, space, mars without spacesuit, science
+
+THE NUMBERS AND WHERE THEY COME FROM (for replies)
+• Pressure: about 0.6 kPa on average (ESA 6.35 mbar), under 1 % of Earth's 101 kPa (Britannica). 95.3 % CO2, 0.13 % O2 (ESA).
+• Spit boils: below about 6.3 kPa (the Armstrong limit) water boils at 37 °C. Mars is about ten times below it; even Hellas, the deepest basin (1.16 kPa), is below it.
+• ~15 s: time to lose consciousness without pressure (Scientific American / Buckey: "less than 15 seconds"; Sky at Night: "about 15").
+• ~90 s: dogs exposed to near-vacuum for up to 90 s always recovered (Brooks AFB, 1965); "1–2 minutes" if returned to pressure. An estimate from animal data.
+• The test subject: Guinness record, 14 Dec 1966 (SciAm dates it 1965), Houston: his suit lost pressure in a vacuum chamber, he felt his saliva boil, the chamber was repressurised in 87 s, he recovered.
+• Signal delay Earth–Mars: 0 to 22 min one way (NASA NTRS, McBrayer et al.).
+• Blue sunset: Curiosity, sol 956 (15 Apr 2015), Gale Crater: fine dust lets blue light through near the sun (NASA/JPL PIA19400).
+
+Reply to keep ready for "wouldn't you freeze first?": No — oxygen runs out long before the cold matters; thin air carries heat away slowly. (Not claimed in the video.)

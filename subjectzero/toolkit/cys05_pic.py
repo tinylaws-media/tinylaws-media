@@ -13,8 +13,8 @@ fine: NO LUNGS) → signal (Earth and Mars in the dark, the radio pulse crawling
 lander's dish snaps off and flies over the horizon) → tease (push in; the HUD question) → horizon (the low sun, the
 "strangest part") → clock (the answer: 15 s ring, then the 90 s rescue ring) → close (the lab; NOPE 3: the mesa
 collapses, a wall of dust from both sides) → chamber (a steel test chamber, 1960s: the needle falls, bubbles, then
-HE RECOVERED; no person drawn) → sunset (new: the blue sunset, her and the duck on a rock) → glow (the fine dust lets
-the blue through near the sun) → end (the next spawns, "Somewhere with air.", the respawn).
+HE RECOVERED; no person drawn) → relief (her, HE RECOVERED) → sunset (new: the blue sunset, her and the duck on a rock) → glow
+(split screen: an Earth sunset, orange; a Mars sunset, blue near the sun) → end (the next spawns, "Somewhere with air.", the respawn).
 HUD: "YOU'D LAST ?? SECONDS" until the answer, then "YOU'D LAST ~15 S AWAKE". The progress bar is the crater's pressure
 bar (its target, the boiling line at 6.3 kPa, is never reached).
 """
@@ -52,10 +52,10 @@ CAP = {"n3": "The air? Under 1% of Earth's pressure. Mostly carbon dioxide.",
        "n14": "Lab here. Rescue is coming. Signal delay: up to 22 minutes.",
        "n17": "About 15 seconds before you pass out. About 90 to get rescued.",
        "n18": "Noted. 15 seconds.",
-       "n20": "In the 1960s, a NASA test subject felt his spit boil in a vacuum chamber. He recovered.",
+       "n20": "A NASA test subject felt his spit boil in a vacuum chamber. Back to air in 87 seconds, he recovered.",
        "n25": "Respawning in 3... 2..."}
 # how long a caption word takes to SAY (characters of the spoken words), so a figure lights up when it is said
-SAYLEN = {"1%": 11, "10×": 9, "22": 10, "15": 7, "90": 6, "1960s,": 7, "3...": 5, "2...": 3}
+SAYLEN = {"1%": 11, "10×": 9, "22": 10, "15": 7, "90": 6, "87": 12, "3...": 5, "2...": 3}
 NOPES = {"n10": 1, "n15": 2, "n19": 3}
 XH, YH, HS = 450, 840, 0.95            # her head in the close shot, and her scale
 HORIZON = 1010
@@ -178,6 +178,7 @@ SHOTS = [                                 # rule: no camera setup held longer th
     (L["n17"] - 0.05, "clock"),           # 15 seconds; 90 to get rescued
     (L["n18"] - 0.1, "close"),            # the lab; NOPE 3
     (max(L["n20"] - 0.05, T_BLAST3 + 1.1), "chamber"),   # the 1960s test chamber (NOPE 3's damage holds 1 s+)
+    (WT("n20", "recovered") - 0.35, "relief"),   # he recovered: her, relieved
     (L["n21"] - 0.05, "sunset"),          # sunsets here are blue
     (L["n22"] - 0.05, "glow"),            # the dust lets blue light through, near the sun
     (L["n23"] - 0.05, "end"),             # the next spawns
@@ -272,6 +273,9 @@ def hero_state(t):
     elif L["n18"] - 0.2 <= t < L["n19"]:            # the lab: fifteen seconds
         st["face"] = "deadpan"
         st["look"] = (12, -6)
+    elif shot_start("relief") <= t < L["n21"]:
+        st["face"] = "happy"
+        st["arms"] = "hug"
     elif L["n23"] - 0.1 <= t:
         st["face"] = "worried"
         st["arms"] = "hug"
@@ -288,7 +292,7 @@ def hero_state(t):
         st["arms"] = ("hug", "up", "up")[lvl - 1]
         st["tilt"] = (0.0, -6.0, 0.0)[lvl - 1]
         st["cheeks"] = 0.0
-    elif lvl == 3 or (T_BLAST3 <= t < L["n20"]):
+    elif lvl == 3 or (T_BLAST3 <= t < shot_start("chamber")):
         st["face"] = "shock"
     return st
 
@@ -296,11 +300,11 @@ def hero_state(t):
 # ---------------------------------------------------------------- the plain (the close shot)
 def devil_pos(t):
     """The dust devil on the horizon from frame 0: it wanders right to left; NOPE 1 flings it off to the left."""
-    x = 940 - 14 * t
+    x = 1000 - 9 * t
     y = HORIZON + 6
     if t >= T_N1:
         k = prog(t, T_N1, T_N1 + 0.9)
-        return x - 900 * ease_io(k), y + 40 * k, 1.0 + 1.2 * k, 1 - k
+        return x + 700 * ease_io(k), y + 40 * k, 1.0 + 1.2 * k, 1 - k
     return x, y, 1.0, 1.0
 
 
@@ -320,7 +324,7 @@ def plain_bg(c, t, boil, y0=HORIZON, dusk=0.0):
     mesa(c, 600, 1060, y0 + 4, 300, boil=boil, collapse=col, dusk=dusk)
     # the dust devil wandering on the horizon (paid off by NOPE 1)
     dx, dy, ds, da = devil_pos(t)
-    if da > 0 and dx > -200:
+    if da > 0 and dx < W + 300:
         dust_devil(c, dx, dy, 300 * ds, tw, k=1.0, alpha=0.85 * da, boil=boil, col=RUST_L, col_d=RUST_D)
     mars_ground(c, tw, y0, boil=boil, seed=2, dusk=dusk)
     # the old lander on the left: NOPE 2 snaps its dish off
@@ -371,8 +375,12 @@ def close_shot(c, t, s=HS):
         dust_burst(c, XH - 330, FEET_Y - 30, k1, n=14, spread=500, seed=7, up=260, size=(16, 40))
         dust_burst(c, XH + 330, FEET_Y - 30, k1, n=14, spread=500, seed=8, up=260, size=(16, 40))
     # NOPE 3: the dust storm rolls in from both sides, in front
-    if T_BLAST3 <= t < L["n21"]:
-        dust_wall(c, tw, prog(t, T_BLAST3 + 0.1, T_BLAST3 + 1.0), HORIZON + 200, boil=boil)
+    if T_BLAST3 <= t < T_BLAST3 + 1.3:
+        k3 = prog(t, T_BLAST3, T_BLAST3 + 1.3)
+        dust_burst(c, XH - 360, FEET_Y - 40, k3, n=20, spread=700, seed=12, up=380, size=(20, 50))
+        dust_burst(c, XH + 360, FEET_Y - 40, k3, n=20, spread=700, seed=13, up=380, size=(20, 50))
+    if T_BLAST3 <= t < shot_start("chamber"):
+        dust_wall(c, tw, prog(t, T_BLAST3, T_BLAST3 + 0.7), HORIZON + 200, boil=boil)
     # NOPE rings: only in front of her
     yw = FEET_Y - 10
     if lvl == 3 and t < T_BLAST3:
@@ -498,7 +506,7 @@ def gauge_shot(c, t):
     # the readouts
     v = 101.3 - (101.3 - 0.6) * kd
     label(c, "101 kPa", 270, 1340, size=48, col=PRUSSIAN, alpha=k_in)
-    label(c, f"{v:.0f} kPa" if v >= 10 else f"{v:.1f} kPa", 630, 1340, size=48, col=SEAL, alpha=k_in)
+    label(c, "0.6 kPa", 630, 1340, size=48, col=SEAL, alpha=k_in)
     if kd > 0.95:
         stamp(c, 630, 860, "< 1 %", size=110, k=prog(t, t_drain1 - 0.1, t_drain1 + 0.15), rot=-6)
 
@@ -626,7 +634,8 @@ def boil_shot(c, t):
     c.drawPath(glass, ink(5, boil=boil))
     thermometer(c, 640, 640, 380, 0.42, alpha=1.0, boil=boil, col=SEAL)
     label(c, "37 °C", 640, 610, size=50, col=SEAL)
-    label(c, "BODY TEMP", 640, 556, size=36)
+    if not second:
+        label(c, "BODY TEMP", 640, 556, size=36)
     if second:                                         # thin air: a few dots drifting around the glass
         air_dots(c, 120, 420, 680, 700, 9, RUST_D, 8, tw, alpha=0.7)
     c.restore()
@@ -634,9 +643,6 @@ def boil_shot(c, t):
         tn = WT("n11", "hot")
         if t >= tn - 0.25:
             stamp(c, CAP_CX, 420, "NOT HOT", size=100, k=prog(t, tn - 0.25, tn), rot=-6)
-        tt = WT("n11", "thin")
-        if t >= tt - 0.2:
-            stamp(c, CAP_CX, 1380, "AIR TOO THIN", size=66, k=prog(t, tt - 0.2, tt + 0.05), rot=4, col=PRUSSIAN)
     elif t >= WT("n9", "boil") - 0.1:
         stamp(c, CAP_CX, 420, "BOILING", size=100, k=prog(t, WT("n9", "boil") - 0.1, WT("n9", "boil") + 0.15), rot=-6)
 
@@ -698,12 +704,12 @@ def crater_shot(c, t):
     label(c, "BOILING STOPS", bx + 70, yl - 26, size=42, col=PRUSSIAN, align="left", alpha=max(0.5, kl))
     label(c, "6.3 kPa", bx + 70, yl + 52, size=42, col=PRUSSIAN, align="left", alpha=max(0.5, kl))
     if kl > 0:
-        text(c, "×10", bx + 130, yl + 270, font("display", 90), PRUSSIAN, align="left", alpha=kl, stroke=10,
+        text(c, "×10", bx + 64, 830, font("display", 90), PRUSSIAN, align="left", alpha=kl, stroke=10,
              stroke_col=PAPER_HI)
     label(c, f"{p:.1f} kPa" if kd < 1 else "1.16 kPa", bx + 70, lev - 10, size=46, col=SEAL, align="left")
     tf = WT("n12", "falls")
     if t >= tf - 0.1:
-        stamp(c, 600, 610, "FALLS SHORT", size=84, k=prog(t, tf - 0.1, tf + 0.15), rot=-5)
+        stamp(c, 560, 600, "FALLS SHORT", size=72, k=prog(t, tf - 0.1, tf + 0.15), rot=-5)
 
 
 # ---------------------------------------------------------------- duck: it doesn't breathe
@@ -768,8 +774,8 @@ def signal_shot(c, t):
         c.drawCircle(pos.x(), pos.y(), r, fill(YEL_L, 0.25 if r > 14 else 1.0))
     t22 = WT("n14", "22")
     if t < t22 - 0.05:
-        secs = (t - a) * 1.0
-        s = f"00:{int(secs):02d}"
+        mins = 22 * ease_io(prog(t, a + 0.3, t22 - 0.1)) ** 1.6
+        s = f"{int(mins):02d}:{int((mins % 1) * 60):02d}"
         text(c, s, 450, 990, font("display", 130), FOAM, align="center", stroke=14)
         label(c, "SIGNAL DELAY", 450, 860, size=40, col=YEL_L, stroke=0)
     else:
@@ -797,7 +803,7 @@ def horizon_shot(c, t):
 
 
 # ---------------------------------------------------------------- clock: the answer
-CLOCK_C = (450, 690, 250)
+CLOCK_C = (450, 660, 250)
 GOLD, GOLD_D = rgb("#C9973E"), rgb("#8E6524")
 
 
@@ -848,20 +854,20 @@ def clock_shot(c, t):
     k15 = ease_io(prog(t, t15 - 0.2, t15 + 0.3))
     rr = R * 0.56
     p = skia.Path()
-    p.addArc(skia.Rect.MakeLTRB(cx - rr, cy - rr, cx + rr, cy + rr), -90, max(0.5, 90 * k15))
+    p.addArc(skia.Rect.MakeLTRB(cx - rr, cy - rr, cx + rr, cy + rr), -90, max(0.5, 45 * k15))
     c.drawPath(p, ink(36, col=SEAL))
     ang = math.radians(-90 + 90 * k15 + (360 * 1.5 - 90) * k90 * 0)
-    hand = math.radians(-90 + 6 * (15 * k15 + 75 * k90))
+    hand = math.radians(-90 + 3 * (15 * k15 + 75 * k90))
     c.drawLine(cx, cy, cx + math.cos(hand) * R * 0.8, cy + math.sin(hand) * R * 0.8, ink(10, col=INKC))
     c.drawCircle(cx, cy, 18, fill(INKC))
     c.drawCircle(cx, cy, 7, fill(GOLD))
     del ang
     c.restore()
     if t >= t15 - 0.1:
-        text(c, "~15 S", cx, cy + R + 150, font("display", 100), SEAL, align="center", stroke=14, stroke_col=PAPER_HI)
-        label(c, "TO PASS OUT", cx, cy + R + 200, size=40, col=FOAM, stroke=0)
+        text(c, "~15 S  PASS OUT", cx, 1060, font("display", 64), SEAL, align="center", stroke=12, stroke_col=PAPER_HI)
     if k90 > 0:
-        hud_card(c, SAFE_X0, 290, [("RESCUE WINDOW", "~90 S", PRUSSIAN, 0.0)], alpha=k90, w=600)
+        text(c, "~90 S  RESCUE", cx, 1140, font("display", 64), PRUSSIAN, align="center", alpha=k90, stroke=12,
+             stroke_col=PAPER_HI)
 
 
 # ---------------------------------------------------------------- chamber: the 1960s test
@@ -889,8 +895,8 @@ def chamber_shot(c, t):
         an = j * math.pi / 5
         c.drawCircle(450 + 290 * math.cos(an), 900 + 350 * math.sin(an), 9, fill(STONE_D))
     c.drawPath(ch, ink(6, boil=boil))
-    tr = WT("n20", "recovered")
-    back = ease_io(prog(t, tr - 0.3, tr + 0.2))
+    tr = WT("n20", "87")
+    back = ease_io(prog(t, tr - 0.3, tr + 0.4))
     tsp = WT("n20", "spit")
     pr = rrect(310, 720, 280, 280, 140)
     c.drawPath(pr, fill(mixc(rgb("#3B4A63"), rgb("#F2C27A"), back)))
@@ -911,70 +917,74 @@ def chamber_shot(c, t):
     c.drawCircle(dx, dy, 10, fill(INKC))
     c.restore()
     label(c, "1960s · TEST CHAMBER", CAP_CX, 400, size=44, alpha=ease_io(prog(t, a + 0.1, a + 0.4)))
-    if t >= tsp - 0.05 and back <= 0:
-        label(c, "HIS SPIT BOILED", CAP_CX, 1450 - 40, size=40, col=SEAL)
-    if t >= tr - 0.1:
-        stamp(c, CAP_CX, 560, "HE RECOVERED", size=88, k=prog(t, tr - 0.1, tr + 0.15), rot=-5, col=rgb("#3F7A4E"))
+    t87 = WT("n20", "87")
+    if t >= t87 - 0.3:
+        k87 = ease_io(prog(t, t87 - 0.3, t87 + 0.3))
+        text(c, f"AIR BACK: {int(87 * k87)} S", CAP_CX, 1420, font("display", 72), rgb("#3F7A4E"), align="center", stroke=12,
+             stroke_col=PAPER_HI)
+
 
 
 # ---------------------------------------------------------------- sunset: the blue sunset (new scene)
 def sunset_shot(c, t, glow=False):
-    """Mars at sunset: the sky gone dusky, a small white sun near the horizon wrapped in cold blue light. She sits on
-    a rock with the duck, watching, in silhouette-dark tones. glow=True: tighter on the sun, the fine dust drawn as
-    specks, blue rays going straight through to us, red rays bouncing away."""
+    """Mars at sunset (new scene): a butterscotch sky going dusky, a small white sun low over the plain wrapped in a
+    big cold-blue halo; she sits on a rock in the foreground with the duck, watching. glow=True: a split screen,
+    an Earth sunset (orange around the sun) over a Mars sunset (blue around the sun)."""
     a = shot_at(t)[0]
     tw = twos(t)
     fi = int(t * FPS)
     boil = (fi // 2, 0.9)
     k = prog(t, a, shot_end(a))
     if not glow:
-        kb = ease_io(prog(t, a + 0.1, WT("n21", "blue") + 0.2))
+        kb = ease_io(prog(t, a + 0.1, WT("n21", "blue") + 0.1))
         z = 1.0 + 0.05 * k
         c.save()
-        c.translate(450, 1000)
+        c.translate(450, 900)
         c.scale(z, z)
-        c.translate(-450, -1000)
-        mars_sky(c, tw, horizon=1100, sun=(560, 930), sun_r=34, dusk=0.75, blue=0.25 + 0.75 * kb)
-        mesa(c, 40, 380, 1104, 150, boil=boil, dusk=0.85)
-        mars_ground(c, tw, 1100, boil=boil, seed=14, dusk=0.8)
-        rk = smooth_path([(130, 1390), (190, 1290), (520, 1280), (600, 1390)])
+        c.translate(-450, -900)
+        mars_sky(c, tw, horizon=1080, sun=(600, 760), sun_r=48, dusk=0.35, blue=0.3 + 0.7 * kb)
+        mesa(c, 760, 1160, 1084, 160, boil=boil, dusk=0.6)
+        mars_ground(c, tw, 1080, boil=boil, seed=14, dusk=0.6)
+        rk = smooth_path([(60, 1500), (120, 1330), (560, 1310), (660, 1500)])
         c.drawPath(rk, fill(rgb("#3A2620")))
         c.drawPath(rk, ink(4, boil=boil))
-        draw_legs(c, 300, 1060, s=0.38, boil=boil, t=tw)
-        draw_hero(c, 300, 1060, s=0.38, face="happy" if kb > 0.6 else "shock", boil=boil, arms="hug", t=tw, look=(10, -6))
-        draw_duck(c, 470, 1270, s=0.7, boil=None, tilt=-3, look=0.6)
+        draw_legs(c, 300, 930, s=0.6, boil=boil, t=tw)
+        draw_hero(c, 300, 930, s=0.6, face="happy" if kb > 0.6 else "shock", boil=boil, arms="hug", t=tw, look=(12, -8))
+        draw_duck(c, 520, 1310, s=1.0, boil=None, tilt=-3, look=0.6)
         c.restore()
         if kb > 0.8:
-            stamp(c, CAP_CX, 470, "BLUE", size=120, k=prog(t, WT("n21", "blue") - 0.05, WT("n21", "blue") + 0.2), rot=-6,
+            stamp(c, CAP_CX, 450, "BLUE", size=120, k=prog(t, WT("n21", "blue") - 0.05, WT("n21", "blue") + 0.2), rot=-6,
                   col=rgb("#3C6E99"))
         return
-    # the glow: tighter on the sun
-    z = 1.0 + 0.06 * k
-    c.save()
-    c.translate(450, 860)
-    c.scale(z, z)
-    c.translate(-450, -860)
-    mars_sky(c, tw, horizon=1380, sun=(450, 860), sun_r=70, dusk=0.8, blue=1.0)
-    mars_ground(c, tw, 1380, boil=boil, seed=15, dusk=0.85, rocks=False)
-    rng = np.random.default_rng(8)
-    specks = [(rng.uniform(140, 760), rng.uniform(420, 1300)) for _ in range(22)]
-    for x, y in specks:                                # the fine dust
-        c.drawCircle(x, y, 7, fill(OCHRE))
-        c.drawCircle(x, y, 7, ink(2))
-    kr = ease_io(prog(t, WT("n22", "blue") - 0.1, WT("n22", "through") + 0.1))
-    for j, (x, y) in enumerate(specks[:8]):            # red light bounces away off the dust
-        an = j * 0.8
-        x2, y2 = x + math.cos(an) * 120 * kr, y + math.sin(an) * 120 * kr
-        if kr > 0:
-            c.drawLine(x, y, x2, y2, ink(5, col=CORAL, alpha=0.9))
-    for j in range(5):                                 # blue light goes straight on, toward us
-        x0 = 450 - 160 + 80 * j
-        c.drawLine(450, 860, x0, 860 + 480 * kr, ink(7, col=MARS_BLUE, alpha=0.9 * kr))
-    c.restore()
-    kd = ease_io(prog(t, WT("n22", "dust") - 0.1, WT("n22", "dust") + 0.2))
-    label(c, "FINE DUST", 250, 470, size=40, col=FOAM, alpha=kd, stroke=0)
-    if kr > 0.5:
-        label(c, "BLUE GETS THROUGH", CAP_CX, 1400, size=40, col=MARS_BLUE, alpha=min(1.0, (kr - 0.5) * 2), stroke=0)
+    # split screen: Earth above, Mars below
+    c.drawRect(skia.Rect.MakeWH(W, H), fill(rgb("#1E1A26")))
+    for j, (y0, y1) in enumerate(((240, 830), (850, 1460))):
+        c.save()
+        c.clipRect(skia.Rect.MakeLTRB(0, y0, W, y1))
+        c.translate(0, y0)
+        hz = (y1 - y0) * 0.78
+        sx, sy = 450, 230
+        if j == 0:                                     # Earth: orange sky, orange glow
+            p = skia.Paint()
+            p.setShader(skia.GradientShader.MakeLinear([(0, 0), (0, hz)], [rgb("#3E4E7A"), rgb("#E07A4A"), rgb("#F6C26B")],
+                                                       [0.0, 0.65, 1.0]))
+            c.drawRect(skia.Rect.MakeWH(W, hz + 4), p)
+            g = skia.Paint(AntiAlias=True)
+            g.setShader(skia.GradientShader.MakeRadial((sx, sy), 260, [skia.Color4f(1, 0.6, 0.25, 0.8), skia.Color4f(1, 0.5, 0.2, 0)]))
+            c.drawCircle(sx, sy, 260, g)
+            c.drawPath(oval(sx, sy, 60, 60), fill(rgb("#FFD27A")))
+            c.drawRect(skia.Rect.MakeLTRB(-10, hz, W + 10, y1 - y0 + 10), fill(rgb("#2E4A6E")))
+            for q in range(5):                         # the sea, with the sun's path on it
+                yy = hz + 20 + q * 22
+                c.drawLine(sx - 120 + q * 10, yy, sx + 120 - q * 10, yy, ink(5, col=rgb("#F6C26B"), alpha=0.7))
+        else:                                          # Mars: dusky sky, blue around the sun
+            mars_sky(c, tw, horizon=hz, sun=(sx, sy), sun_r=40, dusk=0.55, blue=1.0)
+            mars_ground(c, tw, hz, boil=boil, seed=15, dusk=0.7, rocks=False, y_end=y1 - y0 + 10)
+        c.drawLine(-10, hz, W + 10, hz, ink(3, alpha=0.6, boil=boil))
+        c.restore()
+        c.drawRect(skia.Rect.MakeLTRB(0, y0, W, y1), ink(6))
+        stamp(c, 250, y0 + 90, ("EARTH", "MARS")[j], size=60, k=ease_io(prog(t, a + 0.15 * j, a + 0.3 + 0.15 * j)),
+              rot=-4, col=(rgb("#C8402E"), rgb("#3C6E99"))[j], pop=0.3)
 
 
 # ---------------------------------------------------------------- HUD, intercom, NOPE, captions, end cards
@@ -987,23 +997,23 @@ def hud(c, t):
     lab_live = any(WHO[k] == "LAB" and L[k] - 0.35 <= t <= E[k] + 0.35 for k in KEYS)
     y = 290
     if title_on:
-        hud_card(c, SAFE_X0 + 30, 520, [("YOU'D LAST", "?? SECONDS", SEAL, 0.0)], w=600)
+        hud_card(c, SAFE_X0 + 30, 540, [("AWAKE FOR", "?? SECONDS", SEAL, 0.0)], w=600)
     elif shot in ("close", "tease", "push") and not lvl and not lab_live and t < T_BLAST3 and t >= L["n2"] + 0.1:
         known = t >= WT("n17", "15")
-        hud_card(c, SAFE_X0, y, [("YOU'D LAST", "~15 S AWAKE" if known else "?? SECONDS", SEAL, 0.0)], w=600)
+        hud_card(c, SAFE_X0, y, [("AWAKE FOR", "~15 SECONDS" if known else "?? SECONDS", SEAL, 0.0)], w=600)
     if title_on:
         f1, f2 = font("mono", 38), font("display", 112)
         c.save()
-        c.translate(CAP_CX, 262)
+        c.translate(CAP_CX, 284)
         c.rotate(-3)
         tag = "COULD YOU SURVIVE"
         wv = f1.measureText(tag)
         c.drawPath(rrect(-wv / 2 - 18, -40, wv + 36, 56, 10), fill(INKC, 0.92))
         text(c, tag, 0, 2, f1, YEL_L, align="center")
-        for j, name in enumerate(("MARS", "WITHOUT A SUIT?")):
+        for j, name in enumerate(("MARS,", "NO SUIT?")):
             c.save()
-            sc = min(1.0 if j == 0 else 0.62, 640 / f2.measureText(name))
-            c.translate(0, (104 + 92 * j) if j == 0 else 104 + 92)
+            sc = min(1.0 if j == 0 else 0.8, 640 / f2.measureText(name))
+            c.translate(0, 104 + 104 * j)
             c.scale(sc, sc)
             text(c, name, 0, 0, f2, FOAM, align="center", stroke=22)
             c.restore()
@@ -1119,9 +1129,9 @@ def end_cards(c, t):
             msg = "A FARM · B POMPEII · C TRENCH"
             wv = f.measureText(msg)
             x0 = CAP_CX - wv / 2 - 22
-            c.drawPath(rrect(x0, 1060, wv + 44, 66, 14), fill(PAPER_HI, 0.95 * ks))
-            c.drawPath(rrect(x0, 1060, wv + 44, 66, 14), ink(3, alpha=ks))
-            text(c, msg, CAP_CX, 1105, f, INKC, align="center", alpha=ks)
+            c.drawPath(rrect(x0, 400, wv + 44, 66, 14), fill(PAPER_HI, 0.95 * ks))
+            c.drawPath(rrect(x0, 400, wv + 44, 66, 14), ink(3, alpha=ks))
+            text(c, msg, CAP_CX, 445, f, INKC, align="center", alpha=ks)
         return
     dim = ease_io(prog(t, a, a + 0.4)) * gone
     c.drawRect(skia.Rect.MakeWH(W, H), fill(INKC, 0.12 * dim))
@@ -1227,6 +1237,14 @@ def draw_frame(c, t):
         c.scale(z, z)
         c.translate(-XH, -YH)
         close_shot(c, t)
+    elif shot == "relief":                    # she exhales: he recovered
+        z = 1.25
+        c.translate(XH, YH + 40)
+        c.scale(z, z)
+        c.translate(-XH, -YH)
+        close_shot(c, t)
+        tr = WT("n20", "recovered")
+        stamp(c, CAP_CX, 470, "HE RECOVERED", size=64, k=prog(t, tr - 0.2, tr + 0.05), rot=-5, col=rgb("#3F7A4E"))
     elif shot == "plead":
         z = 1.5
         c.translate(XH, 830)

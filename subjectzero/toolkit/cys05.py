@@ -34,11 +34,11 @@ import os
 HERE = os.path.dirname(os.path.abspath(__file__))
 EPNAME = "cys05"
 FPS = 24
-BPM = 99
-DURATION = 27 * 4 * 60 / BPM      # 27 bars of 4/4 at 99 BPM = 65.45 s
+BPM = 98.2
+DURATION = 27 * 4 * 60 / BPM      # 27 bars of 4/4 at 98.2 BPM = 65.99 s
 
 SPEAKERS = {
-    "N": dict(voice="am_michael", speed=1.09),
+    "N": dict(voice="am_michael", speed=1.10),
     "HERO": dict(voice="af_bella", speed=1.08, gain=1.0),
     "LAB": dict(voice="bm_george", speed=0.99, gain=0.85,
                 chain="highpass=f=320,lowpass=f=3300,acompressor=threshold=-20dB:ratio=6:attack=5:release=60,"
@@ -62,8 +62,8 @@ VOICE_LINES = [
     ("n3", 3.0, "N", "The air? Under one percent of Earth's pressure. Mostly carbon dioxide."),
     ("n5", 7.6, "HERO", "So I hold my breath?"),
     ("n6", 9.0, "N", "Bad idea. Your lungs could tear."),
-    ("n7", 11.0, "LAB", "Lab here. Breathe out. Noted."),
-    ("n8", 13.4, "N", "Breathe out. Now it gets weird."),
+    ("n7", 11.0, "LAB", "Noted. No breath-holding."),
+    ("n8", 13.4, "N", "Now it gets weird."),
     ("n9", 15.6, "N", "The water on your tongue starts to boil."),
     ("n10", 18.2, "HERO", "Nope."),
     ("n11", 19.4, "N", "It's not hot. The air is just too thin."),
@@ -71,12 +71,12 @@ VOICE_LINES = [
     ("n13", 26.0, "N", "The duck is fine. It doesn't breathe."),
     ("n14", 28.4, "LAB", "Lab here. Rescue is coming. Signal delay: up to twenty-two minutes."),
     ("n15", 32.6, "HERO", "Nope!"),
-    ("n16", 33.8, "N", "How long would you last? Less than this video. And it's not the strangest part."),
+    ("n16", 33.8, "N", "How long until you black out? Less than this video. And it's not the strangest part."),
     ("n17", 39.4, "N", "About fifteen seconds before you pass out. About ninety to get rescued."),
     ("n18", 43.8, "LAB", "Noted. Fifteen seconds."),
     ("n19", 45.4, "HERO", "Nope. Nope. NOPE!", "Nope, nope, nope!"),
-    ("n20", 47.4, "N", "In the sixties, a NASA test subject felt his spit boil in a vacuum chamber. He recovered."),
-    ("n21", 53.4, "N", "The strangest part? Sunsets here are blue."),
+    ("n20", 47.4, "N", "A NASA test subject felt his spit boil in a vacuum chamber. Back to air in eighty-seven seconds, he recovered."),
+    ("n21", 53.4, "N", "The strangest part? Sunsets here glow blue."),
     ("n22", 56.2, "N", "The dust lets blue light through, near the sun."),
     ("n23", 59.2, "N", "Next spawn: a medieval farm, Pompeii, or the Mariana Trench?"),
     ("n24", 62.2, "HERO", "Somewhere with air."),

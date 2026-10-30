@@ -104,3 +104,16 @@ Then the mix gate: copy `out/<ep>_lines.json` to `out/<ep>mix_lines.json`, write
 - **Keep the damage of NOPE 3 on screen for at least 1 s** before the cut (speed up the collapse, cut later).
 - **The end choice stays on screen** as a one-line strip until 0.3 s before the flash.
 - **The mix gate can flip on a short line**: cut the music and the bed under a 2-word line ("Thirty WHAT?").
+
+## Lessons from the review of #05
+
+- **A tease must not contradict the answer.** "How long would you last? Less than this video" clashed with "about 90 s to
+  get rescued" in a 65 s video. Ask the question the number answers ("How long until you black out?"), and make the HUD
+  say the same thing ("AWAKE FOR").
+- **Never let two voices say the same words back to back** (the lab's "Breathe out" then the narrator's "Breathe out").
+- **One scale per dial.** Two rings at different seconds-per-turn made 90 s look 3× 15 s. One 120 s dial for both.
+- **A count that runs on screen must never show a wrong value** (the Mars column counted 95 → 63 kPa while the
+  voice said "under 1 %"): animate the bar, keep the label at the true figure.
+- **A proof needs its number**: the 1960s chamber shot was flat until it carried the 87 s that pays off the 90 s window.
+- **A payoff is a picture people would screenshot**: the blue sunset now ends on an Earth/Mars split screen.
+- **Mix gate**: the spawn effect and the first bar masked "You spawn on Mars" — keep line 1 clear (music × 0.35).

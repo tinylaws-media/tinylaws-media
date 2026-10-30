@@ -237,8 +237,7 @@ def build(mixgate=False):
     fx = np.zeros((n + 2 * SR, 2))
     L, E, WT = P.L, P.E, P.WT
     # spawn: she lands in the dust
-    TA.place(fx, dust_whump(0.6, 0.6), 0.0, 1.0)
-    TA.place(fx, TA.sfx("pop"), 0.02, 0.5)
+    TA.place(fx, dust_whump(0.35, 0.3), 0.0, 1.0)
     # gauge: whoosh in, the Mars column drains (a falling hiss), stamp on < 1 %
     TA.place(fx, TA.sfx("whoosh"), P.shot_start("gauge") - 0.08, 0.6)
     TA.place(fx, TA.sfx("whoosh_down"), WT("n3", "1%") - 0.15, 0.5)
@@ -295,7 +294,8 @@ def build(mixgate=False):
     a = P.shot_start("chamber")
     TA.place(fx, hiss(0.5, 1.2), a + 0.1, 1.0)
     TA.place(fx, bubbles(0.45, 1.4), WT("n20", "spit") - 0.1, 1.0)
-    TA.place(fx, TA.sfx("whoosh"), WT("n20", "recovered") - 0.3, 0.6)
+    TA.place(fx, TA.sfx("whoosh"), WT("n20", "87") - 0.3, 0.6)
+    TA.place(fx, TA.sfx("ding"), WT("n20", "87") + 0.3, 0.4)
     TA.place(fx, TA.sfx("stamp"), WT("n20", "recovered"), 0.8)
     # sunset: a sparkle on 'blue', a soft chime on the light
     TA.place(fx, TA.sfx("whoosh_down"), P.shot_start("sunset") - 0.05, 0.4)
@@ -343,7 +343,7 @@ def build(mixgate=False):
     # NOPE 3 a little louder, so it lands at least 3 dB above NOPE 2 on the final mix
     a_, b_ = int((L["n19"] - 0.05) * SR), int((E["n19"] + 0.1) * SR)
     gain = np.ones(n, np.float32)
-    gain[a_:b_] = 10 ** (2.0 / 20)
+    gain[a_:b_] = 10 ** (4.0 / 20)
     v = v * np.convolve(gain, np.ones(240) / 240, mode="same")
     voice = np.stack([v, v], 1)
 
@@ -359,6 +359,9 @@ def build(mixgate=False):
     duck_ = (1 - 0.5 * np.clip(talk * 1.5, 0, 1))[:, None]
     mus *= duck_
     bed *= duck_
+    i1 = int((E["n1"] + 0.05) * SR)                    # the first line stays clear: the spawn is heard, not masked
+    mus[:i1] *= 0.35
+    bed[:i1] *= 0.35
     mix = voice + mus + fx + bed
     mix = mix / (np.abs(mix).max() or 1) * 0.89
     wav = os.path.join(OUT, "cys05_audio.wav")
