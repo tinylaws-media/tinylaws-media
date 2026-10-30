@@ -1093,10 +1093,19 @@ class SaltFlat:
                 pass
 
 
-def dust_devil(c, x, y, h, t, k=1.0, alpha=1.0, boil=None):
+def dust_devil(c, x, y, h, t, k=1.0, alpha=1.0, boil=None, col=None, col_d=None):
     """A whirl of sand: stacked tilted ellipses of carved strokes, wider at the top, leaning with the wind,
-    k 0..1 = how grown it is."""
+    k 0..1 = how grown it is. col / col_d recolour it (Mars dust in #05); default: desert sand."""
     if k <= 0:
+        return
+    if col is not None:
+        global SAND, SAND_D
+        _s, _sd = SAND, SAND_D
+        SAND, SAND_D = col, (col_d or col)
+        try:
+            dust_devil(c, x, y, h, t, k, alpha, boil)
+        finally:
+            SAND, SAND_D = _s, _sd
         return
     n = 11
     for i in range(n):
@@ -1533,3 +1542,190 @@ def snow_burst(c, x, y, k, n=40, spread=900, seed=11, up=600, size=(10, 34)):
         r = rng.uniform(*size) * (1 + 1.2 * k)
         c.drawPath(oval(px, py, r, r * 0.8), fill(SNOW, 1 - k ** 3))
         c.drawPath(oval(px, py, r, r * 0.8), ink(2.0, col=SNOW_D, alpha=0.7 * (1 - k ** 3)))
+
+
+# ---------------------------------------------------------------- Mars (added for #05)
+MARS_SKY = [rgb("#B9835C"), rgb("#D9A877"), rgb("#EBCB9F")]      # butterscotch day sky, darker at the top
+MARS_DUSK = [rgb("#2B2A3E"), rgb("#5D5866"), rgb("#9C8676")]     # the sky after sunset: dusky, brownish grey
+RUST, RUST_D, RUST_L = rgb("#B8573A"), rgb("#8A3B27"), rgb("#D98A5E")
+OCHRE = rgb("#C9874F")
+MARS_BLUE = rgb("#9CC4E0")
+
+
+def mars_sky(c, t, horizon=1000, sun=None, sun_r=60, dusk=0.0, blue=0.0):
+    """Mars's sky in the estampe grammar: a butterscotch bokashi by day; dusk 0..1 darkens it to a brownish grey,
+    blue 0..1 grows the cool blue glow that hugs the sun at sunset (Curiosity, Gale Crater, 2015). The sun is
+    smaller and paler than on Earth."""
+    cols = [mixc(MARS_SKY[i], MARS_DUSK[i], dusk) for i in range(3)]
+    p = skia.Paint()
+    p.setShader(skia.GradientShader.MakeLinear([(0, 0), (0, horizon)], cols, [0.0, 0.6, 1.0]))
+    c.drawRect(skia.Rect.MakeWH(W, horizon + 4), p)
+    if not sun:
+        return
+    sx, sy = sun
+    if blue > 0:
+        for i, r in enumerate((6.0, 4.4, 3.2, 2.2)):          # carved rings of blue, flattest outside
+            c.drawPath(oval(sx, sy, sun_r * r, sun_r * r * 0.8), fill(mixc(MARS_BLUE, cols[1], 0.15 * (3 - i)), 0.22 * blue))
+        g = skia.Paint(AntiAlias=True)
+        g.setShader(skia.GradientShader.MakeRadial((sx, sy), sun_r * 4.5,
+                                                    [skia.Color4f(0.78, 0.9, 1.0, 0.85 * blue), skia.Color4f(0.6, 0.78, 0.92, 0)]))
+        c.drawCircle(sx, sy, sun_r * 4.5, g)
+        for i, r in enumerate((1.6, 2.3, 3.1)):
+            c.drawCircle(sx, sy, sun_r * (r + 0.05 * math.sin(t * 2 - i)), ink(3, col=WHITE, alpha=(0.5 - 0.13 * i) * blue))
+    else:
+        g = skia.Paint(AntiAlias=True)
+        g.setShader(skia.GradientShader.MakeRadial((sx, sy), sun_r * 3,
+                                                    [skia.Color4f(1, 0.95, 0.85, 0.5), skia.Color4f(1, 0.9, 0.8, 0)]))
+        c.drawCircle(sx, sy, sun_r * 3, g)
+    sp = oval(sx, sy, sun_r, sun_r)
+    c.drawPath(sp, fill(mixc(rgb("#FFF4DE"), WHITE, blue)))
+    c.drawPath(sp, ink(2.5, col=mixc(OCHRE, MARS_BLUE, blue), alpha=0.7))
+
+
+def mars_ground(c, t, horizon, boil=None, seed=2, dusk=0.0, rocks=True, y_end=None):
+    """The red plain: bands of rust and ochre running to the horizon, wind ripples, scattered dark stones with an
+    ink outline and a lit top (on twos via boil)."""
+    y_end = y_end or H + 20
+    rng = np.random.default_rng(seed)
+    base = mixc(RUST, MARS_DUSK[1], 0.55 * dusk)
+    c.drawRect(skia.Rect.MakeLTRB(-20, horizon, W + 20, y_end), fill(base))
+    for j in range(7):                                # perspective bands
+        f0, f1 = (j / 7) ** 2.2, ((j + 1) / 7) ** 2.2
+        y0, y1 = horizon + (y_end - horizon) * f0, horizon + (y_end - horizon) * f1
+        col = mixc(RUST_L if j % 2 else OCHRE, base, 0.55 + 0.25 * dusk)
+        band = smooth_path([(-40, y0), (300, y0 + 6 * math.sin(j)), (700, y0 - 5), (W + 40, y0 + 4),
+                            (W + 40, y1), (-40, y1)])
+        c.drawPath(band, fill(col, 0.55))
+    mottle(c, rrect(-20, horizon, W + 40, y_end - horizon, 0), RUST_D, alpha=0.25, scale=0.01, seed=seed)
+    for j in range(12):                               # wind ripples
+        f = rng.uniform(0.05, 1.0) ** 1.8
+        y = horizon + (y_end - horizon) * f
+        x = rng.uniform(-100, W)
+        ln = 80 + 380 * f
+        p = skia.Path()
+        p.moveTo(x, y)
+        p.quadTo(x + ln / 2, y - 6 - 10 * f, x + ln, y)
+        c.drawPath(p, ink(1.5 + 3 * f, col=RUST_D, alpha=0.5))
+    c.drawLine(-20, horizon, W + 20, horizon, ink(3, alpha=0.6, boil=boil))
+    if not rocks:
+        return
+    for j in range(26):
+        f = rng.uniform(0.02, 1.0) ** 1.6
+        y = horizon + 8 + (y_end - horizon) * f
+        x = rng.uniform(-60, W + 60)
+        r = 6 + 70 * f * rng.uniform(0.5, 1.2)
+        pts = [(x + r * math.cos(a) * rng.uniform(0.75, 1.15), y - r * 0.55 * max(0.0, math.sin(a)) * rng.uniform(0.8, 1.3)
+                + (0 if math.sin(a) > 0 else -r * 0.08 * math.sin(a)))
+               for a in np.linspace(0, 2 * math.pi, 8, endpoint=False)]
+        rock = smooth_path(pts)
+        c.drawPath(oval(x + r * 0.3, y + r * 0.08, r * 1.1, r * 0.22), fill(RUST_D, 0.45))
+        c.drawPath(rock, fill(mixc(rgb("#5E3426"), MARS_DUSK[0], 0.4 * dusk)))
+        c.drawPath(oval(x - r * 0.2, y - r * 0.32, r * 0.45, r * 0.16), fill(RUST_L, 0.45 * (1 - dusk)))
+        c.drawPath(rock, ink(max(1.5, 1.5 + 2.5 * f), boil=boil))
+
+
+def mesa(c, x0, x1, base, h, boil=None, collapse=0.0, seed=7, dusk=0.0):
+    """A flat-topped butte in woodblock layers (strata lines, a shadow side). collapse 0..1: the blocks drop and
+    slide down into a heap, top first."""
+    rng = np.random.default_rng(seed)
+    n = 5
+    w = x1 - x0
+    for i in range(n):                                # layer i from the bottom
+        f0, f1 = i / n, (i + 1) / n
+        inset0 = 0.08 * w * f0 + 0.03 * w * math.sin(i * 2.1)
+        inset1 = 0.08 * w * f1 + 0.03 * w * math.sin((i + 1) * 2.1)
+        drop = 0.0
+        if collapse > 0:
+            ki = min(1.0, max(0.0, (collapse - 0.12 * (n - 1 - i)) / 0.5))
+            drop = ease_io(ki) * h * f0 * 0.95
+        y0, y1 = base - h * f0 + drop, base - h * f1 + drop
+        sh = (0.4 * w * (1 - f0)) * (collapse * 0.5)
+        pts = [(x0 + inset0 - sh, y0), (x1 - inset0 + sh * 0.5, y0), (x1 - inset1 + sh * 0.5, y1), (x0 + inset1 - sh, y1)]
+        p = skia.Path()
+        p.addPoly([skia.Point(*q) for q in pts], True)
+        col = mixc(mixc(RUST_L, RUST, (i % 2) * 0.5), MARS_DUSK[1], 0.5 * dusk)
+        c.drawPath(p, fill(col))
+        shade = skia.Path()
+        shade.addPoly([skia.Point(*q) for q in (((x0 + x1) / 2 + 0.2 * w, y0), pts[1], pts[2], ((x0 + x1) / 2 + 0.22 * w, y1))], True)
+        c.drawPath(shade, fill(RUST_D, 0.45))
+        for k in range(3):                            # carved hatching
+            yy = y0 + (y1 - y0) * (k + 1) / 4
+            c.drawLine(x0 + inset0 + 20 + rng.uniform(0, 30), yy, x1 - inset0 - 20 - rng.uniform(0, 60), yy, ink(2, col=RUST_D, alpha=0.6))
+        c.drawPath(p, ink(3.5, boil=boil))
+
+
+def lander(c, x, base, s=1.0, boil=None, dish=0.0, t=0.0, alpha=1.0):
+    """A generic old lander (no agency, no markings): a box on three splayed legs, a solar panel, a mast with a
+    dish antenna. dish 0..1: the dish snaps off and spins away up-right (NOPE 2)."""
+    c.save()
+    c.translate(x, base)
+    c.scale(s, s)
+    L = ink(4.0 / s, boil=boil, alpha=alpha)
+    for dx in (-150, 0, 150):                         # legs and foot pads
+        c.drawLine(dx * 0.45, -120, dx, -8, ink(9 / s, col=IRON, alpha=alpha))
+        c.drawLine(dx * 0.45, -120, dx, -8, L)
+        c.drawPath(oval(dx, -6, 26, 9), fill(rgb("#7C7F86"), alpha))
+        c.drawPath(oval(dx, -6, 26, 9), L)
+    body = rrect(-110, -230, 220, 120, 10)
+    c.drawPath(body, fill(rgb("#C9C2B2"), alpha))
+    c.drawPath(rrect(-110, -150, 220, 40, 6), fill(rgb("#A79F8E"), alpha))
+    c.drawPath(rrect(-80, -205, 70, 40, 4), fill(rgb("#E3B85A"), alpha))       # gold foil panel
+    c.drawPath(body, L)
+    panel = skia.Path()                               # the solar panel, tilted
+    panel.addPoly([skia.Point(*q) for q in ((-110, -200), (-300, -250), (-300, -170), (-110, -150))], True)
+    c.drawPath(panel, fill(rgb("#2E4A6E"), alpha))
+    for k in range(1, 4):
+        c.drawLine(-110 - 47.5 * k, -200 - 12.5 * k, -110 - 47.5 * k, -150 - 5 * k, ink(2 / s, col=rgb("#8FB0D0"), alpha=alpha))
+    c.drawPath(panel, L)
+    c.drawLine(60, -230, 60, -330, ink(6 / s, alpha=alpha))       # the mast
+    if dish < 1:
+        c.save()
+        if dish > 0:
+            k = ease_io(dish)
+            c.translate(60 + 900 * k, -330 - 700 * k + 900 * k * k)
+            c.rotate(720 * k)
+        else:
+            c.translate(60, -330)
+        d = skia.Path()
+        d.addArc(skia.Rect.MakeLTRB(-70, -70, 70, 40), 200, 140)
+        d.close()
+        c.drawPath(d, fill(rgb("#E8E1D0"), alpha))
+        c.drawPath(d, L)
+        c.drawLine(0, -10, 0, -60, ink(3 / s, alpha=alpha))
+        c.restore()
+    c.restore()
+
+
+def dust_burst(c, x, y, k, n=40, spread=900, seed=11, up=600, size=(10, 34), col=None, line=None):
+    """Red dust thrown up by a blast (like snow_burst, recoloured): clumps fly out, arc up, fall, fade."""
+    if k <= 0 or k >= 1:
+        return
+    col = col or RUST_L
+    line = line or RUST_D
+    rng = np.random.default_rng(seed)
+    for j in range(n):
+        a = rng.uniform(-math.pi * 0.95, -math.pi * 0.05)
+        sp = rng.uniform(0.4, 1.0)
+        px = x + math.cos(a) * spread * sp * k
+        py = y + math.sin(a) * up * sp * math.sin(min(1.0, k * 1.4) * math.pi * 0.8) + 400 * k * k
+        r = rng.uniform(*size) * (1 + 1.6 * k)
+        c.drawPath(oval(px, py, r, r * 0.8), fill(col, 0.9 * (1 - k ** 2)))
+        c.drawPath(oval(px, py, r, r * 0.8), ink(2.0, col=line, alpha=0.7 * (1 - k ** 2)))
+
+
+def dust_wall(c, t, k, horizon, boil=None):
+    """A storm front of dust rolling in from both sides (NOPE 3): stacked billows, carved outlines, k 0..1."""
+    if k <= 0:
+        return
+    for side in (-1, 1):
+        front = 540 + side * (760 - 560 * ease_io(min(1.0, k)))
+        for row in range(5):
+            y = horizon - 520 + row * 190
+            for j in range(4):
+                bx = front + side * (j * 150 + 60 * math.sin(row + j))
+                r = 150 + 30 * math.sin(t * 3 + row * 1.7 + j)
+                col = mixc(RUST_L, OCHRE, (row + j) % 3 / 3)
+                c.drawPath(oval(bx, y, r, r * 0.85), fill(col, 0.95))
+                arc = skia.Path()
+                arc.addArc(skia.Rect.MakeLTRB(bx - r, y - r * 0.85, bx + r, y + r * 0.85), 190 if side > 0 else 250, 110)
+                c.drawPath(arc, ink(3.5, col=RUST_D, alpha=0.8, boil=boil))
