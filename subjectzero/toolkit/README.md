@@ -92,3 +92,15 @@ Then the mix gate: copy `out/<ep>_lines.json` to `out/<ep>mix_lines.json`, write
   in the mix, not only in the voice chain.
 - **The end shot is a setup too** (≤ 8 s): cut to her close-up for her reaction, clear the end cards first.
 - **Hedge reported speech** ("supposedly said") even when a park page tells the story.
+
+## Lessons from the review of #04
+
+- **Say what the number is.** "YOU'D LAST 25 YEARS" read as a survival time when it was a term of service: the HUD
+  now says "YOU'RE IN FOR", and the voice adds "If you make it". A HUD label is a claim too.
+- **Don't spend the twist early.** Saying "a letter found here" at 18 s spoiled "their letters survived" at 47 s.
+  Keep the source of a mid-video fact vague until the payoff that reveals it.
+- **The wow number must be impressive on its own**: 30 km in 6 h is walking pace; lead with the load (20 kg).
+- **Give the lab real stakes** (a real document: the fort's sick list) rather than filler.
+- **Keep the damage of NOPE 3 on screen for at least 1 s** before the cut (speed up the collapse, cut later).
+- **The end choice stays on screen** as a one-line strip until 0.3 s before the flash.
+- **The mix gate can flip on a short line**: cut the music and the bed under a 2-word line ("Thirty WHAT?").

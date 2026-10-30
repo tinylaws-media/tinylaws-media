@@ -1208,3 +1208,328 @@ def covered_wagon(c, x, y, s=1.0, boil=None, alpha=1.0, t=0.0):
             c.drawLine(wx, -r + 4, wx + r * math.cos(a), -r + 4 + r * math.sin(a), ink(3.5 / s, col=rgb("#5A3A2A"), alpha=alpha))
         c.drawCircle(wx, -r + 4, 12, fill(rgb("#5A3A2A"), alpha))
     c.restore()
+
+
+# ---------------------------------------------------------------- a Roman frontier fort in winter (added for #04)
+TIMBER, TIMBER_D, TIMBER_L = rgb("#8A5A3A"), rgb("#5E3B26"), rgb("#B88A5E")
+WINTER_SKY = [rgb("#4E6680"), rgb("#8EA3B7"), rgb("#D9DCD6")]
+MUD, MUD_D, MUD_L = rgb("#5B4632"), rgb("#3A2B1F"), rgb("#7D6448")
+LEAF_WOOD, LEAF_WOOD_D = rgb("#DCC59A"), rgb("#B89C6C")
+IRON = rgb("#4A4F57")
+STONE, STONE_D, STONE_L = rgb("#A79F92"), rgb("#7C7468"), rgb("#C9C1B2")
+
+
+def winter_sky(c, t, horizon=1000, sun=(720, 360), sun_r=64):
+    """A low northern winter sky: slate blue at the top, a pale bokashi band, the sun a dim disc behind cloud,
+    long grey cloud bands drifting (suyari-gasumi in winter colours)."""
+    p = skia.Paint()
+    p.setShader(skia.GradientShader.MakeLinear([(0, 0), (0, horizon)], WINTER_SKY, [0.0, 0.6, 1.0]))
+    c.drawRect(skia.Rect.MakeWH(W, horizon + 4), p)
+    if sun:
+        g = skia.Paint(AntiAlias=True)
+        g.setShader(skia.GradientShader.MakeRadial(sun, sun_r * 3.0, [skia.Color4f(1, 0.97, 0.88, 0.5), skia.Color4f(1, 1, 1, 0)]))
+        c.drawCircle(sun[0], sun[1], sun_r * 3.0, g)
+        c.drawCircle(sun[0], sun[1], sun_r, fill(rgb("#F4EEDC"), 0.9))
+    for j, (y, w, h, sp) in enumerate(((horizon * 0.22, 640, 34, 7), (horizon * 0.38, 520, 28, -5), (horizon * 0.55, 700, 30, 4))):
+        x = ((-200 + j * 330 + sp * t) % (W + 700)) - 350
+        mist_band(c, x, y, w, h, alpha=0.55, col=mixc(WHITE, WINTER_SKY[1], 0.25))
+
+
+def snow_ground(c, t, horizon, boil=None, seed=2, alpha=1.0):
+    """Snow from the horizon down: soft drifts with blue shadow lines carved along their crests."""
+    g = skia.Paint()
+    g.setShader(skia.GradientShader.MakeLinear([(0, horizon), (0, horizon + 420)], [SNOW_SH, SNOW]))
+    g.setAlphaf(alpha)
+    c.drawRect(skia.Rect.MakeXYWH(-50, horizon, W + 100, H - horizon + 50), g)
+    rng = np.random.default_rng(seed)
+    y = horizon + 30
+    k = 0
+    while y < H + 60:
+        pts = []
+        ph = rng.uniform(0, 6.3)
+        amp = 6 + (y - horizon) * 0.03
+        for i in range(13):
+            x = -60 + i * (W + 120) / 12
+            pts.append((x, y + amp * math.sin(i * 0.9 + ph)))
+        drift = smooth_path(pts, closed=False)
+        c.drawPath(drift, ink(2.0 + (y - horizon) * 0.004, col=SNOW_D, alpha=0.45 * alpha, boil=boil))
+        y += 50 + (y - horizon) * 0.35
+        k += 1
+    c.drawLine(-20, horizon, W + 20, horizon, ink(3, col=SNOW_D, alpha=0.6 * alpha))
+
+
+def _post(c, x, base, w, h, tone, boil, snow, seed):
+    p = skia.Path()
+    p.moveTo(x, base)
+    p.lineTo(x, base - h)
+    p.lineTo(x + w * 0.5, base - h - w * 0.75)
+    p.lineTo(x + w, base - h)
+    p.lineTo(x + w, base)
+    p.close()
+    col = mixc(TIMBER, TIMBER_D, tone)
+    c.drawPath(p, fill(col))
+    woodgrain(c, p, alpha=0.22, seed=seed, fx=0.06, fy=0.003)
+    c.drawLine(x + w * 0.72, base - h + 6, x + w * 0.72, base - 4, ink(w * 0.22, col=TIMBER_D, alpha=0.35))
+    c.drawPath(p, ink(3.5, boil=boil))
+    if snow > 0:
+        cap = smooth_path([(x - 2, base - h - 2), (x + w * 0.5, base - h - w * 0.75 - 8), (x + w + 2, base - h - 2),
+                           (x + w * 0.5, base - h + 10)])
+        c.drawPath(cap, fill(SNOW, snow))
+        c.drawPath(cap, ink(2.0, col=SNOW_D, alpha=0.8 * snow))
+
+
+def palisade(c, x0, x1, base, h, boil=None, fall=None, seed=4, snow=1.0, post_w=46):
+    """The timber rampart of an early fort: a row of pointed posts with snow on each point and two rails.
+    fall = function(index, x) -> angle in degrees (0 upright, up to ~80: tipped over to the right, like dominoes);
+    a falling post loses its snow."""
+    rng = np.random.default_rng(seed)
+    n = int((x1 - x0) / post_w) + 1
+    angles = [fall(i, x0 + i * post_w) if fall else 0.0 for i in range(n)]
+    if not any(angles):
+        for yy in (base - h * 0.28, base - h * 0.72):
+            c.drawPath(rrect(x0 - 10, yy - 9, x1 - x0 + 20, 18, 6), fill(TIMBER_D))
+            c.drawPath(rrect(x0 - 10, yy - 9, x1 - x0 + 20, 18, 6), ink(2.5, boil=boil))
+    for i in range(n):
+        x = x0 + i * post_w
+        tone = rng.uniform(0, 0.5)
+        hh = h * rng.uniform(0.94, 1.04)
+        a = angles[i]
+        c.save()
+        if a:
+            c.translate(x + post_w, base)
+            c.rotate(a)
+            c.translate(-(x + post_w), -base)
+        _post(c, x, base, post_w - 3, hh, tone, boil, snow * (1 - min(1.0, a / 12.0)), seed + i)
+        c.restore()
+
+
+def gate_tower(c, x, base, s=1.0, boil=None, topple=0.0, snow=1.0):
+    """A timber gate tower (no people): four legs, a planked fighting platform with a parapet, a pyramid roof.
+    (x, base) = the middle of its foot; about 520 px tall at s = 1. topple 0..1 = it tips over to the right."""
+    c.save()
+    c.translate(x, base)
+    if topple:
+        c.translate(140 * s, 0)
+        c.rotate(80 * ease_io(topple))
+        c.translate(-140 * s, 0)
+    c.scale(s, s)
+    L = ink(4.0 / s, boil=boil)
+    for lx in (-120, -50, 50, 120):
+        leg = rrect(lx - 13, -300, 26, 300, 4)
+        c.drawPath(leg, fill(TIMBER_D))
+        c.drawPath(leg, L)
+    for (a, b) in ((-120, 50), (-50, 120)):           # cross braces
+        c.drawLine(a, -40, b, -260, ink(10, col=TIMBER, alpha=0.95))
+        c.drawLine(a, -40, b, -260, ink(2.5 / s))
+    box = rrect(-150, -440, 300, 150, 6)
+    c.drawPath(box, fill(TIMBER))
+    for k in range(1, 8):
+        c.drawLine(-150 + k * 300 / 8, -440, -150 + k * 300 / 8, -290, ink(2.5 / s, col=TIMBER_D, alpha=0.8))
+    woodgrain(c, box, alpha=0.18, seed=9, fx=0.05, fy=0.004)
+    c.drawPath(box, L)
+    c.drawPath(rrect(-170, -300, 340, 22, 5), fill(TIMBER_D))
+    c.drawPath(rrect(-170, -300, 340, 22, 5), L)
+    roof = skia.Path()
+    roof.moveTo(-190, -430)
+    roof.lineTo(0, -560)
+    roof.lineTo(190, -430)
+    roof.close()
+    c.drawPath(roof, fill(rgb("#6B4A35")))
+    for k in range(1, 4):
+        c.drawLine(-190 + k * 47, -430 + k * 0, 0, -560, ink(2 / s, col=TIMBER_D, alpha=0.6))
+    c.drawPath(roof, L)
+    if snow > 0:
+        sn = smooth_path([(-196, -428), (-120, -486), (0, -566), (120, -486), (196, -428), (120, -446), (40, -470),
+                          (-60, -452)])
+        c.drawPath(sn, fill(SNOW, snow))
+        c.drawPath(sn, ink(2.5 / s, col=SNOW_D, alpha=snow))
+    c.restore()
+
+
+def barrack(c, x0, x1, base, h, boil=None, shingles_off=0.0, t=0.0, snow=1.0, seed=6):
+    """A long timber barrack block: plank wall, small doors, a shingle roof under snow. shingles_off 0..1: the roof
+    shingles rip off and fly to the right and toward the camera (they grow as they come)."""
+    wall = rrect(x0, base - h, x1 - x0, h, 4)
+    c.drawPath(wall, fill(TIMBER_L))
+    for yy in np.arange(base - h + 24, base, 24):
+        c.drawLine(x0, yy, x1, yy, ink(2, col=TIMBER, alpha=0.7))
+    woodgrain(c, wall, alpha=0.18, seed=seed)
+    for dx in np.arange(x0 + 50, x1 - 40, 150):
+        d = rrect(dx, base - h * 0.62, 56, h * 0.62, 4)
+        c.drawPath(d, fill(TIMBER_D))
+        c.drawPath(d, ink(3, boil=boil))
+    c.drawPath(wall, ink(3.5, boil=boil))
+    rt = base - h - 110
+    roof = skia.Path()
+    roof.moveTo(x0 - 30, base - h + 6)
+    roof.lineTo(x0 + 30, rt)
+    roof.lineTo(x1 - 30, rt)
+    roof.lineTo(x1 + 30, base - h + 6)
+    roof.close()
+    c.drawPath(roof, fill(rgb("#5A4334")))
+    rng = np.random.default_rng(seed)
+    flying = []
+    for r in range(4):
+        yy = rt + 8 + r * 27
+        x = x0 + 30 - r * 15 + (r % 2) * 20
+        while x < x1 - 30 + r * 15:
+            sw = 40
+            off = shingles_off > 0 and rng.uniform() < 0.92
+            delay = rng.uniform(0, 0.35)
+            if off and shingles_off > delay:
+                flying.append((x, yy, rng.uniform(-1, 1), rng.uniform(0.6, 1.4), (shingles_off - delay) / (1 - delay)))
+            else:
+                sh = rrect(x, yy, sw - 4, 30, 3)
+                c.drawPath(sh, fill(mixc(rgb("#7A5A42"), TIMBER_D, rng.uniform(0, 0.5))))
+                c.drawPath(sh, ink(2, alpha=0.8))
+            x += sw
+    c.drawPath(roof, ink(3.5, boil=boil))
+    if snow > 0 and shingles_off <= 0:
+        sn = smooth_path([(x0 - 34, base - h + 4), (x0 + 26, rt - 12), (x1 - 26, rt - 12), (x1 + 34, base - h + 4),
+                          (x1 - 10, base - h - 14), (x0 + 10, base - h - 14)])
+        c.drawPath(sn, fill(SNOW, snow * 0.95))
+        c.drawPath(sn, ink(2.5, col=SNOW_D, alpha=snow))
+    for (x, yy, spin, sp, k) in flying:
+        k = min(1.0, k)
+        if k >= 1:
+            continue
+        sc = 1 + 3.5 * k * sp
+        px = x + 900 * k * sp
+        py = yy - 500 * math.sin(k * math.pi * 0.9) * sp + 900 * k * k
+        c.save()
+        c.translate(px, py)
+        c.rotate(720 * k * spin)
+        c.scale(sc, sc)
+        sh = rrect(-18, -15, 36, 30, 3)
+        c.drawPath(sh, fill(rgb("#7A5A42")))
+        c.drawPath(sh, ink(2.5 / sc))
+        c.restore()
+
+
+def leaf_tablet(c, x, y, w, h, rot=0.0, seed=1, boil=None, alpha=1.0, rows=7, hl=(), hand2=(), hl_k=1.0, fold=True,
+                ink_k=1.0):
+    """A Vindolanda-style leaf tablet: a thin sheet of pale wood (about postcard size) written in ink in cursive,
+    folded down the middle. The writing is drawn, never real text: rows of looping strokes. hl = row indices washed
+    in yellow (hl_k 0..1); hand2 = rows in a second, looser hand and darker ink (an author's own lines);
+    ink_k 0..1 = how much of the writing shows."""
+    c.save()
+    c.translate(x, y)
+    c.rotate(rot)
+    sheet = rrect(-w / 2, -h / 2, w, h, 8)
+    c.drawPath(rrect(-w / 2 + 10, -h / 2 + 12, w, h, 8), fill(INKC, 0.3 * alpha))
+    c.drawPath(sheet, fill(LEAF_WOOD, alpha))
+    woodgrain(c, sheet, alpha=0.25 * alpha, seed=seed, fx=0.004, fy=0.08)
+    mottle(c, sheet, LEAF_WOOD_D, alpha=0.18 * alpha, scale=0.02, seed=seed)
+    if fold:
+        c.drawLine(0, -h / 2 + 4, 0, h / 2 - 4, ink(2.5, col=LEAF_WOOD_D, alpha=0.9 * alpha))
+    rng = np.random.default_rng(seed)
+    lh = (h - 60) / rows
+    total = 0
+    for r in range(rows):
+        yy = -h / 2 + 40 + r * lh + lh * 0.55
+        if r in hl and hl_k > 0:
+            c.drawPath(rrect(-w / 2 + 18, yy - lh * 0.62, (w - 36) * ease_io(hl_k), lh * 0.8, 6), fill(YEL_L, 0.55 * alpha))
+        two = r in hand2
+        col = rgb("#3B2416") if two else rgb("#2A2420")
+        for half in (-1, 1):
+            xa = -w / 2 + 26 if half < 0 else 14
+            xb = -14 if half < 0 else w / 2 - 26
+            if not fold and half > 0:
+                continue
+            if not fold:
+                xb = w / 2 - 26
+            x = xa + rng.uniform(0, 10)
+            line_end = xb - rng.uniform(0, (xb - xa) * 0.3) if r % 3 == 2 else xb
+            p = skia.Path()
+            p.moveTo(x, yy)
+            while x < line_end:
+                total += 1
+                if total > ink_k * 400:
+                    break
+                step = rng.uniform(9, 15) * (1.25 if two else 1.0)
+                up = rng.uniform(10, 24) * (1.3 if two else 1.0)
+                if rng.uniform() < 0.18:
+                    up *= 1.8                        # a tall stroke (b, d, s of Roman cursive)
+                p.cubicTo(x + step * 0.3, yy - up, x + step * 0.7, yy - up * 0.2 + (rng.uniform(-6, 6) if two else 0),
+                          x + step, yy + rng.uniform(-3, 3))
+                x += step
+                if rng.uniform() < 0.12:
+                    x += rng.uniform(8, 16)
+                    p.moveTo(x, yy)
+            c.drawPath(p, ink(3.2 if two else 2.4, col=col, alpha=0.9 * alpha))
+    c.drawPath(sheet, ink(3.5, alpha=alpha, boil=boil))
+    c.restore()
+
+
+def barrel(c, x, y, s=1.0, boil=None, alpha=1.0, tap=True):
+    """A wooden barrel standing up: staves, two iron hoops, a little wooden tap. (x, y) = its foot centre."""
+    c.save()
+    c.translate(x, y)
+    c.scale(s, s)
+    L = ink(5.0 / s, alpha=alpha, boil=boil)
+    body = smooth_path([(-120, 0), (-150, -150), (-120, -300), (120, -300), (150, -150), (120, 0)])
+    c.drawPath(body, fill(TIMBER, alpha))
+    c.save()
+    c.clipPath(body, doAntiAlias=True)
+    for k in range(-5, 6):
+        p = skia.Path()
+        p.moveTo(k * 24, 0)
+        p.quadTo(k * 30, -150, k * 24, -300)
+        c.drawPath(p, ink(2.5 / s, col=TIMBER_D, alpha=0.7 * alpha))
+    woodgrain(c, body, alpha=0.2 * alpha, seed=3, fx=0.05, fy=0.004)
+    c.restore()
+    for yy in (-60, -240):
+        hp = skia.Path()
+        hp.moveTo(-140, yy)
+        hp.quadTo(0, yy + 14, 140, yy)
+        c.drawPath(hp, ink(16, col=IRON, alpha=alpha))
+    c.drawPath(body, L)
+    top = oval(0, -300, 120, 22)
+    c.drawPath(top, fill(TIMBER_L, alpha))
+    c.drawPath(top, L)
+    if tap:
+        c.drawPath(rrect(130, -95, 50, 20, 6), fill(TIMBER_D, alpha))
+        c.drawPath(rrect(162, -95, 16, 40, 5), fill(TIMBER_D, alpha))
+        c.drawPath(rrect(130, -95, 50, 20, 6), L)
+    c.restore()
+
+
+def steam(c, t, x, y, w=300, n=6, alpha=0.7, height=420):
+    """Warm steam curling up from (x, y): long S-strokes rising and fading, on twos."""
+    for j in range(n):
+        ph = (t * 0.45 + j / n) % 1.0
+        xx = x - w / 2 + w * (j + 0.5) / n + 20 * math.sin(t + j)
+        yy = y - height * ph
+        p = skia.Path()
+        p.moveTo(xx, yy + 90)
+        p.cubicTo(xx - 30, yy + 50, xx + 30, yy + 30, xx, yy)
+        c.drawPath(p, ink(8, col=WHITE, alpha=alpha * math.sin(ph * math.pi)))
+
+
+def breath(c, t, x, y, k=1.0, s=1.0):
+    """Her breath fogging in the cold: a puff that swells, drifts up-right and fades, every ~1.5 s."""
+    if k <= 0:
+        return
+    ph = (t / 1.5) % 1.0
+    if ph > 0.7:
+        return
+    q = ph / 0.7
+    for j in range(3):
+        r = (14 + 30 * q) * s * (1 - 0.2 * j)
+        c.drawPath(oval(x + (30 + 60 * q + 18 * j) * s, y - (10 + 30 * q + 8 * j) * s, r, r * 0.75),
+                   fill(WHITE, 0.55 * k * (1 - q)))
+
+
+def snow_burst(c, x, y, k, n=40, spread=900, seed=11, up=600, size=(10, 34)):
+    """Snow thrown up by a blast: clumps fly out from (x, y), arc up and fall, growing as they come toward us."""
+    if k <= 0 or k >= 1:
+        return
+    rng = np.random.default_rng(seed)
+    for j in range(n):
+        a = rng.uniform(-math.pi * 0.95, -math.pi * 0.05)
+        sp = rng.uniform(0.4, 1.0)
+        px = x + math.cos(a) * spread * sp * k
+        py = y + math.sin(a) * up * sp * math.sin(min(1.0, k * 1.4) * math.pi * 0.8) + 500 * k * k
+        r = rng.uniform(*size) * (1 + 1.2 * k)
+        c.drawPath(oval(px, py, r, r * 0.8), fill(SNOW, 1 - k ** 3))
+        c.drawPath(oval(px, py, r, r * 0.8), ink(2.0, col=SNOW_D, alpha=0.7 * (1 - k ** 3)))
