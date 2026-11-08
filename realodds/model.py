@@ -115,6 +115,8 @@ for f in F:
         w *= 0.5
     if "?" in f["flags"]:
         w *= 0.5
+    if len(f["a"]) > 1 or len(f["b"]) > 1:
+        w *= 0.75   # team fights: shared credit, counted less
     wts.append(w)
     tga.append([1.0 if t in f["ta"] else 0.0 for t in TAGS])
     tgb.append([1.0 if t in f["tb"] else 0.0 for t in TAGS])
@@ -177,7 +179,12 @@ for k, (c, t) in enumerate(nodes):
 x0[N + NT:] = [math.log(0.4), 0.0, math.log(1.2)]
 x0[N:N + NT] = [TAG_PRIOR[t] for t in TAGS]
 res = minimize(lambda x: float(f_val(x)), x0, jac=lambda x: np.asarray(f_grad(x)), method="L-BFGS-B",
-               options=dict(maxiter=5000))
+               options=dict(maxiter=50000, maxfun=100000, ftol=1e-12, gtol=1e-6))
+for _ in range(3):
+    gnorm = float(np.abs(np.asarray(f_grad(res.x))).max())
+    if gnorm < 1e-3: break
+    res = minimize(lambda x: float(f_val(x)), res.x, jac=lambda x: np.asarray(f_grad(x)), method="L-BFGS-B", options=dict(maxiter=50000, maxfun=100000, ftol=1e-14, gtol=1e-7))
+print("max |grad|", float(np.abs(np.asarray(f_grad(res.x))).max()), res.message)
 print("MAP", res.success, res.fun, "params", P, "fights", len(F))
 th = res.x
 H = np.asarray(jax.jit(jax.hessian(neg_logpost))(th))

@@ -79,7 +79,7 @@ section[hidden]{display:none}
 
 <div class="wrap">
 <header>
-  <div class="kicker">The Real Odds · Naruto · modèle v1</div>
+  <div class="kicker">The Real Odds · Naruto · modèle v2</div>
   <h1>Qui gagne, d'après tous les combats de l'œuvre</h1>
   <p>Chaque combat du manga, de l'ère de Kaguya à Two Blue Vortex, place les deux combattants sur une même échelle de force. Choisis deux personnages et deux moments de l'histoire : le modèle donne la cote, avec sa fourchette.</p>
 </header>
@@ -152,7 +152,7 @@ section[hidden]{display:none}
 <section id="v-methode" hidden class="method">
   <h2>Comment la cote est calculée</h2>
   <div class="panel">
-    <p><b>Les combats d'abord.</b> Chaque personnage a une force cachée qui évolue dans le temps (elle dérive doucement d'une année à l'autre, avec des sauts aux grands power-ups : Mode Ermite, Kyūbi, Six Chemins). Chaque combat est une mesure de l'écart entre deux forces : qui gagne, et avec quelle netteté (à l'arraché, nette, écrasante, ou nul). Les combats à plusieurs comptent pour l'équipe entière. Un corps d'Edo Tensei garde la force de la personne à sa mort.</p>
+    <p><b>Les combats d'abord.</b> Chaque personnage a une force cachée qui évolue dans le temps (elle dérive doucement d'une année à l'autre, avec des sauts aux grands power-ups : Mode Ermite, Kyūbi, Six Chemins). Chaque combat est une mesure de l'écart entre deux forces : qui gagne, et avec quelle netteté (à l'arraché, nette, écrasante, ou nul). Dans un combat à plusieurs, la force de l'équipe est dominée par son membre le plus fort : quand Sakura et Chiyo battent Sasori, c'est surtout Chiyo qui en profite, et la victoire ne fait presque pas monter Sakura. Ces combats comptent aussi un peu moins (×0,75). Un corps d'Edo Tensei garde la force de la personne à sa mort.</p>
     <p><b>Les conditions sont estimées, pas fixées.</b> Maladie, épuisement, retenue, surprise, préparation, boost temporaire (portes, marque maudite, pilules) : le modèle estime lui-même combien chacune pèse, à partir de tous les combats.</p>
     <p><b>Le statut ne sert qu'à combler les trous.</b> Chaque personnage part d'un a priori large selon son rang au premier combat (genin, jounin, kage, légende…). Plus il a combattu, moins cet a priori compte : la page Duel affiche la part de la cote qui vient des combats.</p>
     <p><b>Calcul.</b> Logit ordinal dynamique (famille Bradley–Terry), maximum a posteriori et approximation de Laplace. La cote d'un duel tire 4 000 combats au hasard dans les deux fourchettes. Comme le modèle lit toute l'œuvre, un combat tardif peut aussi éclairer la force d'un personnage plus tôt.</p>
