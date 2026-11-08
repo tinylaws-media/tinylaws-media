@@ -58,6 +58,8 @@ ul.fl li{display:grid;grid-template-columns:28px 1fr;gap:8px;font-size:14px;alig
 .res{font:700 12px var(--f-mono);border-radius:5px;text-align:center;padding:2px 0}
 .res.w{background:color-mix(in oklab,var(--s3) 22%,transparent)} .res.l{background:color-mix(in oklab,var(--a) 22%,transparent)} .res.d{background:var(--chip)}
 .later{opacity:.55}
+#whyb ul.fl li{grid-template-columns:56px 1fr}
+#whyb h3{font:800 16px var(--f-display);margin:0 0 6px}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
 .chip{display:inline-flex;align-items:center;gap:6px;background:var(--chip);border-radius:999px;padding:4px 10px 4px 8px;font-size:14px}
 .chip i{width:10px;height:10px;border-radius:50%;display:inline-block}
@@ -79,7 +81,7 @@ section[hidden]{display:none}
 
 <div class="wrap">
 <header>
-  <div class="kicker">The Real Odds · Naruto · modèle v2</div>
+  <div class="kicker">The Real Odds · Naruto · modèle v3</div>
   <h1>Qui gagne, d'après tous les combats de l'œuvre</h1>
   <p>Chaque combat du manga, de l'ère de Kaguya à Two Blue Vortex, place les deux combattants sur une même échelle de force. Choisis deux personnages et deux moments de l'histoire : le modèle donne la cote, avec sa fourchette.</p>
 </header>
@@ -92,11 +94,13 @@ section[hidden]{display:none}
     <div class="row" style="align-items:stretch">
       <div class="fighter fa"><span class="tag">COMBATTANT A</span>
         <div><label for="ca">Personnage</label><select id="ca"></select></div>
-        <div><label for="aa">Moment de l'histoire</label><select id="aa"></select></div></div>
+        <div><label for="aa">Moment de l'histoire</label><select id="aa"></select></div>
+        <div><label for="sa">État pour ce duel</label><select id="sa" class="state"></select></div></div>
       <div class="vs" aria-hidden="true">vs</div>
       <div class="fighter fb"><span class="tag">COMBATTANT B</span>
         <div><label for="cb">Personnage</label><select id="cb"></select></div>
-        <div><label for="ab">Moment de l'histoire</label><select id="ab"></select></div></div>
+        <div><label for="ab">Moment de l'histoire</label><select id="ab"></select></div>
+        <div><label for="sb">État pour ce duel</label><select id="sb" class="state"></select></div></div>
     </div>
     <div class="odds" aria-live="polite">
       <div class="oddsnum">
@@ -114,6 +118,7 @@ section[hidden]{display:none}
     <div class="panel"><h3 id="eva">Combats de A</h3><ul class="fl" id="la"></ul></div>
     <div class="panel"><h3 id="evb">Combats de B</h3><ul class="fl" id="lb"></ul></div>
   </div>
+  <div class="panel" style="margin-top:16px"><h3 style="font:800 17px var(--f-display);margin:0 0 6px">Pourquoi cette cote</h3><div class="ev" id="whyb" style="margin-top:8px"></div></div>
   <div class="panel" style="margin-top:16px"><h3 style="font:800 17px var(--f-display);margin:0 0 6px">Adversaires communs</h3><p class="note" id="common"></p></div>
 </section>
 
@@ -154,6 +159,8 @@ section[hidden]{display:none}
   <div class="panel">
     <p><b>Les combats d'abord.</b> Chaque personnage a une force cachée qui évolue dans le temps (elle dérive doucement d'une année à l'autre, avec des sauts aux grands power-ups : Mode Ermite, Kyūbi, Six Chemins). Chaque combat est une mesure de l'écart entre deux forces : qui gagne, et avec quelle netteté (à l'arraché, nette, écrasante, ou nul). Dans un combat à plusieurs, la force de l'équipe est dominée par son membre le plus fort : quand Sakura et Chiyo battent Sasori, c'est surtout Chiyo qui en profite, et la victoire ne fait presque pas monter Sakura. Ces combats comptent aussi un peu moins (×0,75). Un corps d'Edo Tensei garde la force de la personne à sa mort.</p>
     <p><b>Les conditions sont estimées, pas fixées.</b> Maladie, épuisement, retenue, surprise, préparation, boost temporaire (portes, marque maudite, pilules) : le modèle estime lui-même combien chacune pèse, à partir de tous les combats.</p>
+    <p><b>Les databooks officiels comptent aussi.</b> Les notes sur 40 des trois databooks de Kishimoto sont reliées à la force par une courbe que le modèle apprend lui-même (les écarts comptent plus en haut de l'échelle, où les notes plafonnent). Elles pèsent moins qu'un combat.</p>
+    <p><b>L'état du jour se règle dans le Duel.</b> Préparé, transformation temporaire, 8e porte, épuisé, malade : chaque état ajoute l'effet que le modèle a mesuré sur les combats où il apparaissait.</p>
     <p><b>Le statut ne sert qu'à combler les trous.</b> Chaque personnage part d'un a priori large selon son rang au premier combat (genin, jounin, kage, légende…). Plus il a combattu, moins cet a priori compte : la page Duel affiche la part de la cote qui vient des combats.</p>
     <p><b>Calcul.</b> Logit ordinal dynamique (famille Bradley–Terry), maximum a posteriori et approximation de Laplace. La cote d'un duel tire 4 000 combats au hasard dans les deux fourchettes. Comme le modèle lit toute l'œuvre, un combat tardif peut aussi éclairer la force d'un personnage plus tôt.</p>
     <div class="tw"><table><thead><tr><th>Condition</th><th>Effet estimé (échelons)</th><th>Fourchette</th></tr></thead><tbody id="tagt"></tbody></table></div>
@@ -192,19 +199,23 @@ function fillArcs(sel,c,def){const s=CH[c].series;sel.innerHTML=s.map(x=>`<optio
   sel.value=s.some(x=>x.arc===def)?def:s[s.length-1].arc;}
 
 // ---------- duel
+const sa=document.getElementById('sa'),sb=document.getElementById('sb');
 const ca=document.getElementById('ca'),cb=document.getElementById('cb'),aa=document.getElementById('aa'),ab=document.getElementById('ab');
 fillChars(ca,'itachi');fillChars(cb,'minato');fillArcs(aa,'itachi','itachi');fillArcs(ab,'minato','kyubi');
 let last=null;
-function odds(){const A=ser(ca.value,aa.value),B=ser(cb.value,ab.value);const mu=A.mean-B.mean,sd=Math.sqrt(A.sd*A.sd+B.sd*B.sd);
-  const n=4000,ps=[];let sa=0,sb=0;for(let i=0;i<n;i++){const d=mu+sd*rnorm();const pa=1-sig(C1-d),pb=sig(-C1-d);sa+=pa;sb+=pb;ps.push(pa)}
-  ps.sort((x,y)=>x-y);return {A,B,pa:sa/n,pb:sb/n,pd:1-(sa+sb)/n,lo:ps[Math.floor(n*.05)],hi:ps[Math.floor(n*.95)],mu,sd};}
+const STATES=[['','En pleine forme',null],['prepa','Préparé (pièges, invocations, Edo Tensei…)','prepa'],['boost','Transformation temporaire (portes, marque maudite…)','boost'],['huit_portes','8e porte (Gai)','huit_portes'],['epuise','Épuisé ou blessé','epuise'],['malade','Malade','malade'],['retenue','Se retient','retenue']];
+function fillState(sel,c){const keep=sel.value;sel.innerHTML=STATES.filter(s=>s[0]!=='huit_portes'||c==='gai').filter(s=>!s[2]||D.tags[s[2]]).map(s=>`<option value="${s[0]}">${esc(s[1])}${s[2]?` (${D.tags[s[2]].beta>=0?'+':''}${D.tags[s[2]].beta.toFixed(1)})`:''}</option>`).join('');sel.value=[...sel.options].some(o=>o.value===keep)?keep:'';}
+const tb=v=>v&&D.tags[v]?D.tags[v].beta:0;
+function odds(){const A=ser(ca.value,aa.value),B=ser(cb.value,ab.value);const mu=A.mean-B.mean+tb(sa.value)-tb(sb.value),sd=Math.sqrt(A.sd*A.sd+B.sd*B.sd);
+  const n=4000,ps=[];let qa=0,qb=0;for(let i=0;i<n;i++){const d=mu+sd*rnorm();const pa=1-sig(C1-d),pb=sig(-C1-d);qa+=pa;qb+=pb;ps.push(pa)}
+  ps.sort((x,y)=>x-y);return {A,B,pa:qa/n,pb:qb/n,pd:1-(qa+qb)/n,lo:ps[Math.floor(n*.05)],hi:ps[Math.floor(n*.95)],mu,sd};}
 function duel(){const o=odds();last=o;
   document.getElementById('pa').textContent=pct(o.pa);document.getElementById('pb').textContent=pct(o.pb);document.getElementById('pd').textContent=pct(o.pd);
   document.getElementById('na').textContent=nm(ca.value)+' · '+ANAME[aa.value];document.getElementById('nb').textContent=nm(cb.value)+' · '+ANAME[ab.value];
   document.getElementById('ba').style.flexBasis=(o.pa*100)+'%';document.getElementById('bd').style.flexBasis=(o.pd*100)+'%';document.getElementById('bb').style.flexBasis=(o.pb*100)+'%';
   document.getElementById('barimg').setAttribute('aria-label',`${nm(ca.value)} ${pct(o.pa)}, nul ${pct(o.pd)}, ${nm(cb.value)} ${pct(o.pb)}`);
   const info=Math.round((o.A.info+o.B.info)/2*100);
-  document.getElementById('range').innerHTML=`Fourchette pour ${esc(nm(ca.value))} : <b class="mono">${pct(o.lo)} à ${pct(o.hi)}</b> (90 % des cas). Écart de force estimé : <span class="mono">${o.mu>=0?'+':''}${o.mu.toFixed(1)} ± ${o.sd.toFixed(1)}</span> échelon. <b>${info} %</b> de l'information vient des combats, le reste de l'a priori de statut.`;
+  document.getElementById('range').innerHTML=`Fourchette pour ${esc(nm(ca.value))} : <b class="mono">${pct(o.lo)} à ${pct(o.hi)}</b> (90 % des cas). Écart de force estimé : <span class="mono">${o.mu>=0?'+':''}${o.mu.toFixed(1)} ± ${o.sd.toFixed(1)}</span> échelon. <b>${info} %</b> de l'information vient des combats et du databook, le reste de l'a priori de statut.${(sa.value||sb.value)?' États choisis compris.':''}`;whyPanel(o);
   document.getElementById('simtxt').textContent='';clearSim();evidence();}
 function lst(c,arc,el){const t0=ARCS[AIDX[arc]].t;const fs=D.fights.filter(f=>f.a.includes(c)||f.b.includes(c)).sort((x,y)=>x.t-y.t);
   el.innerHTML=fs.map(f=>{const mine=f.a.includes(c);const opp=(mine?f.b:f.a).map(nm).join(', ');const mates=(mine?f.a:f.b).filter(x=>x!==c).map(nm);
@@ -218,8 +229,19 @@ function evidence(){document.getElementById('eva').textContent='Combats de '+nm(
   const A=opp(ca.value),B=opp(cb.value);const com=[...A].filter(x=>B.has(x)&&x!==ca.value&&x!==cb.value);
   document.getElementById('common').innerHTML=com.length?`Ils ont affronté tous les deux : <b>${com.map(nm).map(esc).join(', ')}</b>. Les autres comparaisons passent par des chaînes plus longues (A a battu X, qui a battu Y, que B a battu…).`:'Aucun adversaire direct en commun : la comparaison passe entièrement par des chaînes d\'adversaires (A a battu X, qui a battu Y…), d\'où une fourchette plus large.';
   document.querySelectorAll('ul.fl li.later').forEach(li=>li.title='Combat plus tard dans l\'histoire : il compte aussi, car il éclaire la force d\'avant');}
-[ca,cb].forEach((s,i)=>s.addEventListener('change',()=>{fillArcs(i?ab:aa,s.value,(i?ab:aa).value);duel()}));
-[aa,ab].forEach(s=>s.addEventListener('change',duel));
+[ca,cb].forEach((s,i)=>s.addEventListener('change',()=>{fillArcs(i?ab:aa,s.value,(i?ab:aa).value);fillState(i?sb:sa,s.value);duel()}));
+[aa,ab,sa,sb].forEach(s=>s.addEventListener('change',duel));
+const BOOK={1:'1er databook',2:'2e databook',3:'3e databook'};
+function whyOne(c,arc,s,col){const ch=CH[c];const F=D.fights;
+  const rows=(s.why||[]).map(w=>{const f=F[w.f];const mine=f.a.includes(c)||f.b.includes(c);const side=f.a.includes(c)?'a':f.b.includes(c)?'b':null;
+    const label=side?`${f.res==='D'?'Nul':((side==='a')===(f.res==='A')?'Victoire':'Défaite')} ${f.res==='A'?'('+MARG[f.m]+')':''} contre ${esc((side==='a'?f.b:f.a).map(nm).join(', '))}`:`${esc(f.a.map(nm).join(', '))} contre ${esc(f.b.map(nm).join(', '))} (indirect)`;
+    return `<li><span class="mono" style="color:${w.v>=0?'var(--s3)':'var(--a)'};font-weight:700">${w.v>=0?'+':''}${w.v.toFixed(2)}</span><span>${label}<br><span class="note">${esc(ANAME[f.arc])}${f.note?' · '+esc(f.note):''}</span></span></li>`}).join('');
+  const dbs=(s.db||[]).map(d=>`<li><span class="mono" style="color:${d.v>=0?'var(--s3)':'var(--a)'};font-weight:700">${d.v>=0?'+':''}${d.v.toFixed(2)}</span><span>${BOOK[d.book]||'databook'} de ${esc(nm(d.who))} : ${d.total}/40</span></li>`).join('');
+  return `<div><h3 style="color:${col}">${esc(nm(c))} · ${esc(ANAME[arc])}</h3>
+  <p class="note" style="margin:0 0 8px">Force estimée <b class="mono">${s.mean.toFixed(1)} ± ${s.sd.toFixed(1)}</b>. Point de départ : statut de rang ${ch.tier} au premier combat${ch.databook&&ch.databook.length?' ; databook : '+ch.databook.map(d=>d.total+'/40').join(', '):''}${s.edo?' ; corps d\'Edo Tensei : force figée à la mort':''}. Ce qui fait bouger l'estimation (en échelons, + vers le haut) :</p>
+  <ul class="fl">${rows}${dbs}</ul></div>`}
+function whyPanel(o){document.getElementById('whyb').innerHTML=whyOne(ca.value,aa.value,o.A,'var(--a)')+whyOne(cb.value,ab.value,o.B,'var(--b)')+
+  `<p class="note" style="grid-column:1/-1;margin:0">Chaque chiffre dit de combien l'estimation bougerait sans ce combat. Une victoire peut faire baisser un personnage quand elle est moins nette que ce que le modèle attendait. Un combat « indirect » ne l'implique pas mais touche un adversaire de sa chaîne.</p>`}
 
 // simulation
 const cv=document.getElementById('sim');let anim=null;
@@ -292,5 +314,5 @@ function table(){const t=q.value.trim().toLowerCase();let fs=D.fights.filter(f=>
 document.getElementById('tagt').innerHTML=Object.entries(D.tags).map(([k,v])=>`<tr><td>${esc(TAGN[k]||k)}</td><td class="mono">${v.beta>=0?'+':''}${v.beta.toFixed(2)}</td><td class="mono note">${(v.beta-1.64*v.sd).toFixed(1)} à ${(v.beta+1.64*v.sd).toFixed(1)}</td></tr>`).join('');
 document.getElementById('metaline').textContent=`${D.meta.n_fights} combats codés, ${D.meta.n_chars} personnages, ${ARCS.length} périodes de l'histoire.`;
 
-duel();table();route();addEventListener('resize',()=>{clearSim()});
+fillState(sa,ca.value);fillState(sb,cb.value);duel();table();route();addEventListener('resize',()=>{clearSim()});
 </script>

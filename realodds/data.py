@@ -51,7 +51,7 @@ CHARS = {
     "butsuma": ("Butsuma Senju", "Senju", 5.0, -68, None),
     "tajima": ("Tajima Uchiha", "Uchiha", 5.0, -68, None),
     "hashirama": ("Hashirama Senju", "Konoha", 6.0, -50, -50),
-    "madara": ("Madara Uchiha", "Uchiha", 6.0, 17.06, -56),
+    "madara": ("Madara Uchiha", "Uchiha", 6.0, -3.0, -56),
     "tobirama": ("Tobirama Senju", "Konoha", 5.0, -48, -48),
     "izuna": ("Izuna Uchiha", "Uchiha", 5.0, -62, None),
     "kakuzu": ("Kakuzu", "Akatsuki", 4.0, 15.85, None),
@@ -176,6 +176,15 @@ CHARS = {
 }
 del CHARS["hinata_last"]
 
+# Madara meurt vers la fin de la 3e guerre, revient en Edo Tensei (corps de sa jeunesse), puis est ressuscité
+REVIVE = {"madara": 17.011}
+EXTRA_TAGS = {"huit_portes": (3.0, 1.0)}   # 8e porte de Gai : boost exceptionnel, estimé à part
+BOOK_TIMES = {1: 12.3, 2: 12.9, 3: 16.5}
+DB_TIME_OVERRIDE = {("obito", 2): -4.0}   # Obito noté enfant (Kakashi Gaiden)
+CHECKS = [("itachi", "guerre4a", "minato", "guerre4b"), ("jiraiya", "tsunade", "orochimaru", "tsunade"),
+          ("hashirama", "guerre4b", "madara", "guerre4b"), ("madara", "final", "hashirama", "guerre4b"),
+          ("gai", "guerre4b", "kakashi", "guerre4b"), ("nagato", "pain", "itachi", "itachi"),
+          ("kisame", "sommet", "gai", "sommet"), ("naruto", "final", "sasuke", "final")]
 GENERIC = {"alliance", "ame_genin", "kiri_anbu", "kumo_ninja", "uchiha_police"}
 
 # permanent power-ups / losses: (char, time, mean change in tiers, sd)
@@ -270,7 +279,7 @@ fight(12.45, "chunin", "naruto", "neji", "A", 1, ta=["boost"], note="Finale")
 fight(12.451, "chunin", "temari", "shikamaru", "D", note="Shikamaru abandonne alors qu'il la tient")
 fight(12.452, "chunin", "sasuke", "gaara", "A", 2, note="Finale interrompue par l'invasion", flags="i")
 # ---------------------------------------------------------------- invasion
-fight(12.5, "invasion", "orochimaru", "hiruzen", "A", 1, tb=["age"],
+fight(12.5, "invasion", "orochimaru", "hiruzen", "A", 1, ta=["prepa"], tb=["age"],
       note="Hiruzen meurt mais scelle les bras d'Orochimaru ; Edo Hashirama et Tobirama affaiblis")
 fight(12.501, "invasion", "gaara", "sasuke", "A", 2, ta=["boost"], tb=["epuise"], note="Gaara à demi transformé")
 fight(12.502, "invasion", "naruto", "gaara", "A", 2, ta=["boost"], tb=["boost"], note="Gamabunta contre Shukaku")
@@ -350,7 +359,7 @@ fight(16.997, "guerre4b", "kakashi", "obito", "D", note="Dans la dimension de Ka
 fight(16.996, "guerre4b", ["naruto", "kakashi"], "obito", "A", 1, note="Rasengan et Kamui, masque d'Obito brisé")
 fight(17.008, "guerre4b", "madara", "hashirama", "D", ta=["edo"], tb=["edo"], flags="i")
 fight(17.005, "guerre4b", "obito", ["hashirama", "tobirama", "hiruzen", "minato"], "A", 2, tb=["edo"], note="Obito jinchūriki de Jūbi brise la Barrière rouge et transperce les Hokage (ch. 638-643)")
-fight(17.03, "guerre4b", "madara", "gai", "A", 1, tb=["boost"], note="Gai ouvre la 8e porte")
+fight(17.03, "guerre4b", "madara", "gai", "A", 1, tb=["huit_portes"], note="Gai ouvre la 8e porte et frôle la victoire (ch. 669-670)")
 fight(17.035, "guerre4b", ["naruto", "sasuke"], "madara", "A", 1, note="Pouvoir des Six Chemins ; Madara s'échappe et lance le Tsukuyomi infini (ch. 673-674)", flags="i")
 # ---------------------------------------------------------------- Kaguya et Vallée de la Fin
 fight(17.05, "final", ["naruto", "sasuke", "kakashi", "sakura", "obito"], "kaguya", "A", 2, note="Kaguya scellée")
