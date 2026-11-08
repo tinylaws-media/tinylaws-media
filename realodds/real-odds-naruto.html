@@ -175,7 +175,7 @@ section[hidden]{display:none}
 const D = JSON.parse(document.getElementById('data').textContent);
 const ARCS = D.arcs, AIDX = Object.fromEntries(ARCS.map((a,i)=>[a.id,i])), ANAME = Object.fromEntries(ARCS.map(a=>[a.id,a.name]));
 const CH = D.chars; const C1 = D.cuts[3];
-const TAGN = {malade:"malade",epuise:"épuisé",retenue:"se retient",protege:"protège quelqu'un",surprise:"surprise",prepa:"préparation",boost:"boost temporaire",edo:"Edo Tensei",edo_ctrl:"Edo contrôlé",contre:"style favorable",age:"âge"};
+const TAGN = {malade:"malade",epuise:"épuisé",retenue:"se retient",protege:"protège quelqu'un",surprise:"surprise",prepa:"préparation",boost:"boost temporaire",edo:"Edo Tensei",edo_ctrl:"Edo contrôlé",contre:"style favorable",age:"âge",huit_portes:"8e porte",eveil:"éveil / Gear 5",haki_roi:"Haki des rois imprégné"};
 const real = Object.keys(CH).filter(c=>!CH[c].generic && CH[c].series.length).sort((x,y)=>CH[x].name.localeCompare(CH[y].name,'fr'));
 const nm = c => CH[c] ? CH[c].name : c;
 const sig = x => 1/(1+Math.exp(-x));
