@@ -1,0 +1,296 @@
+<title>Naruto : The Real Odds</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Public+Sans:wght@400;600&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: one column, sticky tab bar, a "fight card" duel hero, then charts and tables, all from the fitted model */
+:root{
+  --bg:#f6f6f3; --panel:#ffffff; --ink:#151619; --ink2:#55565c; --ink3:#86878d; --rule:#e2e2dc; --grid:#ececE6;
+  --a:#eb6834; --b:#2a78d6; --draw:#a7a8ad; --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+  --chip:#efefea; --focus:#2a78d6;
+  --f-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Public Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141518; --panel:#1c1d21; --ink:#f0f0ec; --ink2:#c0c1c6; --ink3:#8d8e95; --rule:#2e3036; --grid:#26282d;
+  --a:#d95926; --b:#3987e5; --draw:#6c6e75; --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --chip:#26282d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141518; --panel:#1c1d21; --ink:#f0f0ec; --ink2:#c0c1c6; --ink3:#8d8e95; --rule:#2e3036; --grid:#26282d;
+  --a:#d95926; --b:#3987e5; --draw:#6c6e75; --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --chip:#26282d; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--f-body);margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 64px}
+header h1{font:800 clamp(30px,5vw,48px)/1.02 var(--f-display);letter-spacing:-.01em;margin:8px 0 6px;text-wrap:balance}
+header p{color:var(--ink2);max-width:66ch;margin:0}
+.kicker{font:600 12px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--rule);margin:18px 0 22px;display:flex;gap:4px;overflow-x:auto}
+nav a{font:600 14px var(--f-body);color:var(--ink2);text-decoration:none;padding:12px 12px 10px;border-bottom:2px solid transparent;white-space:nowrap}
+nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ink)}
+nav a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+h2{font:800 24px/1.15 var(--f-display);margin:0 0 4px;text-wrap:balance}
+.lead{color:var(--ink2);margin:0 0 18px;max-width:70ch}
+.panel{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:18px}
+.row{display:flex;gap:16px;flex-wrap:wrap}
+.row>*{flex:1 1 300px;min-width:0}
+label{font:600 12px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:6px}
+select,input[type=search]{font:15px var(--f-body);color:var(--ink);background:var(--panel);border:1px solid var(--rule);border-radius:8px;padding:9px 10px;width:100%}
+button{font:600 14px var(--f-body);color:var(--ink);background:var(--chip);border:1px solid var(--rule);border-radius:8px;padding:9px 14px;cursor:pointer}
+button:hover{border-color:var(--ink3)}
+.fighter{display:grid;gap:10px}
+.fighter .tag{font:700 13px var(--f-mono);letter-spacing:.06em}
+.fa .tag{color:var(--a)} .fb .tag{color:var(--b)}
+.vs{flex:0 0 auto;align-self:center;font:800 28px var(--f-display);color:var(--ink3)}
+.odds{margin-top:18px}
+.oddsnum{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.big{font:800 clamp(40px,8vw,72px)/1 var(--f-display);font-variant-numeric:tabular-nums}
+.big small{font:600 14px var(--f-body);color:var(--ink2);display:block;margin-top:6px}
+.bar{display:flex;height:22px;border-radius:6px;overflow:hidden;gap:2px;margin:14px 0 8px;background:var(--panel)}
+.bar div{transition:flex-basis .5s ease}
+.note{color:var(--ink2);font-size:14px}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+canvas#sim{width:100%;height:150px;display:block;border-top:1px solid var(--rule);margin-top:14px}
+.ev{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:18px}
+.ev h3{font:800 17px var(--f-display);margin:0 0 8px}
+ul.fl{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+ul.fl li{display:grid;grid-template-columns:28px 1fr;gap:8px;font-size:14px;align-items:start}
+.res{font:700 12px var(--f-mono);border-radius:5px;text-align:center;padding:2px 0}
+.res.w{background:color-mix(in oklab,var(--s3) 22%,transparent)} .res.l{background:color-mix(in oklab,var(--a) 22%,transparent)} .res.d{background:var(--chip)}
+.later{opacity:.55}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--chip);border-radius:999px;padding:4px 10px 4px 8px;font-size:14px}
+.chip i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.chip button{background:none;border:0;padding:0 2px;font-size:16px;line-height:1;color:var(--ink2)}
+.chart{position:relative;overflow-x:auto}
+.chart svg{display:block;width:100%;height:auto;min-width:560px}
+.tip{position:absolute;pointer-events:none;background:var(--panel);border:1px solid var(--rule);border-radius:8px;padding:8px 10px;font-size:13px;box-shadow:0 4px 14px rgba(0,0,0,.12);min-width:150px;z-index:3}
+.tip b{font-weight:600}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font:600 12px var(--f-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink3)}
+.tw{overflow-x:auto}
+.sbar{height:8px;border-radius:4px;background:var(--s4);display:inline-block;vertical-align:middle}
+.pill{font:600 11px var(--f-mono);background:var(--chip);border-radius:4px;padding:1px 6px;margin-right:4px;white-space:nowrap}
+section[hidden]{display:none}
+.method p{max-width:70ch}
+@media (prefers-reduced-motion: reduce){.bar div{transition:none}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="kicker">The Real Odds · Naruto · modèle v1</div>
+  <h1>Qui gagne, d'après tous les combats de l'œuvre</h1>
+  <p>Chaque combat du manga, de l'ère de Kaguya à Two Blue Vortex, place les deux combattants sur une même échelle de force. Choisis deux personnages et deux moments de l'histoire : le modèle donne la cote, avec sa fourchette.</p>
+</header>
+<nav aria-label="Sections">
+  <a href="#duel">Duel</a><a href="#evolution">Évolution</a><a href="#classement">Classement par arc</a><a href="#combats">Tous les combats</a><a href="#methode">Méthode</a>
+</nav>
+
+<section id="v-duel">
+  <div class="panel">
+    <div class="row" style="align-items:stretch">
+      <div class="fighter fa"><span class="tag">COMBATTANT A</span>
+        <div><label for="ca">Personnage</label><select id="ca"></select></div>
+        <div><label for="aa">Moment de l'histoire</label><select id="aa"></select></div></div>
+      <div class="vs" aria-hidden="true">vs</div>
+      <div class="fighter fb"><span class="tag">COMBATTANT B</span>
+        <div><label for="cb">Personnage</label><select id="cb"></select></div>
+        <div><label for="ab">Moment de l'histoire</label><select id="ab"></select></div></div>
+    </div>
+    <div class="odds" aria-live="polite">
+      <div class="oddsnum">
+        <div class="big" style="color:var(--a)"><span id="pa">–</span><small id="na"></small></div>
+        <div class="big" style="text-align:center;color:var(--ink3);font-size:clamp(24px,4vw,36px)"><span id="pd">–</span><small>match nul</small></div>
+        <div class="big" style="text-align:right;color:var(--b)"><span id="pb">–</span><small id="nb"></small></div>
+      </div>
+      <div class="bar" role="img" id="barimg"><div id="ba" style="background:var(--a)"></div><div id="bd" style="background:var(--draw)"></div><div id="bb" style="background:var(--b)"></div></div>
+      <p class="note" id="range"></p>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><button id="simbtn" type="button">Simuler 1 000 combats</button><span class="note" id="simtxt"></span></div>
+      <canvas id="sim" aria-label="Simulation des combats : chaque point est un combat tiré au hasard"></canvas>
+    </div>
+  </div>
+  <div class="ev">
+    <div class="panel"><h3 id="eva">Combats de A</h3><ul class="fl" id="la"></ul></div>
+    <div class="panel"><h3 id="evb">Combats de B</h3><ul class="fl" id="lb"></ul></div>
+  </div>
+  <div class="panel" style="margin-top:16px"><h3 style="font:800 17px var(--f-display);margin:0 0 6px">Adversaires communs</h3><p class="note" id="common"></p></div>
+</section>
+
+<section id="v-evolution" hidden>
+  <h2>La force de chaque personnage, arc par arc</h2>
+  <p class="lead">Force estimée en échelons (1 échelon d'écart ≈ 73 % de victoires pour le plus fort), avec une bande d'incertitude (±1 écart-type). L'axe suit l'ordre des arcs, pas les années.</p>
+  <div class="panel">
+    <div class="row" style="align-items:end"><div><label for="addc">Ajouter un personnage (4 au plus)</label><select id="addc"></select></div></div>
+    <div class="chips" id="chips"></div>
+    <div class="chart" id="evo"></div>
+  </div>
+</section>
+
+<section id="v-classement" hidden>
+  <h2>Classement à un moment de l'histoire</h2>
+  <p class="lead">Tous les personnages en activité pendant l'arc choisi, du plus fort au moins fort. Le trait montre la fourchette (±1 écart-type) ; plus il est long, moins on a de combats.</p>
+  <div class="panel">
+    <div class="row" style="align-items:end"><div style="flex:0 1 360px"><label for="rarc">Arc</label><select id="rarc"></select></div></div>
+    <div class="chart" id="rank" style="margin-top:12px"></div>
+  </div>
+</section>
+
+<section id="v-combats" hidden>
+  <h2>Tous les combats codés</h2>
+  <p class="lead">La colonne « Surprise » mesure à quel point le résultat étonne le modèle : en haut, les paradoxes de l'œuvre.</p>
+  <div class="panel">
+    <div class="row" style="align-items:end">
+      <div><label for="q">Chercher un personnage</label><input type="search" id="q" placeholder="ex. Itachi"></div>
+      <div><label for="farc">Arc</label><select id="farc"></select></div>
+      <div><label for="fsort">Trier par</label><select id="fsort"><option value="t">Ordre de l'histoire</option><option value="s">Surprise (paradoxes d'abord)</option></select></div>
+    </div>
+    <div class="tw" style="margin-top:14px"><table><thead><tr><th>Arc</th><th>Vainqueur / camp A</th><th>Contre</th><th>Issue</th><th>Conditions</th><th>Surprise</th></tr></thead><tbody id="ft"></tbody></table></div>
+  </div>
+</section>
+
+<section id="v-methode" hidden class="method">
+  <h2>Comment la cote est calculée</h2>
+  <div class="panel">
+    <p><b>Les combats d'abord.</b> Chaque personnage a une force cachée qui évolue dans le temps (elle dérive doucement d'une année à l'autre, avec des sauts aux grands power-ups : Mode Ermite, Kyūbi, Six Chemins). Chaque combat est une mesure de l'écart entre deux forces : qui gagne, et avec quelle netteté (à l'arraché, nette, écrasante, ou nul). Les combats à plusieurs comptent pour l'équipe entière. Un corps d'Edo Tensei garde la force de la personne à sa mort.</p>
+    <p><b>Les conditions sont estimées, pas fixées.</b> Maladie, épuisement, retenue, surprise, préparation, boost temporaire (portes, marque maudite, pilules) : le modèle estime lui-même combien chacune pèse, à partir de tous les combats.</p>
+    <p><b>Le statut ne sert qu'à combler les trous.</b> Chaque personnage part d'un a priori large selon son rang au premier combat (genin, jounin, kage, légende…). Plus il a combattu, moins cet a priori compte : la page Duel affiche la part de la cote qui vient des combats.</p>
+    <p><b>Calcul.</b> Logit ordinal dynamique (famille Bradley–Terry), maximum a posteriori et approximation de Laplace. La cote d'un duel tire 4 000 combats au hasard dans les deux fourchettes. Comme le modèle lit toute l'œuvre, un combat tardif peut aussi éclairer la force d'un personnage plus tôt.</p>
+    <div class="tw"><table><thead><tr><th>Condition</th><th>Effet estimé (échelons)</th><th>Fourchette</th></tr></thead><tbody id="tagt"></tbody></table></div>
+    <p class="note" id="metaline" style="margin-top:12px"></p>
+    <p class="note">Limites de la v1 : combats codés à la main à partir du manga (pas de filler de l'anime), sans numéros de chapitre ; une partie est marquée « à vérifier ». Les combats de groupe et les combats interrompus comptent moins. Les a priori de statut sont un jugement, pas les chiffres du databook.</p>
+  </div>
+</section>
+</div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const ARCS = D.arcs, AIDX = Object.fromEntries(ARCS.map((a,i)=>[a.id,i])), ANAME = Object.fromEntries(ARCS.map(a=>[a.id,a.name]));
+const CH = D.chars; const C1 = D.cuts[3];
+const TAGN = {malade:"malade",epuise:"épuisé",retenue:"se retient",protege:"protège quelqu'un",surprise:"surprise",prepa:"préparation",boost:"boost temporaire",edo:"Edo Tensei",edo_ctrl:"Edo contrôlé",contre:"style favorable",age:"âge"};
+const real = Object.keys(CH).filter(c=>!CH[c].generic && CH[c].series.length).sort((x,y)=>CH[x].name.localeCompare(CH[y].name,'fr'));
+const nm = c => CH[c] ? CH[c].name : c;
+const sig = x => 1/(1+Math.exp(-x));
+function rnorm(){let u=0,v=0;while(!u)u=Math.random();while(!v)v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)}
+const ser = (c,a) => CH[c].series.find(s=>s.arc===a);
+const pct = x => Math.round(x*100)+' %';
+const esc = s => String(s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+
+// ---------- routing
+const VIEWS=['duel','evolution','classement','combats','methode'];
+function route(){const h=(location.hash||'#duel').slice(1);const v=VIEWS.includes(h)?h:'duel';
+  VIEWS.forEach(x=>document.getElementById('v-'+x).hidden=x!==v);
+  document.querySelectorAll('nav a').forEach(a=>a.setAttribute('aria-current',a.getAttribute('href')==='#'+v?'page':'false'));
+  if(v==='evolution')drawEvo(); if(v==='classement')drawRank();}
+addEventListener('hashchange',route);
+
+// ---------- selects
+function fillChars(sel, def){const teams={};real.forEach(c=>{(teams[CH[c].team]=teams[CH[c].team]||[]).push(c)});
+  sel.innerHTML=Object.keys(teams).sort((a,b)=>a.localeCompare(b,'fr')).map(t=>`<optgroup label="${esc(t)}">`+teams[t].map(c=>`<option value="${c}">${esc(CH[c].name)}</option>`).join('')+'</optgroup>').join('');sel.value=def;}
+function fillArcs(sel,c,def){const s=CH[c].series;sel.innerHTML=s.map(x=>`<option value="${x.arc}">${esc(ANAME[x.arc])}${x.edo?' (Edo Tensei)':''}</option>`).join('');
+  sel.value=s.some(x=>x.arc===def)?def:s[s.length-1].arc;}
+
+// ---------- duel
+const ca=document.getElementById('ca'),cb=document.getElementById('cb'),aa=document.getElementById('aa'),ab=document.getElementById('ab');
+fillChars(ca,'itachi');fillChars(cb,'minato');fillArcs(aa,'itachi','itachi');fillArcs(ab,'minato','kyubi');
+let last=null;
+function odds(){const A=ser(ca.value,aa.value),B=ser(cb.value,ab.value);const mu=A.mean-B.mean,sd=Math.sqrt(A.sd*A.sd+B.sd*B.sd);
+  const n=4000,ps=[];let sa=0,sb=0;for(let i=0;i<n;i++){const d=mu+sd*rnorm();const pa=1-sig(C1-d),pb=sig(-C1-d);sa+=pa;sb+=pb;ps.push(pa)}
+  ps.sort((x,y)=>x-y);return {A,B,pa:sa/n,pb:sb/n,pd:1-(sa+sb)/n,lo:ps[Math.floor(n*.05)],hi:ps[Math.floor(n*.95)],mu,sd};}
+function duel(){const o=odds();last=o;
+  document.getElementById('pa').textContent=pct(o.pa);document.getElementById('pb').textContent=pct(o.pb);document.getElementById('pd').textContent=pct(o.pd);
+  document.getElementById('na').textContent=nm(ca.value)+' · '+ANAME[aa.value];document.getElementById('nb').textContent=nm(cb.value)+' · '+ANAME[ab.value];
+  document.getElementById('ba').style.flexBasis=(o.pa*100)+'%';document.getElementById('bd').style.flexBasis=(o.pd*100)+'%';document.getElementById('bb').style.flexBasis=(o.pb*100)+'%';
+  document.getElementById('barimg').setAttribute('aria-label',`${nm(ca.value)} ${pct(o.pa)}, nul ${pct(o.pd)}, ${nm(cb.value)} ${pct(o.pb)}`);
+  const info=Math.round((o.A.info+o.B.info)/2*100);
+  document.getElementById('range').innerHTML=`Fourchette pour ${esc(nm(ca.value))} : <b class="mono">${pct(o.lo)} à ${pct(o.hi)}</b> (90 % des cas). Écart de force estimé : <span class="mono">${o.mu>=0?'+':''}${o.mu.toFixed(1)} ± ${o.sd.toFixed(1)}</span> échelon. <b>${info} %</b> de l'information vient des combats, le reste de l'a priori de statut.`;
+  document.getElementById('simtxt').textContent='';clearSim();evidence();}
+function lst(c,arc,el){const t0=ARCS[AIDX[arc]].t;const fs=D.fights.filter(f=>f.a.includes(c)||f.b.includes(c)).sort((x,y)=>x.t-y.t);
+  el.innerHTML=fs.map(f=>{const mine=f.a.includes(c);const opp=(mine?f.b:f.a).map(nm).join(', ');const mates=(mine?f.a:f.b).filter(x=>x!==c).map(nm);
+    let r='d',R='N';if(f.res==='A'){r=mine?'w':'l';R=mine?'V':'D'}
+    const tags=[...(mine?f.ta:f.tb).map(t=>TAGN[t]),].filter(Boolean);
+    const later=AIDX[f.arc]>AIDX[arc]?' later':'';
+    return `<li class="${later}"><span class="res ${r}" title="${r==='w'?'Victoire':r==='l'?'Défaite':'Nul'}">${R}</span><span><b>${esc(opp)}</b>${mates.length?' <span class="note">(avec '+esc(mates.join(', '))+')</span>':''}<br><span class="note">${esc(ANAME[f.arc])}${tags.length?' · '+esc(tags.join(', ')):''}${f.note?' · '+esc(f.note):''}</span></span></li>`}).join('')||'<li class="note">Aucun combat codé.</li>';}
+function evidence(){document.getElementById('eva').textContent='Combats de '+nm(ca.value);document.getElementById('evb').textContent='Combats de '+nm(cb.value);
+  lst(ca.value,aa.value,document.getElementById('la'));lst(cb.value,ab.value,document.getElementById('lb'));
+  const opp=c=>new Set(D.fights.flatMap(f=>f.a.includes(c)?f.b:f.b.includes(c)?f.a:[]).filter(x=>!CH[x]||!CH[x].generic));
+  const A=opp(ca.value),B=opp(cb.value);const com=[...A].filter(x=>B.has(x)&&x!==ca.value&&x!==cb.value);
+  document.getElementById('common').innerHTML=com.length?`Ils ont affronté tous les deux : <b>${com.map(nm).map(esc).join(', ')}</b>. Les autres comparaisons passent par des chaînes plus longues (A a battu X, qui a battu Y, que B a battu…).`:'Aucun adversaire direct en commun : la comparaison passe entièrement par des chaînes d\'adversaires (A a battu X, qui a battu Y…), d\'où une fourchette plus large.';
+  document.querySelectorAll('ul.fl li.later').forEach(li=>li.title='Combat plus tard dans l\'histoire : il compte aussi, car il éclaire la force d\'avant');}
+[ca,cb].forEach((s,i)=>s.addEventListener('change',()=>{fillArcs(i?ab:aa,s.value,(i?ab:aa).value);duel()}));
+[aa,ab].forEach(s=>s.addEventListener('change',duel));
+
+// simulation
+const cv=document.getElementById('sim');let anim=null;
+function clearSim(){if(anim)cancelAnimationFrame(anim);const r=cv.getBoundingClientRect();cv.width=r.width*devicePixelRatio;cv.height=r.height*devicePixelRatio;cv.getContext('2d').clearRect(0,0,cv.width,cv.height)}
+document.getElementById('simbtn').addEventListener('click',()=>{const o=last;clearSim();const g=cv.getContext('2d'),W=cv.width,H=cv.height,dp=devicePixelRatio;
+  const cs=getComputedStyle(document.documentElement);const col={A:cs.getPropertyValue('--a').trim(),B:cs.getPropertyValue('--b').trim(),D:cs.getPropertyValue('--draw').trim()};
+  const N=1000,res=[];for(let i=0;i<N;i++){const d=o.mu+o.sd*rnorm();const u=Math.random();const pa=1-sig(C1-d),pb=sig(-C1-d);res.push(u<pa?'A':u<pa+pb?'B':'D')}
+  const cnt={A:0,B:0,D:0};const cols=50,cell=W/ (cols*3+4),r=Math.max(1.5*dp,cell*0.36);
+  const slot=(k,i)=>{const base=k==='A'?0:k==='D'?cols+2:2*cols+4;return [base*cell+(i%cols)*cell+cell/2,H-(Math.floor(i/cols)+0.5)*cell*1.05]};
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;let i=0;
+  function step(){const k=reduce?N:Math.min(N,i+25);for(;i<k;i++){const kk=res[i];const [x,y]=slot(kk,cnt[kk]++);g.fillStyle=col[kk];g.beginPath();g.arc(x,y,r,0,7);g.fill()}
+    document.getElementById('simtxt').textContent=`${nm(ca.value)} ${cnt.A} · nuls ${cnt.D} · ${nm(cb.value)} ${cnt.B} (sur ${i})`;if(i<N)anim=requestAnimationFrame(step)}
+  step();});
+
+// ---------- evolution chart
+let picked=['naruto','sasuke','kakashi','itachi'];const SC=['--s1','--s2','--s3','--s4'];
+const addc=document.getElementById('addc');
+function fillAdd(){addc.innerHTML='<option value="">Choisir…</option>'+real.filter(c=>!picked.includes(c)).map(c=>`<option value="${c}">${esc(CH[c].name)}</option>`).join('');addc.disabled=picked.length>=4}
+addc.addEventListener('change',()=>{if(addc.value&&picked.length<4){picked.push(addc.value);drawEvo()}});
+function chips(){document.getElementById('chips').innerHTML=picked.map((c,i)=>`<span class="chip"><i style="background:var(${SC[i]})"></i>${esc(nm(c))}<button type="button" aria-label="Retirer ${esc(nm(c))}" data-c="${c}">×</button></span>`).join('');
+  document.querySelectorAll('#chips button').forEach(b=>b.onclick=()=>{picked=picked.filter(x=>x!==b.dataset.c);drawEvo()});}
+function svgEl(w,h){return `<svg viewBox="0 0 ${w} ${h}" role="img">`}
+function drawEvo(){chips();fillAdd();const box=document.getElementById('evo');
+  const used=new Set();picked.forEach(c=>CH[c].series.forEach(s=>used.add(AIDX[s.arc])));const idx=[...used].sort((a,b)=>a-b);
+  if(!idx.length){box.innerHTML='<p class="note">Ajoute un personnage pour voir sa courbe.</p>';return}
+  const W=960,H=430,L=120,R=16,T=16,B=120;const xs=i=>L+(idx.indexOf(i))*(W-L-R)/Math.max(1,idx.length-1);
+  let lo=1e9,hi=-1e9;picked.forEach(c=>CH[c].series.forEach(s=>{lo=Math.min(lo,s.mean-s.sd);hi=Math.max(hi,s.mean+s.sd)}));lo=Math.floor(lo);hi=Math.ceil(hi);
+  const ys=v=>T+(hi-v)*(H-T-B)/(hi-lo);let s=svgEl(W,H);
+  for(let v=lo;v<=hi;v++){s+=`<line x1="${L}" x2="${W-R}" y1="${ys(v)}" y2="${ys(v)}" stroke="var(--grid)"/><text x="${L-8}" y="${ys(v)+4}" text-anchor="end" font-size="12" fill="var(--ink3)" font-family="var(--f-mono)">${v}</text>`}
+  idx.forEach(i=>{s+=`<text transform="translate(${xs(i)},${H-B+14}) rotate(-40)" text-anchor="end" font-size="11.5" fill="var(--ink2)">${esc((n=>n.length>24?n.slice(0,23)+'…':n)(ARCS[i].name.split(',')[0].replace('4e Grande Guerre : ','Guerre : ').replace('Boruto : ','B : ')))}</text>`});
+  picked.forEach((c,k)=>{const se=CH[c].series.map(x=>({i:AIDX[x.arc],...x}));const col=`var(${SC[k]})`;
+    const top=se.map(p=>`${xs(p.i)},${ys(p.mean+p.sd)}`).join(' '),bot=se.slice().reverse().map(p=>`${xs(p.i)},${ys(p.mean-p.sd)}`).join(' ');
+    s+=`<polygon points="${top} ${bot}" fill="${col}" fill-opacity="0.12"/>`;
+    s+=`<polyline points="${se.map(p=>`${xs(p.i)},${ys(p.mean)}`).join(' ')}" fill="none" stroke="${col}" stroke-width="2" stroke-linejoin="round"/>`;
+    se.forEach(p=>{s+=`<circle cx="${xs(p.i)}" cy="${ys(p.mean)}" r="${p.edo?4.5:3.5}" fill="${p.edo?'var(--panel)':col}" stroke="${col}" stroke-width="2"/>`});
+    const l=se[se.length-1];s+=`<text x="${Math.min(xs(l.i)+6,W-R-4)}" y="${ys(l.mean)-8}" font-size="12.5" font-weight="600" fill="var(--ink)" text-anchor="${xs(l.i)>W-120?'end':'start'}">${esc(nm(c).split(' (')[0])}</text>`});
+  s+=`<line id="xh" x1="0" x2="0" y1="${T}" y2="${H-B}" stroke="var(--ink3)" stroke-dasharray="3 3" visibility="hidden"/><rect x="${L}" y="${T}" width="${W-L-R}" height="${H-T-B}" fill="transparent" id="hit"/></svg>`;
+  box.innerHTML=s+'<div class="tip" id="etip" hidden></div><p class="note">Point creux : corps d\'Edo Tensei (force figée à la mort).</p>';
+  const svg=box.querySelector('svg'),tip=box.querySelector('#etip'),xh=box.querySelector('#xh');
+  svg.querySelector('#hit').addEventListener('mousemove',e=>{const pt=svg.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;const p=pt.matrixTransform(svg.getScreenCTM().inverse());
+    let best=idx[0];idx.forEach(i=>{if(Math.abs(xs(i)-p.x)<Math.abs(xs(best)-p.x))best=i});xh.setAttribute('x1',xs(best));xh.setAttribute('x2',xs(best));xh.setAttribute('visibility','visible');
+    const rows=picked.map((c,k)=>{const q=CH[c].series.find(x=>AIDX[x.arc]===best);return q?`<div><i style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(${SC[k]})"></i> ${esc(nm(c).split(' (')[0])} <b class="mono">${q.mean.toFixed(1)}</b> <span class="note mono">± ${q.sd.toFixed(1)}</span></div>`:''}).join('');
+    tip.innerHTML=`<b>${esc(ARCS[best].name)}</b>${rows}`;tip.hidden=false;const r=box.getBoundingClientRect();let x=e.clientX-r.left+box.scrollLeft+14;if(x>r.width-180)x-=200;tip.style.left=x+'px';tip.style.top=(e.clientY-r.top+10)+'px'});
+  svg.querySelector('#hit').addEventListener('mouseleave',()=>{tip.hidden=true;xh.setAttribute('visibility','hidden')});}
+
+// ---------- ranking
+const rarc=document.getElementById('rarc');rarc.innerHTML=ARCS.map(a=>`<option value="${a.id}">${esc(a.name)}</option>`).join('');rarc.value='guerre4b';rarc.onchange=drawRank;
+function drawRank(){const a=rarc.value;const rows=real.map(c=>({c,s:ser(c,a)})).filter(r=>r.s).sort((x,y)=>y.s.mean-x.s.mean);const box=document.getElementById('rank');
+  if(!rows.length){box.innerHTML='<p class="note">Aucun personnage noté pour cet arc.</p>';return}
+  const W=960,rh=26,T=24,L=230,R=24,H=T+rows.length*rh+10;let lo=Math.floor(Math.min(...rows.map(r=>r.s.mean-r.s.sd))),hi=Math.ceil(Math.max(...rows.map(r=>r.s.mean+r.s.sd)));
+  const xs=v=>L+(v-lo)*(W-L-R)/(hi-lo);let s=svgEl(W,H);
+  for(let v=lo;v<=hi;v++)s+=`<line x1="${xs(v)}" x2="${xs(v)}" y1="${T-6}" y2="${H-6}" stroke="var(--grid)"/><text x="${xs(v)}" y="${T-10}" text-anchor="middle" font-size="12" fill="var(--ink3)" font-family="var(--f-mono)">${v}</text>`;
+  rows.forEach((r,i)=>{const y=T+i*rh+rh/2;s+=`<g class="rk" data-c="${r.c}"><rect x="0" y="${y-rh/2}" width="${W}" height="${rh}" fill="transparent"/><text x="${L-12}" y="${y+4}" text-anchor="end" font-size="13" fill="var(--ink)">${esc(nm(r.c))}${r.s.edo?' · Edo':''}</text>
+    <line x1="${xs(r.s.mean-r.s.sd)}" x2="${xs(r.s.mean+r.s.sd)}" y1="${y}" y2="${y}" stroke="var(--s1)" stroke-opacity=".45" stroke-width="2" stroke-linecap="round"/><circle cx="${xs(r.s.mean)}" cy="${y}" r="5" fill="var(--s1)" stroke="var(--panel)" stroke-width="2"/></g>`});
+  box.innerHTML=s+'</svg><div class="tip" hidden id="rtip"></div>';const tip=box.querySelector('#rtip');
+  box.querySelectorAll('.rk').forEach(g=>{g.addEventListener('mousemove',e=>{const c=g.dataset.c,q=ser(c,a);tip.innerHTML=`<b>${esc(nm(c))}</b><div class="mono">${q.mean.toFixed(1)} ± ${q.sd.toFixed(1)} échelon</div><div class="note">${CH[c].fights} combats codés · ${Math.round(q.info*100)} % de l'info vient des combats</div>`;tip.hidden=false;const rr=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-rr.left+box.scrollLeft+14,rr.width-200)+'px';tip.style.top=(e.clientY-rr.top+12)+'px'});
+    g.addEventListener('mouseleave',()=>tip.hidden=true);});}
+
+// ---------- fights table
+const farc=document.getElementById('farc'),q=document.getElementById('q'),fsort=document.getElementById('fsort');
+farc.innerHTML='<option value="">Tous les arcs</option>'+ARCS.map(a=>`<option value="${a.id}">${esc(a.name)}</option>`).join('');
+const MARG={1:'à l\'arraché',2:'nette',3:'écrasante'};const smax=Math.max(...D.fights.map(f=>f.surprise));
+function table(){const t=q.value.trim().toLowerCase();let fs=D.fights.filter(f=>(!farc.value||f.arc===farc.value)&&(!t||[...f.a,...f.b].some(c=>nm(c).toLowerCase().includes(t))));
+  fs=fs.slice().sort(fsort.value==='s'?(x,y)=>y.surprise-x.surprise:(x,y)=>x.t-y.t);
+  const tg=(l)=>l.map(x=>`<span class="pill">${esc(TAGN[x]||x)}</span>`).join('');
+  document.getElementById('ft').innerHTML=fs.map(f=>`<tr><td>${esc(ANAME[f.arc])}</td><td><b>${esc(f.a.map(nm).join(', '))}</b>${tg(f.ta)}</td><td>${esc(f.b.map(nm).join(', '))}${tg(f.tb)}</td><td>${f.res==='A'?'victoire '+MARG[f.m]:'nul'}${f.flags.includes('i')?' <span class="pill">interrompu</span>':''}${f.flags.includes('?')?' <span class="pill">à vérifier</span>':''}${f.note?'<br><span class="note">'+esc(f.note)+'</span>':''}</td><td class="note">${pct(f.p_a)} prévu pour le camp A</td><td><span class="sbar" style="width:${Math.round(f.surprise/smax*70)+2}px"></span> <span class="mono note">${f.surprise.toFixed(1)}</span></td></tr>`).join('');}
+[q,farc,fsort].forEach(e=>e.addEventListener('input',table));
+
+// ---------- method
+document.getElementById('tagt').innerHTML=Object.entries(D.tags).map(([k,v])=>`<tr><td>${esc(TAGN[k]||k)}</td><td class="mono">${v.beta>=0?'+':''}${v.beta.toFixed(2)}</td><td class="mono note">${(v.beta-1.64*v.sd).toFixed(1)} à ${(v.beta+1.64*v.sd).toFixed(1)}</td></tr>`).join('');
+document.getElementById('metaline').textContent=`${D.meta.n_fights} combats codés, ${D.meta.n_chars} personnages, ${ARCS.length} périodes de l'histoire.`;
+
+duel();table();route();addEventListener('resize',()=>{clearSim()});
+</script>
