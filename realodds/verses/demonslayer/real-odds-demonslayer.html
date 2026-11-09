@@ -75,6 +75,21 @@ th{font:600 12px var(--f-mono);letter-spacing:.05em;text-transform:uppercase;col
 .sbar{height:8px;border-radius:4px;background:var(--s4);display:inline-block;vertical-align:middle}
 .pill{font:600 11px var(--f-mono);background:var(--chip);border-radius:4px;padding:1px 6px;margin-right:4px;white-space:nowrap}
 section[hidden]{display:none}
+input[type=range]{width:100%;accent-color:var(--s1)}
+.glegend{display:flex;gap:18px;flex-wrap:wrap;margin:12px 0 4px;align-items:center}
+.glegend span{display:inline-flex;gap:6px;align-items:center}
+#graph svg{min-width:0}
+#graph .e{fill:none;stroke:var(--ink3);stroke-opacity:.5}
+#graph .e.up{stroke:var(--a);stroke-opacity:.9}
+#graph .e.d{stroke-dasharray:3 3}
+#graph .eh{fill:none;stroke:transparent;stroke-width:9;cursor:pointer}
+#graph .nd{cursor:pointer}
+#graph .nd text{font:11px var(--f-body);fill:var(--ink2);paint-order:stroke;stroke:var(--panel);stroke-width:3px;stroke-linejoin:round}
+#graph svg.foc .e:not(.on){stroke-opacity:.05}
+#graph svg.foc .e.on{stroke:var(--ink);stroke-opacity:.85}
+#graph svg.foc .e.on.up{stroke:var(--a)}
+#graph svg.foc .nd:not(.on){opacity:.15}
+#graph svg.foc .nd.on text{fill:var(--ink);font-weight:600}
 .method p{max-width:70ch}
 @media (prefers-reduced-motion: reduce){.bar div{transition:none}}
 </style>
@@ -86,7 +101,7 @@ section[hidden]{display:none}
   <p>Chaque combat du manga, de Yoriichi à l'aube contre Muzan, place les deux combattants sur une même échelle de force. Choisis deux personnages et deux moments de l'histoire : le modèle donne la cote, avec sa fourchette.</p>
 </header>
 <nav aria-label="Sections">
-  <a href="#duel">Duel</a><a href="#evolution">Évolution</a><a href="#classement">Classement par arc</a><a href="#combats">Tous les combats</a><a href="#methode">Méthode</a>
+  <a href="#duel">Duel</a><a href="#evolution">Évolution</a><a href="#classement">Classement par arc</a><a href="#combats">Tous les combats</a><a href="#graphe">Qui a battu qui</a><a href="#methode">Méthode</a>
 </nav>
 
 <section id="v-duel">
@@ -152,6 +167,29 @@ section[hidden]{display:none}
   </div>
 </section>
 
+<section id="v-graphe" hidden>
+  <h2>Qui a battu qui</h2>
+  <p class="lead">Chaque point est un personnage, placé à sa force estimée : plus il est haut, plus il est fort. Chaque flèche va du vainqueur au vaincu. Une flèche qui descend est un résultat attendu ; une flèche orange qui monte est une victoire que le modèle n'attendait pas.</p>
+  <div class="panel">
+    <div class="row" style="align-items:end">
+      <div style="flex:1 1 180px"><label for="gview">Vue</label><select id="gview"><option value="map">Nuage force × temps</option><option value="net">Réseau des victoires</option></select></div>
+      <div style="flex:1 1 200px"><label for="garc">Période</label><select id="garc"></select></div>
+      <div style="flex:1 1 180px"><label for="glinks">Liens</label><select id="glinks"><option value="p">Les plus parlants</option><option value="a">Tous les combats</option></select></div>
+      <div style="flex:1 1 200px"><label for="gfocus">Suivre un personnage</label><select id="gfocus"></select></div>
+      <div style="flex:1 1 160px" id="gnbox" hidden><label for="gn">Personnages : <span id="gnv" class="mono"></span></label><input type="range" id="gn" min="15" max="150" step="5" value="50"></div>
+    </div>
+    <div class="glegend note">
+      <span><svg width="34" height="10" aria-hidden="true"><line x1="2" y1="5" x2="26" y2="5" stroke="var(--ink3)" stroke-width="1.6"/><path d="M24,1L32,5L24,9z" fill="var(--ink3)"/></svg>gagne contre</span>
+      <span><svg width="34" height="10" aria-hidden="true"><line x1="2" y1="5" x2="26" y2="5" stroke="var(--a)" stroke-width="1.6"/><path d="M24,1L32,5L24,9z" fill="var(--a)"/></svg>victoire inattendue (moins de 35 % prévus)</span>
+      <span id="gldraw"><svg width="34" height="10" aria-hidden="true"><line x1="2" y1="5" x2="32" y2="5" stroke="var(--ink3)" stroke-width="1.6" stroke-dasharray="3 3"/></svg>match nul</span>
+      <span><svg width="22" height="14" aria-hidden="true"><circle cx="5" cy="7" r="3" fill="var(--s1)"/><circle cx="15" cy="7" r="6" fill="var(--s1)"/></svg>taille = nombre de combats</span>
+    </div>
+    <p class="note" id="gexp" style="margin:4px 0 0"></p>
+    <div class="chart" id="graph" style="margin-top:8px"></div>
+    <p class="note" id="gstat"></p>
+  </div>
+</section>
+
 <section id="v-methode" hidden class="method">
   <h2>Comment la cote est calculée</h2>
   <div class="panel">
@@ -182,11 +220,11 @@ const pct = x => Math.round(x*100)+' %';
 const esc = s => String(s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
 
 // ---------- routing
-const VIEWS=['duel','evolution','classement','combats','methode'];
+const VIEWS=['duel','evolution','classement','combats','graphe','methode'];
 function route(){const h=(location.hash||'#duel').slice(1);const v=VIEWS.includes(h)?h:'duel';
   VIEWS.forEach(x=>document.getElementById('v-'+x).hidden=x!==v);
   document.querySelectorAll('nav a').forEach(a=>a.setAttribute('aria-current',a.getAttribute('href')==='#'+v?'page':'false'));
-  if(v==='evolution')drawEvo(); if(v==='classement')drawRank();}
+  if(v==='evolution')drawEvo(); if(v==='classement')drawRank(); if(v==='graphe')drawGraph();}
 addEventListener('hashchange',route);
 
 // ---------- selects
@@ -307,6 +345,118 @@ function table(){const t=q.value.trim().toLowerCase();let fs=D.fights.filter(f=>
   const tg=(l)=>l.map(x=>`<span class="pill">${esc(TAGN[x]||x)}</span>`).join('');
   document.getElementById('ft').innerHTML=fs.map(f=>`<tr><td>${esc(ANAME[f.arc])}</td><td><b>${esc(f.a.map(nm).join(', '))}</b>${tg(f.ta)}</td><td>${esc(f.b.map(nm).join(', '))}${tg(f.tb)}</td><td>${f.res==='A'?'victoire '+MARG[f.m]:'nul'}${f.flags.includes('i')?' <span class="pill">interrompu</span>':''}${f.flags.includes('?')?' <span class="pill">à vérifier</span>':''}${f.note?'<br><span class="note">'+esc(f.note)+'</span>':''}</td><td class="note">${pct(f.p_a)} prévu pour le camp A</td><td><span class="sbar" style="width:${Math.round(f.surprise/smax*70)+2}px"></span> <span class="mono note">${f.surprise.toFixed(1)}</span></td></tr>`).join('');}
 [q,farc,fsort].forEach(e=>e.addEventListener('input',table));
+
+
+// ---------- graphe : qui a battu qui
+const gview=document.getElementById('gview'),garc=document.getElementById('garc'),glinks=document.getElementById('glinks'),gfocus=document.getElementById('gfocus'),gn=document.getElementById('gn');
+garc.innerHTML='<option value="">Toute l\'histoire</option>'+ARCS.map(a=>`<option value="${a.id}">${esc(a.name)}</option>`).join('');
+gfocus.innerHTML='<option value="">Aucun</option>'+real.map(c=>`<option value="${c}">${esc(nm(c))}</option>`).join('');
+let gLock='';
+const isReal=c=>CH[c]&&!CH[c].generic&&CH[c].series.length;
+const hh=s=>{let h=7;for(const ch of s)h=(h*31+ch.charCodeAt(0))|0;return ((h>>>0)%997)/997};
+const smean=(c,a)=>{const s=ser(c,a);return s?s.mean:null};
+function gEdges(fs,nodeOf,pert){const E=[];
+  fs.forEach(f=>{let A=f.a.filter(isReal),B=f.b.filter(isReal);if(!A.length||!B.length)return;const d=f.res!=='A';if(pert&&d)return;
+    if(pert){const best=L=>L.reduce((x,y)=>(smean(y,f.arc)??-99)>(smean(x,f.arc)??-99)?y:x);A=[best(A)];B=[best(B)];}
+    const up=!d&&f.p_a<0.35;
+    A.forEach(a=>B.forEach(b=>{const u=nodeOf(a,f),v=nodeOf(b,f);if(u&&v&&u!==v)E.push({u,v,fs:[f],d,up})}))});
+  return E;}
+// liens parlants : on retire A→C quand A→B et B→C sont déjà là ; les surprises restent toujours
+function gReduce(E){const out={};E.forEach(e=>{if(!e.d)(out[e.u]=out[e.u]||new Set()).add(e.v)});
+  const fc=id=>id.split('@')[0]===gLock;
+  return E.filter(e=>{if(e.d||e.up||fc(e.u)||fc(e.v))return true;for(const v of out[e.u]){if(v!==e.v&&v!==e.u&&out[v]&&out[v].has(e.v))return false}return true})}
+function arrowPath(x1,y1,r1,x2,y2,r2,bend){const cx=(x1+x2)/2-(y2-y1)*bend,cy=(y1+y2)/2+(x2-x1)*bend;
+  const t1=Math.hypot(cx-x1,cy-y1)||1,t2=Math.hypot(x2-cx,y2-cy)||1;
+  const f=v=>v.toFixed(1);
+  return `M${f(x1+(cx-x1)/t1*r1)},${f(y1+(cy-y1)/t1*r1)}Q${f(cx)},${f(cy)} ${f(x2-(x2-cx)/t2*(r2+2))},${f(y2-(y2-cy)/t2*(r2+2))}`}
+function gTip(box,html,e){const tip=box.querySelector('.tip');tip.innerHTML=html;tip.hidden=false;const rr=box.getBoundingClientRect();
+  tip.style.left=Math.max(0,Math.min(e.clientX-rr.left+box.scrollLeft+14,box.scrollLeft+rr.width-280))+'px';tip.style.top=(e.clientY-rr.top+14)+'px';tip.style.maxWidth='280px'}
+const fline=f=>{const w=f.a.map(nm).join(' + '),l=f.b.map(nm).join(' + ');
+  return f.res==='A'?`<div style="margin-top:6px"><b>${esc(w)}</b> bat ${esc(l)} <span class="note">(${MARG[f.m]} · ${esc(ANAME[f.arc])})</span><br><span class="note">Le modèle donnait ${pct(f.p_a)} au vainqueur.${f.note?' '+esc(f.note):''}</span></div>`
+   :`<div style="margin-top:6px"><b>${esc(w)}</b> et <b>${esc(l)}</b> : nul <span class="note">(${esc(ANAME[f.arc])})</span>${f.note?'<br><span class="note">'+esc(f.note)+'</span>':''}</div>`};
+function gRender(box,W,H,bg,nodes,edges,fg){
+  const ni=Object.fromEntries(nodes.map((n,i)=>[n.id,i]));
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="${W}" style="width:${W>980?W+'px':'100%'};min-width:680px;max-width:none" role="img" aria-label="Graphe des victoires"><defs>`+
+    [['0','var(--ink3)',1],['1','var(--a)',1],['2','var(--ink)',1],['3','var(--ink3)',.08]].map(([k,c,o])=>`<marker id="ah${k}" viewBox="0 0 10 10" refX="8" refY="5" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,1L10,5L0,9z" style="fill:${c};fill-opacity:${o}"/></marker>`).join('')+'</defs>'+bg;
+  s+='<g>'+edges.map((e,i)=>`<path class="e${e.up?' up':''}${e.d?' d':''}" data-i="${i}" d="${e.path}" stroke-width="${e.w.toFixed(2)}"${e.d?'':` marker-end="url(#ah${e.up?1:0})"`}/>`).join('')+'</g>';
+  s+=fg||'';
+  s+='<g>'+edges.map((e,i)=>`<path class="eh" data-i="${i}" d="${e.path}"/>`).join('')+'</g>';
+  s+='<g>'+nodes.map((n,i)=>`<g class="nd" data-i="${i}"><circle cx="${n.x.toFixed(1)}" cy="${n.y.toFixed(1)}" r="${n.r.toFixed(1)}" style="fill:${n.fill}" stroke="var(--panel)" stroke-width="1.5"/>${n.label?`<text x="${(n.x+n.r+3).toFixed(1)}" y="${(n.y+4).toFixed(1)}">${esc(n.label)}</text>`:''}</g>`).join('')+'</g></svg><div class="tip" hidden></div>';
+  box.innerHTML=s;const svg=box.querySelector('svg'),tipEl=box.querySelector('.tip');
+  const ndEls=[...svg.querySelectorAll('.nd')],eEls=[...svg.querySelectorAll('.e')];
+  function hl(c){svg.classList.toggle('foc',!!c);const on=new Set();
+    edges.forEach((e,i)=>{const hit=!!c&&(nodes[ni[e.u]].c===c||nodes[ni[e.v]].c===c);eEls[i].classList.toggle('on',hit);if(hit){on.add(e.u);on.add(e.v)}
+      if(!e.d)eEls[i].setAttribute('marker-end',`url(#ah${!c?(e.up?1:0):hit?(e.up?1:2):3})`)});
+    if(!c)return;
+    nodes.forEach((n,i)=>ndEls[i].classList.toggle('on',n.c===c||on.has(n.id)));}
+  hl(gLock);
+  ndEls.forEach((g,i)=>{const n=nodes[i];
+    g.addEventListener('mouseenter',()=>hl(n.c));g.addEventListener('mouseleave',()=>{hl(gLock);tipEl.hidden=true});
+    g.addEventListener('mousemove',e=>{const mine=edges.filter(x=>x.u===n.id||x.v===n.id);const W_=mine.filter(x=>!x.d&&x.u===n.id).length,L_=mine.filter(x=>!x.d&&x.v===n.id).length;
+      gTip(box,`<b>${esc(nm(n.c))}</b><div class="mono">${esc(n.sub)}</div><div class="note">${W_} flèche${W_>1?'s':''} sortante${W_>1?'s':''} (victoires), ${L_} entrante${L_>1?'s':''} (défaites) dans cette vue. Clique pour le suivre.</div>`,e)});
+    g.addEventListener('click',()=>{gLock=gLock===n.c?'':n.c;gfocus.value=gLock;drawGraph()});});
+  svg.querySelectorAll('.eh').forEach(p=>{const e=edges[+p.dataset.i];
+    p.addEventListener('mousemove',ev=>gTip(box,e.fs.slice(0,4).map(fline).join('')+(e.fs.length>4?`<div class="note">… et ${e.fs.length-4} autres</div>`:''),ev));
+    p.addEventListener('mouseleave',()=>tipEl.hidden=true);});
+}
+function nodeFill(v,lo,hi){const p=Math.round(30+70*(v-lo)/Math.max(1e-6,hi-lo));return `color-mix(in oklab, var(--s1) ${p}%, var(--panel))`}
+function drawMap(box,pert){const sel=garc.value,fs=D.fights.filter(f=>!sel||f.arc===sel);
+  let E=gEdges(fs,(c,f)=>ser(c,f.arc)?c+'@'+f.arc:null,pert);if(pert)E=gReduce(E);
+  const N={};E.forEach(e=>[e.u,e.v].forEach(id=>{if(!N[id]){const i=id.indexOf('@'),c=id.slice(0,i),a=id.slice(i+1);N[id]={id,c,a,s:ser(c,a),k:0}}N[id].k++}));
+  const nodes=Object.values(N);if(!nodes.length){box.innerHTML='<p class="note">Aucun combat pour cette période.</p>';return [0,0,fs.length,0]}
+  const cols=ARCS.filter(a=>nodes.some(n=>n.a===a.id)),ci=Object.fromEntries(cols.map((a,i)=>[a.id,i]));
+  const one=cols.length===1,colW=one?880:Math.max(96,Math.min(150,900/cols.length)),L=40,R=one?30:70,T=22,B=one?24:120,W=L+cols.length*colW+R;
+  const H=one?Math.max(480,Math.min(1400,nodes.length*16)):620;
+  const lo=Math.floor(Math.min(...nodes.map(n=>n.s.mean))-.2),hi=Math.ceil(Math.max(...nodes.map(n=>n.s.mean))+.2);
+  const ys=v=>T+(hi-v)*(H-T-B)/(hi-lo);
+  nodes.forEach(n=>{const c0=L+ci[n.a]*colW;n.x0=c0+colW*.1;n.x1=c0+colW*(one?.8:.9);n.x=n.x0+(n.x1-n.x0)*hh(n.c);n.y=ys(n.s.mean);n.r=Math.min(9,2.5+Math.sqrt(n.k)*1.4);
+    n.fill=nodeFill(n.s.mean,lo,hi);n.sub=`${ANAME[n.a]} · ${n.s.mean.toFixed(1)} ± ${n.s.sd.toFixed(1)} échelon`;n.lw=one?nm(n.c).length*6+6:0});
+  // étiquettes : les 3 personnages les plus présents de chaque arc (tous si un seul arc), plus celui qu'on suit
+  cols.forEach(a=>{const g=nodes.filter(n=>n.a===a.id).sort((x,y)=>y.k-x.k);g.forEach((n,i)=>{if(one||i<3||n.c===gLock)n.label=nm(n.c)})});
+  // écarte les points qui se chevauchent dans une même colonne
+  for(let it=0;it<120;it++)cols.forEach(a=>{const g=nodes.filter(n=>n.a===a.id).sort((x,y)=>x.y-y.y);
+    for(let i=0;i<g.length;i++)for(let j=i+1;j<g.length&&g[j].y-g[i].y<14;j++){const P=g[i],Q=g[j];const [l,r]=P.x<=Q.x?[P,Q]:[Q,P];const need=(one&&l.label?l.lw:0)+l.r+r.r+3,dx=r.x-l.x;
+      if(dx<need){const m=(need-dx)/2;l.x=Math.max(l.x0,l.x-m);r.x=Math.min(r.x1,r.x+m)}}});
+  let bg='';for(let v=lo;v<=hi;v++)bg+=`<line x1="${L}" x2="${W-R}" y1="${ys(v)}" y2="${ys(v)}" stroke="var(--grid)"/><text x="${L-8}" y="${ys(v)+4}" text-anchor="end" font-size="11" fill="var(--ink3)" font-family="var(--f-mono)">${v}</text>`;
+  if(!one)cols.forEach((a,i)=>{const x=L+i*colW;bg+=`${i?`<line x1="${x}" x2="${x}" y1="${T}" y2="${H-B+4}" stroke="var(--rule)" stroke-dasharray="2 4"/>`:''}<text transform="translate(${x+colW/2},${H-B+16}) rotate(-35)" text-anchor="end" font-size="11" fill="var(--ink3)">${esc(a.name.length>30?a.name.slice(0,29)+'…':a.name)}</text>`});
+  bg+=`<text x="${L}" y="${T-8}" font-size="11" fill="var(--ink3)" font-family="var(--f-mono)">FORCE (ÉCHELONS) ↑</text>`;
+  const ni=Object.fromEntries(nodes.map((n,i)=>[n.id,n]));
+  const edges=E.map(e=>{const a=ni[e.u],b=ni[e.v];return {...e,w:e.up?1.6:1.1,path:arrowPath(a.x,a.y,a.r,b.x,b.y,b.r,(a.c<b.c?1:-1)*.18)}});
+  let fg='';if(gLock){const pts=nodes.filter(n=>n.c===gLock).sort((x,y)=>ci[x.a]-ci[y.a]);if(pts.length>1)fg=`<polyline points="${pts.map(n=>n.x.toFixed(1)+','+n.y.toFixed(1)).join(' ')}" fill="none" stroke="var(--s1)" stroke-width="2.5" stroke-opacity=".55" stroke-linejoin="round"/>`}
+  gRender(box,W,H,bg,nodes,edges,fg);return [nodes.length,edges.length,fs.length,edges.filter(e=>e.up).length]}
+function drawNet(box,pert){const sel=garc.value,fs=D.fights.filter(f=>!sel||f.arc===sel);
+  const str=c=>sel?smean(c,sel):Math.max(...CH[c].series.map(s=>s.mean));
+  const cnt={};fs.forEach(f=>[...f.a,...f.b].filter(isReal).forEach(c=>cnt[c]=(cnt[c]||0)+1));
+  let keep=Object.keys(cnt).filter(c=>str(c)!=null).sort((x,y)=>cnt[y]-cnt[x]||str(y)-str(x)).slice(0,+gn.value);
+  if(gLock&&cnt[gLock]&&str(gLock)!=null&&!keep.includes(gLock))keep.push(gLock);
+  if(!keep.length){box.innerHTML='<p class="note">Aucun combat pour cette période.</p>';return [0,0,fs.length,0]}
+  const K=new Set(keep),E=gEdges(fs,c=>K.has(c)?c:null,pert),A={};
+  E.forEach(e=>{const k=e.d?[e.u,e.v].sort().join('~'):e.u+'>'+e.v;const g=A[k]=A[k]||{u:e.u,v:e.v,d:e.d,fs:[],nu:0};g.fs.push(e.fs[0]);if(e.up)g.nu++});
+  let G=Object.values(A).map(g=>({...g,up:g.nu*2>g.fs.length}));if(pert)G=gReduce(G);
+  const W=980,L=40,R=10,T=22,B=16,H=Math.max(560,Math.min(1600,keep.length*15));
+  const vals=keep.map(str),lo=Math.floor(Math.min(...vals)-.2),hi=Math.ceil(Math.max(...vals)+.2),ys=v=>T+(hi-v)*(H-T-B)/(hi-lo);
+  const nodes=keep.map(c=>{const v=str(c),k=cnt[c];return {id:c,c,v,y:ys(v),r:Math.min(11,2.5+Math.sqrt(k)*1.25),lw:nm(c).length*6+6,label:nm(c),fill:nodeFill(v,lo,hi),
+    sub:`${sel?ANAME[sel]:'au sommet'} · ${v.toFixed(1)} échelon · ${k} combat${k>1?'s':''}`}});
+  const idx=Object.fromEntries(nodes.map((n,i)=>[n.id,i])),nb=nodes.map(()=>[]);G.forEach(e=>{nb[idx[e.u]].push(idx[e.v]);nb[idx[e.v]].push(idx[e.u])});
+  nodes.forEach(n=>{n.x=L+20+(W-L-R-160)*hh(n.c)});
+  const byY=nodes.slice().sort((x,y)=>x.y-y.y);
+  for(let it=0;it<400;it++){const k=.08*(1-it/400);
+    nodes.forEach((n,i)=>{if(nb[i].length){const m=nb[i].reduce((s,j)=>s+nodes[j].x,0)/nb[i].length;n.x+=(m-n.x)*k}});
+    for(let i=0;i<byY.length;i++)for(let j=i+1;j<byY.length&&byY[j].y-byY[i].y<15;j++){const P=byY[i],Q=byY[j];const [l,r]=P.x<=Q.x?[P,Q]:[Q,P];const need=l.lw+l.r+r.r+4,dx=r.x-l.x;
+      if(dx<need){const m=(need-dx)/2;l.x-=m;r.x+=m}}
+    nodes.forEach(n=>{n.x=Math.max(L+n.r+4,Math.min(W-R-n.lw-n.r,n.x))});
+    if(it%50===49){const x0=Math.min(...nodes.map(n=>n.x)),x1=Math.max(...nodes.map(n=>n.x+n.lw)),a0=L+12,a1=W-R;if(x1-x0>1)nodes.forEach(n=>{n.x=a0+(n.x-x0)*(a1-a0)/(x1-x0)})}}
+  let bg='';for(let v=lo;v<=hi;v++)bg+=`<line x1="${L}" x2="${W-R}" y1="${ys(v)}" y2="${ys(v)}" stroke="var(--grid)"/><text x="${L-8}" y="${ys(v)+4}" text-anchor="end" font-size="11" fill="var(--ink3)" font-family="var(--f-mono)">${v}</text>`;
+  bg+=`<text x="${L}" y="${T-8}" font-size="11" fill="var(--ink3)" font-family="var(--f-mono)">FORCE ${sel?'DANS L\'ARC':'AU SOMMET'} (ÉCHELONS) ↑</text>`;
+  const edges=G.map(e=>{const a=nodes[idx[e.u]],b=nodes[idx[e.v]];return {...e,w:Math.min(4,.9+Math.log2(e.fs.length)*.9)+(e.up?.4:0),path:arrowPath(a.x,a.y,a.r,b.x,b.y,b.r,(a.c<b.c?1:-1)*.15)}});
+  gRender(box,W,H,bg,nodes,edges,'');return [nodes.length,edges.length,fs.length,edges.filter(e=>e.up).length]}
+function drawGraph(){const box=document.getElementById('graph'),pert=glinks.value==='p',net=gview.value==='net';gLock=gfocus.value;
+  document.getElementById('gnbox').hidden=!net;document.getElementById('gnv').textContent=gn.value;document.getElementById('gldraw').hidden=pert;
+  document.getElementById('gexp').textContent=(net?'Un point par personnage, à sa force '+(garc.value?'dans cet arc':'au sommet de sa carrière')+'. Les personnages qui se sont affrontés se rapprochent. ':'Un point par personnage et par arc, à sa force dans cet arc ; on lit l\'histoire de gauche à droite. ')+
+    (pert?'« Les plus parlants » : une flèche par combat, entre les plus forts de chaque camp, sans les nuls ; une flèche A→C disparaît quand A→B→C la dit déjà ; les victoires inattendues et les combats du personnage suivi restent toujours.':'Tous les combats codés, y compris les nuls et chaque membre des combats à plusieurs.');
+  const [n,e,f,u]=net?drawNet(box,pert):drawMap(box,pert);
+  document.getElementById('gstat').textContent=`${n} points, ${e} flèches pour ${f} combats, dont ${u} victoire${u>1?'s':''} inattendue${u>1?'s':''} en orange. Survole un point ou une flèche pour le détail ; clique sur un point pour suivre le personnage.`}
+[gview,garc,glinks,gfocus].forEach(el=>el.addEventListener('input',drawGraph));gn.addEventListener('input',drawGraph);
 
 // ---------- method
 document.getElementById('tagt').innerHTML=Object.entries(D.tags).map(([k,v])=>`<tr><td>${esc(TAGN[k]||k)}</td><td class="mono">${v.beta>=0?'+':''}${(v.beta/TIERK).toFixed(2)}</td><td class="mono note">${((v.beta-1.64*v.sd)/TIERK).toFixed(1)} à ${((v.beta+1.64*v.sd)/TIERK).toFixed(1)}</td></tr>`).join('');
