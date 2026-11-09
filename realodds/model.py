@@ -34,6 +34,7 @@ def load(name):
 D = load("data")
 ARCS, CHARS, F, GENERIC, JUMPS = D.ARCS, D.CHARS, D.F, D.GENERIC, D.JUMPS
 REVIVE = getattr(D, "REVIVE", {})
+SLOW = set(getattr(D, "SLOW", set()))
 DBM = load("databook")
 DATABOOK = DBM.DATABOOK if DBM else {}
 BOOK_TIMES = getattr(D, "BOOK_TIMES", {1: 12.3, 2: 12.9, 3: 16.5})
@@ -130,6 +131,7 @@ for si, k in enumerate(num_sets):
     num_obs += [(si, c, t, (x - mu_x) / sd_x, x) for c, t, x in rows]
 for c, t, *_ in st_obs:
     node_times[c].add(t)
+    first_t[c] = min(first_t[c], t)   # an official status before the first shown fight also opens the timeline
 for a, ta, b, tb, *_ in or_obs:
     node_times[a].add(ta); node_times[b].add(tb)
 for si, c, t, *_ in num_obs:
@@ -194,7 +196,8 @@ for c in CHARS:
     prior_first.append((index[(c, ts[0])], CHARS[c][2] * TIER))
     for t0, t1 in zip(ts, ts[1:]):
         jm, jv = jump_terms(c, t0, t1)
-        incr.append((index[(c, t0)], index[(c, t1)], jm, math.sqrt(Q * Q * min(t1 - t0, DT_CAP) + jv)))
+        qc = Q * (0.3 if c in SLOW else 1.0)   # veterans past their growth years barely drift: changes come from dated jumps (age)
+        incr.append((index[(c, t0)], index[(c, t1)], jm, math.sqrt(qc * qc * min(t1 - t0, DT_CAP) + jv)))
 pf_i = np.array([i for i, _ in prior_first]); pf_m = np.array([m for _, m in prior_first])
 in_a = np.array([a for a, _, _, _ in incr]); in_b = np.array([b for _, b, _, _ in incr])
 in_m = np.array([m for _, _, m, _ in incr]); in_s = np.array([s for _, _, _, s in incr])
@@ -342,7 +345,7 @@ for c in CHARS:
     for i, t in enumerate(ts):
         if i > 0:
             jm, jv = jump_terms(c, ts[i - 1], t)
-            v += Q * Q * min(t - ts[i - 1], DT_CAP) + jv
+            v += (Q * (0.3 if c in SLOW else 1.0)) ** 2 * min(t - ts[i - 1], DT_CAP) + jv
         prior_var[index[(c, t)]] = v
 
 # ---- explanations: effect of each piece of evidence on each query node (one Newton step: Cov @ grad)

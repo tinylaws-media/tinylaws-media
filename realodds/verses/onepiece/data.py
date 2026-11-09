@@ -39,6 +39,8 @@ F = []
 GENERIC = set()
 JUMPS = []      # (char, t, mean change in tiers, sd, label)
 REVIVE = {}
+# vétérans dont la force ne bouge plus que par des sauts datés (âge, maladie)
+SLOW = {"rayleigh", "gaban", "roger", "garp", "whitebeard", "sengoku", "rocks"}
 EXTRA_TAGS = {"eveil": (1.5, 0.8), "haki_roi": (0.8, 0.6)}   # éveil du fruit / Gear 5, Haki des rois imprégné
 BOOK_TIMES = {}
 CHECKS = []

@@ -134,8 +134,8 @@ fight(2.5080, "egghead", "stussy", ["kaku", "lucci"], "A", 2, ta=["surprise"],
 fight(2.5120, "egghead", "shanks", ["kid", "killer"], "A", 3, ta=[],
       note="Près d'Elbaf : Kamusari d'un seul coup, Dorry et Brogy coulent le Victoria Punk (ch. 1079)")
 fight(2.5144, "egghead", "aokiji", "hibari", "A", 3, note="Hachinosu : Kuzan gèle Hibari (ch. 1081)")
-fight(2.5160, "egghead", "garp", "sanjuan_wolf", "A", 3, ta=["age"], note="Hachinosu : Garp jette Wolf à la mer (ch. 1087)")
-fight(2.5168, "egghead", "garp", "pizarro", "A", 2, ta=["age"],
+fight(2.5160, "egghead", "garp", "sanjuan_wolf", "A", 3, ta=[], note="Hachinosu : Garp jette Wolf à la mer (ch. 1087)")
+fight(2.5168, "egghead", "garp", "pizarro", "A", 2, ta=[],
       note="Galaxy Divide fend le crâne de pierre et blesse le vrai corps de Pizarro (ch. 1088)")
 fight(2.5176, "egghead", "koby", "pizarro", "D", note="Honesty Impact tranche la main de pierre géante, sans toucher Pizarro lui-même (ch. 1088)", flags="i")
 fight(2.5184, "egghead", "aokiji", "garp", "A", 1, tb=["protege"],
@@ -181,7 +181,7 @@ fight(2.5488, "egghead", "emet", ["mars", "warcury", "nusjuro", "ju_peter"], "A"
 # ================================================================ Elbaf
 fight(2.60, "elbaf", "yasopp", "bartolomeo", "A", 3,
       note="L'équipage du Roux soumet le Barto Club à Gartel, Yasopp pulvérise le navire d'un tir (ch. 1126)")
-fight(2.62, "elbaf", "gaban", "luffy", "A", 1, ta=["age", "retenue"],
+fight(2.62, "elbaf", "gaban", "luffy", "A", 1, ta=["retenue"],
       note="Gaban domine (Yasotakeru) puis cède la clé quand Luffy passe en Gear 5 (ch. 1140, 1151)", flags="i")
 fight(2.625, "elbaf", ["gunko", "shamrock"], "loki", "A", 2, tb=["epuise"],
       note="Loki, à peine libéré de ses chaînes et blessé, s'effondre sous leurs coups (ch. 1137, 1143)")
@@ -191,9 +191,9 @@ fight(2.63, "elbaf", "sommers", "saul", "A", 2, note="Épines invisibles puis Sa
 fight(2.631, "elbaf", "gunko", ["nami", "jinbe", "brook", "usopp"], "A", 2,
       note="Gunko renvoie Zeus, monte Jinbe contre Brook (Aloe), capture Colon ; Usopp la coupe en deux, elle se régénère (ch. 1146-1147)")
 fight(2.633, "elbaf", "sommers", "robin", "A", 2, note="Craspedia lui brise le dos, il se remet et la cloue (ch. 1148)")
-fight(2.634, "elbaf", "gaban", "sommers", "A", 2, ta=["age"],
+fight(2.634, "elbaf", "gaban", "sommers", "A", 2, ta=[],
       note="Gaban lui coupe un bras (qui ne repousse pas) puis le fend en deux (ch. 1148-1149)")
-fight(2.635, "elbaf", "gunko", "gaban", "A", 1, tb=["age", "protege"],
+fight(2.635, "elbaf", "gunko", "gaban", "A", 1, tb=["protege"],
       note="Otage (Colon) : Gaban lâche ses haches, criblé de flèches et jeté de la branche (ch. 1149)")
 fight(2.636, "elbaf", "gunko", ["dorry", "brogy"], "A", 3, ta=["boost"],
       note="Imu à travers le corps de Gunko (Domi Reversi) arrache la main de Brogy et démonise les deux capitaines (ch. 1149-1150)")
@@ -210,7 +210,7 @@ fight(2.665, "elbaf", "imu", "loki", "A", 1,
       note="Loki (Nidhöggr) le frappe avec Ragnir, mais Imu l'empale (Nemesis) et le brûle (Stigma) (ch. 1181-1187)", flags="i")
 fight(2.67, "elbaf", "imu", "luffy", "A", 2, ta=[], tb=[],
       note="Luffy le frappe au Haki (ch. 1186-1187) ; Gear 5 à bout, Imu l'embroche avec Void (ch. 1188) puis le cloue à un arbre avec une seconde épée (ch. 1189)")
-fight(2.672, "elbaf", "imu", "gaban", "A", 2, tb=["age", "protege"],
+fight(2.672, "elbaf", "imu", "gaban", "A", 2, tb=["protege"],
       note="Gaban interrompt le coup de grâce (ch. 1189), tient longtemps puis perd un bras au coude (ch. 1190)")
 fight(2.675, "elbaf", ["luffy", "loki", "hajrudin"], "imu", "D", ta=["epuise"],
       note="Gokoku Sovereignty (ch. 1191) ; Imu encaisse et continue (ch. 1192) ; Dawn Thor Bullet perce sa barrière, puis le Gear 5 de Luffy s'épuise (ch. 1193)", flags="i")
