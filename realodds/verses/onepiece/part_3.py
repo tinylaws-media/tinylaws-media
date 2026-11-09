@@ -127,7 +127,7 @@ fight(2.465, "wano", "blackbeard", "law", "A", 2, ta=["prepa"],
 # ================================================================ Egghead (1re partie) et Hachinosu
 fight(2.5000, "egghead", "lucci", "atlas", "A", 3, note="Rokuogan en forme hybride éveillée, Atlas inconsciente (ch. 1068-1069)")
 fight(2.5008, "egghead", "lucci", "sentomaru", "A", 2, note="Lucci empale Sentomaru (ch. 1069-1070)")
-fight(2.5016, "egghead", "luffy", "lucci", "A", 2, ta=["eveil"],
+fight(2.5016, "egghead", "luffy", "lucci", "A", 2, ta=[],
       note="Gear 5 contre Zoan éveillé : Dawn Whip puis Dawn Rocket (ch. 1069-1070)")
 fight(2.5080, "egghead", "stussy", ["kaku", "lucci"], "A", 2, ta=["surprise"],
       note="Stussy (MADS) vide Kaku de son sang et entrave Lucci au granit marin (ch. 1073)")
@@ -145,15 +145,15 @@ fight(2.5184, "egghead", "aokiji", "garp", "A", 1, tb=["age", "epuise", "protege
 fight(2.5240, "egghead", "kizaru", "sentomaru", "A", 2, note="Rayon laser, Sentomaru inconscient (ch. 1090-1091)")
 fight(2.5248, "egghead", "kizaru", "luffy", "A", 2, note="Luffy en Gear 4 : Kizaru bloque tout et l'envoie dans la barrière (ch. 1092)")
 fight(2.5250, "egghead", "kizaru", "bonney", "A", 3, ta=["retenue"], note="Kizaru esquive Toshi Tsuki et l'envoie dans la barrière (ch. 1092)")
-fight(2.5256, "egghead", "luffy", "kizaru", "A", 1, ta=["eveil"], tb=["retenue"],
+fight(2.5256, "egghead", "luffy", "kizaru", "A", 1, ta=[], tb=["retenue"],
       note="Gear 5 : coup critique à la tête, Kizaru hors de combat un moment ; Luffy épuisé ensuite (ch. 1092-1094)")
 fight(2.5264, "egghead", "saturn", "bonney", "A", 3, note="Bonney le poignarde, il se régénère et l'écrase (ch. 1094-1095, 1103)")
 fight(2.5266, "egghead", "saturn", "sanji", "A", 2, note="Saturn met Sanji au tapis (ch. 1094-1095)")
 fight(2.5320, "egghead", "kuma", "saturn", "A", 1, tb=["surprise"],
       note="Kuma encaisse pour Bonney et projette Saturn à travers plusieurs bâtiments ; Saturn se régénère (ch. 1103-1104)", flags="i")
-fight(2.5360, "egghead", "luffy", "saturn", "A", 2, ta=["eveil"], note="Dawn Gatling, Saturn projeté au loin (ch. 1106-1107)")
+fight(2.5360, "egghead", "luffy", "saturn", "A", 2, ta=[], note="Dawn Gatling, Saturn projeté au loin (ch. 1106-1107)")
 fight(2.5368, "egghead", "kizaru", "sanji", "A", 2, note="Kizaru écarte Sanji puis transperce Vegapunk (ch. 1107-1108)")
-fight(2.5376, "egghead", "luffy", ["kizaru", "saturn"], "A", 2, ta=["eveil"], tb=["retenue"],
+fight(2.5376, "egghead", "luffy", ["kizaru", "saturn"], "A", 2, ta=[], tb=["retenue"],
       note="Luffy géant aplatit Kizaru et Saturn en disques et les projette (ch. 1108-1109)")
 fight(2.5400, "egghead", "zoro", "lucci", "A", 2,
       note="Long duel conclu par Kokoba Madara Gari, Lucci tombe (ch. 1091-1110)")
@@ -162,7 +162,7 @@ fight(2.5408, "egghead", ["dorry", "brogy"], "ju_peter", "A", 1,
       note="Ju Peter (ver des sables) avale Luffy, les deux géants le décapitent ; il se régénère (ch. 1110)", flags="i")
 fight(2.5416, "egghead", ["dorry", "brogy"], "warcury", "A", 1,
       note="Svalinn Sun-Shield puis Skilja Split repoussent Warcury (ch. 1111)", flags="i")
-fight(2.5424, "egghead", "warcury", "luffy", "A", 1, ta=[], tb=["eveil"],
+fight(2.5424, "egghead", "warcury", "luffy", "A", 1, ta=[], tb=[],
       note="Le rugissement de Warcury défait l'aspect caoutchouc ; Red Roc se brise sur son crâne (ch. 1111-1112)", flags="i")
 fight(2.5432, "egghead", "sanji", "nusjuro", "D",
       note="Sanji fait saigner Nusjuro, qui le saisit ; Oimo et Kashii le plaquent (ch. 1113)", flags="i")
@@ -201,18 +201,18 @@ fight(2.65, "elbaf", "sanji", "killingham", "A", 2,
       note="Ifrit Jambe Concassé brise le casque de Killingham (ch. 1176) ; il finit ligoté à un arbre (ch. 1179)")
 fight(2.651, "elbaf", "gunko", "usopp", "A", 3, ta=["boost"], tb=["protege"],
       note="Imu dans le corps de Gunko massacre Usopp qui protège Brook (ch. 1177)")
-fight(2.652, "elbaf", ["luffy", "loki"], "gunko", "A", 2, ta=["eveil"], tb=["boost"],
+fight(2.652, "elbaf", ["luffy", "loki"], "gunko", "A", 2, ta=[], tb=["boost"],
       note="Domi Reversi échoue, Luffy la martèle et Loki gèle Imu-Gunko avec Niflheim (ch. 1178)")
 fight(2.66, "elbaf", "imu", "zoro", "A", 3, note="Imu pare Rengoku Oni Giri avec sa queue, Zoro à terre d'un Omen (ch. 1180)")
 fight(2.6602, "elbaf", "imu", "hajrudin", "A", 3, note="Un Omen met Hajrudin au tapis (ch. 1180)")
 fight(2.6604, "elbaf", "imu", "sanji", "A", 2, note="Imu bloque et repousse Sanji d'un coup de pied (ch. 1180)")
 fight(2.665, "elbaf", "imu", "loki", "A", 1,
       note="Loki (Nidhöggr) le frappe avec Ragnir, mais Imu l'empale (Nemesis) et le brûle (Stigma) (ch. 1181-1187)", flags="i")
-fight(2.67, "elbaf", "imu", "luffy", "A", 2, ta=[], tb=["eveil"],
+fight(2.67, "elbaf", "imu", "luffy", "A", 2, ta=[], tb=[],
       note="Luffy le frappe au Haki (ch. 1186-1187) ; Gear 5 à bout, Imu l'embroche avec Void (ch. 1188) puis le cloue à un arbre avec une seconde épée (ch. 1189)")
 fight(2.672, "elbaf", "imu", "gaban", "A", 2, tb=["age", "protege"],
       note="Gaban interrompt le coup de grâce (ch. 1189), tient longtemps puis perd un bras au coude (ch. 1190)")
-fight(2.675, "elbaf", ["luffy", "loki", "hajrudin"], "imu", "D", ta=["eveil", "epuise"],
+fight(2.675, "elbaf", ["luffy", "loki", "hajrudin"], "imu", "D", ta=["epuise"],
       note="Gokoku Sovereignty (ch. 1191) ; Imu encaisse et continue (ch. 1192) ; Dawn Thor Bullet perce sa barrière, puis le Gear 5 de Luffy s'épuise (ch. 1193)", flags="i")
 fight(2.68, "elbaf", "zoro", "sommers", "A", 3, ta=["haki_roi"],
       note="Zoro le transperce en manquant le cœur (ch. 1193), s'exerce au Haki des rois sur lui (ch. 1194) ; Sommers fuit en pleurant, Zoro le rattrape (ch. 1195)")

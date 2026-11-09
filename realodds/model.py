@@ -38,12 +38,17 @@ DBM = load("databook")
 DATABOOK = DBM.DATABOOK if DBM else {}
 BOOK_TIMES = getattr(D, "BOOK_TIMES", {1: 12.3, 2: 12.9, 3: 16.5})
 DB_TIME_OVERRIDE = getattr(D, "DB_TIME_OVERRIDE", {})
+STM = load("status")   # official ranks/titles, explicit canon statements, numeric ratings (bounties, power levels)
+STATUS = getattr(STM, "STATUS", []) if STM else []
+ORDER = getattr(STM, "ORDER", []) if STM else []
+NUMERIC = getattr(STM, "NUMERIC", {}) if STM else {}
+NUMERIC_TRANSFORM = getattr(STM, "NUMERIC_TRANSFORM", {}) if STM else {}
 
-TIER = 1.0       # one tier = 1 logit
-PRIOR_SD = 1.5   # sd of the status prior at a character's first node
-Q = 0.5          # random-walk sd per sqrt(year)
+TIER = getattr(D, "TIER", 1.6)   # one tier ("échelon") = 1.6 logits: an Emperor (7) beats a Supernova (5) ~95% of the time
+PRIOR_SD = 1.5 * TIER   # sd of the status prior at a character's first node
+Q = 0.5 * TIER          # random-walk sd per sqrt(year)
 DT_CAP = 12.0
-DB_SD = 1.2      # how far one databook rating may sit from the true strength
+DB_SD = 1.2 * TIER      # how far one databook rating may sit from the true strength
 TAG_PRIOR = {"malade": (-1.0, .7), "epuise": (-0.8, .7), "retenue": (-1.0, .7), "protege": (-0.7, .7),
              "surprise": (0.7, .7), "prepa": (0.7, .7), "boost": (1.0, .7), "edo": (0.4, .7), "edo_ctrl": (-0.5, .7),
              "contre": (0.7, .7), "age": (-0.7, .7)}
@@ -97,6 +102,31 @@ for c, rows in DATABOOK.items():
         t = round(t, 4)
         node_times[c].add(t)
         db_obs.append((c, t, book, total))
+
+def obs_time(c, t):
+    death = CHARS[c][3]
+    if death is not None and t > death and REVIVE.get(c) is None and CHARS[c][4] is None:
+        t = death
+    return round(eff_time(c, t), 4)
+
+
+st_obs = [(c, obs_time(c, t), tier * TIER, sd * TIER, lab) for c, t, tier, sd, lab in STATUS if c in CHARS and c in first_t]
+or_obs = [(a, obs_time(a, ta), b, obs_time(b, tb), gap * TIER, sd * TIER, lab) for a, ta, b, tb, gap, sd, lab in ORDER
+          if a in CHARS and b in CHARS and a in first_t and b in first_t]
+num_sets = sorted(k for k, v in NUMERIC.items() if v)
+num_obs = []   # (set index, char, time, x)
+for si, k in enumerate(num_sets):
+    tr = NUMERIC_TRANSFORM.get(k)
+    rows = [(c, obs_time(c, t), (math.log10(v) if tr == "log10" else float(v))) for c, t, v in NUMERIC[k]
+            if c in CHARS and c in first_t and v and v > 0]
+    xs = np.array([x for _, _, x in rows]); mu_x, sd_x = (xs.mean(), xs.std() or 1.0) if len(xs) else (0, 1)
+    num_obs += [(si, c, t, (x - mu_x) / sd_x, x) for c, t, x in rows]
+for c, t, *_ in st_obs:
+    node_times[c].add(t)
+for a, ta, b, tb, *_ in or_obs:
+    node_times[a].add(ta); node_times[b].add(tb)
+for si, c, t, *_ in num_obs:
+    node_times[c].add(t)
 
 last_in_arc = {}
 for f in F:
@@ -163,6 +193,11 @@ in_a = np.array([a for a, _, _, _ in incr]); in_b = np.array([b for _, b, _, _ i
 in_m = np.array([m for _, _, m, _ in incr]); in_s = np.array([s for _, _, _, s in incr])
 db_i = np.array([index[(c, t)] for c, t, _, _ in db_obs], dtype=int)
 db_x = np.array([(tot - 30.0) / 5.0 for _, _, _, tot in db_obs])   # databook total, centred at 30, per 5 points
+st_i = np.array([index[(c, t)] for c, t, *_ in st_obs], dtype=int); st_m = np.array([x[2] for x in st_obs]); st_s = np.array([x[3] for x in st_obs])
+or_a = np.array([index[(a, ta)] for a, ta, *_ in or_obs], dtype=int); or_b = np.array([index[(b, tb)] for _, _, b, tb, *_ in or_obs], dtype=int)
+or_g = np.array([x[4] for x in or_obs]); or_s = np.array([x[5] for x in or_obs])
+nu_set = np.array([x[0] for x in num_obs], dtype=int); nu_i = np.array([index[(c, t)] for _, c, t, _, _ in num_obs], dtype=int)
+nu_x = np.array([x[3] for x in num_obs]); NS = len(num_sets)
 
 # ---- fights
 MAXT = max(len(f["a"]) for f in F + [dict(a=[1], b=[1])])
@@ -192,11 +227,11 @@ tga, tgb = jnp.array(tga), jnp.array(tgb)
 eqf = jnp.array(eqf)
 tag_mu = jnp.array([TAG_PRIOR[t][0] for t in TAGS]); tag_sd = jnp.array([TAG_PRIOR[t][1] for t in TAGS])
 NT = len(TAGS)
-P = N + NT + 3 + 3   # strengths, tag effects, 3 cutpoints, databook intercept + slope + curvature
+P = N + NT + 3 + 3 + 2 * NS   # strengths, tag effects, 3 cutpoints, databook curve, numeric-set lines
 
 
 def unpack(th):
-    s = th[:N]; beta = th[N:N + NT]; a = th[N + NT:N + NT + 3]; db = th[N + NT + 3:]
+    s = th[:N]; beta = th[N:N + NT]; a = th[N + NT:N + NT + 3]; db = th[N + NT + 3:N + NT + 6]
     c1 = jnp.exp(a[0]); c2 = c1 + jnp.exp(a[1]); c3 = c2 + jnp.exp(a[2])
     return s, beta, jnp.array([-c3, -c2, -c1, c1, c2, c3]), db
 
@@ -230,6 +265,26 @@ def db_ll(th):
     return -0.5 * ((s[db_i] - (db[0] + db[1] * db_x + db[2] * jnp.maximum(db_x, 0.0) ** 2)) / DB_SD) ** 2
 
 
+def nums(th):
+    return th[N + NT + 6:].reshape((NS, 2)) if NS else jnp.zeros((0, 2))
+
+
+def st_ll(th):
+    s = th[:N]
+    return -0.5 * ((s[st_i] - st_m) / st_s) ** 2
+
+
+def or_ll(th):
+    s = th[:N]
+    short = jnp.maximum(or_g - (s[or_a] - s[or_b]), 0.0)   # only penalised when A is not at least `gap` above B
+    return -0.5 * (short / or_s) ** 2
+
+
+def nu_ll(th):
+    s = th[:N]; ab = nums(th)
+    return -0.5 * ((s[nu_i] - (ab[nu_set, 0] + ab[nu_set, 1] * nu_x)) / TIER) ** 2
+
+
 def neg_logpost(th):
     s, beta, cuts, db = unpack(th)
     lp = -0.5 * jnp.sum(((s[pf_i] - pf_m) / PRIOR_SD) ** 2)
@@ -237,8 +292,16 @@ def neg_logpost(th):
     lp += -0.5 * jnp.sum(((beta - tag_mu) / tag_sd) ** 2)
     a = th[N + NT:N + NT + 3]
     lp += -0.5 * jnp.sum(((a - jnp.array([math.log(0.4), math.log(1.0), math.log(1.2)])) / 0.5) ** 2)
-    lp += -0.5 * (((db[0] - 5.0) / 2.0) ** 2 + ((db[1] - 1.0) / 0.7) ** 2 + ((db[2] - 0.5) / 0.5) ** 2)
+    lp += -0.5 * (((db[0] - 5.0 * TIER) / (2.0 * TIER)) ** 2 + ((db[1] - TIER) / (0.7 * TIER)) ** 2 + ((db[2] - 0.5 * TIER) / (0.5 * TIER)) ** 2)
     lp += jnp.sum(fight_ll(th)) + jnp.sum(db_ll(th))
+    if len(st_obs):
+        lp += jnp.sum(st_ll(th))
+    if len(or_obs):
+        lp += jnp.sum(or_ll(th))
+    if NS:
+        ab = nums(th)
+        lp += -0.5 * jnp.sum(((ab[:, 0] - 4.0 * TIER) / (3.0 * TIER)) ** 2 + ((ab[:, 1] - TIER) / TIER) ** 2)
+        lp += jnp.sum(nu_ll(th))
     return -lp
 
 
@@ -248,7 +311,9 @@ for k, (c, t) in enumerate(nodes):
     x0[k] = CHARS[c][2] * TIER
 x0[N:N + NT] = [TAG_PRIOR[t][0] for t in TAGS]
 x0[N + NT:N + NT + 3] = [math.log(0.4), 0.0, math.log(1.2)]
-x0[N + NT + 3:] = [5.0, 1.0, 0.5]
+x0[N + NT + 3:N + NT + 6] = [5.0 * TIER, TIER, 0.5 * TIER]
+if NS:
+    x0[N + NT + 6:] = np.tile([4.0 * TIER, TIER], NS)
 opt = dict(maxiter=50000, maxfun=100000, ftol=1e-13, gtol=1e-7)
 res = minimize(lambda x: float(f_val(x)), x0, jac=lambda x: np.asarray(f_grad(x)), method="L-BFGS-B", options=opt)
 for _ in range(4):
@@ -256,7 +321,7 @@ for _ in range(4):
         break
     res = minimize(lambda x: float(f_val(x)), res.x, jac=lambda x: np.asarray(f_grad(x)), method="L-BFGS-B", options=opt)
 gmax = float(np.abs(np.asarray(f_grad(res.x))).max())
-print("MAP", res.fun, "max|grad|", gmax, "params", P, "fights", len(F), "databook obs", len(db_obs))
+print("MAP", res.fun, "max|grad|", gmax, "params", P, "fights", len(F), "databook obs", len(db_obs), "status", len(st_obs), "order", len(or_obs), "numeric", len(num_obs))
 th = res.x
 H = np.asarray(jax.jit(jax.hessian(neg_logpost))(th))
 H = 0.5 * (H + H.T) + 1e-6 * np.eye(P)
@@ -276,9 +341,16 @@ for c in CHARS:
 # ---- explanations: effect of each piece of evidence on each query node (one Newton step: Cov @ grad)
 Gf = np.asarray(jax.jacrev(fight_ll)(jnp.array(th)))          # fights x P
 Gd = np.asarray(jax.jacrev(db_ll)(jnp.array(th))) if len(db_obs) else np.zeros((0, P))
+Gs = np.asarray(jax.jacrev(st_ll)(jnp.array(th))) if len(st_obs) else np.zeros((0, P))
+Go = np.asarray(jax.jacrev(or_ll)(jnp.array(th))) if len(or_obs) else np.zeros((0, P))
+Gn = np.asarray(jax.jacrev(nu_ll)(jnp.array(th))) if len(num_obs) else np.zeros((0, P))
 qnodes = sorted(set(index[(c, t)] for (c, k), t in query.items()))
 Cq = cov[:, qnodes]
 Ef = Gf @ Cq; Ed = Gd @ Cq                                       # effect on s(node)
+Es = Gs @ Cq; Eo = Go @ Cq; En = Gn @ Cq
+src_lab = ([("Statut officiel", x[4]) for x in st_obs] + [("Hiérarchie", x[6]) for x in or_obs]
+           + [(num_sets[x[0]], f"{CHARS[x[1]][0]} : " + (f"{10 ** x[4]:,.0f}".replace(",", " ") if NUMERIC_TRANSFORM.get(num_sets[x[0]]) == "log10" else f"{x[4]:g}")) for x in num_obs])
+Esrc = np.vstack([Es, Eo, En]) if len(src_lab) else np.zeros((0, len(qnodes)))
 qpos = {n: i for i, n in enumerate(qnodes)}
 
 d_map = np.asarray(diff(jnp.array(s_map), jnp.array(beta_map)))
@@ -293,10 +365,12 @@ for c, (name, team_, tier, death, edo) in CHARS.items():
         if (c, k) not in query:
             continue
         i = index[(c, query[(c, k)])]; q = qpos[i]
-        why = [dict(f=int(j), v=round(float(Ef[j, q]), 3)) for j in np.argsort(-np.abs(Ef[:, q]))[:8] if abs(Ef[j, q]) >= 0.03]
-        dbw = [dict(book=db_obs[j][2], total=db_obs[j][3], who=db_obs[j][0], v=round(float(Ed[j, q]), 3))
+        why = [dict(f=int(j), v=round(float(Ef[j, q]) / TIER, 3)) for j in np.argsort(-np.abs(Ef[:, q]))[:8] if abs(Ef[j, q]) >= 0.03]
+        dbw = [dict(book=db_obs[j][2], total=db_obs[j][3], who=db_obs[j][0], v=round(float(Ed[j, q]) / TIER, 3))
                for j in np.argsort(-np.abs(Ed[:, q]))[:3] if abs(Ed[j, q]) >= 0.03] if len(db_obs) else []
-        series.append(dict(arc=k, mean=round(float(s_map[i]), 3), sd=round(float(sd[i]), 3),
+        srcw = [dict(kind=src_lab[j][0], label=src_lab[j][1], v=round(float(Esrc[j, q]) / TIER, 3))
+                for j in np.argsort(-np.abs(Esrc[:, q]))[:5] if abs(Esrc[j, q]) >= 0.03] if len(src_lab) else []
+        series.append(dict(arc=k, mean=round(float(s_map[i]) / TIER, 3), sd=round(float(sd[i]) / TIER, 3), src=srcw,
                            info=round(float(max(0.0, 1 - sd[i] ** 2 / prior_var[i])), 3),
                            edo=bool(k in edo_arcs.get(c, ())) and query[(c, k)] != t, why=why, db=dbw))
     nf = sum(1 for f in F if c in f["a"] + f["b"])
@@ -316,7 +390,7 @@ out = dict(
     cuts=[round(float(x), 3) for x in cuts_map],
     databook=dict(intercept=round(float(db_map[0]), 3), slope_per5=round(float(db_map[1]), 3), curve=round(float(db_map[2]), 3), n=len(db_obs)),
     jumps=[dict(c=c, t=t, label=l) for c, t, m, s, l in JUMPS],
-    meta=dict(n_fights=len(F), n_chars=len([c for c in out_chars if not out_chars[c]["generic"]]), q=Q, prior_sd=PRIOR_SD,
+    meta=dict(tier=TIER, n_status=len(st_obs), n_order=len(or_obs), n_numeric=len(num_obs), n_fights=len(F), n_chars=len([c for c in out_chars if not out_chars[c]["generic"]]), q=Q, prior_sd=PRIOR_SD,
               converged=gmax < 1e-2),
 )
 json.dump(out, open(os.path.join(VDIR, "model_out.json"), "w"), ensure_ascii=False)

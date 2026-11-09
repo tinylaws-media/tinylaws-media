@@ -367,6 +367,6 @@ fight(2.4474, "wano", "raizo", "fukurokuju", "A", 1, note="Impasse de paralysie,
 fight(2.4485, "wano", "kaido", "luffy", "A", 1, ta=["surprise"], tb=["haki_roi", "epuise"],
       note="Le CP0 immobilise Luffy et Kaido le frappe (ch. 1042-1043)")
 fight(2.4486, "wano", "kaido", "guernica", "A", 3, note="Kaido punit le CP0 qui s'est mêlé du duel (ch. 1043)")
-fight(2.449, "wano", "luffy", "kaido", "A", 2, ta=["eveil", "haki_roi"], tb=["epuise"],
+fight(2.449, "wano", "luffy", "kaido", "A", 2,
       note="Gear 5, Bajrang Gun ; Kaido tombe dans le magma (ch. 1044-1049)")
 fight(2.4495, "wano", "denjiro", "orochi", "A", 3, note="Orochi piégé dans le feu puis décapité (ch. 1049-1050)")

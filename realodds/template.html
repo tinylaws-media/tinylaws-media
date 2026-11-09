@@ -124,7 +124,7 @@ section[hidden]{display:none}
 
 <section id="v-evolution" hidden>
   <h2>La force de chaque personnage, arc par arc</h2>
-  <p class="lead">Force estimée en échelons (1 échelon d'écart ≈ 73 % de victoires pour le plus fort), avec une bande d'incertitude (±1 écart-type). L'axe suit l'ordre des arcs, pas les années.</p>
+  <p class="lead">Force estimée en échelons (1 échelon d'écart ≈ 4 victoires sur 5 pour le plus fort, 2 échelons ≈ 19 sur 20), avec une bande d'incertitude (±1 écart-type). L'axe suit l'ordre des arcs, pas les années.</p>
   <div class="panel">
     <div class="row" style="align-items:end"><div><label for="addc">Ajouter un personnage (4 au plus)</label><select id="addc"></select></div></div>
     <div class="chips" id="chips"></div>
@@ -159,6 +159,7 @@ section[hidden]{display:none}
   <div class="panel">
     <p><b>Les combats d'abord.</b> Chaque personnage a une force cachée qui évolue dans le temps (elle dérive doucement d'une année à l'autre, avec des sauts aux grands power-ups : Mode Ermite, Kyūbi, Six Chemins). Chaque combat est une mesure de l'écart entre deux forces : qui gagne, et avec quelle netteté (à l'arraché, nette, écrasante, ou nul). Dans un combat à plusieurs, la force de l'équipe est dominée par son membre le plus fort : quand Sakura et Chiyo battent Sasori, c'est surtout Chiyo qui en profite, et la victoire ne fait presque pas monter Sakura. Ces combats comptent aussi un peu moins (×0,75). Un corps d'Edo Tensei garde la force de la personne à sa mort.</p>
     <p><b>Les conditions sont estimées, pas fixées.</b> Maladie, épuisement, retenue, surprise, préparation, boost temporaire (portes, marque maudite, pilules) : le modèle estime lui-même combien chacune pèse, à partir de tous les combats.</p>
+    <p><b>Les preuves officielles comptent.</b> Rangs et titres (Kage, Empereur, amiral, Pilier, grade spécial…), primes et niveaux de puissance officiels, et déclarations de l'œuvre qui classent les personnages entrent dans le calcul, datés au moment où ils s'appliquent. Une déclaration « A est plus fort que B » pèse jusqu'à ce que les combats la contredisent nettement. Le panneau « Pourquoi cette cote » les affiche avec les combats.</p>
     <p><b>Les databooks officiels comptent aussi.</b> Les notes sur 40 des trois databooks de Kishimoto sont reliées à la force par une courbe que le modèle apprend lui-même (les écarts comptent plus en haut de l'échelle, où les notes plafonnent). Elles pèsent moins qu'un combat.</p>
     <p><b>L'état du jour se règle dans le Duel.</b> Préparé, transformation temporaire, 8e porte, épuisé, malade : chaque état ajoute l'effet que le modèle a mesuré sur les combats où il apparaissait.</p>
     <p><b>Le statut ne sert qu'à combler les trous.</b> Chaque personnage part d'un a priori large selon son rang au premier combat (genin, jounin, kage, légende…). Plus il a combattu, moins cet a priori compte : la page Duel affiche la part de la cote qui vient des combats.</p>
@@ -174,7 +175,7 @@ section[hidden]{display:none}
 <script>
 const D = JSON.parse(document.getElementById('data').textContent);
 const ARCS = D.arcs, AIDX = Object.fromEntries(ARCS.map((a,i)=>[a.id,i])), ANAME = Object.fromEntries(ARCS.map(a=>[a.id,a.name]));
-const CH = D.chars; const C1 = D.cuts[3];
+const CH = D.chars; const C1 = D.cuts[3]; const TIERK = (D.meta&&D.meta.tier)||1;
 const TAGN = {malade:"malade",epuise:"épuisé",retenue:"se retient",protege:"protège quelqu'un",surprise:"surprise",prepa:"préparation",boost:"boost temporaire",edo:"Edo Tensei",edo_ctrl:"Edo contrôlé",contre:"style favorable",age:"âge",huit_portes:"8e porte",eveil:"éveil / Gear 5",haki_roi:"Haki des rois imprégné"};
 const real = Object.keys(CH).filter(c=>!CH[c].generic && CH[c].series.length).sort((x,y)=>CH[x].name.localeCompare(CH[y].name,'fr'));
 const nm = c => CH[c] ? CH[c].name : c;
@@ -204,10 +205,10 @@ const ca=document.getElementById('ca'),cb=document.getElementById('cb'),aa=docum
 fillChars(ca,'itachi');fillChars(cb,'minato');fillArcs(aa,'itachi','itachi');fillArcs(ab,'minato','kyubi');
 let last=null;
 const STATES=[['','En pleine forme',null],['prepa','Préparé (pièges, invocations, Edo Tensei…)','prepa'],['boost','Transformation temporaire (portes, marque maudite…)','boost'],['huit_portes','8e porte (Gai)','huit_portes'],['epuise','Épuisé ou blessé','epuise'],['malade','Malade','malade'],['retenue','Se retient','retenue']];
-function fillState(sel,c){const keep=sel.value;sel.innerHTML=STATES.filter(s=>s[0]!=='huit_portes'||c==='gai').filter(s=>!s[2]||D.tags[s[2]]).map(s=>`<option value="${s[0]}">${esc(s[1])}${s[2]?` (${D.tags[s[2]].beta>=0?'+':''}${D.tags[s[2]].beta.toFixed(1)})`:''}</option>`).join('');sel.value=[...sel.options].some(o=>o.value===keep)?keep:'';}
-const tb=v=>v&&D.tags[v]?D.tags[v].beta:0;
+function fillState(sel,c){const keep=sel.value;sel.innerHTML=STATES.filter(s=>s[0]!=='huit_portes'||c==='gai').filter(s=>!s[2]||D.tags[s[2]]).map(s=>`<option value="${s[0]}">${esc(s[1])}${s[2]?` (${D.tags[s[2]].beta>=0?'+':''}${(D.tags[s[2]].beta/TIERK).toFixed(1)} échelon)`:''}</option>`).join('');sel.value=[...sel.options].some(o=>o.value===keep)?keep:'';}
+const tb=v=>v&&D.tags[v]?D.tags[v].beta/TIERK:0;
 function odds(){const A=ser(ca.value,aa.value),B=ser(cb.value,ab.value);const mu=A.mean-B.mean+tb(sa.value)-tb(sb.value),sd=Math.sqrt(A.sd*A.sd+B.sd*B.sd);
-  const n=4000,ps=[];let qa=0,qb=0;for(let i=0;i<n;i++){const d=mu+sd*rnorm();const pa=1-sig(C1-d),pb=sig(-C1-d);qa+=pa;qb+=pb;ps.push(pa)}
+  const n=4000,ps=[];let qa=0,qb=0;for(let i=0;i<n;i++){const d=(mu+sd*rnorm())*TIERK;const pa=1-sig(C1-d),pb=sig(-C1-d);qa+=pa;qb+=pb;ps.push(pa)}
   ps.sort((x,y)=>x-y);return {A,B,pa:qa/n,pb:qb/n,pd:1-(qa+qb)/n,lo:ps[Math.floor(n*.05)],hi:ps[Math.floor(n*.95)],mu,sd};}
 function duel(){const o=odds();last=o;
   document.getElementById('pa').textContent=pct(o.pa);document.getElementById('pb').textContent=pct(o.pb);document.getElementById('pd').textContent=pct(o.pd);
@@ -236,10 +237,11 @@ function whyOne(c,arc,s,col){const ch=CH[c];const F=D.fights;
   const rows=(s.why||[]).map(w=>{const f=F[w.f];const mine=f.a.includes(c)||f.b.includes(c);const side=f.a.includes(c)?'a':f.b.includes(c)?'b':null;
     const label=side?`${f.res==='D'?'Nul':((side==='a')===(f.res==='A')?'Victoire':'Défaite')} ${f.res==='A'?'('+MARG[f.m]+')':''} contre ${esc((side==='a'?f.b:f.a).map(nm).join(', '))}`:`${esc(f.a.map(nm).join(', '))} contre ${esc(f.b.map(nm).join(', '))} (indirect)`;
     return `<li><span class="mono" style="color:${w.v>=0?'var(--s3)':'var(--a)'};font-weight:700">${w.v>=0?'+':''}${w.v.toFixed(2)}</span><span>${label}<br><span class="note">${esc(ANAME[f.arc])}${f.note?' · '+esc(f.note):''}</span></span></li>`}).join('');
+  const srcs=(s.src||[]).map(d=>`<li><span class="mono" style="color:${d.v>=0?'var(--s3)':'var(--a)'};font-weight:700">${d.v>=0?'+':''}${d.v.toFixed(2)}</span><span>${esc(d.kind==='prime'?'Prime officielle':d.kind==='puissance'?'Niveau de puissance officiel':d.kind)} : ${esc(d.label)}</span></li>`).join('');
   const dbs=(s.db||[]).map(d=>`<li><span class="mono" style="color:${d.v>=0?'var(--s3)':'var(--a)'};font-weight:700">${d.v>=0?'+':''}${d.v.toFixed(2)}</span><span>${BOOK[d.book]||'databook'} de ${esc(nm(d.who))} : ${d.total}/40</span></li>`).join('');
   return `<div><h3 style="color:${col}">${esc(nm(c))} · ${esc(ANAME[arc])}</h3>
   <p class="note" style="margin:0 0 8px">Force estimée <b class="mono">${s.mean.toFixed(1)} ± ${s.sd.toFixed(1)}</b>. Point de départ : statut de rang ${ch.tier} au premier combat${ch.databook&&ch.databook.length?' ; databook : '+ch.databook.map(d=>d.total+'/40').join(', '):''}${s.edo?' ; corps d\'Edo Tensei : force figée à la mort':''}. Ce qui fait bouger l'estimation (en échelons, + vers le haut) :</p>
-  <ul class="fl">${rows}${dbs}</ul></div>`}
+  <ul class="fl">${srcs}${rows}${dbs}</ul></div>`}
 function whyPanel(o){document.getElementById('whyb').innerHTML=whyOne(ca.value,aa.value,o.A,'var(--a)')+whyOne(cb.value,ab.value,o.B,'var(--b)')+
   `<p class="note" style="grid-column:1/-1;margin:0">Chaque chiffre dit de combien l'estimation bougerait sans ce combat. Une victoire peut faire baisser un personnage quand elle est moins nette que ce que le modèle attendait. Un combat « indirect » ne l'implique pas mais touche un adversaire de sa chaîne.</p>`}
 
@@ -248,7 +250,7 @@ const cv=document.getElementById('sim');let anim=null;
 function clearSim(){if(anim)cancelAnimationFrame(anim);const r=cv.getBoundingClientRect();cv.width=r.width*devicePixelRatio;cv.height=r.height*devicePixelRatio;cv.getContext('2d').clearRect(0,0,cv.width,cv.height)}
 document.getElementById('simbtn').addEventListener('click',()=>{const o=last;clearSim();const g=cv.getContext('2d'),W=cv.width,H=cv.height,dp=devicePixelRatio;
   const cs=getComputedStyle(document.documentElement);const col={A:cs.getPropertyValue('--a').trim(),B:cs.getPropertyValue('--b').trim(),D:cs.getPropertyValue('--draw').trim()};
-  const N=1000,res=[];for(let i=0;i<N;i++){const d=o.mu+o.sd*rnorm();const u=Math.random();const pa=1-sig(C1-d),pb=sig(-C1-d);res.push(u<pa?'A':u<pa+pb?'B':'D')}
+  const N=1000,res=[];for(let i=0;i<N;i++){const d=(o.mu+o.sd*rnorm())*TIERK;const u=Math.random();const pa=1-sig(C1-d),pb=sig(-C1-d);res.push(u<pa?'A':u<pa+pb?'B':'D')}
   const cnt={A:0,B:0,D:0};const cols=50,cell=W/ (cols*3+4),r=Math.max(1.5*dp,cell*0.36);
   const slot=(k,i)=>{const base=k==='A'?0:k==='D'?cols+2:2*cols+4;return [base*cell+(i%cols)*cell+cell/2,H-(Math.floor(i/cols)+0.5)*cell*1.05]};
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;let i=0;
@@ -311,7 +313,7 @@ function table(){const t=q.value.trim().toLowerCase();let fs=D.fights.filter(f=>
 [q,farc,fsort].forEach(e=>e.addEventListener('input',table));
 
 // ---------- method
-document.getElementById('tagt').innerHTML=Object.entries(D.tags).map(([k,v])=>`<tr><td>${esc(TAGN[k]||k)}</td><td class="mono">${v.beta>=0?'+':''}${v.beta.toFixed(2)}</td><td class="mono note">${(v.beta-1.64*v.sd).toFixed(1)} à ${(v.beta+1.64*v.sd).toFixed(1)}</td></tr>`).join('');
+document.getElementById('tagt').innerHTML=Object.entries(D.tags).map(([k,v])=>`<tr><td>${esc(TAGN[k]||k)}</td><td class="mono">${v.beta>=0?'+':''}${(v.beta/TIERK).toFixed(2)}</td><td class="mono note">${((v.beta-1.64*v.sd)/TIERK).toFixed(1)} à ${((v.beta+1.64*v.sd)/TIERK).toFixed(1)}</td></tr>`).join('');
 document.getElementById('metaline').textContent=`${D.meta.n_fights} combats codés, ${D.meta.n_chars} personnages, ${ARCS.length} périodes de l'histoire.`;
 
 fillState(sa,ca.value);fillState(sb,cb.value);duel();table();route();addEventListener('resize',()=>{clearSim()});
