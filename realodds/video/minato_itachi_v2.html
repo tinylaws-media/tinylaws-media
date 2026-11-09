@@ -63,18 +63,40 @@ function card(cx,cy,w,kick,title,col,a){if(a<=0)return;x.save();x.globalAlpha*=a
 // --- constellation : tous les combats codés de Naruto (force ↑, histoire →)
 const CX0=70,CX1=1010,CY0=236,CY1=790,mlo=-1,mhi=9;
 const NP=D.N.map(([a,m,c])=>({x:CX0+(a+.12+.76*hh(c))/D.narcs*(CX1-CX0),y:CY1-(m-mlo)/(mhi-mlo)*(CY1-CY0),c,a}));
-const ERANK=new Array(D.E.length);D.order.forEach((ei,r)=>ERANK[ei]=r);
-function constellation(t,alpha,draw,hiEdges){if(alpha<=0)return;x.save();x.globalAlpha=alpha;
-  const nE=D.E.length,shown=Math.floor(draw*nE);x.globalCompositeOperation='lighter';
-  if(draw<1&&t>4.3){const e=D.E[D.order[Math.max(0,shown-1)]];const sxp=Math.max(NP[e[0]].x,NP[e[1]].x);const lg=x.createLinearGradient(sxp-120,0,sxp+4,0);lg.addColorStop(0,'rgba(91,224,208,0)');lg.addColorStop(1,'rgba(91,224,208,.22)');x.fillStyle=lg;x.fillRect(sxp-120,CY0-20,124,CY1-CY0+40);x.fillStyle='rgba(91,224,208,.8)';x.fillRect(sxp,CY0-20,2,CY1-CY0+40)}
-  // arêtes
-  D.E.forEach((e,i)=>{const r=ERANK[i];if(r>=shown)return;const A=NP[e[0]],B=NP[e[1]];const fresh=cl(1-(shown-r)/18);
-    x.strokeStyle=fresh>0?`rgba(91,224,208,${.35+.6*fresh})`:'rgba(150,170,230,.30)';x.lineWidth=1.4+fresh*2;x.beginPath();x.moveTo(A.x,A.y);x.quadraticCurveTo((A.x+B.x)/2+(B.y-A.y)*.12,(A.y+B.y)/2-(B.x-A.x)*.12,B.x,B.y);x.stroke()});
-  // arêtes mises en lumière
-  if(hiEdges)hiEdges.forEach(([i,col,k])=>{if(k<=0)return;const e=D.E[i],A=NP[e[0]],B=NP[e[1]];x.save();x.globalAlpha=alpha*k;x.strokeStyle=col;x.lineWidth=3.2;x.shadowColor=col;x.shadowBlur=16;x.beginPath();x.moveTo(A.x,A.y);x.quadraticCurveTo((A.x+B.x)/2+(B.y-A.y)*.12,(A.y+B.y)/2-(B.x-A.x)*.12,B.x,B.y);x.stroke();x.restore()});
-  // points
-  const used=new Set();D.E.forEach((e,i)=>{if(ERANK[i]<shown){used.add(e[0]);used.add(e[1])}});
-  NP.forEach((p,i)=>{if(!used.has(i))return;const tw=.55+.45*Math.sin(t*2.3+i*1.7);x.beginPath();x.arc(p.x,p.y,7+tw*3,0,7);x.fillStyle=`rgba(120,190,255,${.06+.06*tw})`;x.fill();x.beginPath();x.arc(p.x,p.y,3+tw*1.4,0,7);x.fillStyle=`rgba(230,235,255,${.5+.45*tw})`;x.fill()});
+// fils du temps : chaque personnage est relié à lui-même d'un arc à l'autre (sa force évolue en continu)
+const TH=[];{const by={};NP.forEach((p,i)=>(by[p.c]=by[p.c]||[]).push(i));Object.values(by).forEach(L=>{L.sort((a,b)=>NP[a].a-NP[b].a);for(let k=1;k<L.length;k++)TH.push([L[k-1],L[k]])})}
+const ALL=D.E.map(e=>[e[0],e[1],0]).concat(TH.map(e=>[e[0],e[1],1]));
+// propagation : l'activation part en même temps de Minato et d'Itachi et suit les combats
+const HOP=.36,T_IGN=5.0;const ACT=new Array(NP.length).fill(0),OWN=new Array(NP.length).fill(-1);
+{const adj=NP.map(()=>[]);ALL.forEach(([u,v])=>{adj[u].push(v);adj[v].push(u)});const dist=NP.map(()=>Infinity);const q=[D.mi,D.ii];dist[D.mi]=0;dist[D.ii]=0;OWN[D.mi]=0;OWN[D.ii]=1;
+ while(q.length){const u=q.shift();adj[u].forEach(v=>{if(dist[v]===Infinity){dist[v]=dist[u]+1;OWN[v]=OWN[u];q.push(v)}})}
+ const mx=Math.max(...dist.filter(isFinite));NP.forEach((p,i)=>{const dd=isFinite(dist[i])?dist[i]:mx+1;ACT[i]=T_IGN+(dd?.15:0)+dd*HOP+(dd?hh(p.c+i)*.14:0);if(OWN[i]<0)OWN[i]=2})}
+const EACT=D.E.map(e=>Math.min(ACT[e[0]],ACT[e[1]])+HOP);const FORD=D.E.map((e,i)=>i).sort((a,b)=>EACT[a]-EACT[b]);
+const PATHSET=new Set();D.paths.forEach(p=>p.forEach(i=>PATHSET.add(i)));
+const OCOL=['245,197,66','229,56,79','91,224,208'];
+const qp=(A,B)=>[(A.x+B.x)/2+(B.y-A.y)*.12,(A.y+B.y)/2-(B.x-A.x)*.12];
+function constellation(t,alpha,hiEdges){if(alpha<=0)return;x.save();x.globalAlpha=alpha;x.globalCompositeOperation='lighter';const live=t>=T_IGN;
+  const bl=Math.min(seg(t,7.3,8.1),1-seg(t,9.3,10));
+  ALL.forEach(([u,v,th],ei)=>{const A=NP[u],B=NP[v];const [cx,cy]=qp(A,B);const dim=PATHSET.has(ei)&&!th?1:1-.65*bl;
+    x.strokeStyle=th?'rgba(150,170,230,.09)':'rgba(150,170,230,.18)';x.lineWidth=th?1:1.3;x.beginPath();x.moveTo(A.x,A.y);x.quadraticCurveTo(cx,cy,B.x,B.y);x.stroke();
+    if(!live)return;const [s,e]=ACT[u]<=ACT[v]?[u,v]:[v,u];const t0=ACT[s];if(t<t0)return;
+    const p=cl((t-t0)/HOP),fresh=Math.exp(-Math.max(0,t-t0-HOP)/1.1);const S=NP[s],E=NP[e];const [qx,qy]=qp(S,E);
+    const p1x=lerp(S.x,qx,p),p1y=lerp(S.y,qy,p),p2x=lerp(p1x,lerp(qx,E.x,p),p),p2y=lerp(p1y,lerp(qy,E.y,p),p);
+    x.strokeStyle=`rgba(${OCOL[OWN[s]]},${dim*(th?.45:1)*(.26+.7*fresh)})`;x.lineWidth=(th?1.1:1.7)+2.4*fresh;x.beginPath();x.moveTo(S.x,S.y);x.quadraticCurveTo(p1x,p1y,p2x,p2y);x.stroke();
+    if(p<1){x.beginPath();x.arc(p2x,p2y,4.2,0,7);x.fillStyle='rgba(255,255,255,.95)';x.fill()}});
+  // toutes les voies qui relient Minato et Itachi, en surbrillance
+  if(bl>0){const pulse=.7+.3*Math.sin(t*9);D.E.forEach((e,i)=>{if(!PATHSET.has(i))return;const A=NP[e[0]],B=NP[e[1]];const [cx,cy]=qp(A,B);
+    x.strokeStyle=`rgba(255,236,190,${.8*bl*pulse})`;x.lineWidth=4.6;x.beginPath();x.moveTo(A.x,A.y);x.quadraticCurveTo(cx,cy,B.x,B.y);x.stroke();
+    for(let k=0;k<2;k++){const u=(t*.7+i*.137+k*.5)%1;const bx=(1-u)*(1-u)*A.x+2*(1-u)*u*cx+u*u*B.x,by=(1-u)*(1-u)*A.y+2*(1-u)*u*cy+u*u*B.y;x.beginPath();x.arc(bx,by,3.2,0,7);x.fillStyle=`rgba(255,255,255,${.85*bl})`;x.fill()}})}
+  if(hiEdges)hiEdges.forEach(([i,col,k])=>{if(k<=0)return;const e=D.E[i],A=NP[e[0]],B=NP[e[1]];const [cx,cy]=qp(A,B);x.save();x.globalAlpha=alpha*k;x.strokeStyle=col;x.lineWidth=3.4;x.beginPath();x.moveTo(A.x,A.y);x.quadraticCurveTo(cx,cy,B.x,B.y);x.stroke();x.restore()});
+  // points : flash quand l'onde les atteint
+  NP.forEach((p,i)=>{const tw=.55+.45*Math.sin(t*2.3+i*1.7);let al=.32+.25*tw,r=2.8+tw*1.2;
+    if(live&&t>=ACT[i]){const k=Math.exp(-(t-ACT[i])/.5);x.beginPath();x.arc(p.x,p.y,6+24*k,0,7);x.fillStyle=`rgba(${OCOL[OWN[i]]},${.4*k})`;x.fill();al=.6+.35*tw;r+=1}
+    x.beginPath();x.arc(p.x,p.y,r*2.4,0,7);x.fillStyle=`rgba(120,190,255,${al*.15})`;x.fill();x.beginPath();x.arc(p.x,p.y,r,0,7);x.fillStyle=`rgba(235,240,255,${al})`;x.fill()});
+  // les deux combattants : blobs en surluminance
+  const bb=seg(t,T_IGN,T_IGN+.2)*(1-seg(t,9.2,9.9));
+  if(bb>0)[[D.mi,0],[D.ii,1]].forEach(([i,o])=>{const p=NP[i],R=(70+120*Math.exp(-(t-T_IGN)/.45))*(1+.1*Math.sin(t*5+o*2));const g=x.createRadialGradient(p.x,p.y,0,p.x,p.y,R);
+    g.addColorStop(0,`rgba(${OCOL[o]},${.8*bb})`);g.addColorStop(.3,`rgba(${OCOL[o]},${.3*bb})`);g.addColorStop(1,`rgba(${OCOL[o]},0)`);x.fillStyle=g;x.beginPath();x.arc(p.x,p.y,R,0,7);x.fill()});
   x.restore()}
 function axes(a){if(a<=0)return;T('HISTOIRE  →',CX1,CY1+26,15,{al:'right',c:INK2,ls:3,w:800,a});x.save();x.translate(CX0-26,CY0+40);x.rotate(-Math.PI/2);T('FORCE  →',0,0,15,{al:'right',c:INK2,ls:3,w:800,a});x.restore()}
 
@@ -84,7 +106,7 @@ const DOTS=(()=>{const r=rng(7);const lab=[];for(let i=0;i<ND;i++)lab.push(i<nA?
   const cnt=[0,0,0];return lab.map((b,i)=>({b,k:cnt[b]++,t0:42.5+i*.0092,jx:(r()-.5)*420}))})();
 
 const CHAIN={M:[150,300],O:[420,300],Kk:[660,300],I:[930,300]};
-const SHAKES=[2.55,19.55,33.55,47.6];
+const SHAKES=[2.55,5.0,19.55,33.55,47.6];
 function shakeAt(t){let dx=0,dy=0,fl=0;SHAKES.forEach(s=>{const u=t-s;if(u>=0&&u<.45){const k=1-u/.45;dx+=Math.sin(u*90)*15*k;dy+=Math.cos(u*70)*10*k;fl=Math.max(fl,k*.3)}});return [dx,dy,fl]}
 const pctS=v=>Math.round(v*100)+' %';
 const fmt=n=>String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ');
@@ -95,8 +117,7 @@ function renderAt(t){
   const [sx,sy,fl]=shakeAt(t);x.translate(sx,sy);
 
   // ---------- constellation (fond vivant de tout le film)
-  const draw=t<4?.18+.05*Math.sin(t):eio(seg(t,4.4,8.2))*.82+.18;
-  const cA=t<4?.28:t<9.4?lerp(.28,1,eo(seg(t,4,4.7))):t<42?lerp(1,.16,eio(seg(t,9.4,10.4))):t<50?lerp(.16,.06,seg(t,42,43)):lerp(.06,0,seg(t,50,51));
+  const cA=t<4?.3:t<9.4?lerp(.3,1,eo(seg(t,4,4.7))):t<42?lerp(1,.16,eio(seg(t,9.4,10.4))):t<50?lerp(.16,.06,seg(t,42,43)):lerp(.06,0,seg(t,50,51));
   const hi=[];
   if(t>11&&t<28.6){const k=win(t,11.2,28.6,.4,.6);hi.push([D.key.MO,GOLD,k*(1+.0)]);}
   if(t>14.6&&t<28.6)hi.push([D.key.OK,INK,win(t,14.8,28.6,.4,.6)]);
@@ -104,7 +125,7 @@ function renderAt(t){
   // scintillement des chaînes Minato → Itachi
   let pathK=0;if(t>21.2&&t<23.6){pathK=win(t,21.2,23.6,.2,.4);const i0=Math.floor((t-21.2)*40);for(let j=0;j<10;j++){const p=D.paths[(i0+j*7)%D.paths.length];p.forEach(ei=>hi.push([ei,CYAN,pathK*.85]))}}
   const cBoost=pathK>0?lerp(cA,.55,pathK):cA;
-  constellation(t,cBoost,draw,hi);
+  constellation(t,cBoost,hi);
   axes(win(t,5,9.6,.5,.4));
 
   // en-tête
@@ -136,11 +157,11 @@ function renderAt(t){
 
   // ---------- 4-10 s : compteurs et fil des combats
   if(t>4.2&&t<10){const a=win(t,4.3,9.9,.3,.4);const u=eio(seg(t,4.4,8.2));
-    const nShown=Math.floor(u*D.E.length);const idx=D.order[Math.max(0,Math.min(D.E.length-1,nShown-1))];
+    let nShown=0;while(nShown<FORD.length&&EACT[FORD[nShown]]<=t)nShown++;const idx=FORD[Math.max(0,nShown-1)];const nCh=new Set(NP.filter((p,i)=>t>=ACT[i]).map(p=>p.c)).size;
     rr(70,170,940,46,12);x.save();x.globalAlpha=a*.92;x.fillStyle='rgba(12,14,20,.85)';x.fill();x.restore();
     T('●',94,201,14,{c:CYAN,a:a*(.5+.5*Math.sin(t*20)),al:'left'});T(D.tick[idx]||'',116,201,19,{al:'left',c:INK,w:600,a});
     const items=[[D.nf,'COMBATS'],[D.nc,'PERSONNAGES'],[D.narcs,'ARCS'],[D.nst+D.nor,'PREUVES OFFICIELLES']];
-    items.forEach(([n,l],i)=>{const cx=150+i*260,k=eo(seg(t,4.6+i*.35,6.8+i*.35));T(fmt(n*k),cx,890,54,{w:900,a,c:i===3?GOLD:INK});T(l,cx,926,16,{c:INK2,ls:3,w:800,a})});
+    const nchT=new Set(NP.map(p=>p.c)).size;const kk=[nShown/FORD.length,nCh/nchT,eo(seg(t,5,7.6)),eo(seg(t,5.6,8.4))];items.forEach(([n,l],i)=>{const cx=150+i*260,k=kk[i];T(fmt(n*k),cx,890,54,{w:900,a,c:i===3?GOLD:INK});T(l,cx,926,16,{c:INK2,ls:3,w:800,a})});
   }
 
   // étiquettes d'a priori
