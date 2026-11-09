@@ -24,7 +24,7 @@ CHARS_PART = {
     "chevaliers_divins": ("Chevaliers divins (groupe)", "Chevaliers divins", 4.5, None, None),
     "dragon": ("Monkey D. Dragon", "Armée révolutionnaire", 4.0, None, None),
     "ivankov": ("Emporio Ivankov", "Armée révolutionnaire", 1.5, None, None),
-    "kuma": ("Bartholomew Kuma", "Armée révolutionnaire / Shichibukai", 0.5, None, None),
+    "kuma": ("Bartholomew Kuma", "Armée révolutionnaire / Shichibukai", 4.0, None, None),   # 1er nœud = prime de 296 M (t = -10), adulte ; 0,5 (enfant à God Valley) ne valait pas à cette date
     "pirates_ordinaires": ("Pirates ordinaires (groupe)", "Pirates", 1.0, None, None),
     "marines_ordinaires": ("Marines ordinaires (groupe)", "Marine", 1.0, None, None),
     # ---------------------------------------------------------------- Roger, Oden, Wano
@@ -43,9 +43,9 @@ CHARS_PART = {
     "doflamingo": ("Donquixote Doflamingo", "Famille Donquixote", 4.0, None, None),
     "vergo": ("Vergo", "Famille Donquixote", 4.0, None, None),
     "rosinante": ("Donquixote Rosinante (Corazon)", "Marine", 3.5, -11.0, None),
-    "crocodile": ("Sir Crocodile", "Baroque Works", 4.5, None, None),
-    "shanks": ("Shanks le Roux", "Pirates du Roux", 6.5, None, None),
-    "mihawk": ("Dracule Mihawk", "Shichibukai", 6.5, None, None),
+    "crocodile": ("Sir Crocodile", "Baroque Works", 3.5, None, None),   # 1er nœud = sa défaite de jeunesse contre Barbe Blanche (t = -24), pas encore Shichibukai
+    "shanks": ("Shanks le Roux", "Pirates du Roux", 2.0, None, None),   # 1er nœud = mousse de Roger (t = -24, ch. 966) ; la montée vient du saut daté ci-dessous
+    "mihawk": ("Dracule Mihawk", "Shichibukai", 6.0, None, None),   # 1er nœud = jeunes duels avec Shanks (t = -15, ch. 434)
     "benn_beckman": ("Benn Beckman", "Pirates du Roux", 5.5, None, None),
     "higuma": ("Higuma", "Bandits", 1.0, -10.0, None),
     "seigneur_cote": ("Seigneur de la côte (monstre marin)", "Animaux", 2.0, None, None),
@@ -64,7 +64,7 @@ CHARS_PART = {
     "morgan": ("Morgan", "Marine", 1.5, None, None),
     "mohji": ("Mohji", "Pirates de Buggy", 1.0, None, None),
     "cabaji": ("Cabaji", "Pirates de Buggy", 1.5, None, None),
-    "buggy": ("Baggy le Clown", "Pirates de Buggy", 2.0, None, None),
+    "buggy": ("Baggy le Clown", "Pirates de Buggy", 1.0, None, None),   # 1er nœud = apprenti de Roger (t = -24, ch. 966)
     "kuro": ("Kuro", "Pirates du Chat noir", 2.0, None, None),
     "jango": ("Jango", "Pirates du Chat noir", 1.5, None, None),
     "nyaban_brothers": ("Frères Nyaban (Sham et Buchi)", "Pirates du Chat noir", 1.3, None, None),
@@ -190,6 +190,9 @@ JUMPS_PART = [
     ("ace", -3.5, 3.0, 1.0, "Départ en mer, Mera Mera no Mi"),
     ("sabo", -1.0, 3.5, 1.2, "Formation dans l'Armée révolutionnaire (hors champ, sans le Mera Mera)"),
     ("zoro", -0.5, 2.0, 0.7, "Entraînement, chasseur de primes"),
+    ("zoro", 0.4929, 0.4, 0.4, "Apprend à trancher l'acier (« souffle de toute chose ») contre Mr. 1 (ch. 195)"),
+    ("zoro", 0.7365, 0.4, 0.4, "Asura / Kyutoryu à Enies Lobby (ch. 417)"),
+    ("shanks", -20.0, 3.5, 1.0, "Après l'exécution de Roger : capitaine, duels avec Mihawk « qui ébranlaient Grand Line » (ch. 434)"),
     ("luffy", -0.02, 1.7, 0.6, "Dix ans d'entraînement (enfant -> départ en mer)"),
     ("sanji", 0.745, 0.4, 0.4, "Diable Jambe"),
     ("luffy", 0.736, 0.6, 0.4, "Gear 2 et Gear 3 maîtrisés"),
@@ -213,12 +216,13 @@ fight(-37.991, "godvalley", "kaido", "big_mom", "A", 1, ta=["surprise"],
       note="Kaido prend à Linlin le fruit Seiryu par surprise et le mange (ch. 1162)")
 fight(-37.99, "godvalley", "imu", ["roger", "garp", "rocks", "whitebeard", "kaido", "big_mom"], "D",
       note="Leur attaque combinée détruit le corps d'Imu (dans celui de Saturn), qui se régénère aussitôt et riposte au Haki des rois (ch. 1163)", flags="i")
-fight(-37.989, "godvalley", "rocks", ["kaido", "big_mom"], "A", 3, ta=["boost"],
+fight(-37.989, "godvalley", "rocks", ["kaido", "big_mom"], "A", 3, ta=["possede"],
       note="Rocks démonisé (Domi Reversi d'Imu, ch. 1163) projette Kaido dans la montagne et expédie Linlin ; Newgate lui tient tête (ch. 1164)")
-fight(-37.988, "godvalley", ["roger", "garp"], "rocks", "A", 1, ta=[], tb=["boost"],
-      note="Attaque combinée de Roger et Garp, Rocks (Domi Reversi) vaincu, les trois s'effondrent d'épuisement (ch. 1165-1166)")
-fight(-37.987, "godvalley", "garling", "rocks", "A", 3, tb=["epuise"],
-      note="Garling achève Rocks déjà à terre d'un coup d'épée (ch. 1166)")
+fight(-37.988, "godvalley", ["roger", "garp"], "rocks", "A", 1, ta=[], tb=["possede"],
+      note="Attaque combinée de Roger et Garp, Rocks (Domi Reversi) vaincu, les trois s'effondrent d'épuisement (ch. 1165-1166) ; "
+           "victoire à deux partenaires égaux (aucun des deux n'aurait suffi seul, ch. 957)", flags="e")
+# retiré : « Garling achève Rocks déjà à terre d'un coup d'épée (ch. 1166) » : coup de grâce sur un homme à terre,
+# pas un combat ; il faisait passer Garling (5,0 à God Valley) pour un égal de Rocks et tirait Rocks vers le bas.
 
 # ================================================================ Ère de Roger, Oden (ch. 960-972)
 fight(-33.5, "oden", "oden", "ashura_doji", "A", 2, note="Oden bat Ashura Doji, qui devient son vassal (ch. 961)")
@@ -235,7 +239,7 @@ fight(-15.0, "avant", "shanks", "mihawk", "D", note="Rivalité et duels de jeune
 fight(-12.0, "avant", "kizaru", "arlong", "A", 3, note="Borsalino bat Arlong et l'emprisonne (ch. 623)")
 fight(-12.0, "avant", ["strawberry", "marines_ordinaires"], "fisher_tiger", "A", 2, ta=["surprise"],
       note="Embuscade de Foolshout, Tiger mortellement blessé (ch. 623)")
-fight(-11.0, "avant", "vergo", "rosinante", "A", 3, note="Vergo passe Corazon à tabac sur Minion (ch. 766)")
+fight(-11.0, "avant", "vergo", "rosinante", "A", 3, tb=["epuise"], note="Vergo passe Corazon à tabac sur Minion ; Corazon, déjà criblé de balles par une patrouille pirate, ne riposte pas (ch. 766)")
 fight(-11.0, "avant", "doflamingo", "rosinante", "A", 3, tb=["epuise"], note="Doflamingo abat son frère (ch. 767)")
 fight(-10.4, "avant", "kuina", "zoro", "A", 3, note="Zoro enfant perd ses 2001 duels contre Kuina (ch. 5)")
 fight(-10.0, "avant", "higuma", "luffy", "A", 3, note="Luffy enfant enlevé par Higuma (ch. 1)")
@@ -281,6 +285,7 @@ fight(0.41, "alabasta", "zoro", "baroque_works_agents", "A", 3, note="Whisky Pea
 fight(0.411, "alabasta", "luffy", "zoro", "D", note="Whisky Peak, Nami les arrête (ch. 110)", flags="i")
 fight(0.412, "alabasta", "luffy", ["mr_5", "miss_valentine"], "A", 3, note="Whisky Peak (ch. 112)")
 fight(0.42, "alabasta", "dorry", "brogy", "D", note="Little Garden, duel centenaire sans vainqueur (ch. 116)")
+fight(0.4205, "alabasta", "mr_3", "brogy", "A", 2, ta=["surprise"], note="Little Garden, Mr. 3 révèle son rôle et fige les pieds de Brogy dans la cire (ch. 120)")
 fight(0.421, "alabasta", ["mr_3", "miss_goldenweek"], ["zoro", "nami", "vivi"], "A", 2, ta=["prepa"],
       note="Little Garden, gâteau de cire (ch. 123-125)")
 fight(0.4215, "alabasta", ["nami", "vivi"], "miss_valentine", "A", 2, note="Little Garden, elles surgissent des flammes et l'abattent (ch. 126)")

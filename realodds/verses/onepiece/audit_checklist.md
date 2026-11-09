@@ -1,0 +1,195 @@
+# Audit, 2e passage : contrôle de chaque personnage
+
+Une ligne par personnage du classement ayant au moins 2 combats ou un statut/prime officiel. Valeurs : arcs où il combat, avant → après correction (échelons). Seuil : écart ≥ ~0,4 échelon.
+
+- **imu** (Imu, 10 combats) — godvalley 8.6→8.5, wano 8.3→8.3, elbaf 8.3→8.3 — ok
+- **rocks** (Rocks D. Xebec, 11 combats) — godvalley 8.1→8.1 — ok
+- **garp** (Monkey D. Garp, 9 combats) — godvalley 7.8→7.8, marineford 6.5→6.5, egghead 6.3→6.3 — ok
+- **harald** (Harald (roi d'Elbaf), 6 combats) — godvalley 7.7→7.7, oden 6.2→6.2 — ok (déclin à -14 dû à l'âge/Domi Reversi, corrigé par « possede »)
+- **roger** (Gol D. Roger, 5 combats) — godvalley 7.7→7.7, roger 7.7→7.7 — ok
+- **whitebeard** (Edward Newgate (Barbe Blanche), 13 combats) — godvalley 7.5→7.4, roger 7.7→7.7, avant 7.8→7.8, water7 6.7→6.7, marineford 6.7→6.7 — ok
+- **rayleigh** (Silvers Rayleigh, 3 combats) — godvalley 7.0→7.0, marineford 6.2→6.2 — ok (un peu sous Gaban à Elbaf, pas de donnée canon pour départager)
+- **big_mom** (Charlotte Linlin (Big Mom), 14 combats) — godvalley 5.6→5.7, wci 6.9→6.9, wano 6.8→6.9 — ok
+- **sommers** (Saint Shepherd Sommers, 5 combats) — godvalley 5.5→5.5, elbaf 5.3→5.3 — ok
+- **garling** (Saint Figarland Garling, 2 combats) — godvalley 5.4→5.4 — ok
+- **ganzui** (Ganzui, 1 combats) — godvalley 5.3→5.2 — ok
+- **john** (Capitaine John, 2 combats) — godvalley 5.2→5.3 — ok
+- **kaido** (Kaido, 18 combats) — godvalley 4.7→4.6, oden 6.3→6.3, avant 6.9→6.9, wano 7.0→7.0 — ok
+- **stussy** (Stussy, 1 combats) — egghead 4.8→4.7 — ok
+- **maffey** (Saint Satchels Maffey, 2 combats) — godvalley 4.0→4.0 — ok
+- **loki** (Loki (prince d'Elbaf), 8 combats) — godvalley 3.6→3.6, oden 7.2→7.2, elbaf 6.7→6.7 — ok à Elbaf ; légèrement haut à -14 (7,2) mais cohérent avec sa victoire sur Harald (ch. 1170)
+- **dragon** (Monkey D. Dragon, 2 combats) — godvalley 3.1→3.1 — ok
+- **ivankov** (Emporio Ivankov, 3 combats) — godvalley 1.4→1.4, marineford 4.6→4.6 — ok
+- **gaban** (Scopper Gaban, 5 combats) — oden 7.4→7.4, elbaf 6.9→6.9 — ok
+- **oden** (Kozuki Oden, 4 combats) — roger 6.6→6.6, oden 6.4→6.4 — ok
+- **inuarashi** (Inuarashi, 4 combats) — roger 4.7→3.2, wci 5.3→5.2, wano 5.3→5.2 — trop haut de ~1,5 échelon à l'ère de Roger (4,7 pour un mousse adolescent), parce que statut 4,5 et a priori 5,0 posés à t = -24 → CORRIGÉ (statut 3,0, a priori 3,0, ch. 967)
+- **nekomamushi** (Nekomamushi, 3 combats) — roger 4.7→3.2, wci 5.2→5.2, wano 5.3→5.2 — trop haut de ~1,5 échelon à l'ère de Roger, même cause qu'Inuarashi → CORRIGÉ
+- **crocodile** (Sir Crocodile, 8 combats) — alabasta 4.8→4.8, roger 4.2→3.6, alabasta 4.8→4.8, marineford 4.9→4.9 — trop haut de ~0,5 à Alabasta (4,8 > statut 4,0) ; a priori 4,5 posé sur sa défaite de jeunesse (t = -24) → a priori ramené à 3,5 ; le reste vient de la chaîne Luffy (statut Supernova 4,0 à 0,85), NON RÉSOLU
+- **ashura_doji** (Ashura Doji, 3 combats) — oden 3.7→3.7, wano 4.7→4.6 — ok
+- **shanks** (Shanks le Roux, 8 combats) — roger 3.9→2.1, oden 5.8→6.3, avant 6.9→6.9, water7 6.9→6.9, marineford 6.9→7.0, wano 7.0→7.0, egghead 7.1→7.1 — trop haut de ~2 échelons à l'ère de Roger (3,9 pour un mousse, statut 2,0), parce que l'a priori d'Empereur 6,5 s'appliquait à son premier nœud (t = -24) → CORRIGÉ (a priori 2,0 + saut daté à -20, ch. 434, 966)
+- **buggy** (Baggy le Clown, 2 combats) — eastblue 2.1→2.2, marineford 2.2→2.3 — ok (a priori 2,0 posé à t = -24 alors que statut d'apprenti 1,0 → aligné, ch. 966)
+- **sengoku** (Sengoku, 2 combats) — marineford 6.5→6.5 — ok
+- **aokiji** (Kuzan (Aokiji), 11 combats) — oden 5.2→5.2, water7 6.2→6.2, marineford 6.2→6.2, punkhazard 6.2→6.2, egghead 6.2→6.2 — légèrement bas (~0,3) face à Kizaru à Marineford → ajout de l'égalité des amiraux (ch. 553, 594)
+- **saul** (Jaguar D. Saul, 2 combats) — oden 4.0→4.0, elbaf 4.0→4.0 — ok
+- **mihawk** (Dracule Mihawk, 6 combats) — avant 6.0→6.2, eastblue 6.5→6.5, marineford 6.5→6.5 — ok ; a priori 6,5 posé sur les duels de jeunesse (t = -15) ramené à 6,0
+- **kizaru** (Borsalino (Kizaru), 16 combats) — avant 5.9→5.9, marineford 6.5→6.5, egghead 6.5→6.5 — ok
+- **benn_beckman** (Benn Beckman, 1 combats) — avant 5.7→5.7 — ok
+- **vergo** (Vergo, 7 combats) — avant 4.8→4.6, punkhazard 4.4→4.4 — trop haut de ~0,4 en -11 (au-dessus de Doflamingo et de son propre niveau de Punk Hazard), parce que Corazon était codé en pleine forme → CORRIGÉ (tb épuisé, ch. 766)
+- **ace** (Portgas D. Ace, 11 combats) — avant 4.4→4.4, alabasta 4.6→4.6, water7 4.7→4.7, marineford 4.7→4.7 — ok
+- **doflamingo** (Donquixote Doflamingo, 12 combats) — avant 4.4→4.4, marineford 4.7→4.7, punkhazard 5.2→5.2 — ok
+- **arlong** (Arlong, 4 combats) — avant 3.0→3.0, eastblue 2.2→2.2 — légèrement haut à -8 (3,0) par ses victoires sur des civils ; écart faible, laissé
+- **higuma** (Higuma, 2 combats) — avant 1.8→1.8 — ok
+- **porchemy** (Porchemy, 2 combats) — avant 1.4→1.4 — ok
+- **sabo** (Sabo, 5 combats) — avant 1.3→1.3, punkhazard 6.0→6.0, wano 6.0→6.0 — légèrement haut (~0,4) à Dressrosa (6,0) par le nul contre Fujitora ; nul codé « i », laissé
+- **zoro** (Roronoa Zoro, 48 combats) — avant 0.1→-0.0, eastblue 3.5→3.2, alabasta 3.6→3.6, skypiea 3.6→3.6, water7 3.7→3.9, thriller 3.7→3.9, marineford 3.7→3.9, fishman 5.0→5.0, punkhazard 5.0→5.0, wano 6.0→6.0, egghead 6.0→6.0, elbaf 6.5→6.5 — trop haut de ~1 échelon à East Blue (3,5) et ~0,4 à Alabasta, parce qu'aucun progrès daté avant l'ellipse (seuls Luffy et Sanji en avaient) → CORRIGÉ (sauts acier ch. 195, Asura ch. 417)
+- **luffy** (Monkey D. Luffy, 99 combats) — avant -0.8→-0.8, eastblue 3.6→3.6, alabasta 3.6→3.6, skypiea 3.7→3.7, water7 4.3→4.3, thriller 4.3→4.3, marineford 4.4→4.3, fishman 5.3→5.3, punkhazard 5.5→5.5, wci 5.8→5.7, wano 6.9→6.9, egghead 6.8→6.8, elbaf 6.8→6.8 — légèrement haut (~0,5) à East Blue/Alabasta (3,6), tiré par le statut Supernova à 0,85 sans étape intermédiaire canon ; NON RÉSOLU (pas de progrès canon à dater)
+- **jinbe** (Jinbe, 10 combats) — marineford 4.5→4.5, fishman 4.8→4.8, wci 4.9→4.9, wano 4.9→4.9, egghead 4.9→4.9, elbaf 4.9→4.9 — ok
+- **smoker** (Smoker, 8 combats) — eastblue 3.8→3.8, alabasta 3.8→3.8, marineford 3.8→3.8, punkhazard 3.7→3.7 — ok
+- **sanji** (Sanji, 39 combats) — eastblue 3.1→3.1, alabasta 3.1→3.1, skypiea 3.1→3.1, water7 3.1→3.1, thriller 3.5→3.5, marineford 3.5→3.5, fishman 4.8→4.8, punkhazard 4.8→4.8, wci 4.8→4.8, wano 5.8→5.7, egghead 5.8→5.8, elbaf 6.3→6.3 — légèrement haut (~0,4) à East Blue ; amélioré indirectement, laissé
+- **gin** (Gin, 4 combats) — eastblue 2.4→2.4 — ok
+- **don_krieg** (Don Krieg, 1 combats) — eastblue 2.1→2.1 — ok
+- **kuro** (Kuro, 1 combats) — eastblue 2.1→2.1 — ok
+- **tashigi** (Tashigi, 6 combats) — eastblue 2.0→1.9, punkhazard 2.2→2.1 — ok
+- **kuroobi** (Kuroobi, 1 combats) — eastblue 1.9→1.9 — ok
+- **usopp** (Usopp, 26 combats) — eastblue 1.8→1.8, alabasta 1.9→1.8, skypiea 1.9→1.8, water7 1.9→1.9, thriller 1.9→1.9, marineford 1.9→1.9, fishman 3.7→3.6, punkhazard 3.7→3.7, wano 4.0→4.0, egghead 4.0→4.0, elbaf 4.0→4.0 — ok (prime de 500 M à Wano un peu flatteuse, mais compensée par les combats)
+- **chew** (Chew, 1 combats) — eastblue 1.5→1.5 — ok
+- **morgan** (Morgan, 1 combats) — eastblue 1.4→1.3 — ok
+- **alvida** (Alvida, 1 combats) — eastblue 1.2→1.2 — ok
+- **fullbody** (Fullbody, 1 combats) — eastblue 0.8→0.8 — ok
+- **enel** (Enel, 5 combats) — skypiea 4.5→4.5 — ok
+- **dorry** (Dorry, 4 combats) — alabasta 4.2→4.0, egghead 4.8→4.7, elbaf 4.8→4.7 — trop haut de ~0,5 à Little Garden (4,2), même cause que Brogy (l'abaisse indirectement)
+- **brogy** (Brogy, 4 combats) — alabasta 4.2→3.8, egghead 4.8→4.5, elbaf 4.8→4.5 — trop haut de ~0,5 à Little Garden (4,2), parce que sa capture par la cire de Mr. 3 manquait → CORRIGÉ (combat ajouté, ch. 120)
+- **lucci** (Rob Lucci, 7 combats) — water7 4.1→4.1, egghead 5.0→5.0 — ok
+- **ohm** (Ohm, 2 combats) — skypiea 3.9→3.9 — légèrement haut (3,9) via Zoro trop haut ; Zoro corrigé, effet faible
+- **robin** (Nico Robin, 15 combats) — skypiea 3.6→3.6, water7 3.6→3.6, thriller 3.6→3.6, marineford 3.6→3.6, fishman 4.4→4.4, punkhazard 4.4→4.4, wano 4.8→4.8, elbaf 4.8→4.8 — ok ; prime de 79 M à 8 ans (t = -20) retirée, trompeuse (ch. 398)
+- **wyper** (Wyper, 2 combats) — skypiea 3.5→3.5 — ok
+- **kaku** (Kaku, 2 combats) — water7 3.3→3.2, egghead 3.9→4.2 — trop bas de ~0,6 à Egghead (3,9 contre statut CP0 4,5), parce que son éveil et son duel contre Zoro manquaient → CORRIGÉ (saut ch. 1072, combat ajouté)
+- **mr_1** (Mr. 1 (Daz Bonez), 2 combats) — alabasta 2.9→2.9, marineford 2.9→2.9 — ok
+- **kumadori** (Kumadori, 2 combats) — water7 2.9→2.9 — ok
+- **blueno** (Blueno, 1 combats) — water7 2.9→2.9 — ok
+- **bellamy** (Bellamy, 3 combats) — skypiea 2.8→2.8, punkhazard 3.4→3.4 — ok
+- **jabra** (Jabra, 1 combats) — water7 2.8→2.8 — ok
+- **shura** (Shura, 2 combats) — skypiea 2.8→2.8 — ok
+- **kalifa** (Kalifa, 2 combats) — water7 2.7→2.7 — ok
+- **chopper** (Tony Tony Chopper, 15 combats) — alabasta 2.5→2.5, skypiea 2.5→2.5, water7 2.5→2.5, thriller 2.6→2.5, marineford 2.6→2.6, fishman 4.0→4.0, wci 4.1→4.1, wano 4.1→4.1, egghead 4.1→4.1 — ok
+- **nami** (Nami, 17 combats) — alabasta 2.5→2.4, water7 2.5→2.5, thriller 2.5→2.5, marineford 2.5→2.5, fishman 3.5→3.5, punkhazard 3.5→3.5, wci 3.9→3.9, wano 3.9→3.9, egghead 3.9→3.9, elbaf 3.9→3.9 — ok
+- **bon_clay** (Bon Clay (Mr. 2), 1 combats) — alabasta 2.4→2.4 — ok
+- **gan_fall** (Gan Fall, 2 combats) — skypiea 2.1→2.1 — ok
+- **mr_3** (Mr. 3 (Galdino), 5 combats) — alabasta 2.1→2.4, marineford 2.1→2.4 — ok
+- **miss_doublefinger** (Miss Doublefinger, 1 combats) — alabasta 2.1→2.1 — ok
+- **mr_4** (Mr. 4, 1 combats) — alabasta 2.0→2.0 — ok
+- **miss_merry_christmas** (Miss Merry Christmas, 1 combats) — alabasta 2.0→2.0 — ok
+- **mr_5** (Mr. 5, 2 combats) — alabasta 1.9→1.8 — ok
+- **miss_valentine** (Miss Valentine, 2 combats) — alabasta 1.1→1.1 — ok
+- **vivi** (Nefertari Vivi, 2 combats) — alabasta 1.0→1.0 — ok
+- **kuma** (Bartholomew Kuma, 6 combats) — marineford 5.3→5.2, egghead 6.0→5.7, thriller 5.2→5.2, marineford 5.3→5.2, wano 6.0→5.7, egghead 6.0→5.7 — trop haut de ~0,7 après l'ellipse (6,0), parce que la défaite contre Akainu était codée serrée (m1) alors qu'Akainu domine sans être touché ; et a priori 0,5 (enfant) posé sur son 1er nœud adulte (prime de 296 M) → CORRIGÉ (m2, ch. 1092 ; a priori 4,0)
+- **blackbeard** (Marshall D. Teach (Barbe Noire), 6 combats) — water7 4.9→4.9, marineford 6.6→6.6, wano 6.7→6.7 — ok
+- **kid** (Eustass Kid, 5 combats) — marineford 4.3→4.3, wano 5.7→5.6, egghead 5.6→5.6 — ok
+- **law** (Trafalgar Law, 17 combats) — marineford 4.3→4.3, punkhazard 4.7→4.7, wano 5.8→5.8 — ok
+- **killer** (Killer, 4 combats) — wano 4.7→4.7, egghead 4.7→4.7 — ok
+- **bege** (Capone Bege, 1 combats) — wci 4.3→4.3 — ok
+- **hawkins** (Basil Hawkins, 5 combats) — marineford 4.1→4.1, wano 4.4→4.4 — ok
+- **apoo** (Scratchmen Apoo, 1 combats) — marineford 4.1→4.1 — ok
+- **moria** (Gecko Moria, 4 combats) — thriller 4.0→4.0, marineford 4.0→3.9 — ok
+- **drake** (X Drake, 2 combats) — marineford 4.0→4.0 — ok
+- **urouge** (Urouge, 3 combats) — marineford 4.0→4.0, wci 4.2→4.2 — ok
+- **bonney** (Jewelry Bonney, 3 combats) — egghead 5.0→4.6 — trop haut de ~0,5 à Egghead (5,0), parce que le saut Nika (+1,0) dépasse ce qu'elle montre (deux vice-amiraux) → CORRIGÉ (saut +0,6, ch. 1118)
+- **sentomaru** (Sentomaru, 4 combats) — marineford 3.9→3.9, fishman 4.0→4.0, egghead 4.1→4.1 — ok
+- **franky** (Franky, 13 combats) — water7 3.3→3.3, thriller 3.3→3.3, marineford 3.3→3.3, fishman 4.3→4.3, punkhazard 4.3→4.3, wano 4.4→4.4 — ok
+- **ryuma_zombie** (Ryuma (zombie à l'ombre de Brook), 2 combats) — thriller 3.1→3.3 — ok
+- **brook** (Brook, 13 combats) — thriller 2.4→2.5, marineford 2.4→2.5, fishman 3.7→3.8, punkhazard 3.7→3.8, wci 3.8→3.8, egghead 3.8→3.8, elbaf 3.8→3.8 — ok
+- **absalom** (Absalom, 1 combats) — thriller 2.4→2.4 — ok
+- **foxy** (Foxy, 1 combats) — water7 2.3→2.3 — ok
+- **perona** (Perona, 1 combats) — thriller 2.2→2.2 — ok
+- **hogback** (Hogback, 1 combats) — thriller 1.5→1.5 — ok
+- **akainu** (Sakazuki (Akainu), 9 combats) — marineford 6.6→6.6, wano 6.8→6.8 — ok
+- **marco** (Marco, 5 combats) — marineford 5.6→5.6, wano 5.6→5.6 — ok
+- **magellan** (Magellan, 4 combats) — marineford 5.4→5.4 — ok
+- **vista** (Vista, 2 combats) — marineford 5.2→5.2 — ok
+- **jozu** (Joz (Jozu), 2 combats) — marineford 5.0→5.0 — ok
+- **izo** (Izo, 1 combats) — wano 4.7→4.7 — ok
+- **hancock** (Boa Hancock, 3 combats) — marineford 4.4→4.4, wano 4.7→4.7 — ok
+- **doll** (Doll (vice-amirale), 2 combats) — egghead 4.1→4.0 — ok
+- **onigumo** (Onigumo, 1 combats) — marineford 4.0→4.0 — ok
+- **hannyabal** (Hannyabal, 3 combats) — marineford 3.2→3.2 — ok
+- **sadi** (Sadi-chan, 1 combats) — marineford 3.1→3.1 — ok
+- **koby** (Koby, 2 combats) — marineford 2.6→2.0, egghead 3.1→3.5 — trop bas de ~0,5 après l'ellipse (3,1 contre statut 3,5), parce qu'aucun saut d'ellipse (entraînement avec Garp) → CORRIGÉ (ch. 905, 1080)
+- **fujitora** (Issho (Fujitora), 2 combats) — punkhazard 6.0→6.0 — ok
+- **king** (King, 2 combats) — wano 5.7→5.7 — ok
+- **katakuri** (Charlotte Katakuri, 2 combats) — wci 5.5→5.5 — ok
+- **queen** (Queen, 4 combats) — wano 5.4→5.4 — ok
+- **cavendish** (Cavendish (Hakuba), 2 combats) — punkhazard 5.2→4.6 — trop haut de ~1 échelon (5,2, au niveau de Doflamingo), parce que a priori 4,5 et deux victoires écrasantes d'Hakuba sans la surprise ni la blessure de Dellinger → CORRIGÉ (a priori 4,0, surprise/épuisé, ch. 734, 770-773)
+- **jack** (Jack, 3 combats) — wci 5.1→5.1, wano 5.1→5.1 — ok
+- **pedro** (Pedro, 2 combats) — wci 5.0→5.0 — trop haut de ~0,4 (5,0 au-dessus de Perospero qui le bat) ; a priori 5,0 → 4,5 ; reste légèrement haut (sa victoire sur Tamago), laissé
+- **cracker** (Charlotte Cracker, 2 combats) — wci 5.0→5.0 — ok
+- **perospero** (Charlotte Perospero, 3 combats) — wci 4.7→4.7, wano 4.7→4.6 — ok
+- **page_one** (Page One, 3 combats) — wano 4.7→4.7 — légèrement haut (4,7 > Ulti), en partie parce que le combat contre Sanji était codé comme une victoire de Page One alors que l'issue n'est pas montrée → CORRIGÉ (nul interrompu, ch. 931)
+- **ulti** (Ulti, 5 combats) — wano 4.5→4.5 — ok
+- **who_s_who** (Who's-Who, 1 combats) — wano 4.5→4.4 — ok
+- **black_maria** (Black Maria, 2 combats) — wano 4.4→4.4 — ok
+- **guernica** (Guernica, 1 combats) — wano 4.4→4.4 — ok
+- **sasaki** (Sasaki, 1 combats) — wano 4.3→4.3 — ok
+- **burgess** (Jesus Burgess, 2 combats) — punkhazard 4.4→4.4 — ok
+- **neptune** (Roi Neptune, 2 combats) — fishman 4.3→4.3 — ok
+- **snack** (Charlotte Snack, 1 combats) — wci 4.3→4.3 — ok
+- **zeus** (Zeus (nuage homie), 2 combats) — wci 4.3→4.2, wano 4.3→4.2 — ok
+- **caesar** (Caesar Clown, 3 combats) — punkhazard 4.2→4.2 — ok
+- **diamante** (Diamante, 3 combats) — punkhazard 4.1→4.2 — ok
+- **kraken** (Surume (Kraken), 2 combats) — fishman 4.1→4.1 — ok
+- **niji** (Vinsmoke Niji, 1 combats) — wci 4.1→4.1 — ok
+- **bartolomeo** (Bartolomeo, 4 combats) — punkhazard 4.0→4.0, elbaf 4.0→3.9 — ok
+- **trebol** (Trebol, 2 combats) — punkhazard 4.0→4.0 — ok
+- **pica** (Pica, 1 combats) — punkhazard 4.0→4.0 — ok
+- **judge** (Vinsmoke Judge, 1 combats) — wci 3.9→3.9 — ok
+- **rock** (Rock (frères Yéti Cool), 2 combats) — punkhazard 3.8→3.8 — légèrement haut (3,8) par l'embuscade au gaz contre Zoro/Sanji/Brook (déjà tagguée surprise), laissé
+- **hody** (Hody Jones, 4 combats) — fishman 3.7→3.7 — ok
+- **yonji** (Vinsmoke Yonji, 1 combats) — wci 3.6→3.6 — ok
+- **senor_pink** (Señor Pink, 1 combats) — punkhazard 3.5→3.5 — ok
+- **ichiji** (Vinsmoke Ichiji, 1 combats) — wci 3.5→3.5 — ok
+- **hajrudin** (Hajrudin, 4 combats) — punkhazard 3.4→3.4, elbaf 3.4→3.4 — trop bas de ~0,8 à Elbaf (3,4) alors qu'il frappe Imu au visage (ch. 1191) ; aucune prime ni progrès canon datable → NON RÉSOLU
+- **caribou** (Caribou, 1 combats) — fishman 3.4→3.3 — ok
+- **lao_g** (Lao G, 2 combats) — punkhazard 3.3→3.2 — ok
+- **fukaboshi** (Fukaboshi, 2 combats) — fishman 3.3→3.3 — ok
+- **ikaros_much** (Ikaros Much, 2 combats) — fishman 3.2→3.2 — ok
+- **monet** (Monet, 2 combats) — punkhazard 3.1→3.1 — ok
+- **gladius** (Gladius, 1 combats) — punkhazard 3.0→3.1 — ok
+- **brulee** (Charlotte Brûlée, 2 combats) — wci 3.0→3.1 — ok
+- **dellinger** (Dellinger, 1 combats) — punkhazard 2.9→3.2 — ok
+- **buffalo** (Buffalo, 3 combats) — punkhazard 2.9→2.9 — ok
+- **vander_decken** (Vander Decken IX, 2 combats) — fishman 2.9→3.0 — ok
+- **chinjao** (Don Chinjao, 2 combats) — punkhazard 2.9→2.9 — légèrement bas (2,9 contre prime de 542 M jadis) mais cohérent avec l'âge et ses défaites à Dressrosa, laissé
+- **carrot** (Carrot, 2 combats) — wci 2.9→2.9, wano 2.9→2.9 — ok
+- **machvise** (Machvise, 1 combats) — punkhazard 2.9→2.9 — ok
+- **rebecca** (Rebecca, 3 combats) — punkhazard 2.9→3.0 — ok
+- **suleiman** (Suleiman, 2 combats) — punkhazard 2.8→3.0 — ok
+- **zeo** (Zeo, 2 combats) — fishman 2.7→2.7 — ok
+- **baby_5** (Baby 5, 3 combats) — punkhazard 2.6→2.6 — ok
+- **daruma** (Daruma, 2 combats) — fishman 2.6→2.6 — ok
+- **wadatsumi** (Wadatsumi, 2 combats) — fishman 2.5→2.5 — ok
+- **dosun** (Dosun, 3 combats) — fishman 2.5→2.5 — ok
+- **scotch** (Scotch (frères Yéti Cool), 2 combats) — punkhazard 2.3→2.3 — ok
+- **hyozo** (Hyozo, 2 combats) — fishman 2.3→2.3 — ok
+- **sugar** (Sugar, 3 combats) — punkhazard 2.2→2.3 — ok
+- **orochi** (Kurozumi Orochi, 2 combats) — wano 1.7→1.7 — ok
+- **hammond** (Hammond, 2 combats) — fishman 1.6→1.5 — ok
+- **warcury** (Saint Topman Warcury, 4 combats) — egghead 6.4→6.4 — ok
+- **saturn** (Saint Jaygarcia Saturn, 6 combats) — egghead 6.1→6.1 — ok
+- **mars** (Saint Marcus Mars, 1 combats) — egghead 6.1→6.1 — ok
+- **yamato** (Yamato, 2 combats) — wano 6.1→6.0 — ok (déjà revu au 1er passage)
+- **nusjuro** (Saint Ethanbaron V. Nusjuro, 3 combats) — egghead 6.0→6.0 — ok
+- **ju_peter** (Saint Shepherd Ju Peter, 2 combats) — egghead 5.9→5.9 — ok
+- **ryokugyu** (Aramaki (Ryokugyu), 1 combats) — wano 5.9→5.9 — ok
+- **yasopp** (Yasopp, 1 combats) — elbaf 5.6→5.6 — ok
+- **kiku** (Kikunojo, 2 combats) — wano 5.2→5.2 — ok
+- **denjiro** (Denjiro, 2 combats) — wano 5.1→5.1 — ok
+- **kinemon** (Kin'emon, 2 combats) — wano 5.0→5.0 — ok
+- **pizarro** (Avalo Pizarro, 2 combats) — egghead 4.8→4.9 — ok
+- **raizo** (Raizo, 2 combats) — wano 4.9→4.9 — ok
+- **gyukimaru** (Gyukimaru, 2 combats) — wano 4.8→4.8 — ok
+- **sanjuan_wolf** (Sanjuan Wolf, 1 combats) — egghead 4.2→4.2 — ok
+- **kanjuro** (Kanjuro, 2 combats) — wano 3.2→3.2 — ok
+- **urashima** (Urashima, 2 combats) — wano 2.1→2.1 — ok
+- **emet** (Emet (Géant de fer), 2 combats) — egghead 6.5→6.5 — ok
+- **shamrock** (Saint Figarland Shamrock, 1 combats) — elbaf 6.5→6.5 — ok
+- **gunko** (Sainte Gunko, 6 combats) — elbaf 6.1→6.0 — trop haut de ~0,6 à Elbaf (6,1 contre statut 5,5), parce que la prise d'otage où Gaban lâche ses haches était codée comme une victoire sur Gaban → CORRIGÉ (retirée, ch. 1149)
+- **killingham** (Saint Killingham, 2 combats) — elbaf 5.1→5.1 — ok

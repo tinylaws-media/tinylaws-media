@@ -54,7 +54,7 @@ CHARS_PART = {
     "hajrudin": ("Hajrudin", "Pirates des Géants", 4.0, None, None),
     "chinjao": ("Don Chinjao", "Famille Chinjao", 4.5, None, None),
     "burgess": ("Jesus Burgess", "Pirates de Barbe Noire", 4.0, None, None),
-    "cavendish": ("Cavendish (Hakuba)", "Pirates du Beautiful", 5.0, None, None),
+    "cavendish": ("Cavendish (Hakuba)", "Pirates du Beautiful", 4.0, None, None),   # rookie à 280 M, niveau Supernova, pas un commandant d'Empereur
     "rebecca": ("Rebecca", "Royaume de Dressrosa", 3.0, None, None),
     "suleiman": ("Suleiman", "Gladiateur", 4.0, None, None),
     "sabo": ("Sabo", "Armée révolutionnaire", 1.0, None, None),
@@ -75,8 +75,8 @@ CHARS_PART = {
     "giolla": ("Giolla", "Famille Donquixote", 3.5, None, None),
     # ---- Zou
     "jack": ("Jack", "Pirates aux Cent Bêtes", 5.5, None, None),
-    "inuarashi": ("Inuarashi", "Minks / Fourreaux rouges", 5.0, None, None),
-    "nekomamushi": ("Nekomamushi", "Minks / Fourreaux rouges", 5.0, None, None),
+    "inuarashi": ("Inuarashi", "Minks / Fourreaux rouges", 3.0, None, None),   # 1er nœud = mousse adolescent de Roger (t = -24, ch. 967)
+    "nekomamushi": ("Nekomamushi", "Minks / Fourreaux rouges", 3.0, None, None),   # 1er nœud = mousse adolescent de Roger (t = -24, ch. 967)
     "zunesha": ("Zunesha", "Éléphant géant", 6.5, None, None),
     # ---- Whole Cake Island
     "urouge": ("Urouge", "Pirates du Moine fou", 4.0, None, None),
@@ -87,7 +87,7 @@ CHARS_PART = {
     "yonji": ("Vinsmoke Yonji", "Germa 66", 4.0, None, None),
     "judge": ("Vinsmoke Judge", "Germa 66", 4.5, None, None),
     "big_mom": ("Charlotte Linlin (Big Mom)", "Pirates de Big Mom", 7.0, None, None),
-    "pedro": ("Pedro", "Minks / Pirates du Nox", 5.0, 2.36, None),
+    "pedro": ("Pedro", "Minks / Pirates du Nox", 4.5, 2.36, None),   # prime 382 M, battu par Perospero (ch. 877-878)
     "tamago": ("Baron Tamago", "Pirates de Big Mom", 4.5, None, None),
     "perospero": ("Charlotte Perospero", "Pirates de Big Mom", 5.0, None, None),
     "bege": ("Capone Bege", "Pirates de Fire Tank", 5.0, None, None),
@@ -112,7 +112,7 @@ CHARS_PART = {
     "gyukimaru": ("Gyukimaru", "Wano (bandit)", 4.0, None, None),
     "ashura_doji": ("Ashura Doji", "Fourreaux rouges", 5.0, 2.4445, None),
     "ulti": ("Ulti", "Pirates aux Cent Bêtes", 5.0, None, None),
-    "yamato": ("Yamato", "Pirates aux Cent Bêtes", 6.0, None, None),
+    "yamato": ("Yamato", "Pirates aux Cent Bêtes", 5.5, None, None),   # fille de Kaido, sans titre officiel ; ne fait que retarder Kaido (ch. 1018-1026)
     "kinemon": ("Kin'emon", "Fourreaux rouges", 4.0, None, None),
     "kiku": ("Kikunojo", "Fourreaux rouges", 5.0, None, None),
     "kawamatsu": ("Kawamatsu", "Fourreaux rouges", 5.0, None, None),
@@ -142,6 +142,7 @@ JUMPS_PART = [
     ("usopp", 1.5, 1.0, 0.6, "Ellipse : Boin, Pop Greens"),
     ("chopper", 1.5, 1.0, 0.6, "Ellipse : Torino, contrôle du Monster Point"),
     ("robin", 1.5, 0.8, 0.6, "Ellipse : Tequila Wolf / Armée révolutionnaire"),
+    ("koby", 1.5, 1.0, 0.6, "Ellipse : entraînement avec Garp, promu capitaine, « Héros Koby » (ch. 905, 1080)"),
     ("franky", 1.5, 1.0, 0.6, "Ellipse : Baldimore, nouveau corps"),
     ("brook", 1.5, 1.0, 0.6, "Ellipse : maîtrise de l'âme (Yomi Yomi)"),
     # Dressrosa
@@ -238,7 +239,7 @@ fight(2.233, "punkhazard", "luffy", "hajrudin", "A", 3, note="Bloc C, un seul co
 fight(2.234, "punkhazard", "luffy", "chinjao", "A", 3, note="Bloc C, Thor Elephant Gun (ch. 718-719)")
 fight(2.237, "punkhazard", "doflamingo", "law", "A", 2, note="Green Bit puis le pont : Law capturé et blessé par balles (ch. 722-730)")
 fight(2.2375, "punkhazard", "doflamingo", "sanji", "A", 2, note="Sanji immobilisé, Law le téléporte (ch. 723-724)", flags="i")
-fight(2.24, "punkhazard", "cavendish", "suleiman", "A", 3,
+fight(2.24, "punkhazard", "cavendish", "suleiman", "A", 3, ta=["surprise"],
       note="Bloc D : Hakuba, réveillé, fauche tous les combattants sauf Rebecca (ch. 734)")
 fight(2.2401, "punkhazard", "rebecca", "suleiman", "D", note="Bloc D, interrompu par Hakuba ; Rebecca, seule à esquiver, gagne le bloc (ch. 734)", flags="i")
 fight(2.245, "punkhazard", "trebol", "usopp", "A", 2, note="Usopp coupe Trebol en deux (Platanus Shuriken) mais Trebol le prend dans sa glu (ch. 741-742)")
@@ -257,7 +258,7 @@ fight(2.263, "punkhazard", "doflamingo", ["luffy", "law"], "D", tb=["protege"],
 fight(2.2695, "punkhazard", "hajrudin", "machvise", "A", 2, tb=[], note="Hajrudin, blessé, l'envoie dans la Cage puis s'effondre (ch. 770)")
 fight(2.27, "punkhazard", "lao_g", "chinjao", "A", 2, ta=["surprise"], note="Lao G frappe Chinjao, tête déjà pliée par Sai (ch. 771)")
 fight(2.2701, "punkhazard", "sai", "lao_g", "A", 2, note="Kiryu Kirikugi imprégné de Haki (ch. 771)")
-fight(2.2705, "punkhazard", "cavendish", "dellinger", "A", 3, note="Hakuba fauche Dellinger et les gardes du 3e niveau (ch. 773) ; Ideo l'avait touché (ch. 770)")
+fight(2.2705, "punkhazard", "cavendish", "dellinger", "A", 3, ta=["surprise"], tb=["epuise"], note="Hakuba fauche Dellinger et les gardes du 3e niveau (ch. 773) ; Ideo l'avait touché (ch. 770)")
 fight(2.2708, "punkhazard", "leo", "giolla", "A", 2, note="Haute Couture: Patchwork, Mansherry libérée (ch. 774)")
 fight(2.2715, "punkhazard", "franky", "senor_pink", "A", 1, note="Usine SMILE, commencé ch. 732, Franky Iron Boxing (ch. 775)")
 fight(2.272, "punkhazard", "kyros", "diamante", "A", 2, note="Champ de fleurs, sur la tombe de Scarlett (ch. 776)")
@@ -292,7 +293,7 @@ fight(2.3315, "wci", "niji", "sanji", "A", 2, tb=["protege"],
       note="Sanji frappe Niji pour Cosette, Ichiji menace Zeff ; Niji le roue d'attaques électriques (ch. 840)")
 fight(2.332, "wci", ["carrot", "chopper"], "brulee", "A", 2, ta=["surprise"],
       note="Carrot renverse la marmite bouillante sur Brûlée, Chopper se libère ; Brûlée capturée (ch. 849)")
-fight(2.335, "wci", "big_mom", "brook", "A", 3, tb=["prepa"], note="Brook vaincu après avoir copié les ponéglyphes (ch. 849-850)")
+fight(2.335, "wci", "big_mom", "brook", "A", 3, note="Brook, surpris dans la salle des ponéglyphes, vaincu par Big Mom qui ne peut pourtant pas prendre son âme (ch. 849-850)")
 fight(2.336, "wci", "pedro", "tamago", "A", 2, note="Pedro coupe Tamago puis Hiyoko et se fait sauter, sauvé par le Mirro-World (ch. 850-853)")
 fight(2.34, "wci", "sanji", "luffy", "A", 3, tb=["retenue", "epuise"], note="Luffy refuse de riposter (ch. 856)")
 fight(2.35, "wci", "big_mom", "bege", "A", 2, tb=["prepa"], note="Le cri de Big Mom ruine l'assassinat et les KX Launchers (ch. 865-868)")
@@ -305,8 +306,8 @@ fight(2.3646, "wci", ["jinbe", "nami", "brook", "zeus"], "big_mom", "D", tb=["ma
       note="Big Mom, folle de faim, sur le Sunny : Jinbe la fait tomber et l'arrose, Brook coupe Zeus, Nami l'électrocute (ch. 890)", flags="i")
 
 # ============================================================== Rêverie (ch. 903-908, conséquences ch. 956)
-fight(2.38, "wci", "sabo", ["fujitora", "ryokugyu"], "D",
-      note="Les commandants révolutionnaires affrontent deux amiraux à Marie-Joie puis s'échappent (ch. 956, récit) ; rôle direct de Sabo non précisé", flags="?")
+# retiré : « Sabo contre Fujitora et Ryokugyu à la Rêverie » : ce sont les commandants révolutionnaires qui affrontent
+# les deux amiraux (ch. 956), Sabo n'y est pas montré au combat.
 
 # ============================================================== Wano acte 1 (ch. 909-924)
 fight(2.4, "wano", "hawkins", ["luffy", "zoro"], "D", ta=["prepa"], note="Les coups renvoyés sur ses hommes ; Komachiyo emporte Luffy et Zoro (ch. 912-913)", flags="i")
@@ -318,7 +319,7 @@ fight(2.405, "wano", "kaido", "luffy", "A", 3, note="Ruines du château d'Oden, 
 fight(2.406, "wano", "kaido", "kid", "A", 3, ta=["prepa"], note="Kid battu par Kaido avant l'histoire et envoyé à Udon (récit ; Kid aux mines ch. 926)", flags="?")
 
 # ============================================================== Wano acte 2 (ch. 925-957)
-fight(2.41, "wano", "sanji", "page_one", "A", 1, note="Raid Suit invisible, Sanji contre-attaque d'en haut ; issue non montrée (ch. 931)", flags="?")
+fight(2.41, "wano", "sanji", "page_one", "D", note="Raid Suit invisible : coup de pied, Page One le projette à travers des maisons, Sanji revient d'en haut ; issue non montrée (ch. 931)", flags="i")
 fight(2.412, "wano", "zoro", "gyukimaru", "D", note="Premier duel sur le pont Oihagi (ch. 937-938)", flags="i")
 fight(2.413, "wano", "zoro", "killer", "A", 1, tb=["malade"], note="Zoro abat Kamazo (Killer sous SMILE) avec sa propre faux (ch. 937-938)")
 fight(2.416, "wano", "big_mom", "queen", "A", 2, note="Udon, Big Mom amnésique écrase Queen (ch. 945-946)")
@@ -343,6 +344,9 @@ fight(2.4392, "wano", "black_maria", "sanji", "A", 2, ta=["prepa"], tb=["retenue
       note="Sanji refuse de frapper une femme, roué dans la toile ; Robin la renverse, Sanji s'échappe (ch. 1004-1005)", flags="i")
 fight(2.4393, "wano", "perospero", ["carrot", "wanda"], "A", 2, tb=["epuise"],
       note="Blessé par leurs Sulong (ch. 995), Perospero les bat une fois la lune cachée (ch. 1006)")
+fight(2.4395, "wano", "chopper", "queen", "A", 1, ta=["surprise"],
+      note="Le Chopperphage guérit l'Ice Oni, les Pleasures se retournent contre Queen ; Marco le saisit au cou et Chopper, en Monster Point, "
+           "le gifle en sang (ch. 1007)", flags="i")
 fight(2.44, "wano", "kaido", "luffy", "A", 2, tb=["haki_roi"], note="Luffy découvre le Haki des rois imprégné mais tombe (ch. 1010-1015)")
 fight(2.4401, "wano", "big_mom", "ulti", "A", 3, note="Napoleon, Prometheus et Hera combinés ; Ulti assommée en voulant tuer Nami (ch. 1013)")
 fight(2.4405, "wano", "kinemon", "kanjuro", "A", 2, tb=["surprise"],
@@ -351,7 +355,8 @@ fight(2.4415, "wano", ["nami", "zeus", "usopp"], "ulti", "A", 2, tb=["epuise"],
       note="Zeus, logé dans le Clima-Tact, foudroie Ulti ; Usopp la ligote (Midori Boshi: Devil) (ch. 1016)")
 fight(2.4417, "wano", "jinbe", "who_s_who", "A", 2, note="Ancien CP9 ; doigts brisés sur le Haki, Onigawara Seiken (ch. 1017-1018)")
 fight(2.4418, "wano", "franky", "sasaki", "A", 2, note="General Franky détruit, Franky éjecté le met K.O. au Radical Beam (ch. 1016-1019)")
-fight(2.442, "wano", "kaido", "yamato", "D", note="Yamato tient Kaido jusqu'au retour de Luffy (ch. 1018-1026)", flags="i")
+fight(2.442, "wano", "kaido", "yamato", "A", 2,
+      note="Yamato retarde Kaido jusqu'au retour de Luffy mais est dominée et à bout quand Luffy revient (ch. 1018-1026)", flags="i")
 fight(2.444, "wano", "robin", "black_maria", "A", 2, note="Demonio Fleur (ch. 1021-1022)")
 fight(2.4446, "wano", "inuarashi", "jack", "A", 2, ta=["boost"], note="Sulong ; Oden Ittoryu: Inu Spire (ch. 1023-1026)")
 fight(2.4447, "wano", "nekomamushi", "perospero", "A", 2, ta=["boost"],

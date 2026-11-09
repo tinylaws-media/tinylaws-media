@@ -41,7 +41,7 @@ JUMPS = []      # (char, t, mean change in tiers, sd, label)
 REVIVE = {}
 # vétérans dont la force ne bouge plus que par des sauts datés (âge, maladie)
 SLOW = {"rayleigh", "gaban", "roger", "garp", "whitebeard", "sengoku", "rocks"}
-EXTRA_TAGS = {"eveil": (1.5, 0.8), "haki_roi": (0.8, 0.6)}   # éveil du fruit / Gear 5, Haki des rois imprégné
+EXTRA_TAGS = {"eveil": (1.5, 0.8), "haki_roi": (0.8, 0.6), "possede": (2.0, 1.0)}   # possede : un corps prêté à Imu (Domi Reversi), pas la force propre du personnage   # éveil du fruit / Gear 5, Haki des rois imprégné
 BOOK_TIMES = {}
 CHECKS = []
 

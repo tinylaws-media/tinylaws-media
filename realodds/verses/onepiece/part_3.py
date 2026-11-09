@@ -80,7 +80,8 @@ GENERIC_PART = set()
 
 JUMPS_PART = [
     ("lucci", 2.499, 0.5, 0.5, "Éveil du fruit Neko Neko (Léopard) révélé à Egghead"),
-    ("bonney", 2.531, 1.0, 0.8, "Distorsion du futur : forme Nika"),
+    ("bonney", 2.531, 0.6, 0.6, "Distorsion du futur : forme Nika ; ne bat que deux vice-amiraux (ch. 1118)"),
+    ("kaku", 2.499, 0.5, 0.5, "Éveil du fruit Ushi Ushi (Girafe) révélé contre Zoro (ch. 1072)"),
     ("zoro", 2.68, 0.3, 0.4, "Haki des rois enfin maîtrisé contre Sommers (ch. 1194)"),
     ("sanji", 2.69, 0.5, 0.5, "Éveil du Haki des rois contre Killingham (ch. 1197)"),
     ("loki", -20.0, 2.0, 1.0, "Loki enfant devenu adulte (géant)"),
@@ -104,21 +105,21 @@ fight(-37.9965, "godvalley", "whitebeard", "maffey", "A", 3,
 fight(-37.991, "godvalley", "john", "dragon", "A", 3, note="John attire métal et hommes armés à lui et assomme Dragon qui portait Shanks (ch. 1163)")
 fight(-37.9905, "godvalley", "ganzui", "john", "A", 2, ta=["surprise"],
       note="John trahit l'équipage, Ganzui l'assomme avec le Bomu Bomu (ch. 1163)")
-fight(-37.9895, "godvalley", "rocks", "whitebeard", "D", ta=["boost"],
+fight(-37.9895, "godvalley", "rocks", "whitebeard", "D", ta=["possede"],
       note="Rocks démonisé par Imu et Newgate échangent à égalité, le pic nord-est s'effondre (ch. 1164)", flags="i")
 # ================================================================ flash-back : mort de Harald (il y a 14 ans)
-fight(-14.02, "oden", "harald", "jarul", "A", 2, ta=["boost"],
+fight(-14.02, "oden", "harald", "jarul", "A", 2, ta=["possede"],
       note="Harald, corrompu par Imu, massacre les gardes et plante une épée dans le casque de Jarul (ch. 1169)")
-fight(-14.015, "oden", ["shanks", "gaban"], "harald", "D", tb=["boost"],
+fight(-14.015, "oden", ["shanks", "gaban"], "harald", "D", tb=["possede"],
       note="Shanks et Gaban affaiblissent Harald immortel sans l'achever (ch. 1169-1170)", flags="i")
-fight(-14.0, "oden", "loki", "harald", "A", 2, ta=["boost"], tb=["boost"],
-      note="Loki, transformé par le fruit, brise Harald d'un éclair chargé de Haki des rois (ch. 1170)")
+fight(-14.0, "oden", "loki", "harald", "A", 2, tb=["possede", "epuise"],
+      note="Loki, transformé par le fruit, brise d'un éclair chargé de Haki des rois un Harald déjà usé par Shanks et Gaban (ch. 1169-1170)")
 
 # ================================================================ après Wano : Rêverie, Cross Guild, Barbe Noire
 fight(2.45, "wano", "imu", "sabo", "A", 2,
       note="Rêverie : Imu et les Doyens attaquent Sabo, Imu absorbe son feu, Cobra meurt, Sabo fuit (ch. 1085-1086)")
-fight(2.451, "wano", "akainu", "kuma", "A", 1, tb=["epuise"],
-      note="Kuma (cyborg) saccage Marie-Joie ; Akainu lui arrache une jambe, Kuma s'échappe gravement blessé (ch. 1092)")
+fight(2.451, "wano", "akainu", "kuma", "A", 2, tb=["epuise"],
+      note="Kuma (cyborg) saccage Marie-Joie ; Akainu domine sans être touché, lui fond la moitié du visage et une jambe, Kuma se téléporte (ch. 1092)")
 fight(2.46, "wano", "blackbeard", "hancock", "A", 2,
       note="Amazon Lily : Teach la saisit à la gorge et annule son pouvoir ; Rayleigh s'interpose (ch. 1059)", flags="i")
 fight(2.465, "wano", "blackbeard", "law", "A", 2, ta=["prepa"],
@@ -129,6 +130,7 @@ fight(2.5000, "egghead", "lucci", "atlas", "A", 3, note="Rokuogan en forme hybri
 fight(2.5008, "egghead", "lucci", "sentomaru", "A", 2, note="Lucci empale Sentomaru (ch. 1069-1070)")
 fight(2.5016, "egghead", "luffy", "lucci", "A", 2, ta=[],
       note="Gear 5 contre Zoan éveillé : Dawn Whip puis Dawn Rocket (ch. 1069-1070)")
+fight(2.5072, "egghead", "zoro", "kaku", "A", 2, note="Zoro, du plat des lames, plaque au sol Kaku en forme éveillée ; Kaku renonce, puis Stussy l'assomme (ch. 1072)", flags="i")
 fight(2.5080, "egghead", "stussy", ["kaku", "lucci"], "A", 2, ta=["surprise"],
       note="Stussy (MADS) vide Kaku de son sang et entrave Lucci au granit marin (ch. 1073)")
 fight(2.5120, "egghead", "shanks", ["kid", "killer"], "A", 3, ta=[],
@@ -193,15 +195,15 @@ fight(2.631, "elbaf", "gunko", ["nami", "jinbe", "brook", "usopp"], "A", 2,
 fight(2.633, "elbaf", "sommers", "robin", "A", 2, note="Craspedia lui brise le dos, il se remet et la cloue (ch. 1148)")
 fight(2.634, "elbaf", "gaban", "sommers", "A", 2, ta=[],
       note="Gaban lui coupe un bras (qui ne repousse pas) puis le fend en deux (ch. 1148-1149)")
-fight(2.635, "elbaf", "gunko", "gaban", "A", 1, tb=["protege"],
-      note="Otage (Colon) : Gaban lâche ses haches, criblé de flèches et jeté de la branche (ch. 1149)")
-fight(2.636, "elbaf", "gunko", ["dorry", "brogy"], "A", 3, ta=["boost"],
+# retiré : « Gunko bat Gaban (ch. 1149) » : prise d'otage (Colon), Gaban lâche ses haches sans combattre ; ce n'est pas une mesure de force
+# et elle faisait passer Gunko (statut 5,5) pour une égale de Gaban.
+fight(2.636, "elbaf", "gunko", ["dorry", "brogy"], "A", 3, ta=["possede"],
       note="Imu à travers le corps de Gunko (Domi Reversi) arrache la main de Brogy et démonise les deux capitaines (ch. 1149-1150)")
 fight(2.65, "elbaf", "sanji", "killingham", "A", 2,
       note="Ifrit Jambe Concassé brise le casque de Killingham (ch. 1176) ; il finit ligoté à un arbre (ch. 1179)")
-fight(2.651, "elbaf", "gunko", "usopp", "A", 3, ta=["boost"], tb=["protege"],
+fight(2.651, "elbaf", "gunko", "usopp", "A", 3, ta=["possede"], tb=["protege"],
       note="Imu dans le corps de Gunko massacre Usopp qui protège Brook (ch. 1177)")
-fight(2.652, "elbaf", ["luffy", "loki"], "gunko", "A", 2, ta=[], tb=["boost"],
+fight(2.652, "elbaf", ["luffy", "loki"], "gunko", "A", 2, ta=[], tb=["possede"],
       note="Domi Reversi échoue, Luffy la martèle et Loki gèle Imu-Gunko avec Niflheim (ch. 1178)")
 fight(2.66, "elbaf", "imu", "zoro", "A", 3, note="Imu pare Rengoku Oni Giri avec sa queue, Zoro à terre d'un Omen (ch. 1180)")
 fight(2.6602, "elbaf", "imu", "hajrudin", "A", 3, note="Un Omen met Hajrudin au tapis (ch. 1180)")
