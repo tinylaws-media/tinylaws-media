@@ -11,8 +11,8 @@ STATUS = [
     ("tengen", 2.21, 4.0, 0.4, "Pilier du Son (réunion des Piliers, ch. 44-46)"),
     ("mitsuri", 2.21, 4.0, 0.4, "Pilier de l'Amour (réunion des Piliers, ch. 44-46)"),
     ("muichiro", 2.21, 4.0, 0.5, "Pilier de la Brume, devenu Pilier deux mois après avoir pris le sabre (ch. 44-46, ch. 118)"),
-    ("gyomei", 2.21, 4.4, 0.4, "Pilier du Rocher (réunion des Piliers, ch. 44-46)"),
-    ("gyomei", 2.7, 4.6, 0.5, "Pilier du Rocher, reconnu comme le plus fort des pourfendeurs (entraînement des Piliers, ch. 134-135)"),
+    ("gyomei", 2.21, 4.8, 0.4, "Pilier du Rocher (réunion des Piliers, ch. 44-46)"),
+    ("gyomei", 2.7, 5.0, 0.5, "Pilier du Rocher, reconnu comme le plus fort des pourfendeurs (entraînement des Piliers, ch. 134-135)"),
     ("sanemi", 2.21, 4.0, 0.4, "Pilier du Vent (réunion des Piliers, ch. 44-46)"),
     ("iguro", 2.21, 4.0, 0.4, "Pilier du Serpent (réunion des Piliers, ch. 44-46)"),
     ("kanae", -2.0, 4.0, 0.5, "Pilier de la Fleur avant sa mort face à Doma (ch. 142-143)"),
@@ -35,7 +35,7 @@ STATUS = [
     ("gyokko", 2.6, 5.1, 0.5, "Lune supérieure 5 (ch. 98, ch. 108-122)"),
     ("gyutaro", 2.5, 4.9, 0.5, "Lune supérieure 6, le vrai pouvoir du duo avec Daki (ch. 81-97)"),
     ("daki", 2.5, 4.4, 0.8, "Lune supérieure 6 (rang partagé, la plus faible du duo) (ch. 70-97)"),
-    ("kaigaku", 2.8, 4.8, 0.7, "Nouvelle Lune supérieure 6 (ch. 144-145)"),
+    ("kaigaku", 2.8, 4.4, 0.7, "Nouvelle Lune supérieure 6, promue depuis peu après la mort de Gyutaro (ch. 144-145)"),
     ("nakime", 2.8, 4.6, 0.9, "Nouvelle Lune supérieure 4, gardienne du château, non combattante (ch. 98, ch. 140)"),
     # Lunes inférieures
     ("enmu", 2.35, 3.3, 0.6, "Lune inférieure 1 (ch. 52-63)"),
@@ -45,7 +45,7 @@ STATUS = [
     # Muzan, Yoriichi
     ("muzan", 2.8, 7.3, 0.4, "Muzan Kibutsuji, le premier démon et roi des démons (ch. 13-14, ch. 183-204)"),
     ("muzan", -400.0, 7.3, 0.5, "Muzan Kibutsuji, roi des démons à l'ère Sengoku (ch. 186-187)"),
-    ("yoriichi", -400.0, 7.5, 0.4, "Yoriichi Tsugikuni, le plus fort pourfendeur de l'histoire, créateur de la Respiration du Soleil (ch. 174-177, ch. 186-187)"),
+    ("yoriichi", -400.0, 8.5, 0.5, "Yoriichi Tsugikuni, le plus fort pourfendeur de l'histoire, créateur de la Respiration du Soleil (ch. 174-177, ch. 186-187)"),
     ("tanjiro_oni", 2.8121, 6.5, 0.8, "Muzan voit en Tanjiro démon le prochain roi des démons, capable de le surpasser (ch. 201-202)"),
 ]
 
@@ -54,7 +54,7 @@ NUMERIC_TRANSFORM = {}
 
 ORDER = [
     # Classement officiel de Muzan : Lune supérieure 1 > 2 > 3 > 4 > 5 > 6
-    ("muzan", 2.8, "kokushibo", 2.8, 1.0, 0.6, "Muzan, maître absolu des Lunes supérieures (ch. 98, ch. 139)"),
+    ("muzan", 2.8, "kokushibo", 2.8, 1.5, 0.5, "Muzan, maître absolu des Lunes supérieures ; même empoisonné, il tient seul les Piliers que Kokushibo n'a pu affronter qu'à quatre (ch. 98, ch. 139, ch. 184-191)"),
     ("kokushibo", 2.8, "doma", 2.8, 0.5, 0.6, "Lune supérieure 1 au-dessus de la Lune supérieure 2 (classement de Muzan, ch. 98)"),
     ("doma", 2.8, "akaza", 2.8, 0.4, 0.6, "Doma, entré après Akaza, l'a dépassé au classement (ch. 98, ch. 154-155)"),
     ("akaza", 2.6, "hantengu", 2.6, 0.5, 0.6, "Lune supérieure 3 au-dessus de la Lune supérieure 4 (classement de Muzan, ch. 98)"),
@@ -62,9 +62,12 @@ ORDER = [
     ("gyokko", 2.5, "gyutaro", 2.5, 0.3, 0.6, "Lune supérieure 5 au-dessus de la Lune supérieure 6 (classement de Muzan, ch. 98)"),
     ("akaza", 2.35, "rengoku", 2.35, 1.0, 0.6, "Les Lunes supérieures sont restées invaincues un siècle et ont tué de nombreux Piliers (ch. 63-66, ch. 98)"),
     ("yoriichi", -340.0, "kokushibo", -340.0, 1.2, 0.6, "Kokushibo n'a jamais pu égaler son frère Yoriichi, même âgé de plus de 80 ans (ch. 177-178)"),
-    ("yoriichi", -400.0, "muzan", -400.0, 1.0, 0.6, "Muzan terrifié par Yoriichi, le seul à l'avoir mis au bord de la mort (ch. 186-187)"),
+    ("yoriichi", -400.0, "muzan", -400.0, 1.5, 0.5, "Muzan terrifié par Yoriichi, le seul à l'avoir mis au bord de la mort (ch. 186-187)"),
+    ("yoriichi", -400.0, "muzan", 2.8, 1.0, 0.7, "Quatre siècles plus tard, Muzan n'a toujours pas surmonté la peur de Yoriichi ; Kokushibo le dit sans égal (ch. 175-178, ch. 187)"),
     ("gyomei", 2.7, "sanemi", 2.7, 0.4, 0.8, "Gyomei, le plus fort des Piliers (Tanjiro et Inosuke, ch. 134-135 ; Kokushibo, ch. 168-172)"),
     ("gyomei", 2.7, "giyu", 2.7, 0.5, 0.8, "Gyomei, le plus fort des Piliers (entraînement des Piliers, ch. 134-135)"),
     ("gyomei", 2.7, "iguro", 2.7, 0.5, 0.8, "Gyomei, le plus fort des Piliers (entraînement des Piliers, ch. 134-135)"),
+    ("gyomei", 2.7, "muichiro", 2.7, 0.4, 0.8, "Gyomei, le plus fort des Piliers, au-dessus du prodige Muichiro (ch. 134-135, ch. 168-172)"),
+    ("gyomei", 2.7, "mitsuri", 2.7, 0.5, 0.8, "Gyomei, le plus fort des Piliers (entraînement des Piliers, ch. 134-135)"),
     ("giyu", 2.8, "shinobu", 2.8, 0.4, 0.8, "Shinobu, la seule Pilier incapable de trancher la tête d'un démon (ch. 141-143)"),
 ]

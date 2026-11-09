@@ -2,8 +2,9 @@
 stated results; no anime-only fights, no movies beyond what the manga shows).
 Time axis t = years since the massacre of Tanjiro's family (= 0); Final Selection about 2.0. Flashbacks negative
 (Yoriichi vs Muzan about -400). fight(t, arc, sideA, sideB, "A"/"D", margin 1/2/3, ta=[...], tb=[...],
-note="... (ch. N)", flags="i"/"?"/"e"). Tags: malade, epuise, retenue, protege, surprise, prepa, boost (temporary
-power: Mark, Transparent World, red blade, Nezuko's awakening...), contre, age, plus extras. "e" = partners sharing credit.
+note="... (ch. N)", flags="i"/"?"/"e"). Tags (external circumstances only): malade (Tamayo's drug on Muzan,
+Shinobu's poison in Doma), epuise, retenue, protege, surprise, prepa, contre. Marks, Transparent World, red blades,
+Hinokami Kagura and Nezuko's awakening are skills: dated JUMPS, never fight tags. "e" = partners sharing credit.
 Tier priors: 0 civil, 1 pourfendeur débutant, 2 pourfendeur confirmé, 3 démon des Lunes inférieures / Tsuguko,
 4 Pilier, 5 Lunes supérieures 4 à 6, 6 Lunes supérieures 1 à 3, 7 Muzan / Yoriichi.
 """
@@ -13,7 +14,8 @@ import os
 
 ARCS = [
     ("sengoku", "Ère Sengoku (Yoriichi)", -400.0),
-    ("avant", "Avant l'histoire", -5.0),
+    ("vieillesse", "Yoriichi octogénaire contre Kokushibo", -340.0),
+    ("avant", "Avant l'histoire", -2.0),
     ("selection", "Sélection finale", 2.0),
     ("asakusa", "Asakusa et le manoir Tsuzumi", 2.1),
     ("natagumo", "Mont Natagumo", 2.2),
@@ -30,7 +32,9 @@ F = []
 GENERIC = set()
 JUMPS = []
 REVIVE = {}
-EXTRA_TAGS = {"marque": (1.2, 0.8)}
+EXTRA_TAGS = {}   # Marque, Monde transparent, lames rouges : sauts datés (JUMPS), jamais des étiquettes de combat
+# vétérans dont la force ne bouge plus que par des sauts datés (âge)
+SLOW = {"yoriichi", "urokodaki", "shinjuro"}
 BOOK_TIMES = {}
 
 
@@ -53,4 +57,4 @@ for _p in sorted(glob.glob(os.path.join(_here, "part_*.py"))):
     JUMPS += list(getattr(_m, "JUMPS_PART", []))
 
 
-CHECKS = [("yoriichi", "sengoku", "muzan", "sengoku"), ("rengoku", "mugen", "akaza", "mugen"), ("gyomei", "chateau", "kokushibo", "chateau")]
+CHECKS = [("yoriichi", "sengoku", "muzan", "sengoku"), ("gyomei", "chateau", "muichiro", "chateau"), ("rengoku", "mugen", "akaza", "mugen"), ("gyomei", "chateau", "kokushibo", "chateau")]

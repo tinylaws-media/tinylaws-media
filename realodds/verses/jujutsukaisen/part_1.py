@@ -107,11 +107,11 @@ JUMPS_PART = [
     ("yuji", 0.37, 0.6, 0.5, "Éclair noir maîtrisé après Shibuya (ch. 132)"),
     ("yuji", 0.59, 0.8, 0.6, "Manipulation du sang et Démantèlement de Sukuna (ch. 252-257)"),
     ("yuji", 0.6016, 0.4, 0.5, "Expansion du territoire (ch. 264)"),
-    ("yuji", 68.0, 1.5, 1.0, "Ellipse de 68 ans : techniques de Sukuna maîtrisées (Modulo)"),
+    ("yuji", 68.0, 0.8, 0.8, "Ellipse de 68 ans : techniques de Sukuna maîtrisées, domaine de l'âme (Modulo ch. 19-22) ; aucune déclaration canon ne le place au-dessus de Gojo ou de Sukuna"),
     # Megumi
     ("megumi", 0.3, 0.5, 0.4, "Ébauche d'Expansion du territoire : Jardin des ombres chimériques (ch. 58)"),
     # Maki
-    ("maki", 0.4555, 2.0, 0.8, "Restriction céleste complète après la mort de Mai (ch. 149)"),
+    ("maki", 0.4555, 1.6, 0.7, "Restriction céleste complète après la mort de Mai (ch. 149)"),
     # Todo
     ("todo", 0.364, -1.0, 0.6, "Perte de la main gauche face à Mahito (ch. 129)"),
     ("todo", 0.6, 0.5, 0.5, "Main prothétique pour Boogie Woogie (ch. 259)"),
@@ -126,7 +126,7 @@ fight(-1000.0, "heian", "sukuna", "uro", "A", 3,
       note="Sukuna anéantit l'escouade des Cinq Généraux vides d'Uro, qui en réchappe de peu (évoqué ch. 216)", flags="?")
 
 # ============================================================================== passé de Gojo et Geto (2006)
-fight(-12.0, "passe", "toji", "gojo", "A", 3, ta=["surprise", "prepa"],
+fight(-12.0, "passe", "toji", "gojo", "A", 3, ta=["surprise", "prepa"], tb=["epuise"],
       note="Toji poignarde Gojo, épuisé par trois jours sans sommeil, avec la Lame inversée céleste (ch. 70)")
 fight(-11.998, "passe", "toji", "geto", "A", 3, ta=["prepa"],
       note="Toji bat Geto et ses fléaux au Tombeau des étoiles (ch. 71)")
@@ -140,10 +140,10 @@ fight(-0.98, "jjk0", ["yuta", "toge"], "fleaux_divers", "A", 2,
       note="Yuta et Inumaki contre un fléau de grade 1 dans la galerie commerciale (ch. 0-3)", flags="?")
 fight(-0.93, "jjk0", "geto", ["maki", "panda", "toge"], "A", 3,
       note="Défilé des cent démons : Geto balaie Maki, Panda et Inumaki à l'école (ch. 0-4)")
-fight(-0.929, "jjk0", "gojo", "miguel", "A", 2, ta=["retenue"],
-      note="Miguel retient Gojo à Shinjuku puis se replie (ch. 0-4)", flags="i?")
-fight(-0.925, "jjk0", "yuta", "geto", "A", 2, ta=["boost"],
-      note="Yuta offre sa vie à Rika (pleine puissance) et ampute Geto ; Gojo l'achève (ch. 0-4)")
+fight(-0.929, "jjk0", "gojo", "miguel", "A", 3,
+      note="Miguel retient Gojo à Shinjuku grâce à la Corde noire, Gojo le domine, Miguel se replie (ch. 0-4) ; audit : marge 2→3, « retenue » retirée (Gojo ne se retenait pas)", flags="i?")
+fight(-0.925, "jjk0", "yuta", "geto", "A", 2, ta=["prepa"],
+      note="Yuta offre sa vie à Rika par vœu (pleine puissance) et ampute Geto ; Gojo l'achève (ch. 0-4) ; audit : boost→prepa (vœu contraignant)")
 
 # ============================================================================== débuts de Yuji (2018)
 fight(0.0, "debut", "sukuna", "fleaux_divers", "A", 3,
@@ -168,8 +168,7 @@ fight(0.18, "debut", "nanami", "mahito", "D",
 fight(0.2, "debut", "yuji", "junpei", "A", 2,
       note="Yuji maîtrise Junpei sans le blesser (ch. 25)")
 fight(0.201, "debut", ["yuji", "nanami"], "mahito", "A", 1, tb=["domaine"],
-      note="Yuji frappe l'âme de Mahito ; il ouvre son domaine sur Nanami, Yuji y entre et Mahito fuit (ch. 26-30)",
-      flags="e")
+      note="Yuji frappe l'âme de Mahito ; il ouvre son domaine sur Nanami, Yuji y entre et Mahito fuit (ch. 26-30) ; audit : « e » retiré, Nanami mène")
 
 # ============================================================================== rencontre d'échange avec Kyoto
 fight(0.25, "kyoto", "todo", "yuji", "D", ta=["retenue"],
@@ -186,8 +185,8 @@ fight(0.2525, "kyoto", "maki", "mai", "A", 2,
       note="Maki bat sa jumelle (ch. 44-45)")
 fight(0.253, "kyoto", "hanami", ["megumi", "toge", "noritoshi", "maki"], "A", 2,
       note="Hanami tient tête aux élèves et épuise la voix d'Inumaki (ch. 43-47)")
-fight(0.254, "kyoto", ["yuji", "todo"], "hanami", "A", 2, ta=["boost"],
-      note="Yuji découvre l'Éclair noir, Boogie Woogie de Todo ; Hanami fissuré (ch. 48-52)", flags="e")
+fight(0.254, "kyoto", ["yuji", "todo"], "hanami", "A", 2,
+      note="Yuji découvre l'Éclair noir, Boogie Woogie de Todo ; Hanami fissuré (ch. 48-52) ; audit : « e » retiré, Todo mène et guide Yuji")
 fight(0.2545, "kyoto", "gojo", "juzo", "A", 3,
       note="Gojo efface Juzo Kumiya et la forêt avec le Violet (ch. 52)")
 fight(0.255, "kyoto", "gojo", "hanami", "A", 2,
@@ -274,20 +273,20 @@ fight(0.515, "culling", "hakari", "kashimo", "A", 1, ta=["domaine", "prepa"], tb
       note="Hakari immortel en jackpot, sacrifie un bras par vœu ; Kashimo n'a pas usé de sa technique (ch. 185-190)")
 fight(0.53, "culling", ["maki", "noritoshi"], "naoya_fleau", "A", 2, tb=["domaine"],
       note="Naoya revenu en fléau ; sans énergie occulte, Maki traverse son domaine et l'exorcise (ch. 191-198)")
-fight(0.54, "culling", "kenjaku", ["yuki", "choso"], "A", 2, tb=["prepa"],
-      note="Tombeau des étoiles : Yuki se change en trou noir, Kenjaku survit et prend Tengen (ch. 203-208)")
+fight(0.54, "culling", "kenjaku", ["yuki", "choso"], "A", 1, tb=["prepa"],
+      note="Tombeau des étoiles : Yuki se change en trou noir, Kenjaku survit de justesse et prend Tengen (ch. 203-208) ; audit : marge 2→1")
 fight(0.555, "culling", "sukuna", "yuji", "A", 2,
       note="Sukuna dans Megumi envoie Yuji à travers un immeuble (ch. 213-214)")
 fight(0.5551, "culling", "sukuna", "hana_kurusu", "A", 3, ta=["surprise"],
       note="Sukuna feint d'être Megumi et arrache bras et aile d'Angel (ch. 213-214)")
-fight(0.5552, "culling", ["yuji", "maki"], "sukuna", "D",
-      note="Yuji et Maki pressent Sukuna, freiné par Megumi ; Uraume intervient (ch. 215)", flags="i")
+fight(0.5552, "culling", ["yuji", "maki"], "sukuna", "D", tb=["malade"],
+      note="Yuji et Maki pressent Sukuna, freiné par l'âme de Megumi qui résiste (corps pas encore accordé) ; Uraume intervient (ch. 215) ; audit : tag « malade » pour Sukuna", flags="i")
 fight(0.5553, "culling", "uraume", ["yuji", "maki"], "A", 2,
       note="Frost Calm à pleine puissance : Sukuna s'enfuit sur Nue (ch. 215)", flags="i")
 fight(0.556, "culling", "sukuna", "ryu_ishigori", "A", 3,
       note="Sukuna éventre Ryu et lui fend le crâne (ch. 216)")
-fight(0.5565, "culling", "sukuna", "yorozu", "A", 2,
-      note="Sphère parfaite et domaine de Yorozu percés par la roue de Mahoraga (ch. 216-219)")
+fight(0.5565, "culling", "sukuna", "yorozu", "A", 2, ta=["retenue"],
+      note="Sphère parfaite et domaine de Yorozu percés par la roue de Mahoraga (ch. 216-219) ; audit : Sukuna joue avec elle et la laisse tout montrer (comme Jogo) → « retenue »")
 
 # ============================================================================== bataille de Shinjuku (24 décembre)
 fight(0.6, "shinjuku", "gojo", "mahoraga", "A", 2,
@@ -296,8 +295,8 @@ fight(0.6001, "shinjuku", "sukuna", "gojo", "A", 1, ta=["prepa"],
       note="Duel des plus forts : le Démantèlement adapté par Mahoraga tranche l'Infini (ch. 223-236)")
 fight(0.6002, "shinjuku", "sukuna", "kashimo", "A", 3, tb=["boost"],
       note="Kashimo force la vraie forme de Sukuna puis meurt (ch. 237-238)")
-fight(0.6003, "shinjuku", "takaba", "kenjaku", "A", 1,
-      note="L'humoriste rend Takaba intouchable ; Kenjaku renonce (ch. 239-242)", flags="?")
+fight(0.6003, "shinjuku", "takaba", "kenjaku", "D",
+      note="L'humoriste rend Takaba intouchable ; duel comique sans issue martiale, Kenjaku s'amuse (ch. 239-242) ; audit : victoire→nul interrompu (gag)", flags="i?")
 fight(0.6004, "shinjuku", "yuta", "kenjaku", "A", 3, ta=["surprise"], tb=["epuise"],
       note="Yuta décapite Kenjaku distrait par Takaba (ch. 243)")
 fight(0.6005, "shinjuku", "sukuna", ["higuruma", "yuji", "kusakabe"], "A", 3,
@@ -308,22 +307,22 @@ fight(0.6007, "shinjuku", "sukuna", "maki", "A", 2, tb=["surprise"],
       note="L'embuscade de Maki blesse Sukuna, éjectée par un Éclair noir (ch. 252-253)")
 fight(0.6008, "shinjuku", "sukuna", "ino", "A", 3,
       note="Ino et Kaichi balayés (ch. 253)")
-fight(0.6009, "shinjuku", "sukuna", "kusakabe", "A", 2,
-      note="Simple Domaine de Kusakabe ; Sukuna pince la lame et l'ouvre, Ui Ui le sauve (ch. 253-254)")
-fight(0.601, "shinjuku", "sukuna", ["miguel", "larue"], "A", 2,
-      note="Miguel et Larue harcèlent Sukuna ; Cutie Honey de Larue ouvre la voie à Yuji (ch. 254-256)", flags="?")
+fight(0.6009, "shinjuku", "sukuna", "kusakabe", "A", 3,
+      note="Simple Domaine de Kusakabe ; Sukuna pince la lame et l'ouvre, Ui Ui le sauve (ch. 253-254) ; audit : marge 2→3, Kusakabe ne survit que par la téléportation")
+fight(0.601, "shinjuku", "sukuna", ["miguel", "larue"], "A", 3,
+      note="Miguel et Larue harcèlent Sukuna ; Cutie Honey de Larue ouvre la voie à Yuji (ch. 254-256) ; audit : marge 2→3, simple diversion balayée", flags="?")
 fight(0.6011, "shinjuku", "sukuna", ["choso", "yuji"], "A", 2,
       note="Flamme divine : Choso protège Yuji et meurt (ch. 258-259)")
-fight(0.6012, "shinjuku", ["yuji", "todo", "ino"], "sukuna", "D", ta=["boost"],
+fight(0.6012, "shinjuku", ["yuji", "todo", "ino"], "sukuna", "D", tb=["epuise"],
       note="Sept Éclairs noirs d'affilée, Boogie Woogie de Todo (ch. 257, 259-260)", flags="i")
-fight(0.6014, "shinjuku", "yuta", "sukuna", "D", ta=["boost"],
+fight(0.6014, "shinjuku", "yuta", "sukuna", "D", ta=["emprunt"], tb=["epuise"],
       note="Yuta dans le corps de Gojo : Violet amplifié, le pouvoir emprunté expire (ch. 261-263)", flags="i")
-fight(0.6015, "shinjuku", "sukuna", ["hana_kurusu", "todo"], "A", 2,
+fight(0.6015, "shinjuku", "sukuna", ["hana_kurusu", "todo"], "A", 2, ta=["epuise"],
       note="Échelle de Jacob puis Sukuna met Angel et Todo hors combat (ch. 263-264)")
-fight(0.6016, "shinjuku", ["yuji", "nobara"], "sukuna", "A", 2, tb=["epuise"],
-      note="Domaine de Yuji, Résonance de Nobara sur le dernier doigt, Éclair noir final ; Megumi libéré (ch. 264-268)")
+fight(0.6016, "shinjuku", ["yuji", "nobara"], "sukuna", "A", 1, tb=["epuise", "malade"],
+      note="Domaine de Yuji, Résonance de Nobara sur le dernier doigt, Éclair noir final ; Megumi libéré (ch. 264-268) ; audit : marge 2→1 (dernier debout au bout du relais, coup décisif de Nobara) ; + « malade », Sukuna privé de domaine et rejeté par le corps de Megumi")
 fight(0.6017, "shinjuku", "hakari", "uraume", "A", 1, ta=["domaine"],
-      note="Duel en marge de Shinjuku ; Uraume cède à la mort de Sukuna (ch. 244-268)")
+      note="Duel en marge de Shinjuku ; Uraume cède à la mort de Sukuna (ch. 244-268)", flags="?")
 
 # ============================================================================== Jujutsu Kaisen Modulo (2086)
 fight(68.4, "modulo", "masaki", ["tsurugi", "yuka"], "A", 1,
@@ -337,5 +336,5 @@ fight(68.5, "modulo", "maru", "tsurugi", "A", 1, tb=["retenue"],
 fight(68.55, "modulo", "dabura", "mahoraga", "A", 1, ta=["domaine"],
       note="Mahoraga de Yuka s'adapte ; Dabura apprend technique inversée et domaine ; Maru arrête le duel (Modulo ch. 15-23)",
       flags="i")
-fight(68.56, "modulo", "yuji", "mahito", "A", 3,
-      note="Yuji découpe en cubes Mahito qui recréait Shibuya (Modulo ch. 22)")
+fight(68.56, "modulo", "yuji", "mahito", "A", 3, tb=["epuise"],
+      note="Yuji découpe en cubes Mahito, dont l'énergie n'est revenue que par l'Harmonie de Maru (Modulo ch. 22)")

@@ -2,8 +2,8 @@
 statements only for stated results; no anime-only fights or movies).
 Time axis t = years since the 287th Hunter Exam (= 0). Flashbacks are negative.
 fight(t, arc, sideA, sideB, "A"/"D", margin 1/2/3, ta=[...], tb=[...], note="... (ch. N)", flags="i"/"?"/"e")
-Tags: malade, epuise, retenue, protege, surprise, prepa (conditions/vows set in advance, traps), boost (temporary
-power: Gon's adult transformation, Killua's Godspeed...), contre (ability counters the opponent), age, plus extras.
+Tags: malade, epuise, retenue, protege, surprise, prepa (conditions/vows set in advance, traps), aide (borrowed external power).
+Skills (Gon's adult transformation, Godspeed, Emperor Time, Biscuit's true form) are dated JUMPS, never tags. contre (ability counters the opponent), age, plus extras.
 Flag "e" = partners who carried a fight together (credit shared evenly).
 Tier priors: 0 civil, 1 candidat Hunter, 2 débutant en Nen, 3 utilisateur de Nen confirmé, 4 Hunter pro fort / membre de
 la Brigade fantôme, 5 Hisoka / Chrollo / Zoldyck adultes, 6 Gardes royaux / Netero âgé, 7 Meruem / Netero à son apogée.
@@ -29,7 +29,8 @@ F = []
 GENERIC = set()
 JUMPS = []
 REVIVE = {}
-EXTRA_TAGS = {"tenacite": (1.5, 1.0)}
+EXTRA_TAGS = {"aide": (0.7, 0.7)}   # aide : pouvoir externe prêté (capacités de Shalnark/Kortopi pour Chrollo, vœux des fidèles d'Halkenburg)
+SLOW = {"netero", "zeno"}   # vétérans : changements par sauts datés seulement
 BOOK_TIMES = {}
 
 

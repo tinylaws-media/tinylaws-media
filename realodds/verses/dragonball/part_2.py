@@ -49,12 +49,12 @@ CHARS_PART = {
     "jiren": ("Jiren", "Univers 11", 9.0, None, None),
     "dyspo": ("Dyspo", "Univers 11", 7.5, None, None),
     "pride_troopers": ("Troupes de l'Orgueil (groupe)", "Univers 11", 6.0, None, None),
-    "casserale": ("Kahseral", "Univers 11", 6.0, None, None),
+    "casserale": ("Kahseral", "Univers 11", 4.5, None, None),
     "caulifla": ("Caulifla", "Univers 6", 6.0, None, None),
     "kale": ("Kale", "Univers 6", 6.5, None, None),
     "kefla": ("Kefla", "Univers 6", 8.0, None, None),
     "ribrianne": ("Ribrianne (et Rozie, Kakunsa)", "Univers 2", 6.0, None, None),
-    "anilaza": ("Anilaza", "Univers 3", 7.0, None, None),
+    "anilaza": ("Anilaza", "Univers 3", 6.0, None, None),
     "u9_combattants": ("Combattants de l'Univers 9 (groupe)", "Univers 9", 5.0, None, None),
     "u10_combattants": ("Combattants de l'Univers 10 (groupe)", "Univers 10", 5.5, None, None),
     "u4_combattants": ("Combattants de l'Univers 4 (groupe)", "Univers 4", 6.0, None, None),
@@ -73,8 +73,8 @@ CHARS_PART = {
     "jaco": ("Jaco", "Patrouille galactique", 2.0, None, None),
     # ---- Granolah
     "granolah": ("Granolah", "Céréaliens", 8.5, None, None),
-    "gas": ("Gas", "Heeters", 4.0, 781.251, None),
-    "elec": ("Elec", "Heeters", 4.0, 781.251, None),
+    "gas": ("Gas", "Heeters", 4.0, 737.001, None),   # absent de 737 à 781 (REVIVE dans data.py), tué par Freezer ch. 87
+    "elec": ("Elec", "Heeters", 5.5, 781.251, None),
     "oil": ("Oil", "Heeters", 3.5, None, None),
     "maki": ("Maki", "Heeters", 3.5, None, None),
     "bardock": ("Bardock", "Saiyans", 3.5, 737.1, None),
@@ -93,26 +93,27 @@ GENERIC_PART = {"pride_troopers", "u9_combattants", "u10_combattants", "u4_comba
 JUMPS_PART = [
     # Goku
     ("goku", 778.02, 1.0, 0.6, "Super Saiyan God, ki divin absorbé (ch. 4)"),
-    ("goku", 778.9, 0.6, 0.5, "Super Saiyan Blue, entraînement chez Whis (évoqué ch. 5)"),
+    ("goku", 778.5, 0.6, 0.5, "Super Saiyan Blue, entraînement chez Whis (évoqué ch. 5), avant Golden Freezer"),
     ("goku", 779.66, 0.3, 0.3, "Blue maîtrisé, puissance scellée (ch. 24)"),
-    ("goku", 780.27, 0.5, 0.5, "Ultra Instinct (premier éveil contre Jiren, ch. 40-41)"),
+    ("goku", 780.165, 0.5, 0.5, "Ultra Instinct (premier éveil contre Jiren, ch. 40-41)"),
     ("goku", 780.55, 0.3, 0.3, "Entraînement avec Merus, Ultra Instinct « Sign » (ch. 51-59)"),
-    ("goku", 780.59, 0.7, 0.5, "Ultra Instinct maîtrisé (ch. 64)"),
+    ("goku", 780.575, 0.7, 0.5, "Ultra Instinct maîtrisé (ch. 64)"),
     # Vegeta
-    ("vegeta", 778.9, 1.5, 0.7, "Super Saiyan God puis Blue, entraînement chez Whis (évoqué ch. 5)"),
-    ("vegeta", 780.15, 0.4, 0.4, "Blue « parfait » (ch. 36)"),
-    ("vegeta", 780.27, 0.3, 0.3, "Nouveau palier de Blue face à Jiren (ch. 40)"),
+    ("vegeta", 778.5, 1.5, 0.7, "Super Saiyan God puis Blue, entraînement chez Whis (évoqué ch. 5), avant Golden Freezer"),
+    ("vegeta", 780.12, 0.4, 0.4, "Blue « parfait » (ch. 36)"),
+    ("vegeta", 780.155, 0.3, 0.3, "Nouveau palier de Blue face à Jiren (ch. 40)"),
     ("vegeta", 780.53, 0.3, 0.3, "Entraînement sur Yardrat, fission spirituelle (ch. 52-61)"),
-    ("vegeta", 781.08, 1.0, 0.6, "Ultra Ego, entraînement chez Beerus (ch. 74)"),
+    ("vegeta", 781.025, 1.0, 0.6, "Ultra Ego, entraînement chez Beerus (ch. 74)"),
     # Freezer
-    ("freeza", 778.5, 3.0, 0.8, "Résurrection et Golden Freezer (film non adapté, évoqué ch. 5)"),
-    ("freeza", 781.24, 1.8, 0.8, "Black Freezer (dix ans dans une salle de l'Esprit et du Temps, ch. 87)"),
+    ("freeza", 778.5, 2.6, 0.8, "Résurrection et Golden Freezer (film non adapté, évoqué ch. 5)"),
+    ("freeza", 781.24, 1.2, 0.6, "Black Freezer (dix ans dans une salle de l'Esprit et du Temps, ch. 87)"),
     # Gohan
     ("gohan", 780.0, 1.0, 0.6, "Reprise de l'entraînement avec Piccolo pour le TdP (ch. 31)"),
+    ("gohan", 781.3, -0.4, 0.4, "De nouveau rouillé, pris par la recherche (Piccolo le lui reproche, ch. 88-94)"),
     ("gohan", 781.58, 2.5, 0.8, "Gohan Beast (ch. 99)"),
     # Piccolo
     ("piccolo", 780.0, 0.5, 0.5, "Entraînement pour le TdP"),
-    ("piccolo", 781.55, 2.5, 0.8, "Puissance de Shenron, Piccolo Orange (ch. 95-96)"),
+    ("piccolo", 781.5505, 2.5, 0.8, "Puissance de Shenron, Piccolo Orange (ch. 95-96)"),
     # autres
     ("trunks", 779.58, 1.0, 0.6, "Super Saiyan 2 et années de guerre contre Black (ch. 16)"),
     ("android_17", 780.0, 1.5, 0.7, "Entraînement solitaire de garde forestier (ch. 31)"),
@@ -120,9 +121,8 @@ JUMPS_PART = [
     ("cabba", 780.0, 0.8, 0.5, "Progrès depuis le tournoi Univers 6"),
     ("gas", 780.0, 3.5, 1.0, "Quarante ans de croissance depuis le combat contre Bardock (ch. 68)"),
     ("gas", 781.05, 2.0, 0.8, "Vœu d'Elec : guerrier le plus fort de l'univers (ch. 78)"),
-    ("elec", 780.0, 2.0, 1.0, "Quarante ans de croissance"),
-    ("granolah", 781.09, 0.5, 0.4, "Éveil du pouvoir latent (ch. 75, 79)"),
-    ("moro", 780.52, 1.0, 0.6, "Énergie de New Namek absorbée, jeunesse retrouvée (ch. 46)"),
+    ("granolah", 781.025, 0.5, 0.4, "Éveil du pouvoir latent, œil gauche (ch. 75)"),
+    ("moro", 780.505, 1.0, 0.6, "Énergie de Goku et Vegeta absorbée, jeunesse retrouvée (ch. 46)"),
     ("moro", 780.562, 0.8, 0.5, "Absorbe Seven-Three (ch. 61)"),
     ("moro", 780.59, 0.8, 0.6, "Absorbe Merus et fusionne avec la Terre (ch. 65)"),
 ]
@@ -138,7 +138,7 @@ fight(778.012, "dieux", "beerus", "vegeta", "A", 3, ta=["retenue"],
 fight(778.02, "dieux", "beerus", "goku", "A", 2, ta=["retenue"],
       note="Goku Super Saiyan God ; Goku arrête la sphère finale au Kamehameha, Whis met fin au combat (ch. 4)")
 fight(778.6, "dieux", ["goku", "vegeta"], "freeza", "A", 2,
-      note="Golden Freezer battu : seulement évoqué, le manga n'adapte pas La Résurrection de F (ch. 5)", flags="?")
+      note="Golden Freezer battu : seulement évoqué, le manga n'adapte pas La Résurrection de F (ch. 5)", flags="?e")
 
 # ---------------------------------------------------------------- tournoi Univers 6 contre Univers 7 (ch. 8-13)
 fight(779.5, "univ6", "goku", "botamo", "A", 2, ta=["retenue"], note="Goku le soulève par les jambes, sortie de ring (ch. 9)")
@@ -152,14 +152,14 @@ fight(779.504, "univ6", "vegeta", "magetta", "A", 1,
 fight(779.505, "univ6", "vegeta", "cabba", "A", 3, ta=["retenue"],
       note="Vegeta pousse Cabba au Super Saiyan puis le met KO en Blue (ch. 12)")
 fight(779.506, "univ6", "hit", "vegeta", "A", 3, tb=["epuise"], note="Vegeta Blue fauché par le saut temporel (ch. 12)")
-fight(779.507, "univ6", "hit", "goku", "A", 1, ta=["retenue"], tb=["retenue"],
-      note="Goku passe SSG puis Blue et abandonne ; Hit ne peut pas tuer selon les règles (ch. 12-13)", flags="?")
+fight(779.507, "univ6", "hit", "goku", "D", ta=["retenue"], tb=["retenue"],
+      note="Goku passe SSG puis Blue et sort volontairement du ring sans être battu ; Hit ne peut pas tuer selon les règles (ch. 12-13)", flags="i")
 
 # ---------------------------------------------------------------- Goku Black et Zamasu (ch. 14-26)
 fight(779.55, "univ6", "goku_black", ["trunks"], "A", 2, note="Black écrase Trunks SSJ, qui fuit dans la machine (ch. 14-15)")
 fight(779.551, "univ6", "goku", "trunks", "A", 3, ta=["retenue"],
       note="Combat d'essai au présent, Goku passe SSJ2, SSJ3 puis un instant SSG (ch. 15)")
-fight(779.58, "univ6", "trunks", "dabura_futur", "A", 2, ta=["boost"],
+fight(779.58, "univ6", "trunks", "dabura_futur", "A", 2, ta=["surprise"],
       note="Flash-back : Trunks atteint le SSJ2, Shin immobilise Dabura, Trunks le désintègre (ch. 16)")
 fight(779.6, "univ6", "vegeta", "goku_black", "A", 2, ta=["retenue"],
       note="Vegeta Blue domine Black SSJ ; Zamasu l'emporte avant le Final Flash (ch. 19)", flags="i")
@@ -171,7 +171,7 @@ fight(779.64, "univ6", "goku_black", "trunks", "A", 2, ta=["retenue"], note="Bla
 fight(779.65, "univ6", "vegeta", "goku_black", "A", 2,
       note="Vegeta en SSG avec pointes de Blue, Black envoyé dans un immeuble ; fusion juste après (ch. 22)", flags="i")
 fight(779.651, "univ6", "goku", "zamasu", "A", 2, note="Goku SSG domine ; Mafūba raté faute de talisman (ch. 22)", flags="i")
-fight(779.66, "univ6", "fused_zamasu", ["goku", "vegeta"], "A", 2, note="Kamehameha sans effet, double étranglement télékinétique (ch. 23)")
+fight(779.66, "univ6", "fused_zamasu", ["goku", "vegeta"], "A", 2, note="Kamehameha sans effet, double étranglement télékinétique (ch. 23)", flags="e")
 fight(779.661, "univ6", "fused_zamasu", "goku", "A", 2, tb=["epuise"], note="Goku seul, pilonné par les blocs Katchin (ch. 23)")
 fight(779.662, "univ6", "vegito", "fused_zamasu", "A", 2, ta=["boost"],
       note="Vegito Blue le découpe, Zamasu régénère ; la fusion Potara cède avant le Final Kamehameha (ch. 23-24)", flags="i")
@@ -206,15 +206,15 @@ fight(780.122, "tdp", "android_18", "ribrianne", "A", 2, note="18 se libère et 
 fight(780.123, "tdp", "vegeta", "toppo", "D", note="Vegeta Blue « parfait » surprend Toppo (ch. 36)", flags="i")
 fight(780.13, "tdp", "freeza", "caulifla", "A", 2, ta=["retenue"], note="Freezer passe Golden après avoir été touché (ch. 37)")
 fight(780.131, "tdp", "freeza", ["caulifla", "cabba"], "A", 3, note="Freezer Golden contre les deux Saiyans (ch. 37)")
-fight(780.132, "tdp", "kale", "freeza", "A", 2, ta=["boost"], note="Kale berserk repousse Golden Freezer au bord (ch. 37)", flags="i")
+fight(780.132, "tdp", "kale", "freeza", "A", 1, note="Kale berserk repousse Golden Freezer au bord (ch. 37)", flags="i")
 fight(780.133, "tdp", "goku", "kale", "D", ta=["retenue"], tb=["boost"], note="Goku Blue arrête Kale, Freezer s'interpose (ch. 37)", flags="i")
 fight(780.14, "tdp", "kale", ["u4_combattants", "u10_combattants", "magetta"], "A", 3, ta=["boost"],
       note="Rage de Kale : Univers 4 et 10 effacés, Magetta jeté dehors (ch. 38)")
 fight(780.141, "tdp", "kale", "anilaza", "A", 3, ta=["boost"], note="Anilaza sorti d'un seul coup de poing, Univers 3 effacé (ch. 38)")
 fight(780.142, "tdp", "dyspo", "cabba", "A", 2, note="Dyspo surclasse Cabba (ch. 38)", flags="i")
 fight(780.143, "tdp", "kefla", "pride_troopers", "A", 2, note="Kefla met Tupper KO d'un coup et accule les Troupes (ch. 38)")
-fight(780.15, "tdp", "gohan", "kefla", "D", ta=["retenue"],
-      note="Gohan sans Super Saiyan ; double coup de poing, les deux éliminés, Univers 6 effacé (ch. 39)")
+fight(780.15, "tdp", "gohan", "kefla", "D",
+      note="Gohan sous sa forme ultime (sans Super Saiyan) ; double coup de poing, les deux éliminés, Univers 6 effacé (ch. 39)")
 fight(780.151, "tdp", "roshi", "casserale", "A", 2, note="Rōshi l'attrape et le jette hors de l'arène (ch. 39)")
 fight(780.152, "tdp", "jiren", "roshi", "A", 3, note="Rōshi esquive puis tombe sur un coup à la nuque (ch. 39)")
 fight(780.153, "tdp", "jiren", "goku", "A", 2, ta=["retenue"], tb=["boost"],
@@ -255,10 +255,10 @@ fight(780.541, "moro", ["android_17", "android_18"], ["seven_three", "shimorekka
 fight(780.542, "moro", "krillin", "yunba", "A", 2, note="Kienzans, afterimage, Kamehameha (ch. 56-57)")
 fight(780.543, "moro", ["tien", "chiaotzu"], "bikkura_koiter", "A", 2, note="Vaincu à coups d'insultes (ch. 57)")
 fight(780.544, "moro", "zauyogi", "yamcha", "A", 2, note="Yamcha perd avant l'aide de Tenshinhan (ch. 57)", flags="i")
-fight(780.545, "moro", "saganbo", ["android_17", "android_18", "gohan", "piccolo", "jaco"], "A", 2, ta=["boost"], tb=["epuise"],
+fight(780.545, "moro", "saganbo", ["android_17", "android_18", "gohan", "piccolo", "jaco"], "A", 2, ta=["emprunt"], tb=["epuise"],
       note="Saganbo dopé par le ki de Moro, ordre de les garder en vie (ch. 57-58)")
 fight(780.5455, "moro", "goku", "iwaza_fusion", "A", 3, note="Assommée à distance à son arrivée (ch. 57-58)")
-fight(780.546, "moro", "goku", "saganbo", "A", 3, tb=["boost"],
+fight(780.546, "moro", "goku", "saganbo", "A", 3, tb=["emprunt"],
       note="Goku Blue le domine ; Saganbo meurt des injections de Moro (ch. 58)")
 fight(780.55, "moro", "moro", "goku", "A", 2, ta=["retenue"], tb=["ultra"],
       note="Ultra Instinct « Sign » instable, Moro joue la montre puis l'écrase (ch. 59-60)")
@@ -277,7 +277,7 @@ fight(780.58, "moro", "goku", "moro", "A", 3, ta=["ultra"],
 fight(780.59, "moro", "moro", "goku", "D", ta=["boost"], tb=["ultra", "retenue"],
       note="Moro absorbe Merus et fusionne avec la Terre, échanges indécis, Beerus reproche à Goku de jouer (ch. 65)", flags="i")
 fight(780.595, "moro", "moro", "vegeta", "A", 2, tb=["epuise"], note="La fission forcée ne suffit plus, Vegeta à bout (ch. 66)")
-fight(780.6, "moro", ["goku", "vegeta"], "moro", "A", 1, ta=["ultra", "boost"],
+fight(780.6, "moro", ["goku", "vegeta"], "moro", "A", 1, ta=["emprunt"],
       note="Énergie de Vegeta puis d'Uub et des Terriens : Goku brise le cristal du front (ch. 66)")
 
 # ---------------------------------------------------------------- Granolah (ch. 68-87), flash-back de Bardock
@@ -304,7 +304,8 @@ fight(781.1, "granolah", "gas", ["goku", "vegeta"], "A", 2, tb=["ultra"], note="
 fight(781.11, "granolah", "gas", "vegeta", "A", 2, tb=["ultra"], note="Vegeta Ultra Ego s'évanouit (ch. 85)")
 fight(781.12, "granolah", ["goku", "granolah"], "gas", "A", 2, ta=["ultra"],
       note="Goku « Sign » puis UI maîtrisé et avatar géant, rayon chargé de Granolah (ch. 85-86)")
-fight(781.25, "granolah", "freeza", ["gas", "elec"], "A", 3, note="Freezer les abat chacun d'un coup (ch. 87)")
+fight(781.25, "granolah", "freeza", ["gas", "elec"], "A", 3, tb=["epuise"],
+      note="Freezer les abat chacun d'un coup, Gas déjà vaincu par Goku et Granolah (ch. 87)")
 fight(781.251, "granolah", "freeza", ["goku", "vegeta"], "A", 3, tb=["ultra", "epuise"],
       note="Black Freezer met UI Goku et Ultra Ego Vegeta au tapis d'un coup chacun, puis repart (ch. 87)")
 

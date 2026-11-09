@@ -22,7 +22,7 @@ ARCS = [
     ("shibuya", "Incident de Shibuya", 0.35),
     ("culling", "Jeu d'abattage", 0.45),
     ("shinjuku", "Bataille de Shinjuku", 0.6),
-    ("modulo", "Jujutsu Kaisen Modulo (2086)", 68.0),   # suite officielle (Akutami / Iwasaki, WSJ 2025-2026)
+    ("modulo", "Jujutsu Kaisen Modulo (2086)", 68.4),   # audit : 68.0→68.4, sinon les personnages de Modulo (1er combat 68.4) n'avaient aucun nœud affiché   # suite officielle (Akutami / Iwasaki, WSJ 2025-2026)
 ]
 
 CHARS = {}
@@ -30,7 +30,7 @@ F = []
 GENERIC = set()
 JUMPS = []
 REVIVE = {}
-EXTRA_TAGS = {"domaine": (1.0, 0.8)}
+EXTRA_TAGS = {"domaine": (1.0, 0.8), "emprunt": (1.0, 0.7)}   # emprunt : pouvoir/corps d'autrui (Yuta dans le corps de Gojo), pas la force propre
 BOOK_TIMES = {}
 
 

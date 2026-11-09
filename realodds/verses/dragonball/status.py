@@ -12,8 +12,8 @@ Temps t = année Age, alignés sur les combats de part_1.py / part_2.py.
 STATUS = [
     # Saiyans
     ("bardock", 737.1, 3.3, 0.8, "Guerrier saiyan de classe inférieure (Épisode de Bardock, manga 2011 ; Daizenshuu 7)"),
-    ("raditz", 761.80, 3.6, 0.4, "Guerrier saiyan, frère de Goku, 1 500 unités (ch. 195-196 ; Daizenshuu 7)"),
-    ("nappa", 762.40, 3.8, 0.4, "Saiyan d'élite, bras droit de Vegeta (ch. 216 ; Daizenshuu 7)"),
+    ("raditz", 761.80, 3.3, 0.4, "Guerrier saiyan, frère de Goku, 1 500 unités (ch. 195-196 ; Daizenshuu 7)"),
+    ("nappa", 762.40, 3.55, 0.4, "Saiyan d'élite, bras droit de Vegeta (ch. 216 ; Daizenshuu 7)"),
     ("vegeta", 762.42, 4.0, 0.3, "Prince des Saiyans, l'étalon du palier « Saiyans à leur arrivée » (ch. 219-220)"),
     # Armée de Freezer
     ("freeza", 762.866, 5.0, 0.5, "Empereur de l'univers, maître de l'armée de Freezer (ch. 245, 285 ; Daizenshuu 7)"),
@@ -28,7 +28,7 @@ STATUS = [
     ("cui", 762.805, 3.9, 0.4, "Soldat de Freezer, rival de Vegeta, 18 000 unités (ch. 249 ; Daizenshuu 7 p. 63)"),
     ("soldats_freezer", 762.80, 2.5, 0.8, "Soldats de base de l'armée de Freezer, souvent < 1 500 (Daizenshuu 7 p. 105)"),
     # Dieux et démons
-    ("kami", 753.6, 3.0, 0.6, "Kami-sama, dieu de la Terre, moitié bonne de Piccolo Daimaō (ch. 168-170)"),
+    ("kami", 753.6, 2.8, 0.6, "Kami-sama, dieu de la Terre, moitié bonne de Piccolo Daimaō (ch. 168-170)"),
     ("supreme_kai", 774.31, 5.5, 1.0, "Kaiōshin de l'Est, dieu suprême d'un quart de l'univers (ch. 449-452)"),
     ("dabura", 774.31, 6.0, 0.8, "Dabura, roi du monde des démons (ch. 449-454)"),
     ("zamasu_present", 779.62, 6.0, 1.0, "Zamasu, apprenti Kaiōshin de l'Univers 10 (DBS manga ch. 17-19)"),
@@ -43,13 +43,13 @@ STATUS = [
     ("hit", 779.5, 7.5, 0.8, "Hit, tueur légendaire de l'Univers 6, atout de Champa (DBS manga ch. 8-13)"),
     # Arcs récents
     ("moro", 780.5, 7.0, 1.0, "Moro, « mangeur de planètes » scellé par Kaiōshin, criminel n° 1 de la Patrouille (DBS manga ch. 43-44)"),
-    ("granolah", 781.04, 8.5, 0.7, "Granolah, « guerrier le plus fort de l'univers » par vœu aux boules de Cérélia (DBS manga ch. 70)"),
+    ("granolah", 781.04, 9.0, 0.7, "Granolah, « guerrier le plus fort de l'univers » par vœu aux boules de Cérélia (DBS manga ch. 70)"),
     ("uub", 784.5, 6.5, 1.0, "Uub, réincarnation de Buu originel (ch. 517-519)"),
     # Paliers de transformation qui définissent l'échelle
-    ("cell", 767.5, 6.0, 0.4, "Cell parfait, ancre du palier 6 (ch. 396 ; échelle du modèle)"),
-    ("gohan", 767.506, 6.0, 0.4, "Gohan Super Saiyan 2, ancre du palier 6 (ch. 408 ; Chōzenshū : SSJ2 = 2 × SSJ)"),
-    ("goku", 774.33, 7.0, 0.4, "Goku Super Saiyan 3, ancre du palier 7 (ch. 474 ; guide : SSJ3 = 4 × SSJ2)"),
-    ("majin_buu", 774.32, 7.0, 0.4, "Majin Buu, ancre du palier 7 (ch. 460-463)"),
+    ("cell", 767.5, 6.5, 0.4, "Cell parfait, ancre du palier 6, bien au-dessus de Freezer à 100 % et des cyborgs (ch. 396 ; échelle du modèle)"),
+    ("gohan", 767.506, 7.0, 0.4, "Gohan Super Saiyan 2, au-dessus de l'ancre du palier 6 (ch. 408 ; Chōzenshū : SSJ2 = 2 × SSJ)"),
+    ("goku", 774.33, 7.3, 0.4, "Goku Super Saiyan 3, au-dessus de l'ancre du palier 7 (ch. 474 ; guide : SSJ3 = 4 × SSJ2)"),
+    ("majin_buu", 774.32, 7.2, 0.4, "Majin Buu, ancre du palier 7 (ch. 460-463)"),
     ("goku", 778.02, 8.0, 0.5, "Goku Super Saiyan God, ancre du palier 8 (DBS manga ch. 4)"),
 ]
 
@@ -57,14 +57,14 @@ NUMERIC = {"puissance": [
     # Dragon Ball (Daizenshuu 7, p. 82-83 ; Weekly Jump 1989 « Final Warriors »)
     ("goku", 749.0, 10),            # première apparition (Daizenshuu 7)
     ("goku", 753.0, 180),           # 22e Championnat (Daizenshuu 7 ; Weekly Jump 1989, 15 ans)
-    ("roshi", 753.0, 139),          # Jackie Chun / Tortue Géniale (Daizenshuu 7 ; scouter de Raditz, vol. 18)
+    ("roshi", 761.80, 139),         # Tortue Géniale lu par le scouter de Raditz (ch. 194 ; Daizenshuu 7)
     ("tien", 753.0, 180),           # 22e Championnat (Daizenshuu 7)
-    ("tao_pai_pai", 750.3, 210),    # Weekly Jump 1989
+    ("tao_pai_pai", 756.0, 210),    # Tao Pai Pai cyborg, 23e Championnat (Weekly Jump 1989)
     ("goku", 753.56, 260),          # contre Piccolo Daimaō (Daizenshuu 7)
     ("king_piccolo", 753.56, 260),  # Daizenshuu 7 ; Weekly Jump 1989
     ("kami", 756.0, 220),           # Weekly Jump 1989
     ("chi_chi", 756.0, 130),        # Weekly Jump 1989
-    ("goku", 756.0, 910),           # 18 ans, 23e Championnat (Weekly Jump 1989)
+    # ("goku", 756.0, 910) du Weekly Jump 1989 retiré : contredit le manga (416 lests retirés cinq ans plus tard, ch. 199)
     # Arrivée des Saiyans (manga vol. 17-19 ; Daizenshuu 7)
     ("krillin", 761.80, 206),       # scouter de Raditz (ch. 194, vol. 17-18)
     ("raditz", 761.80, 1500),       # ch. 196 ; Daizenshuu 7
@@ -108,7 +108,7 @@ NUMERIC_TRANSFORM = {"puissance": "log10"}
 
 ORDER = [
     # Dragon Ball
-    ("goku", 761.81, "raditz", 761.81, 0.6, 0.4,
+    ("raditz", 761.81, "goku", 761.81, 0.6, 0.4,
      "Goku (416) et Piccolo (408) très loin des 1 500 de Raditz, qui les juge sans chance (ch. 196-199)"),
     ("nappa", 762.40, "raditz", 761.80, 0.4, 0.4,
      "Vegeta et Nappa : Raditz était « un faible » par rapport à eux (ch. 204, 214)"),
@@ -118,12 +118,20 @@ ORDER = [
      "Ginyu, capitaine, le plus fort du Commando, au-dessus de Recoome (ch. 271-283)"),
     ("freeza", 762.866, "ginyu", 762.865, 0.6, 0.4,
      "Freezer, 530 000 en 1re forme, loin au-dessus de Ginyu (120 000) (ch. 283-286, vol. 24)"),
+    ("android_18", 767.371, "trunks", 764.40, 0.4, 0.5,
+     "Trunks, qui vient de trancher Freezer, avoue ne rien pouvoir contre les cyborgs de son futur (ch. 333-335)"),
+    ("android_17", 767.372, "android_18", 767.372, -0.3, 0.4, "C-17 et C-18, cyborgs jumeaux du Dr Gero, de force voisine (ch. 350-354)"),
+    ("android_18", 767.372, "android_17", 767.372, -0.3, 0.4, "C-17 et C-18, cyborgs jumeaux du Dr Gero, de force voisine (ch. 350-354)"),
+    ("android_16", 767.392, "android_17", 767.392, 0.0, 0.6,
+     "C-16, que le Dr Gero n'osait pas activer, tient tête à Cell que C-17 ne pouvait pas battre (ch. 368-372)"),
+    ("goku", 762.90, "freeza", 762.90, 0.3, 0.4,
+     "Freezer à 100 % comprend qu'il ne peut plus rivaliser avec Goku Super Saiyan (ch. 320-324)"),
     ("gohan", 767.506, "goku", 767.5, 0.4, 0.4,
      "Goku : la puissance de Gohan a déjà dépassé la sienne (ch. 402-404)"),
     ("gohan", 767.506, "cell", 767.5, 0.5, 0.4,
      "Gohan Super Saiyan 2 surclasse Cell parfait, dit Goku et constate Cell (ch. 408-409)"),
-    ("goku", 774.315, "vegeta", 774.315, 0.5, 0.5,
-     "Goku révèle à Majin Vegeta qu'il retenait le Super Saiyan 3 (ch. 474) ; Vegeta : « Kakarot, tu es le numéro un » (ch. 509)"),
+    ("goku", 774.33, "vegeta", 774.33, 0.5, 0.5,
+     "Goku révèle qu'il retenait le Super Saiyan 3 pendant le duel contre Majin Vegeta, qui en reste abasourdi (ch. 474)"),
     ("goku", 774.37, "vegeta", 774.37, 0.6, 0.4,
      "Vegeta reconnaît que Goku SSJ3 le surpasse : « Tu es le numéro un, Kakarot » (ch. 509)"),
     ("gohan", 774.34, "goku", 774.34, 0.3, 0.6,
@@ -145,10 +153,14 @@ ORDER = [
      "Les anges dépassent de loin les dieux de la destruction et les mortels (DBS manga ch. 27-41 ; Chōzenshū)"),
     ("merus", 780.52, "goku", 780.52, 1.0, 0.5,
      "Merus, apprenti ange, entraîne Goku à l'Ultra Instinct en le surclassant (DBS manga ch. 52-53)"),
-    ("freeza", 781.251, "goku", 781.251, 0.8, 0.5,
-     "Black Freezer met Goku UI et Vegeta Ultra Ego au tapis d'un coup chacun (DBS manga ch. 87)"),
-    ("freeza", 781.251, "vegeta", 781.251, 0.8, 0.5,
-     "Black Freezer met Vegeta Ultra Ego KO d'un seul coup (DBS manga ch. 87)"),
+    ("goku", 767.5, "vegeta", 767.5, 0.2, 0.6,
+     "Après la salle de l'Esprit et du Temps, Trunks : Goku et Gohan nous ont largement dépassés (ch. 392-394)"),
+    ("gamma_1", 781.55, "gamma_2", 781.55, -0.3, 0.4, "Gamma 1 et Gamma 2, deux modèles jumeaux du Dr Hedo (ch. 91-95)"),
+    ("gamma_2", 781.55, "gamma_1", 781.55, -0.3, 0.4, "Gamma 1 et Gamma 2, deux modèles jumeaux du Dr Hedo (ch. 91-95)"),
+    ("kefla", 780.143, "kale", 780.142, 0.3, 0.5,
+     "Kefla, fusion Potara de Kale et Caulifla, dépasse de loin chacune des deux (DBS manga ch. 38)"),
+    ("whis", 781.25, "freeza", 781.251, 0.5, 0.6,
+     "Les anges restent au-dessus des dieux de la destruction et de tous les mortels (DBS manga ch. 27-28 ; Chōzenshū)"),
     ("gohan", 781.6, "goku", 781.6, 0.0, 0.7,
      "Gohan Beast mis au niveau de Goku et Vegeta, voire au-delà (DBS manga ch. 99-101 ; Toriyama, interview Super Hero 2022)"),
 ]

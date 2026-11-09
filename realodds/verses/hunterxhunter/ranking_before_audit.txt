@@ -1,0 +1,99 @@
+meruem                 ( 2 f, prior 7.3) — fourmis 7.3±0.4
+netero                 ( 4 f, prior 6.0) — avant 6.4±1.2, examen 6.1±0.4, zoldyck 6.1±0.4, arene 6.1±0.4, yorknew 6.1±0.4, greedisland 6.0±0.4, fourmis 6.1±0.4
+palm                   ( 1 f, prior 3.8) — fourmis 6.0±1.0, election 6.0±1.0, succession 6.0±1.1
+youpi                  ( 5 f, prior 6.0) — greedisland 5.9±0.5, fourmis 5.9±0.4
+killua                 (29 f, prior 1.8) — examen 2.4±0.6, zoldyck 2.4±0.6, arene 3.6±0.4, yorknew 3.5±0.4, greedisland 4.4±0.5, fourmis 5.9±0.6, election 5.9±0.6, succession 5.9±0.6
+pitou                  ( 3 f, prior 6.0) — greedisland 5.7±0.5, fourmis 5.6±0.4
+zeno                   ( 1 f, prior 5.6) — yorknew 5.5±0.5, greedisland 5.5±0.6, fourmis 5.5±0.6, election 5.5±0.7, succession 5.5±0.7
+hisoka                 (21 f, prior 5.0) — examen 5.0±0.5, zoldyck 5.0±0.5, arene 5.1±0.4, yorknew 5.1±0.4, greedisland 5.1±0.4, fourmis 5.2±0.4, election 5.3±0.5, succession 5.4±0.5
+chrollo                ( 6 f, prior 5.0) — avant 4.9±1.0, examen 5.3±0.5, zoldyck 5.3±0.5, arene 5.3±0.5, yorknew 5.3±0.4, greedisland 5.3±0.4, fourmis 5.3±0.5, election 5.4±0.5, succession 5.4±0.6
+silva                  ( 1 f, prior 5.4) — yorknew 5.3±0.5, greedisland 5.3±0.6, fourmis 5.3±0.6, election 5.3±0.7, succession 5.3±0.7
+pouf                   ( 4 f, prior 5.8) — greedisland 5.2±0.5, fourmis 5.1±0.4
+knuckle                ( 8 f, prior 4.0) — yorknew 5.0±0.5, greedisland 5.0±0.5, fourmis 5.1±0.5, election 5.1±0.5, succession 5.1±0.6
+razor                  ( 3 f, prior 4.6) — yorknew 5.1±0.6, greedisland 5.1±0.6, fourmis 5.1±0.6, election 5.1±0.7, succession 5.1±0.7
+ging                   ( 1 f, prior 5.0) — fourmis 5.0±0.6, election 5.0±0.5, succession 5.0±0.6
+illumi                 ( 4 f, prior 4.8) — examen 4.8±0.6, zoldyck 4.8±0.6, arene 4.8±0.6, yorknew 4.8±0.6, greedisland 4.8±0.7, fourmis 4.9±0.7, election 4.9±0.7, succession 4.9±0.7
+biscuit                ( 4 f, prior 4.6) — yorknew 4.8±0.5, greedisland 4.8±0.5, fourmis 4.8±0.5, election 4.8±0.6, succession 4.8±0.7
+hanzo                  ( 3 f, prior 1.8) — examen 2.5±0.6, zoldyck 2.5±0.6, arene 2.5±0.6, yorknew 4.7±1.1, greedisland 4.7±1.1, fourmis 4.7±1.1, election 4.7±1.2, succession 4.7±1.2
+uvogin                 ( 5 f, prior 4.5) — avant 4.7±1.0, examen 4.4±0.5, zoldyck 4.4±0.5, arene 4.4±0.5, yorknew 4.4±0.4
+phinks                 ( 5 f, prior 4.4) — yorknew 4.4±0.5, greedisland 4.4±0.5, fourmis 4.4±0.5, election 4.4±0.6, succession 4.4±0.7
+kurapika               ( 9 f, prior 1.0) — examen 2.2±0.8, zoldyck 2.2±0.8, arene 2.2±0.8, yorknew 4.4±0.5, greedisland 4.4±0.5, fourmis 4.4±0.5, election 4.3±0.6, succession 4.3±0.6
+gon                    (24 f, prior 1.0) — examen 0.8±0.5, zoldyck 0.8±0.5, arene 2.5±0.5, yorknew 2.5±0.5, greedisland 3.6±0.5, fourmis 4.4±0.6, election 0.4±1.1, succession 0.4±1.2
+feitan                 ( 5 f, prior 4.5) — yorknew 4.3±0.4, greedisland 4.3±0.5, fourmis 4.4±0.5, election 4.4±0.6, succession 4.4±0.6
+ortho                  ( 1 f, prior 3.0) — fourmis 4.2±0.9, election 4.2±0.9, succession 4.2±0.9
+morel                  ( 7 f, prior 4.5) — yorknew 4.2±0.5, greedisland 4.2±0.5, fourmis 4.2±0.5, election 4.2±0.5, succession 4.2±0.6
+knov                   ( 1 f, prior 4.3) — yorknew 4.2±0.6, greedisland 4.2±0.6, fourmis 4.2±0.5, election 4.2±0.6, succession 4.2±0.6
+franklin               ( 4 f, prior 4.3) — avant 4.2±1.1, examen 4.1±0.6, zoldyck 4.1±0.6, arene 4.1±0.6, yorknew 4.1±0.5, greedisland 4.1±0.5, fourmis 4.1±0.6, election 4.1±0.6, succession 4.1±0.7
+kite                   ( 3 f, prior 4.3) — yorknew 4.1±0.7, greedisland 4.1±0.7, fourmis 4.1±0.7
+genthru                ( 5 f, prior 3.6) — yorknew 4.1±0.7, greedisland 4.1±0.7, fourmis 4.1±0.7, election 4.1±0.8, succession 4.1±0.8
+nobunaga               ( 8 f, prior 4.2) — yorknew 4.0±0.4, greedisland 4.0±0.4, fourmis 4.0±0.5, election 4.1±0.5, succession 4.1±0.6
+rihan                  ( 1 f, prior 3.0) — election 4.1±1.2, succession 4.1±1.2
+shoot                  ( 2 f, prior 3.8) — yorknew 4.0±0.6, greedisland 4.0±0.6, fourmis 4.0±0.6, election 4.0±0.6, succession 4.0±0.7
+shizuku                ( 5 f, prior 4.0) — yorknew 4.0±0.4, greedisland 4.0±0.5, fourmis 4.0±0.5, election 4.0±0.6, succession 4.0±0.6
+machi                  ( 5 f, prior 4.0) — yorknew 3.9±0.5, greedisland 3.9±0.5, fourmis 3.8±0.5, election 3.7±0.6, succession 3.7±0.6
+pakunoda               ( 1 f, prior 3.8) — yorknew 3.9±0.6
+cheetu                 ( 3 f, prior 3.5) — yorknew 3.8±0.6, greedisland 3.8±0.6, fourmis 3.8±0.6, election 3.8±0.6, succession 3.8±0.6
+benjamin               ( 2 f, prior 3.2) — election 3.8±1.0, succession 3.8±1.0
+leol                   ( 1 f, prior 3.9) — yorknew 3.8±0.6, greedisland 3.8±0.6, fourmis 3.8±0.6
+furykov                ( 1 f, prior 4.0) — election 3.8±1.3, succession 3.7±1.3
+tserriednich           ( 5 f, prior 3.0) — election 2.1±1.0, succession 3.7±0.8
+shalnark               ( 4 f, prior 3.8) — avant 3.7±1.1, examen 3.7±0.6, zoldyck 3.7±0.6, arene 3.7±0.6, yorknew 3.7±0.6, greedisland 3.7±0.6, fourmis 3.7±0.6, election 3.7±0.7, succession 3.7±0.7
+hinrigh                ( 4 f, prior 4.0) — election 3.7±0.9, succession 3.7±0.9
+zazan                  ( 2 f, prior 3.8) — yorknew 3.6±0.6, greedisland 3.6±0.6, fourmis 3.6±0.6
+tsezguerra             ( 3 f, prior 3.3) — yorknew 3.5±0.7, greedisland 3.5±0.7, fourmis 3.5±0.7, election 3.5±0.7, succession 3.5±0.8
+ikalgo                 ( 3 f, prior 3.0) — fourmis 3.5±0.7, election 3.5±0.8, succession 3.5±0.8
+welfin                 ( 1 f, prior 4.0) — fourmis 3.5±1.1, election 3.5±1.1, succession 3.5±1.1
+vincent                ( 1 f, prior 3.0) — election 3.4±1.0, succession 3.5±1.0
+meleoron               ( 1 f, prior 3.5) — fourmis 3.4±1.4, election 3.4±1.4, succession 3.4±1.5
+kortopi                ( 2 f, prior 3.3) — yorknew 3.3±0.6, greedisland 3.3±0.6, fourmis 3.3±0.7, election 3.3±0.7, succession 3.3±0.7
+leorio                 ( 3 f, prior 0.8) — examen 1.3±0.9, zoldyck 1.3±0.9, arene 1.3±0.9, yorknew 1.4±0.9, greedisland 1.4±0.9, fourmis 3.3±0.8, election 3.3±0.8, succession 3.3±0.8
+sub                    ( 2 f, prior 3.0) — yorknew 3.2±0.9, greedisland 3.2±0.9, fourmis 3.2±0.9, election 3.2±0.9, succession 3.2±1.0
+gateaume               ( 1 f, prior 2.5) — election 3.2±1.1, succession 3.2±1.1
+bloster                ( 1 f, prior 3.5) — fourmis 3.2±1.0, election 3.2±1.0, succession 3.2±1.0
+owl                    ( 2 f, prior 3.0) — yorknew 3.1±0.6, greedisland 3.1±0.6, fourmis 3.1±0.7, election 3.1±0.7, succession 3.1±0.8
+kastro                 ( 2 f, prior 2.8) — examen 3.0±0.6, zoldyck 3.0±0.6, arene 3.0±0.6
+theta                  ( 2 f, prior 2.5) — election 3.0±1.0, succession 3.0±0.9
+camilla                ( 3 f, prior 1.5) — election 2.8±0.9, succession 2.8±0.8
+goreinu                ( 2 f, prior 2.8) — yorknew 2.8±1.5, greedisland 2.8±1.5, fourmis 2.8±1.5, election 2.8±1.5, succession 2.8±1.6
+musse                  ( 1 f, prior 2.5) — election 2.8±1.0, succession 2.8±1.0
+yushohi                ( 1 f, prior 2.5) — election 2.7±1.3, succession 2.8±1.3
+halkenburg             ( 1 f, prior 2.2) — election 2.7±1.2, succession 2.7±1.2
+bille                  ( 1 f, prior 2.0) — election 2.6±1.3, succession 2.7±1.3
+zakuro                 ( 2 f, prior 2.8) — election 2.6±1.0, succession 2.6±1.0
+rammot                 ( 2 f, prior 2.8) — greedisland 2.6±0.8, fourmis 2.6±0.8
+bill                   ( 1 f, prior 2.6) — election 2.6±1.5, succession 2.6±1.5
+canary                 ( 1 f, prior 1.6) — examen 2.6±1.1, zoldyck 2.6±1.1, arene 2.6±1.1, yorknew 2.6±1.1, greedisland 2.6±1.1, fourmis 2.6±1.2, election 2.6±1.2, succession 2.6±1.2
+gotoh                  ( 1 f, prior 3.0) — election 2.5±1.2
+shikaku                ( 1 f, prior 3.0) — election 2.5±1.2, succession 2.5±1.2
+tuffdy                 ( 1 f, prior 2.5) — election 2.4±1.4, succession 2.4±1.4
+bara                   ( 2 f, prior 3.0) — yorknew 2.3±1.1, greedisland 2.3±1.1, fourmis 2.3±1.1, election 2.3±1.2, succession 2.3±1.2
+bopobo                 ( 2 f, prior 2.5) — yorknew 2.3±0.8, greedisland 2.3±0.8
+teradein               ( 1 f, prior 2.5) — election 2.2±1.3
+lynch                  ( 2 f, prior 2.5) — election 2.1±1.2, succession 2.0±1.2
+bete_sale_sale         ( 1 f, prior 3.0) — election 1.9±1.2, succession 1.9±1.2
+binolt                 ( 2 f, prior 2.2) — yorknew 1.9±0.8, greedisland 1.9±0.8, fourmis 1.9±0.8, election 1.9±0.9, succession 1.9±0.9
+sadaso                 ( 1 f, prior 2.0) — examen 1.8±0.7, zoldyck 1.8±0.7, arene 1.8±0.7, yorknew 1.8±0.7, greedisland 1.8±0.7, fourmis 1.8±0.8, election 1.8±0.8, succession 1.8±0.8
+riehlvelt              ( 2 f, prior 2.2) — examen 1.7±0.6, zoldyck 1.7±0.6, arene 1.7±0.6, yorknew 1.7±0.6, greedisland 1.7±0.6, fourmis 1.7±0.7, election 1.7±0.7, succession 1.7±0.7
+luini                  ( 1 f, prior 2.5) — election 1.7±1.1, succession 1.7±1.1
+gido                   ( 2 f, prior 2.2) — examen 1.7±0.6, zoldyck 1.7±0.6, arene 1.6±0.6, yorknew 1.6±0.6, greedisland 1.6±0.6, fourmis 1.6±0.7, election 1.6±0.7, succession 1.6±0.8
+sayird                 ( 1 f, prior 2.0) — election 1.7±1.3, succession 1.7±1.3
+squala                 ( 1 f, prior 1.8) — yorknew 1.5±1.3
+padaille               ( 1 f, prior 2.5) — election 1.5±1.1, succession 1.5±1.1
+puhat                  ( 1 f, prior 2.0) — yorknew 1.4±1.2, greedisland 1.4±1.2
+maitre_port            ( 1 f, prior 2.5) — yorknew 1.4±1.0, greedisland 1.4±1.0, fourmis 1.4±1.1, election 1.4±1.1, succession 1.4±1.1
+zushi                  ( 1 f, prior 1.4) — examen 1.3±0.9, zoldyck 1.3±0.9, arene 1.3±0.9, yorknew 1.3±0.9, greedisland 1.3±1.0, fourmis 1.3±1.0, election 1.3±1.0, succession 1.3±1.1
+dalzollene             ( 1 f, prior 1.6) — yorknew 1.3±1.3
+jispa                  ( 1 f, prior 2.4) — yorknew 1.3±1.1, greedisland 1.3±1.1
+wolfe                  ( 1 f, prior 2.2) — election 1.1±1.1, succession 1.1±1.1
+ponzu                  ( 3 f, prior 1.0) — examen 0.2±0.8, zoldyck 0.2±0.8, arene 0.2±0.8, yorknew 1.1±1.0, greedisland 1.1±1.0, fourmis 1.1±1.0
+ancien_examinateur     ( 1 f, prior 1.0) — examen 0.9±1.4
+tassi                  ( 1 f, prior 1.5) — election 0.9±1.3, succession 0.8±1.3
+pokkle                 ( 2 f, prior 0.9) — examen -0.1±1.0, zoldyck -0.1±1.0, arene -0.1±1.0, yorknew 0.8±1.2, greedisland 0.8±1.2, fourmis 0.8±1.2
+geretta                ( 1 f, prior 0.9) — examen 0.8±1.4
+bodoro                 ( 2 f, prior 1.0) — examen 0.6±1.2
+sale_sale              ( 1 f, prior 0.5) — election 0.3±1.3, succession 0.2±1.3
+barbon                 ( 1 f, prior 1.0) — examen 0.1±1.0
+johness                ( 1 f, prior 0.7) — examen -0.1±1.1
+tonpa                  ( 1 f, prior 0.5) — examen -0.1±1.2, zoldyck -0.1±1.2, arene -0.1±1.2, yorknew -0.1±1.2, greedisland -0.1±1.2, fourmis -0.1±1.2, election -0.1±1.3, succession -0.1±1.3
+sedokan                ( 1 f, prior 0.3) — examen -0.2±0.9, zoldyck -0.2±0.9, arene -0.2±0.9, yorknew -0.2±1.0, greedisland -0.2±1.0, fourmis -0.2±1.0, election -0.2±1.0, succession -0.2±1.1
+majitani               ( 1 f, prior 0.3) — examen -0.3±1.2, zoldyck -0.3±1.2, arene -0.3±1.2, yorknew -0.3±1.2, greedisland -0.3±1.2, fourmis -0.3±1.2, election -0.3±1.3, succession -0.3±1.3

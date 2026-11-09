@@ -1,0 +1,66 @@
+yuji               (Yuji Itadori, 22 combats, prior 1.5) — debut 2.9±0.5, kyoto 3.7±0.5, bouddha 3.8±0.5, shibuya 3.8±0.5, culling 4.5±0.5, shinjuku 6.0±0.7, modulo 7.8±1.8
+sukuna             (Ryomen Sukuna, 26 combats, prior 7.5) — heian 7.4±0.5, passe 4.1±1.4, jjk0 4.6±0.8, debut 5.2±0.6, kyoto 5.2±0.6, bouddha 5.2±0.6, shibuya 7.0±0.6, culling 6.7±0.5, shinjuku 6.8±0.5
+gojo               (Satoru Gojo, 11 combats, prior 5.5) — passe 7.1±0.6, jjk0 7.0±0.5, debut 7.1±0.4, kyoto 7.1±0.4, bouddha 7.1±0.4, shibuya 7.1±0.4, culling 7.1±0.4, shinjuku 7.1±0.4
+toji               (Toji Fushiguro, 6 combats, prior 6.0) — passe 5.8±0.7, shibuya 5.8±0.7
+mahoraga           (Mahoraga (Général divin des Dix Ombres), 3 combats, prior 5.5) — kyoto 5.6±0.7, bouddha 5.6±0.7, shibuya 5.6±0.7, culling 5.6±0.7, shinjuku 5.6±0.7, modulo 5.2±1.3
+yorozu             (Yorozu (dans Tsumiki), 1 combats, prior 4.3) — bouddha 5.0±0.9, shibuya 5.0±0.9, culling 5.0±0.9
+maki               (Maki Zen'in, 16 combats, prior 2.0) — jjk0 2.4±0.6, debut 2.6±0.5, kyoto 2.6±0.5, bouddha 2.6±0.5, shibuya 2.6±0.5, culling 4.9±0.5, shinjuku 4.9±0.6
+yuta               (Yuta Okkotsu, 10 combats, prior 4.0) — jjk0 4.1±0.4, debut 3.6±0.6, kyoto 3.6±0.6, bouddha 3.6±0.6, shibuya 3.6±0.6, culling 4.7±0.4, shinjuku 4.8±0.4
+kenjaku            (Kenjaku (corps de Geto), 5 combats, prior 4.5) — kyoto 4.3±1.0, bouddha 4.3±1.0, shibuya 4.7±0.9, culling 4.7±0.9, shinjuku 4.7±0.9
+kashimo            (Hajime Kashimo, 3 combats, prior 4.3) — kyoto 4.6±0.7, bouddha 4.6±0.7, shibuya 4.6±0.7, culling 4.6±0.7, shinjuku 4.6±0.7
+hakari             (Kinji Hakari, 4 combats, prior 3.5) — kyoto 4.5±0.6, bouddha 4.5±0.6, shibuya 4.6±0.6, culling 4.6±0.6, shinjuku 4.6±0.6
+hanami             (Hanami, 4 combats, prior 4.8) — debut 4.5±0.5, kyoto 4.5±0.5, bouddha 4.5±0.5, shibuya 4.5±0.5
+uraume             (Uraume, 3 combats, prior 4.0) — kyoto 4.5±0.9, bouddha 4.5±0.9, shibuya 4.5±0.9, culling 4.5±0.9, shinjuku 4.5±0.9
+miguel             (Miguel Oduol, 2 combats, prior 3.0) — jjk0 4.2±1.1, debut 4.3±1.2, kyoto 4.3±1.2, bouddha 4.3±1.2, shibuya 4.3±1.2, culling 4.3±1.2, shinjuku 4.3±1.2
+jogo               (Jogo, 4 combats, prior 5.0) — debut 4.3±0.5, kyoto 4.3±0.4, bouddha 4.3±0.4, shibuya 4.3±0.4
+dagon              (Dagon, 2 combats, prior 4.8) — debut 4.3±0.6, kyoto 4.3±0.6, bouddha 4.3±0.6, shibuya 4.3±0.6
+mahito             (Mahito, 9 combats, prior 4.5) — debut 3.9±0.4, kyoto 3.9±0.4, bouddha 3.9±0.4, shibuya 4.2±0.6, culling 4.2±0.6, shinjuku 4.2±0.7, modulo 3.9±1.6
+choso              (Choso, 5 combats, prior 4.0) — debut 4.1±0.6, kyoto 4.1±0.5, bouddha 4.1±0.5, shibuya 4.1±0.5, culling 4.1±0.6, shinjuku 4.1±0.6
+hana_kurusu        (Hana Kurusu (Angel), 2 combats, prior 3.0) — bouddha 4.1±1.1, shibuya 4.1±1.1, culling 4.1±1.1, shinjuku 4.1±1.1
+fleau_detention    (Fléau du centre de détention (porteur de doigt), 2 combats, prior 4.3) — debut 4.0±0.6
+geto               (Suguru Geto, 3 combats, prior 4.0) — passe 3.5±0.9, jjk0 4.0±0.5
+yuki               (Yuki Tsukumo, 1 combats, prior 4.0) — kyoto 3.9±0.5, bouddha 3.9±0.5, shibuya 3.9±0.5, culling 3.9±0.5
+takaba             (Fumihiko Takaba, 1 combats, prior 2.5) — shibuya 3.8±1.2, culling 3.9±1.2, shinjuku 3.9±1.2
+kurourushi         (Kurourushi, 1 combats, prior 3.5) — kyoto 3.8±0.6, bouddha 3.8±0.6, shibuya 3.8±0.6, culling 3.8±0.6
+higuruma           (Hiromi Higuruma, 2 combats, prior 3.5) — kyoto 3.8±1.0, bouddha 3.8±1.0, shibuya 3.8±1.0, culling 3.8±1.0, shinjuku 3.8±1.0
+naoya_fleau        (Naoya Zen'in (fléau vengeur), 1 combats, prior 4.0) — kyoto 3.7±1.0, bouddha 3.7±1.0, shibuya 3.7±1.0, culling 3.7±1.0
+fleau_yasohachi    (Fléau du pont Yasohachi (porteur de doigt), 1 combats, prior 4.3) — debut 3.6±0.7, kyoto 3.6±0.6, bouddha 3.6±0.6
+kusakabe           (Atsuya Kusakabe, 3 combats, prior 3.0) — kyoto 3.4±0.5, bouddha 3.4±0.5, shibuya 3.4±0.5, culling 3.4±0.5, shinjuku 3.5±0.6
+todo               (Aoi Todo, 6 combats, prior 3.5) — debut 3.3±0.5, kyoto 3.3±0.4, bouddha 3.3±0.5, shibuya 3.4±0.5, culling 2.4±0.8, shinjuku 2.9±1.0
+uro                (Takako Uro, 2 combats, prior 3.5) — heian 3.3±1.3, passe 3.1±1.8, jjk0 3.0±2.0, debut 3.0±2.0, kyoto 3.0±2.0, bouddha 3.0±2.0, shibuya 3.0±2.0, culling 3.0±2.0, shinjuku 3.0±2.0
+ryu_ishigori       (Ryu Ishigori, 2 combats, prior 3.8) — kyoto 3.3±1.1, bouddha 3.3±1.1, shibuya 3.3±1.1, culling 3.3±1.1
+megumi             (Megumi Fushiguro, 9 combats, prior 2.0) — debut 2.5±0.4, kyoto 2.5±0.4, bouddha 3.2±0.5, shibuya 3.2±0.5, culling 3.2±0.5, shinjuku 3.2±0.5
+naobito            (Naobito Zen'in, 2 combats, prior 3.5) — kyoto 3.2±0.6, bouddha 3.2±0.5, shibuya 3.2±0.5
+mei_mei            (Mei Mei, 1 combats, prior 3.0) — debut 3.1±0.5, kyoto 3.1±0.5, bouddha 3.1±0.5, shibuya 3.2±0.5, culling 3.2±0.5, shinjuku 3.2±0.5
+naoya              (Naoya Zen'in, 1 combats, prior 3.0) — kyoto 3.1±0.5, bouddha 3.1±0.5, shibuya 3.1±0.5, culling 3.1±0.5
+nanami             (Kento Nanami, 6 combats, prior 3.0) — debut 3.1±0.4, kyoto 3.1±0.4, bouddha 3.1±0.4, shibuya 3.0±0.5
+charles            (Charles Bernard, 1 combats, prior 2.5) — kyoto 3.0±0.9, bouddha 3.0±0.9, shibuya 3.0±0.9, culling 3.0±0.9, shinjuku 3.0±0.9
+ogi                (Ogi Zen'in, 2 combats, prior 3.0) — kyoto 3.0±0.6, bouddha 3.0±0.6, shibuya 3.0±0.6, culling 2.9±0.5
+larue              (Larue, 1 combats, prior 2.8) — shibuya 2.9±1.6, culling 2.9±1.6, shinjuku 2.9±1.6
+eso                (Eso, 1 combats, prior 3.0) — debut 2.8±0.8, kyoto 2.8±0.8, bouddha 2.8±0.8
+reggie             (Reggie Star, 1 combats, prior 2.5) — kyoto 2.7±0.9, bouddha 2.7±0.9, shibuya 2.7±0.9, culling 2.7±0.9
+noritoshi          (Noritoshi Kamo, 4 combats, prior 2.8) — debut 2.7±0.6, kyoto 2.7±0.5, bouddha 2.7±0.5, shibuya 2.7±0.5, culling 2.7±0.6, shinjuku 2.7±0.6
+toge               (Toge Inumaki, 3 combats, prior 2.5) — jjk0 2.4±0.6, debut 2.5±0.6, kyoto 2.5±0.5, bouddha 2.5±0.5, shibuya 2.5±0.6, culling 2.5±0.6, shinjuku 2.5±0.6
+kechizu            (Kechizu, 1 combats, prior 2.5) — debut 2.5±0.8, kyoto 2.5±0.8, bouddha 2.5±0.8
+smallpox           (Divinité de la variole (fléau), 1 combats, prior 3.8) — kyoto 2.4±0.9, bouddha 2.4±0.9, shibuya 2.4±0.9
+mechamaru          (Mechamaru (Kokichi Muta), 2 combats, prior 2.5) — debut 2.3±0.5, kyoto 2.3±0.5, bouddha 2.3±0.5, shibuya 2.3±0.5
+ino                (Takuma Ino, 2 combats, prior 2.3) — kyoto 2.2±0.6, bouddha 2.2±0.6, shibuya 2.2±0.6, culling 2.2±0.6, shinjuku 2.2±0.7
+fleaux_divers      (Fléaux divers (groupe), 3 combats, prior 1.5 G) — jjk0 2.1±0.8, debut 2.0±0.9, kyoto 2.0±0.9, bouddha 2.0±0.9, shibuya 2.0±0.9, culling 2.0±0.9, shinjuku 2.0±0.9
+panda              (Panda, 5 combats, prior 2.5) — jjk0 2.1±0.6, debut 2.1±0.5, kyoto 2.1±0.5, bouddha 2.1±0.5, shibuya 2.1±0.5, culling 2.0±0.5, shinjuku 2.0±0.5
+haruta             (Haruta Shigemo, 2 combats, prior 2.0) — kyoto 2.1±0.8, bouddha 2.1±0.8, shibuya 2.1±0.8, culling 2.1±0.8, shinjuku 2.1±0.8
+dhruv              (Dhruv Lakdawalla, 1 combats, prior 3.0) — kyoto 2.0±1.1, bouddha 2.0±1.1, shibuya 2.0±1.1, culling 2.0±1.1
+hasaba             (Jumelles Hasaba (Mimiko et Nanako), 1 combats, prior 2.0 G) — kyoto 2.0±1.5, bouddha 2.0±1.5, shibuya 2.0±1.5
+kirara             (Kirara Hoshi, 1 combats, prior 2.0) — kyoto 1.9±1.0, bouddha 1.9±1.0, shibuya 1.9±1.0, culling 1.9±1.0, shinjuku 1.9±1.0
+zenin_hei          (Hei et unité Kukuru du clan Zen'in (groupe), 1 combats, prior 2.5 G) — kyoto 1.9±1.1, bouddha 1.9±1.1, shibuya 1.9±1.1, culling 1.9±1.1
+momo               (Momo Nishimiya, 2 combats, prior 1.8) — debut 1.8±0.6, kyoto 1.8±0.5, bouddha 1.8±0.5, shibuya 1.8±0.5, culling 1.8±0.6, shinjuku 1.8±0.6
+nobara             (Nobara Kugisaki, 6 combats, prior 1.8) — debut 1.7±0.5, kyoto 1.7±0.5, bouddha 1.7±0.5, shibuya 1.7±0.5, culling 1.7±0.5, shinjuku 1.7±0.6
+juzo               (Juzo Kumiya, 1 combats, prior 1.5) — debut 1.5±1.5, kyoto 1.5±1.5, bouddha 1.5±1.5, shibuya 1.5±1.5, culling 1.5±1.5, shinjuku 1.5±1.5
+mai                (Mai Zen'in, 4 combats, prior 1.5) — debut 1.4±0.5, kyoto 1.4±0.5, bouddha 1.4±0.5, shibuya 1.4±0.5, culling 1.4±0.5
+junpei             (Junpei Yoshino, 1 combats, prior 1.0) — debut 1.4±0.9
+miwa               (Kasumi Miwa, 1 combats, prior 1.4) — debut 1.1±0.6, kyoto 1.1±0.5, bouddha 1.1±0.5, shibuya 1.1±0.5, culling 1.1±0.6, shinjuku 1.1±0.6
+yuka               (Yuka Okkotsu, 1 combats, prior 3.5) — 
+usami              (Usami (clan Inumaki), 1 combats, prior 3.0) — 
+tsurugi            (Tsurugi Okkotsu, 2 combats, prior 3.5) — 
+masaki             (Masaki Takeda, 2 combats, prior 3.0) — 
+maru               (Maru (Marulu Val Vol Yelvori), 2 combats, prior 4.5) — 
+dabura             (Dabura Karaba, 2 combats, prior 6.0) — 

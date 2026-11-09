@@ -58,4 +58,8 @@ ORDER = [
     ("gojo", 0.05, "jogo", 0.05, 1.5, 0.6, "Geto (Kenjaku) prévient Jogo qu'il ne peut pas battre Gojo (ch. 14-15)"),
     ("sukuna", 0.35, "jogo", 0.35, 1.5, 0.6, "Sukuna (15 doigts) : « Tu es fort, Jogo », après l'avoir surclassé (ch. 116-117)"),
     ("gojo", 0.0, "megumi", 0.0, 1.5, 0.5, "Gojo, le plus fort, est le professeur de Megumi, grade 2 (ch. 2-3)"),
+    # ---- audit
+    ("gojo", 0.6, "sukuna", 0.6, -0.4, 0.5, "Gojo vs Sukuna (corps de Megumi, 20 doigts) : duel des plus forts, au fil du rasoir ; « Je gagnerais » (ch. 221) mais Sukuna l'emporte (ch. 236)"),
+    ("sukuna", 0.6, "gojo", 0.6, -0.4, 0.5, "Gojo vs Sukuna : quasi-égalité au sommet, Sukuna ne gagne que grâce à l'adaptation de Mahoraga (ch. 223-236)"),
+    ("sukuna", 0.6, "sukuna", 0.3555, 0.5, 0.5, "Sukuna à 20 doigts et Dix Ombres au-dessus du Sukuna à 15 doigts dans le corps de Yuji, qui n'était pas à pleine puissance (ch. 116-117, ch. 212-221)"),
 ]

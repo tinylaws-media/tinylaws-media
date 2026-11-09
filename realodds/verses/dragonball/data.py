@@ -8,39 +8,54 @@ Tags: malade, epuise, retenue, protege, surprise, prepa, boost (Kaiōken, tempor
 ultra (Ultra Instinct / Beast-type peak state used in a fight). A fusion (gogeta, vegito, gotenks) is its own character.
 Permanent new forms (first Super Saiyan, SSJ2, Ultra Instinct mastery, Beast…) are JUMPS.
 Tier priors (status at first fight): 0 humain ordinaire, 1 artiste martial, 2 Tortue Géniale / Tao Pai Pai,
-3 Piccolo Daimaō / Tenshinhan adulte, 4 Saiyans à leur arrivée sur Terre, 5 Freezer, 6 Cell parfait / SSJ2,
-7 Majin Buu / SSJ3, 8 dieux de la destruction / Super Saiyan God, 9 Jiren / Ultra Instinct, 10 Zeno, anges.
+3 Piccolo Daimaō / Tenshinhan adulte, 4 Saiyans à leur arrivée sur Terre, 5 Freezer (1re forme), ~6,5 Cell parfait,
+~7 Gohan SSJ2, ~7,3 Majin Buu / SSJ3, 8 dieux de la destruction / Super Saiyan God, 9 Jiren / Ultra Instinct, 10 Zeno, anges.
 """
 import glob
 import importlib.util
 import os
 
 ARCS = [
+    # Chaque arc est daté à un instant où tous ses combattants sont en vie (ceux qui meurent dans l'arc compris),
+    # sinon le modèle ne les classe pas dans cet arc : Raditz, Trunks contre Freezer et les Baba sont donc à part.
     ("avant", "Avant l'histoire (Bardock, Freezer, Saiyans)", 737.0),
-    ("pilaf", "Pilaf et le 21e Championnat", 749.0),
-    ("ruban", "Armée du Ruban rouge", 750.0),
-    ("tournoi22", "22e Championnat", 753.0),
+    ("pilaf", "Pilaf et les Dragon Balls", 749.05),
+    ("tournoi21", "21e Championnat", 749.6),
+    ("tourmuscle", "Ruban rouge : la tour Muscle", 750.0),
+    ("ruban", "Ruban rouge : Blue, Tao Pai Pai et le QG", 750.1),
+    ("baba", "Uranai Baba", 750.5),
+    ("tournoi22", "22e Championnat", 753.3),
     ("daimao", "Piccolo Daimaō", 753.5),
-    ("tournoi23", "23e Championnat (Piccolo junior)", 756.0),
-    ("saiyan", "Arrivée des Saiyans", 762.0),
+    ("tournoi23", "23e Championnat (Piccolo junior)", 756.3),
+    ("raditz", "Raditz", 761.8),
+    ("saiyan", "Arrivée des Saiyans (Nappa et Vegeta)", 762.4),
     ("namek", "Namek et Freezer", 762.8),
-    ("cyborgs", "Cyborgs et Cell", 767.0),
+    ("retourfreezer", "Trunks contre Freezer et le roi Cold", 764.4),
+    ("cyborgs", "Cyborgs et Cell", 767.36),
     ("cellgame", "Cell Game", 767.5),
-    ("buu", "Majin Buu", 774.0),
+    ("buu", "Majin Buu", 774.3),
     ("dieux", "Beerus et la résurrection de Freezer", 778.0),
     ("univ6", "Tournoi contre l'univers 6 et Goku Black", 779.5),
     ("tdp", "Tournoi du Pouvoir", 780.0),
     ("moro", "Moro", 780.5),
     ("granolah", "Granolah", 781.0),
-    ("superhero", "Super Hero et après", 781.5),
+    ("superhero", "Super Hero et après", 781.56),
+    ("epilogue", "28e Championnat (Uub, dix ans après Buu)", 784.5),
 ]
 
 CHARS = {}
 F = []
 GENERIC = set()
 JUMPS = []
-REVIVE = {}
-EXTRA_TAGS = {"ultra": (2.0, 1.0)}
+# Freezer, tué par Trunks (ch. 331), est ressuscité par les Dragon Balls (Résurrection de F, évoquée DBS ch. 5).
+# Gas : « mort » fictive juste après le flash-back de Bardock et « retour » à l'arc Granolah, pour qu'il n'apparaisse
+# pas dans les classements des arcs 749-780 où il n'est jamais montré (sa croissance de 40 ans reste modélisée).
+REVIVE = {"freeza": 778.0, "gas": 780.95}
+# Les états de compétence (ultra, boost) sont ignorés par model.py : ils font partie de la force du personnage.
+# "emprunt" : puissance prêtée par un tiers pour ce combat (énergie de Moro injectée, Genki Dama de toute la Terre,
+# magie de Babidi), qui n'est pas la force propre du personnage.
+EXTRA_TAGS = {"emprunt": (1.0, 0.7)}
+SLOW = {"whis", "beerus", "roshi", "kami", "mr_popo", "merus"}   # dieux, ange et vieux maître : pas de dérive libre
 BOOK_TIMES = {}
 
 

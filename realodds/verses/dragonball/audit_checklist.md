@@ -1,0 +1,99 @@
+# Audit Dragon Ball : contrôle de chaque personnage
+
+Une ligne par personnage ayant au moins 2 combats ou un statut / niveau de puissance officiel. Valeurs : arcs où il combat, avant → après correction (échelons ; « — » = le personnage n'était pas classé dans cet arc). Seuil : écart ≥ ~0,4 échelon. Classement complet avant audit : `ranking_before_audit.txt`.
+
+## Corrections structurelles (tous personnages)
+
+- **Dates d'arc** : un personnage n'est classé dans un arc que si la date de l'arc tombe dans sa vie active ; Raditz, Nappa, Vegeta (arc Saiyans), roi Cold, C-16 à C-20, Cell (arc Cyborgs), Babidi, Dabura, les trois Buu, Gotenks, Vegito, Goten, Trunks enfant, Shin, Uub et les combattants du 21e Championnat et de Baba n'apparaissaient pas. → arcs redatés et scindés : Pilaf / 21e Championnat, tour Muscle / Ruban rouge / Baba, Raditz / Saiyans, Trunks contre Freezer / Cyborgs, et 28e Championnat (Uub) en épilogue (le combat Goku-Uub d'Age 784 faisait mesurer « Goku à Buu » dix ans trop tard : 8,3 au lieu de 7,2).
+- **Transformations datées après le combat où elles apparaissent** : SSJ3 de Goku (ch. 474 alors qu'il l'avait déjà), Blue de Goku et Vegeta (après Golden Freezer), Ultra Instinct (après le combat contre Jiren), UI maîtrisé (après la victoire sur Moro), Blue parfait et nouveau palier de Vegeta, Ultra Ego, éveil de Granolah, Piccolo Orange (avant le vœu). → toutes redatées.
+- **Puissance empruntée** : les tags « boost » sont ignorés par le modèle (compétence) ; quand la puissance venait d'un tiers (ki de Moro injecté à Saganbo, Genki Dama de toute la Terre, énergie des Terriens contre Moro), nouveau tag « emprunt ».
+- **Freezer** mort (ch. 331) puis ressuscité ; **Gas** retiré des classements 749-780 où il n'apparaît pas ; **SLOW** pour Whis, Beerus, Merus, Kami, Mr. Popo, Tortue Géniale.
+- **Échelle** : Raditz 3,6 → 3,3 et Nappa 3,8 → 3,55 (1 500 / 4 000 / 18 000 étaient tassés en 0,4 échelon alors que Freezer 530 000 est à +1) ; Cell parfait 6,0 → 6,5, Gohan SSJ2 6,0 → 7,0, Goku SSJ3 7,0 → 7,3, Majin Buu 7,0 → 7,2 (Freezer à 100 % sortait à 5,9, au niveau de l'ancien palier « Cell »).
+
+## Personnages
+
+- **whis** (Whis, 2 combats) — granolah 10.9→10.5 — ok ; dérive libre à la hausse (10,2→10,9) et dépassé par Black Freezer → CORRIGÉ (SLOW pour dieux/anges, hiérarchie « les anges au-dessus de tous les mortels », DBS ch. 27-28)
+- **freeza** (Freezer, 23 combats) — namek 5.9→5.9, retourfreezer 5.5→5.5, dieux 8.3→8.2, tdp 8.5→8.4, granolah 11.1→10.1 — Black Freezer à 11,1, AU-DESSUS de Whis (catastrophique), parce que saut Black +1,8, hiérarchie +0,8 sur Goku/Vegeta en doublon du combat m3, et Gas pas noté épuisé → CORRIGÉ (saut +1,2, hiérarchie redondante retirée, Gas « epuise », Whis > Freezer, ch. 87) ; Golden +3,0 → +2,6 ; mort ch. 331 / résurrection codées (n'apparaît plus en enfer aux arcs Cell et Buu) ; ajout « Freezer à 100 % < Goku SSJ » (ch. 320-324)
+- **gas** (Gas, 10 combats) — avant 3.0→3.2, granolah 9.9→9.9 — ok à Granolah ; apparaissait dans TOUS les classements 749-780 (enfant hors champ) → CORRIGÉ (absence 737-781 via REVIVE, ch. 68, 82-83)
+- **vegito** (Vegito, 2 combats) — buu —→9.3, univ6 9.2→9.4 — absent de l'arc Buu (date d'arc hors de sa vie) → CORRIGÉ ; 9,3 à Buu porté par un seul m3 sur Super Buu, saut Blue +1,0 → +0,6 ; reste haut, à juger
+- **merus** (Merus, 3 combats) — moro 9.2→9.2 — ok (SLOW ajouté)
+- **moro** (Moro, 17 combats) — moro 9.0→9.1 — ok ; saut de jeunesse retrouvée daté après le combat qui le montre → redaté 780.505 (ch. 46)
+- **gohan** (Son Gohan, 34 combats) — raditz 3.7→3.0, saiyan 3.7→3.6, namek 4.0→4.0, cellgame 6.5→7.2, buu 6.9→7.2, dieux 6.4→6.3, tdp 6.9→7.1, moro 6.9→7.0, superhero 9.2→9.0 — Cell Game 6,5 ≈ Cell (statut SSJ2 6,0 contredisant la hiérarchie Gohan > Cell +0,5) → CORRIGÉ (statut 7,0, ch. 408) ; déclin après Buu (DBS ch. 27, 31) et rouille avant Super Hero (ch. 88-94) ajoutés ; Kefla : « retenue » retiré (forme ultime sans SSJ, pas une retenue, ch. 39) ; Buu 7,2 = Goku SSJ3, hiérarchie +0,3 pas tout à fait atteinte
+- **beerus** (Beerus, 8 combats) — dieux 8.8→8.9, univ6 9.0→9.0, tdp 9.1→9.0, granolah 9.3→9.0 — ok ; dérive 8,8→9,3 → CORRIGÉ (SLOW) ; reste ≈ Jiren (hiérarchie Belmod Jiren > dieu de la destruction peu satisfaite, écart 0,1)
+- **goku** (Son Goku, 97 combats) — pilaf 2.3→1.9, tournoi21 2.3→2.3, tourmuscle 2.7→2.3, ruban 2.7→2.7, baba 2.7→2.7, tournoi22 3.0→2.9, daimao 3.4→3.3, tournoi23 3.8→3.7, raditz 4.6→3.0, saiyan 4.6→4.3, namek 6.2→6.1, retourfreezer 5.5→6.2, cyborgs 5.5→5.9, cellgame 5.9→6.2, buu 8.3→7.2, epilogue 8.3→8.3, dieux 7.6→7.9, univ6 7.8→7.8, tdp 7.8→8.3, moro 8.9→9.0, granolah 8.8→8.8, superhero 8.8→8.7 — Buu 8,3 (mesuré dix ans plus tard au combat contre Uub) → CORRIGÉ (arc épilogue séparé) ; SSJ3 daté au ch. 474 alors qu'il l'avait déjà → redaté 772 ; Blue daté après Golden Freezer, UI après le combat contre Jiren, UI maîtrisé après Moro → CORRIGÉS (ch. 5, 40-41, 64) ; Yardrat et 3 ans d'entraînement avant les cyborgs ajoutés ; Hit : abandon volontaire codé défaite → nul interrompu (ch. 12-13) ; 910 du Weekly Jump retiré (contredit 416 du ch. 199) ; 23e Championnat (3,7) un peu au-dessus de Raditz (3,0), écart dans la marge, laissé
+- **jiren** (Jiren, 9 combats) — tdp 8.9→9.0 — ok
+- **vegeta** (Vegeta, 58 combats) — saiyan —→4.2, namek 5.0→4.9, cyborgs 5.9→6.1, cellgame 5.9→6.1, buu 6.1→6.4, dieux 5.9→7.3, univ6 7.3→7.2, tdp 7.8→7.9, moro 8.3→8.1, granolah 9.1→8.8 — absent de l'arc Saiyans → CORRIGÉ ; Beerus 5,9 (sous Majin Vegeta) → CORRIGÉ (entraînement 4 ans, Blue daté avant Golden Freezer, ch. 1-5) ; Blue parfait / nouveau palier / Ultra Ego datés après les combats qui les montrent → redatés (ch. 36, 40, 74) ; Majin Vegeta tiré vers le bas par un tag « boost » mal compris → Goku « retenue » (SSJ3 caché, ch. 474)
+- **cell_max** (Cell Max, 3 combats) — superhero 8.7→8.8 — ok
+- **piccolo** (Piccolo (Ma Junior), 29 combats) — tournoi23 —→3.2, raditz 3.7→3.0, saiyan 3.7→3.3, namek 4.4→4.6, cyborgs 4.8→5.3, cellgame 4.8→5.3, buu 4.8→5.1, univ6 5.5→5.8, moro 6.0→6.3, superhero 8.2→8.7 — ok ; entraînement chez Kaiō (ch. ~285), fusion Nail +0,7 → +1,0 (« plus d'un million », ch. 295-300) et 3 ans d'entraînement ajoutés ; Piccolo Orange daté avant le vœu → redaté (ch. 95-96) ; reste ~0,5 sous C-17 à l'arc Cell malgré le nul (nul « i »), laissé
+- **granolah** (Granolah, 10 combats) — granolah 8.8→8.6 — légèrement bas (8,6 ≤ Goku/Vegeta 8,8) alors qu'il bat deux fois Vegeta Ultra Ego ; statut 8,5 → 9,0 et éveil redaté avant ch. 75 ; écart résiduel faible, laissé
+- **fused_zamasu** (Zamasu fusionné, 6 combats) — univ6 8.0→8.0 — ok
+- **super_buu** (Super Buu (Buu maléfique), 6 combats) — buu —→7.9 — absent de l'arc Buu (arc daté 774.0, avant son apparition) → CORRIGÉ (arc daté 774.3)
+- **toppo** (Toppo, 5 combats) — tdp 7.7→7.8 — ok
+- **kid_buu** (Buu originel (Kid Buu), 4 combats) — buu —→7.7 — absent de l'arc Buu → CORRIGÉ
+- **kefla** (Kefla, 2 combats) — tdp 7.2→7.7 — 7,2 sous Kale 8,4 alors que c'est leur fusion Potara → CORRIGÉ (hiérarchie Kefla ≥ Kale, ch. 38)
+- **kale** (Kale, 4 combats) — tdp 8.4→7.7 — 8,4, au-dessus de Goku/Vegeta et de Golden Freezer, par le combat interrompu contre Freezer codé m2 → CORRIGÉ (m1, ch. 37)
+- **majin_buu** (Majin Buu (gros), 12 combats) — buu —→7.3, dieux 7.1→7.4, moro 7.2→7.7 — absent de l'arc Buu → CORRIGÉ ; statut 7,0 → 7,2
+- **hit** (Hit, 3 combats) — univ6 7.6→7.6, tdp 7.5→7.5 — ok
+- **dyspo** (Dyspo, 3 combats) — tdp 7.5→7.4 — ok
+- **gamma_1** (Gamma 1, 4 combats) — superhero 7.7→7.2 — 7,7 contre 6,5 pour son jumeau Gamma 2 → CORRIGÉ (quasi-égalité, ch. 91-95)
+- **android_17** (C-17, 13 combats) — cyborgs —→5.9, tdp 7.0→7.1, moro 6.9→7.0 — absent de l'arc Cyborgs ; 4,8 (sous Piccolo) parce que l'absorption surprise par Cell comptait comme une défaite écrasante → CORRIGÉ (m2 « ? », quasi-égalité avec C-18, « e » sur le duo, ch. 350-373)
+- **cell** (Cell, 18 combats) — cyborgs —→6.6, cellgame 6.5→7.0 — absent de l'arc Cyborgs → CORRIGÉ ; statut Cell parfait 6,0 → 6,5 pour être au-dessus de Freezer à 100 % et des cyborgs
+- **gotenks** (Gotenks, 3 combats) — buu —→7.0, dieux 6.6→6.6 — absent de l'arc Buu → CORRIGÉ ; défaite en SSJ avant de sortir le SSJ3 notée « retenue » (ch. ~489-491)
+- **zamasu** (Zamasu (du futur, immortel), 2 combats) — univ6 6.9→6.9 — ok
+- **gamma_2** (Gamma 2, 5 combats) — superhero 6.5→6.8 — voir Gamma 1 → CORRIGÉ
+- **uub** (Uub, 1 combats) — epilogue —→6.8 — absent (arc Buu daté 10 ans trop tôt) → CORRIGÉ (arc épilogue)
+- **goku_black** (Goku Black, 5 combats) — univ6 6.9→6.8 — ok
+- **cabba** (Cabba, 4 combats) — univ6 5.5→5.4, tdp 6.5→6.4 — ok
+- **android_18** (C-18, 8 combats) — cyborgs —→6.4, buu 5.9→5.9, tdp 6.3→6.3, moro 6.2→6.3 — absente de l'arc Cyborgs → CORRIGÉ ; hiérarchie « les cyborgs du futur hors de portée de Trunks, qui vient de trancher Freezer » ajoutée (ch. 333-335)
+- **trunks** (Trunks (du futur), 16 combats) — retourfreezer 5.5→6.2, cyborgs 5.5→5.7, cellgame 5.6→5.8, univ6 6.4→6.2 — ok ; test contre Goku SSJ (épée arrêtée du doigt, ch. 333-334) ajouté ; Dabura immobilisé par Shin : « boost » → « surprise » (ch. 16)
+- **magetta** (Magetta, 2 combats) — univ6 6.4→6.2, tdp 6.4→6.1 — ok
+- **caulifla** (Caulifla, 3 combats) — tdp 6.3→6.2 — ok
+- **seven_three** (Seven-Three (OG73-I), 4 combats) — moro 6.0→6.2 — ok
+- **frost** (Frost, 7 combats) — univ6 6.0→6.0, tdp 6.1→6.2 — ok
+- **saganbo** (Saganbo, 2 combats) — moro 6.5→6.0 — 6,5 avec l'énergie injectée par Moro créditée comme sa force → CORRIGÉ (tag « emprunt », ch. 57-58)
+- **zamasu_present** (Zamasu (présent), 1 combats) — univ6 5.9→5.9 — ok
+- **dabura** (Dabura, 3 combats) — buu —→5.9 — absent de l'arc Buu → CORRIGÉ
+- **android_16** (C-16, 3 combats) — cyborgs —→5.7, cellgame 5.1→5.7 — 5,1 alors qu'il est le plus fort des trois cyborgs → CORRIGÉ partiellement (C-16 ≥ C-17, ch. 368-372) ; 5,7
+- **botamo** (Botamo, 2 combats) — univ6 5.6→5.6, tdp 5.5→5.5 — ok
+- **supreme_kai** (Shin (Kaiōshin de l'Est), 1 combats) — buu —→5.1 — absent de l'arc Buu → CORRIGÉ
+- **trunks_kid** (Trunks (enfant), 8 combats) — buu —→5.0, superhero 4.9→5.0 — absent de l'arc Buu → CORRIGÉ
+- **goten** (Son Goten, 7 combats) — buu —→4.8, superhero 4.9→4.9 — absent de l'arc Buu → CORRIGÉ
+- **android_19** (C-19, 2 combats) — cyborgs —→4.7 — absent de l'arc Cyborgs → CORRIGÉ
+- **spopovich** (Spopovich, 2 combats) — buu —→4.7 — absent de l'arc Buu → CORRIGÉ ; exécution par Babidi retirée (pas un combat) ; un peu haut (4,7) par la prise à revers de Gohan, laissé
+- **king_cold** (Roi Cold, 1 combats) — retourfreezer —→4.6 — absent (arc Trunks contre Freezer) → CORRIGÉ (arc séparé)
+- **ginyu** (Capitaine Ginyu, 2 combats) — namek 4.6→4.5 — ok
+- **recoome** (Recoome, 4 combats) — namek 4.3→4.3 — ok
+- **tien** (Tenshinhan, 14 combats) — tournoi22 —→3.0, daimao 3.0→2.9, tournoi23 3.3→3.3, saiyan 3.0→2.8, cyborgs 3.9→4.2, cellgame 3.9→4.2, tdp 3.7→3.8, moro 3.7→3.8 — ok à l'arc Cell (4,2) ; entraînement chez Kaiō et 3 ans ajoutés ; à Raditz/Saiyans (2,4-2,8) un peu sous le 23e (3,3), laissé
+- **nail** (Nail, 1 combats) — namek 4.2→4.2 — ok
+- **zarbon** (Zabon (Zarbon), 3 combats) — namek 4.1→4.1 — ok
+- **android_20** (C-20 (Dr. Gero), 3 combats) — cyborgs —→4.0 — absent de l'arc Cyborgs → CORRIGÉ
+- **burter** (Barta (Burter), 2 combats) — namek 4.0→4.0 — ok
+- **dodoria** (Dodoria, 3 combats) — namek 3.9→3.9 — ok
+- **jeice** (Jeice, 2 combats) — namek 3.9→3.9 — ok
+- **nappa** (Nappa, 5 combats) — saiyan —→3.8 — absent de l'arc Saiyans → CORRIGÉ ; statut 3,8 → 3,55 (4 000 contre 18 000 de Vegeta, échelle des niveaux)
+- **cui** (Kiwi (Cui), 1 combats) — namek 3.8→3.7 — ok
+- **bardock** (Bardock, 1 combats) — avant 3.6→3.7 — ok
+- **krillin** (Krilin, 28 combats) — tournoi21 —→1.0, ruban 0.9→0.9, baba 0.9→0.9, tournoi22 1.7→1.6, daimao 1.6→1.6, tournoi23 2.1→2.0, saiyan 3.4→3.3, namek 3.7→3.6, cellgame 3.6→3.7, buu 3.5→3.5, tdp 3.2→3.3, moro 3.2→3.3, superhero 3.1→3.1 — ok
+- **raditz** (Raditz, 4 combats) — raditz —→3.5 — absent (mort avant la date d'arc) → CORRIGÉ (arc Raditz) ; hiérarchie codée À L'ENVERS (Goku > Raditz de 0,6) → CORRIGÉ (ch. 196-199) ; statut 3,6 → 3,3
+- **oil** (Oil, 2 combats) — granolah 3.5→3.5 — ok
+- **maki** (Maki, 2 combats) — granolah 3.5→3.5 — ok
+- **guldo** (Guldo, 2 combats) — namek 3.5→3.5 — ok
+- **mr_popo** (Mr. Popo, 1 combats) — daimao 3.6→3.4 — ok (SLOW)
+- **king_piccolo** (Piccolo Daimaō, 4 combats) — daimao 3.6→3.3 — 3,6 > Raditz à cause de l'a priori 3,0 + rajeunissement +0,7 → CORRIGÉ (2,6 et +0,4 ; 260 contre 1 500)
+- **yajirobe** (Yajirobe, 2 combats) — daimao 3.2→3.2, saiyan 3.3→3.2 — un peu haut à Piccolo Daimaō (3,2) par le 970 de 762, laissé
+- **roshi** (Tortue Géniale (Jackie Chun), 8 combats) — tournoi21 —→2.6, tournoi22 2.7→2.6, daimao 2.7→2.6, tdp 5.5→3.1 — 5,5 au Tournoi du Pouvoir (dérive + victoire sur Kahseral a priori 6,0) et 3,6 > Krilin aux Saiyans → CORRIGÉ (SLOW, Kahseral 4,5, 139 daté au scouter de Raditz ch. 194)
+- **tambourine** (Tambourine, 3 combats) — daimao 3.1→3.0 — ok
+- **tao_pai_pai** (Tao Pai Pai, 5 combats) — ruban 2.8→2.8, tournoi23 1.8→2.2 — 210 (Tao cyborg) posé en 750 → CORRIGÉ (756, Weekly Jump 1989)
+- **kami** (Kami-sama (Shen), 2 combats) — tournoi23 2.6→2.6 — ok ; statut 3,0 → 2,8 (220)
+- **chiaotzu** (Chaozu, 4 combats) — tournoi22 —→0.8, daimao 0.9→0.8, saiyan 2.2→2.1, moro 2.3→2.6 — ok ; entraînement chez Kaiō ajouté
+- **yamcha** (Yamcha, 10 combats) — pilaf 0.6→0.6, tournoi21 0.6→0.5, baba 0.5→0.5, tournoi22 1.0→0.9, tournoi23 1.3→1.2, saiyan 2.0→1.8, cyborgs 1.7→2.1, cellgame 1.7→2.1, moro 2.3→2.5 — ok ; entraînement chez Kaiō et 3 ans ajoutés
+- **drum** (Drum, 2 combats) — daimao 2.3→2.0 — ok (a priori 2,9 → 2,5)
+- **general_blue** (Général Blue, 5 combats) — ruban 1.9→2.0 — ok
+- **jaco** (Jaco, 2 combats) — moro 2.0→2.0 — ok
+- **staff_black** (Colonel Black, 2 combats) — ruban —→1.9 — absent → CORRIGÉ (arcs du Ruban rouge redatés)
+- **nam** (Namu, 2 combats) — tournoi21 —→1.8 — absent (arc Pilaf daté avant le 21e Championnat) → CORRIGÉ
+- **chi_chi** (Chichi, 1 combats) — tournoi23 —→1.8 — absente → CORRIGÉ
+- **videl** (Videl, 2 combats) — buu 1.2→1.8 — ok
+- **bandages** (La Momie, 2 combats) — baba —→1.0 — absent → CORRIGÉ (arc Baba)
+- **mr_satan** (Mr. Satan, 2 combats) — cellgame 0.9→0.9, buu 0.9→0.9 — ok
+- **pilaf** (Pilaf, Shu et Mai (et leurs machines), 2 combats) — pilaf 0.7→0.6, baba 0.9→0.9 — ok

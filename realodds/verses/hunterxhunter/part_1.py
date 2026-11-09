@@ -6,7 +6,7 @@
 # Repères de temps (t = années depuis le 287e examen) : examen 0.00-0.04, Zoldyck 0.05, Tour céleste 0.15-0.40,
 # York New 0.49-0.52 (1er-10 septembre), Greed Island 0.60-0.75, Fourmis 0.80-1.00, élection 1.10-1.15,
 # succession 1.30-1.40 (traversée du Black Whale, jours 1-11).
-# Les clones de Pouf sont codés sous "pouf" avec "retenue" (fraction de sa puissance).
+# Les mini-clones de Pouf sont un personnage générique à part ("pouf_clones"), pas Pouf avec "retenue".
 
 CHARS_PART = {
     # ---------------------------------------------------------------- héros
@@ -32,7 +32,7 @@ CHARS_PART = {
     "ancien_examinateur": ("Ancien examinateur défiguré par Hisoka", "Prisonniers", 1.0, 0.013, None),
     "amori": ("Les frères Amori (Amori, Imori, Umori)", "Candidats", 0.7, None, None),
     "candidats": ("Candidats de l'examen (groupe)", "Candidats", 0.6, None, None),
-    "netero": ("Isaac Netero", "Association Hunter", 6.0, 0.99, None),
+    "netero": ("Isaac Netero", "Association Hunter", 7.0, 0.99, None),
     # ---------------------------------------------------------------- Zoldyck, Tour céleste
     "canary": ("Canary", "Zoldyck", 1.6, None, None),
     "zushi": ("Zushi", "Tour céleste", 1.4, None, None),
@@ -41,14 +41,14 @@ CHARS_PART = {
     "riehlvelt": ("Riehlvelt", "Tour céleste", 2.2, None, None),
     "kastro": ("Kastro", "Tour céleste", 2.8, 0.3, None),
     # ---------------------------------------------------------------- York New
-    "chrollo": ("Chrollo Lucilfer", "Brigade fantôme", 5.0, None, None),
-    "uvogin": ("Uvogin", "Brigade fantôme", 4.5, 0.505, None),
+    "chrollo": ("Chrollo Lucilfer", "Brigade fantôme", 1.0, None, None),
+    "uvogin": ("Uvogin", "Brigade fantôme", 1.2, 0.505, None),
     "nobunaga": ("Nobunaga Hazama", "Brigade fantôme", 4.2, None, None),
     "feitan": ("Feitan Portor", "Brigade fantôme", 4.5, None, None),
     "phinks": ("Phinks Magcub", "Brigade fantôme", 4.4, None, None),
     "machi": ("Machi Komacine", "Brigade fantôme", 4.0, None, None),
-    "shalnark": ("Shalnark", "Brigade fantôme", 3.8, 1.301, None),
-    "franklin": ("Franklin Bordeau", "Brigade fantôme", 4.3, None, None),
+    "shalnark": ("Shalnark", "Brigade fantôme", 0.8, 1.301, None),
+    "franklin": ("Franklin Bordeau", "Brigade fantôme", 1.2, None, None),
     "shizuku": ("Shizuku Murasaki", "Brigade fantôme", 4.0, None, None),
     "pakunoda": ("Pakunoda", "Brigade fantôme", 3.8, 0.512, None),
     "kortopi": ("Kortopi", "Brigade fantôme", 3.3, 1.301, None),
@@ -98,6 +98,8 @@ CHARS_PART = {
     "meleoron": ("Meleoron", "Fourmis-chimères", 3.5, None, None),
     "bloster": ("Bloster", "Fourmis-chimères", 3.5, None, None),
     "welfin": ("Welfin", "Fourmis-chimères", 4.0, None, None),
+    # audit : les mini-clones de Pouf (fragments de son corps, ch. 294-305) ne sont pas Pouf lui-même
+    "pouf_clones": ("Clones miniatures de Shaiapouf", "Fourmis-chimères", 2.0, None, None),
     # ---------------------------------------------------------------- élection
     "gotoh": ("Gotoh", "Zoldyck", 3.0, 1.11, None),
     "teradein": ("Teradein Neutral", "Association Hunter", 2.5, 1.121, None),
@@ -114,7 +116,7 @@ CHARS_PART = {
     "furykov": ("Furykov", "Kakin", 4.0, None, None),
     "halkenburg": ("Halkenburg Hui Guo Rou", "Kakin", 2.2, None, None),
     "shikaku": ("Shikaku", "Kakin", 3.0, 1.342, None),
-    "rihan": ("Rihan", "Kakin", 3.0, None, None),
+    "rihan": ("Rihan", "Kakin", 2.5, None, None),
     "bete_sale_sale": ("Bête gardienne de Salé-salé", "Kakin", 3.0, None, None),
     "yushohi": ("Yushohi", "Kakin", 2.5, None, None),
     "sale_sale": ("Salé-salé Hui Guo Rou", "Kakin", 0.5, 1.341, None),
@@ -135,27 +137,35 @@ CHARS_PART = {
 
 GENERIC_PART = {"candidats", "mafia", "assassins_mafia", "dix_parrains", "agresseurs_nostrade", "alliance_nickes",
                 "pirates_razor", "fourmis", "hunters", "soldats_kakin", "heil_ly", "betes_ombre", "betes_ombre2",
-                "amori", "tevelares"}
+                "amori", "tevelares", "pouf_clones"}
 
 JUMPS_PART = [
     # Gon
     ("gon", 0.30, 1.5, 0.6, "Apprentissage du Nen avec Wing (Tour céleste)"),
     ("gon", 0.66, 1.0, 0.5, "Entraînement de Biscuit à Greed Island"),
     ("gon", 0.86, 0.5, 0.4, "Entraînement pendant l'arc des Fourmis"),
-    ("gon", 0.997, -4.0, 1.0, "Perte de son Nen après la transformation adulte (contrainte)"),
+    ("gon", 0.9895, 2.5, 1.0, "Transformation adulte par contrainte : il sacrifie son potentiel (ch. 305-306)"),
+    ("gon", 0.997, -6.0, 1.0, "Fin de la transformation : Gon perd son Nen (ne voit plus l'aura, ch. 345)"),
     # Killua
     ("killua", 0.30, 1.5, 0.6, "Apprentissage du Nen avec Wing (Tour céleste)"),
-    ("killua", 0.66, 1.0, 0.5, "Entraînement de Biscuit à Greed Island"),
-    ("killua", 0.925, 0.6, 0.4, "Retrait de l'aiguille d'Illumi"),
-    ("killua", 0.94, 0.6, 0.4, "Acquisition de Godspeed (Kanmuru)"),
+    ("killua", 0.66, 0.8, 0.5, "Entraînement de Biscuit à Greed Island"),
+    ("killua", 0.866, 0.3, 0.4, "Retrait de l'aiguille d'Illumi pendant le combat contre Rammot (ch. 218-219)"),
+    ("killua", 0.94, 0.4, 0.4, "Acquisition de Godspeed (Kanmuru)"),
     # autres
-    ("kurapika", 0.30, 2.8, 1.0, "Entraînement de Nen, chaînes et Emperor Time"),
-    ("leorio", 0.80, 1.8, 0.8, "Apprentissage du Nen (entre York New et l'élection)"),
-    ("hanzo", 0.50, 2.2, 1.0, "Nen appris après l'examen"),
+    ("kurapika", 0.30, 3.2, 1.0, "Entraînement de Nen, chaînes et Emperor Time"),
+    ("leorio", 0.80, 1.5, 0.8, "Apprentissage du Nen (entre York New et l'élection)"),
+    ("hanzo", 0.50, 1.6, 1.0, "Nen appris après l'examen"),
     ("ponzu", 0.50, 1.0, 0.8, "Hunter professionnelle (Nen)"),
     ("pokkle", 0.50, 1.0, 0.8, "Hunter professionnel (Nen)"),
     ("tserriednich", 1.337, 2.0, 1.0, "Éveil et apprentissage fulgurant du Nen avec Theta"),
-    ("meruem", 0.993, 0.6, 0.5, "Absorbe les cellules de Youpi et Pouf"),
+    ("meruem", 0.975, 0.6, 0.5, "Absorbe les cellules de Youpi et Pouf, avant de retrouver Knuckle et Meleoron (ch. ~300-301)"),
+    # audit : enfants à Meteor City (t = -13), Brigade fondée et Nen maîtrisé avant le massacre des Kurta (t = -5)
+    ("chrollo", -7.0, 4.0, 1.0, "Fondation de la Brigade fantôme, Nen maîtrisé (ch. 395-400)"),
+    ("uvogin", -7.0, 3.3, 1.0, "Fondation de la Brigade fantôme, Nen maîtrisé"),
+    ("franklin", -7.0, 3.0, 1.0, "Fondation de la Brigade fantôme, Nen maîtrisé"),
+    ("shalnark", -7.0, 3.0, 1.0, "Fondation de la Brigade fantôme, Nen maîtrisé"),
+    # audit : Netero à son apogée il y a un demi-siècle, déclin dû à l'âge (ch. 316-317)
+    ("netero", -25.0, -1.0, 0.5, "Déclin dû à l'âge (plus de 100 ans à l'examen)"),
 ]
 
 # ================================================================ avant l'histoire (flashbacks)
@@ -181,13 +191,13 @@ fight(0.024, "examen", "ponzu", "barbon", "A", 1, note="Barbon meurt, Ponzu rest
 fight(0.025, "examen", "gon", "ponzu", "A", 2, note="Gaz soporifique dans la grotte (ch. 31)")
 fight(0.026, "examen", "killua", "amori", "A", 3, note="Imori puis Amori et Umori dépouillés de leurs plaques (ch. 29)")
 fight(0.035, "examen", "hanzo", "gon", "A", 3, ta=["retenue"], note="Hanzo lui casse le bras puis déclare forfait, Gon gagne officiellement (ch. 33-34)")
-fight(0.036, "examen", "hisoka", "kurapika", "D", ta=["retenue"], note="Hisoka chuchote et abandonne (ch. 35)", flags="i")
+fight(0.036, "examen", "hisoka", "kurapika", "A", 2, ta=["retenue"], note="Hisoka domine, chuchote puis déclare forfait : victoire officielle de Kurapika, pas un nul (ch. 35)", flags="i")
 fight(0.037, "examen", "hanzo", "pokkle", "A", 3, note="Pokkle maîtrisé, menacé de torture, abandonne (ch. 35)")
 fight(0.038, "examen", "hisoka", "bodoro", "A", 3, ta=["retenue"], note="Bodoro dominé, abandonne après un chuchotement (ch. 35)")
 fight(0.039, "examen", "killua", "bodoro", "A", 3, ta=["surprise"], tb=["epuise"], note="Sous l'emprise d'Illumi, Killua tue Bodoro (ch. 36)")
 
 # ================================================================ Zoldyck
-fight(0.055, "zoldyck", "canary", "gon", "A", 3, tb=["retenue"], note="Gon refuse de frapper, Canary ne peut plus le frapper (ch. 41)")
+fight(0.055, "zoldyck", "canary", "gon", "A", 3, tb=["retenue"], note="Gon refuse de frapper, Canary ne peut plus le frapper : pas un vrai duel (ch. 41)", flags="i")
 
 # ================================================================ Tour céleste
 fight(0.16, "arene", "killua", "zushi", "A", 2, note="Zushi se relève sans cesse ; Killua le sort du ring (ch. 45)")
@@ -211,8 +221,8 @@ fight(0.5026, "yorknew", "owl", "nobunaga", "A", 1, ta=["surprise"], note="Fun F
 fight(0.503, "yorknew", ["phinks", "feitan", "machi"], ["betes_ombre2", "owl"], "A", 3,
       note="La Brigade anéantit en une nuit les cinq Bêtes restantes, Owl capturé (ch. 78 ; membres exacts non précisés)", flags="?")
 fight(0.5031, "yorknew", "phinks", "dalzollene", "A", 3, note="Phinks tue Dalzollene en libérant Uvogin (ch. 78)")
-fight(0.505, "yorknew", "kurapika", "uvogin", "A", 2, ta=["prepa", "contre"],
-      note="Duel en tête-à-tête : Chain Jail puis Judgment Chain, Uvogin meurt (ch. 80-81)")
+fight(0.505, "yorknew", "kurapika", "uvogin", "A", 2, ta=["contre"],
+      note="Duel en tête-à-tête, Uvogin guéri et consentant : Chain Jail (vœu anti-Brigade) puis Judgment Chain, Uvogin meurt (ch. 80-81)")
 fight(0.506, "yorknew", ["phinks", "pakunoda"], ["gon", "killua"], "A", 3, note="Gon et Killua capturés (ch. 91)")
 fight(0.5061, "yorknew", ["gon", "killua"], "nobunaga", "D", note="Ils s'échappent en défonçant les murs (ch. 93)", flags="i")
 fight(0.507, "yorknew", "chrollo", "assassins_mafia", "A", 3, note="Tueurs engagés par les Dix Parrains (ch. 96-97)")
@@ -224,7 +234,7 @@ fight(0.508, "yorknew", "illumi", "dix_parrains", "A", 3, ta=["surprise"], note=
 fight(0.509, "yorknew", ["chrollo", "machi", "shizuku"], ["gon", "killua"], "A", 3, note="Nouvelle capture (ch. 111)")
 fight(0.5095, "yorknew", "nobunaga", "squala", "A", 3, ta=["surprise"], note="Nobunaga décapite Squala qui menaçait Pakunoda (ch. 112)")
 fight(0.5096, "yorknew", ["machi", "nobunaga"], ["gon", "killua"], "A", 3, note="Évasion manquée pendant la panne (ch. 113)")
-fight(0.5097, "yorknew", "kurapika", "chrollo", "A", 2, ta=["surprise", "prepa"],
+fight(0.5097, "yorknew", "kurapika", "chrollo", "A", 2, ta=["surprise", "prepa", "contre"],
       note="Panne provoquée, la chaîne attrape Chrollo (ch. 113-114)")
 fight(0.5098, "yorknew", "shizuku", "nobunaga", "A", 2, ta=["surprise"], note="Shizuku assomme Nobunaga pour faire respecter la règle (ch. 115)")
 
@@ -246,7 +256,7 @@ fight(0.651, "greedisland", "razor", "bopobo", "A", 3, note="Bopobo tué d'une b
 fight(0.655, "greedisland", ["gon", "killua", "hisoka", "biscuit", "goreinu", "tsezguerra"], "razor", "A", 1, tb=["retenue"],
       note="Balle au prisonnier : Gon frappe avec la balle relancée par Killua et Hisoka (ch. 161-168)")
 fight(0.70, "greedisland", "tsezguerra", "genthru", "D", note="Escarmouches sans issue (ch. 171)", flags="i")
-fight(0.73, "greedisland", "biscuit", "bara", "A", 3, ta=["boost"], note="Vraie forme, un seul coup (ch. 177)")
+fight(0.73, "greedisland", "biscuit", "bara", "A", 3, note="Vraie forme, un seul coup (ch. 177)")
 fight(0.731, "greedisland", "killua", "sub", "A", 2, note="Yo-yo et électricité (ch. 178)")
 fight(0.732, "greedisland", "gon", "genthru", "A", 1, ta=["prepa"],
       note="Gon sacrifie sa main gauche, essence et Jajanken (ch. 176-181)")
@@ -263,11 +273,11 @@ fight(0.85, "fourmis", "knuckle", "gon", "A", 3, ta=["retenue"], note="Premier a
 fight(0.86, "fourmis", "knuckle", "gon", "A", 2, note="Duel aux plaquettes : Gon en faillite d'aura (ch. ~210)")
 fight(0.861, "fourmis", "shoot", "killua", "A", 2, note="Killua fuit, inhibé par l'aiguille d'Illumi (ch. ~211-212)")
 fight(0.87, "fourmis", "killua", "rammot", "A", 3, note="Rammot tué (ch. ~218-219)")
-fight(0.875, "fourmis", ["knuckle", "morel"], "cheetu", "D", note="Cheetu s'enfuit (ch. ~220-221)", flags="ie")
+fight(0.875, "fourmis", ["knuckle", "morel"], "cheetu", "D", note="Cheetu s'enfuit (ch. ~220-221)", flags="i")
 fight(0.88, "fourmis", "feitan", "zazan", "A", 2, note="Pain Packer : Rising Sun (ch. ~224-229)")
 fight(0.89, "fourmis", "gon", "fourmis", "A", 3, note="Officiers et soldats de l'ex-escouade de Meleoron (ch. ~231-233)")
 fight(0.90, "fourmis", "killua", "ikalgo", "A", 2, note="Killua épargne Ikalgo (ch. ~238)")
-fight(0.901, "fourmis", "killua", "ortho", "A", 1, ta=["prepa"], note="Fléchettes : Killua feint la mort et les décapite, grièvement blessé ; Ikalgo l'emporte (ch. 239-241)")
+fight(0.901, "fourmis", "killua", "ortho", "A", 2, ta=["prepa"], note="Fléchettes : Killua feint la mort et les décapite, grièvement blessé ; Ikalgo l'emporte (ch. 239-241)")
 fight(0.91, "fourmis", "morel", "cheetu", "D", note="Cheetu marque Morel, pas de vainqueur (ch. ~244)", flags="i")
 fight(0.911, "fourmis", "morel", "cheetu", "A", 2, ta=["prepa"], note="Prison de fumée (ch. ~247)")
 fight(0.92, "fourmis", "morel", "leol", "A", 2, ta=["prepa"], note="Église abandonnée, Leol asphyxié au CO2 (ch. ~248-254)")
@@ -276,43 +286,44 @@ fight(0.93, "fourmis", "netero", "pitou", "A", 2, ta=["surprise"],
 fight(0.931, "fourmis", "knuckle", "youpi", "D", ta=["surprise"], note="Knuckle frappe Youpi dans l'escalier du palais (ch. ~265-266)", flags="i")
 fight(0.932, "fourmis", "pouf", "morel", "A", 2, note="Pouf aspire le Nen de Morel (ch. ~270)", flags="i")
 fight(0.933, "fourmis", "youpi", "shoot", "A", 3, note="Shoot presque tué, Knuckle intervient (ch. ~272)")
-fight(0.94, "fourmis", "knuckle", "youpi", "A", 1, note="Youpi paralysé, Knuckle cogne puis fuit (ch. 281)", flags="i")
-fight(0.941, "fourmis", "killua", "youpi", "D", ta=["boost"], note="Godspeed ; à court d'électricité, Killua s'éclipse (ch. 281)", flags="i")
+fight(0.94, "fourmis", "knuckle", "youpi", "D", note="Knuckle cogne (Hakoware, coups sans dégâts par construction) puis fuit ; Youpi intact (ch. 281)", flags="i")
+fight(0.941, "fourmis", "killua", "youpi", "D", note="Godspeed ; à court d'électricité, Killua s'éclipse (ch. 281)", flags="i")
 fight(0.942, "fourmis", "ikalgo", "bloster", "A", 2, ta=["prepa"], note="Bloster endormi par sédatif (ch. ~279-283)")
-fight(0.95, "fourmis", "youpi", ["morel", "knuckle"], "A", 1, ta=["boost"],
-      note="Morel blessé ; Youpi part avec Pouf quand Knuckle relâche son Nen (ch. ~284-289)", flags="ie")
+fight(0.95, "fourmis", "youpi", ["morel", "knuckle"], "A", 2,
+      note="Morel blessé ; Youpi part avec Pouf quand Knuckle relâche son Nen (ch. ~284-289)", flags="i")
 fight(0.96, "fourmis", "ikalgo", "welfin", "A", 1, note="Ikalgo tire sur Welfin, qui survit (ch. ~294)", flags="i")
-fight(0.961, "fourmis", "palm", "pouf", "A", 3, tb=["retenue"], note="Palm tue un mini-clone de Pouf (ch. ~294)")
+fight(0.961, "fourmis", "palm", "pouf_clones", "A", 3, note="Palm tue un mini-clone de Pouf (ch. ~294)")
 fight(0.97, "fourmis", "meruem", "netero", "A", 2,
-      note="Zero Hand impuissant ; Netero déclenche la Poor Man's Rose et meurt (ch. ~290-298)")
-fight(0.98, "fourmis", "knuckle", "pouf", "A", 2, tb=["retenue"], note="Clone de Pouf détruit, APR transféré au corps principal (ch. ~301)")
-fight(0.981, "fourmis", "killua", "pouf", "A", 3, tb=["retenue"], note="Clone écrasé, Komugi sauvée (ch. ~302-305)")
-fight(0.99, "fourmis", "gon", "pitou", "A", 3, ta=["boost"],
+      note="Le duel de Nen : Zero Hand impuissant, Netero mutilé et vaincu. La Poor Man's Rose (bombe militaire, circonstance externe) n'est pas créditée à Netero (ch. ~290-298, 316-317)")
+fight(0.98, "fourmis", "knuckle", "pouf_clones", "A", 2, note="Clone de Pouf détruit, APR transféré au corps principal (ch. ~301)")
+fight(0.981, "fourmis", "killua", "pouf_clones", "A", 3, note="Clone écrasé, Komugi sauvée (ch. ~302-305)")
+fight(0.99, "fourmis", "gon", "pitou", "A", 3,
       note="Transformation adulte ; Pitou tué, Gon perd son bras droit à cause de Terpsichora (ch. 305-307)")
 fight(0.991, "fourmis", "meruem", ["knuckle", "meleoron"], "A", 3, note="Assommés tous les deux (ch. 308)")
 
 # ================================================================ élection
-fight(1.10, "election", "leorio", "ging", "A", 1, ta=["surprise"], tb=["retenue"], note="Un coup de poing téléporté (ch. 325)", flags="i")
+fight(1.10, "election", "leorio", "ging", "A", 1, ta=["surprise"], tb=["retenue"],
+      note="Un coup de poing téléporté ; Ging encaisse sans riposter, pas un vrai combat (ch. 325)", flags="i?")
 fight(1.105, "election", "illumi", "killua", "D", ta=["prepa"], note="Collision provoquée, Killua fuit en Godspeed (ch. 326)", flags="i")
 fight(1.11, "election", "hisoka", "gotoh", "A", 3, note="Gotoh décapité, Canary et Amane s'enfuient (ch. 327)")
 fight(1.12, "election", "illumi", "hunters", "A", 3, ta=["prepa"], note="Les marionnettes à aiguilles tuent plus de cent Hunters, dont Bushidora (ch. 329-330)")
 fight(1.121, "election", "hisoka", "teradein", "A", 3, note="(ch. 330)")
 
 # ================================================================ guerre de succession
-fight(1.30, "succession", "chrollo", "hisoka", "A", 2, ta=["prepa"],
-      note="Tour céleste : marionnettes et bombes, Hisoka meurt puis se ranime grâce au Bungee Gum (ch. 352-357)")
+fight(1.30, "succession", "chrollo", "hisoka", "A", 2, ta=["prepa", "aide"],
+      note="Embuscade préparée et capacités prêtées par Shalnark et Kortopi (aide externe) ; Tour céleste : marionnettes et bombes, Hisoka meurt puis se ranime grâce au Bungee Gum (ch. 352-357)")
 fight(1.301, "succession", "hisoka", ["shalnark", "kortopi"], "A", 3, ta=["surprise"], note="Les deux tués (ch. 357)")
 fight(1.3011, "succession", "hisoka", "machi", "A", 3, ta=["retenue"], note="Machi ligotée et épargnée comme messagère (ch. 357)")
 fight(1.31, "succession", "kurapika", "sayird", "A", 3, ta=["contre"], note="Steal Chain, Sayird arrêté (ch. 361)")
-fight(1.32, "succession", ["kurapika", "bill"], "vincent", "A", 2, ta=["contre", "boost"],
+fight(1.32, "succession", ["kurapika", "bill"], "vincent", "A", 2, ta=["contre"],
       note="Steal Chain sous Emperor Time ; Vincent se suicide au poison (ch. 364)")
 fight(1.33, "succession", "hanzo", "tuffdy", "A", 3, ta=["surprise", "prepa"], note="Le meurtrier de Momoze étranglé, suicide maquillé (ch. 372)")
 fight(1.335, "succession", "camilla", "musse", "A", 1, ta=["contre"],
       note="Abattue, Camilla ressuscite par Cat's Name et Musse meurt (ch. ~374-376)")
 fight(1.3351, "succession", "camilla", "wolfe", "A", 3, ta=["contre"], note="(ch. ~374-376)")
 fight(1.3352, "succession", ["benjamin", "furykov"], "camilla", "A", 2, note="La bête de Benjamin arrête les balles, Furykov la maîtrise (ch. ~375-376)")
-fight(1.34, "succession", "rihan", "bete_sale_sale", "A", 3, note="Predator dévore la bête gardienne (ch. 381)")
-fight(1.3401, "succession", "halkenburg", "shikaku", "A", 2, ta=["prepa"], note="La flèche perce le Culdcept et brise sa volonté (ch. 382)")
+fight(1.34, "succession", "rihan", "bete_sale_sale", "A", 3, note="Combat de bêtes gardiennes (Nen parasite autonome, pas la force propre de Rihan) : Predator dévore la bête (ch. 381)", flags="?")
+fight(1.3401, "succession", "halkenburg", "shikaku", "A", 2, ta=["prepa", "aide"], note="La flèche perce le Culdcept et brise sa volonté (ch. 382)")
 fight(1.3402, "succession", "yushohi", "sale_sale", "A", 3, ta=["surprise"], note="(ch. 382)")
 fight(1.345, "succession", "tserriednich", "theta", "A", 2, ta=["contre"], note="La balle traverse une illusion, Theta s'évanouit (ch. 386)")
 fight(1.346, "succession", "tserriednich", "theta", "A", 2, ta=["contre"], note="Esquive par prescience, Theta tenue en joue (ch. 387)")
