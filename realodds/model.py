@@ -53,6 +53,13 @@ TAG_PRIOR = {"malade": (-1.0, .7), "epuise": (-0.8, .7), "retenue": (-1.0, .7), 
              "surprise": (0.7, .7), "prepa": (0.7, .7), "boost": (1.0, .7), "edo": (0.4, .7), "edo_ctrl": (-0.5, .7),
              "contre": (0.7, .7), "age": (-0.7, .7)}
 TAG_PRIOR.update(getattr(D, "EXTRA_TAGS", {}))
+# Skills (transformations, gates, Gear 5, Conqueror's haki, Mark, domain, Ultra Instinct...) are part of a character's
+# strength in the arc where he has them, not a bonus of the day: those tags are dropped so the fight credits the fighter.
+SKILL_TAGS = {"boost", "huit_portes", "eveil", "haki_roi", "marque", "domaine", "ultra", "tenacite"}
+for _f in F:
+    _f["ta"] = [t for t in _f["ta"] if t not in SKILL_TAGS]
+    _f["tb"] = [t for t in _f["tb"] if t not in SKILL_TAGS]
+TAG_PRIOR = {k: v for k, v in TAG_PRIOR.items() if k not in SKILL_TAGS}
 TAGS = list(TAG_PRIOR)
 
 for f in F:

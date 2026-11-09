@@ -18,11 +18,8 @@ V = {
          "fillChars(ca,'shanks');fillChars(cb,'kaido');fillArcs(aa,'shanks','egghead');fillArcs(ab,'kaido','wano');"),
         ("let picked=['naruto','sasuke','kakashi','itachi'];", "let picked=['luffy','zoro','sanji','law'];"),
         ("rarc.value='guerre4b';", "rarc.value='wano';"),
-        ("['huit_portes','8e porte (Gai)','huit_portes'],", "['eveil','Éveil / Gear 5','eveil'],['haki_roi','Haki des rois imprégné (découverte)','haki_roi'],"),
         ("Mode Ermite, Kyūbi, Six Chemins", "Gear 2, Gear 4, Gear 5, l'entraînement de l'ellipse"),
-        ("boost temporaire (portes, marque maudite, pilules)", "boost temporaire, éveil, Haki des rois imprégné quand il est découvert"),
         ("genin, jounin, kage, légende…", "pirate ordinaire, Shichibukai, amiral, Empereur…"),
-        ("Préparé, transformation temporaire, 8e porte, épuisé, malade", "Préparé, transformation temporaire, éveil, Haki des rois, épuisé, malade"),
     ]),
     "dragonball": dict(out="verses/dragonball/real-odds-dragonball.html", data="verses/dragonball/model_out.json", rep=COMMON_NON_NARUTO + [
         ("<title>Naruto : The Real Odds</title>", "<title>Dragon Ball : The Real Odds</title>"),
@@ -32,11 +29,8 @@ V = {
          "fillChars(ca,'goku');fillChars(cb,'vegeta');fillArcs(aa,'goku','granolah');fillArcs(ab,'vegeta','granolah');"),
         ("let picked=['naruto','sasuke','kakashi','itachi'];", "let picked=['goku','vegeta','gohan','freeza'];"),
         ("rarc.value='guerre4b';", "rarc.value='tdp';"),
-        ("['huit_portes','8e porte (Gai)','huit_portes'],", "['ultra','Ultra Instinct / Ultra Ego / Bête','ultra'],"),
         ("Mode Ermite, Kyūbi, Six Chemins", "Super Saiyan, SSJ2, SSJ3, God, Blue, Ultra Instinct"),
-        ("boost temporaire (portes, marque maudite, pilules)", "boost temporaire (Kaiōken, transformation)"),
         ("genin, jounin, kage, légende…", "artiste martial, Saiyan, Freezer, dieu de la destruction…"),
-        ("Préparé, transformation temporaire, 8e porte, épuisé, malade", "Préparé, Kaiōken, Ultra Instinct, épuisé, malade"),
         ("Le statut ne sert qu'à combler les trous.", "Le statut ne sert qu'à combler les trous."),
     ]),
 }
@@ -50,7 +44,6 @@ def simple(name, title, intro, a, ka, b, kb, picked, rarc, states, powerups, ran
          f"fillChars(ca,'{a}');fillChars(cb,'{b}');fillArcs(aa,'{a}','{ka}');fillArcs(ab,'{b}','{kb}');"),
         ("let picked=['naruto','sasuke','kakashi','itachi'];", "let picked=" + repr(picked) + ";"),
         ("rarc.value='guerre4b';", f"rarc.value='{rarc}';"),
-        ("['huit_portes','8e porte (Gai)','huit_portes'],", states),
         ("Mode Ermite, Kyūbi, Six Chemins", powerups),
         ("genin, jounin, kage, légende…", ranks),
     ])
