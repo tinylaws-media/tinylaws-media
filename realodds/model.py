@@ -98,6 +98,23 @@ for c, rows in DATABOOK.items():
         node_times[c].add(t)
         db_obs.append((c, t, book, total))
 
+last_in_arc = {}
+for f in F:
+    for c in f["a"] + f["b"]:
+        last_in_arc[(c, f["arc"])] = max(last_in_arc.get((c, f["arc"]), -1e9), f["t"])
+
+
+def arc_time(c, k, t):
+    """A character's state for an arc = just after his last fight in that arc (so mid-arc power-ups count)."""
+    if (c, k) not in last_in_arc:
+        return t
+    q = last_in_arc[(c, k)] + 0.0009
+    death = CHARS[c][3]
+    if death is not None and q > death and last_in_arc[(c, k)] <= death:
+        q = death
+    return q
+
+
 query = {}
 for c in CHARS:
     if c not in first_t:
@@ -109,7 +126,7 @@ for c in CHARS:
         alive = first_t[c] - 0.3 <= t <= end + 1e-9
         revived = rv is not None and rv - 0.05 <= t <= last_t[c] + 0.3
         if alive or revived or k in edo_arcs.get(c, ()):
-            tt = round(eff_time(c, t), 4)
+            tt = round(eff_time(c, arc_time(c, k, t)), 4)
             if tt < first_t[c] - 0.3:
                 continue
             query[(c, k)] = tt
@@ -150,7 +167,7 @@ db_x = np.array([(tot - 30.0) / 5.0 for _, _, _, tot in db_obs])   # databook to
 # ---- fights
 MAXT = max(len(f["a"]) for f in F + [dict(a=[1], b=[1])])
 MAXT = max(MAXT, max(len(f["b"]) for f in F))
-fa_idx, fa_mask, fb_idx, fb_mask, ya, wts, tga, tgb = [], [], [], [], [], [], [], []
+fa_idx, fa_mask, fb_idx, fb_mask, ya, wts, tga, tgb, eqf = [], [], [], [], [], [], [], [], []
 for f in F:
     ia = [index[(c, round(eff_time(c, f["t"]), 4))] for c in f["a"]]
     ib = [index[(c, round(eff_time(c, f["t"]), 4))] for c in f["b"]]
@@ -165,12 +182,14 @@ for f in F:
     if len(f["a"]) > 1 or len(f["b"]) > 1:
         w *= 0.75
     wts.append(w)
+    eqf.append(1.0 if "e" in f["flags"] else 0.0)   # "e": equal partners, credit shared evenly
     tga.append([1.0 if t in f["ta"] else 0.0 for t in TAGS])
     tgb.append([1.0 if t in f["tb"] else 0.0 for t in TAGS])
 fa_idx, fb_idx = jnp.array(fa_idx), jnp.array(fb_idx)
 fa_mask, fb_mask = jnp.array(fa_mask, float), jnp.array(fb_mask, float)
 ya, wts = jnp.array(ya), jnp.array(wts)
 tga, tgb = jnp.array(tga), jnp.array(tgb)
+eqf = jnp.array(eqf)
 tag_mu = jnp.array([TAG_PRIOR[t][0] for t in TAGS]); tag_sd = jnp.array([TAG_PRIOR[t][1] for t in TAGS])
 NT = len(TAGS)
 P = N + NT + 3 + 3   # strengths, tag effects, 3 cutpoints, databook intercept + slope + curvature
@@ -183,7 +202,12 @@ def unpack(th):
 
 
 def team(s, idx, mask):
-    return jax.scipy.special.logsumexp(jnp.where(mask > 0, s[idx], -1e9), axis=1)
+    """Team strength: dominated by the strongest member (log-sum-exp), or, for fights flagged "e"
+    (partners who carried the fight together), the members' average plus log(team size)."""
+    lse = jax.scipy.special.logsumexp(jnp.where(mask > 0, s[idx], -1e9), axis=1)
+    n = jnp.sum(mask, axis=1)
+    avg = jnp.sum(jnp.where(mask > 0, s[idx], 0.0), axis=1) / n + jnp.log(n)
+    return jnp.where(eqf > 0, avg, lse)
 
 
 def diff(s, beta):

@@ -15,6 +15,16 @@ Sources (read with WebFetch, 2026-11-08):
     would not load: naruto, itachi (Itachi_Uchiwa), rock_lee, gaara, temari, kiba, shino,
     chiyo, deidara, yamato, dosu, shizune, anko, hayate, kidomaru.
   Portuguese Narutopedia, https://naruto.fandom.com/pt-br/wiki/Jiraiya, used for jiraiya.
+  German Narutopedia (second pass, 2026-11-09), used for ino, choji, tenten:
+    https://naruto.fandom.com/de/wiki/Ino_Yamanaka, https://naruto.fandom.com/de/wiki/Chouji_Akimichi,
+    https://naruto.fandom.com/de/wiki/Tenten. Each German page shows one "Parameter" table
+    (Gesamt max. 40, then Nin, Tai, Gen, Wissen, Stärke, Schnelligkeit, Chakra, Fingerzeichen)
+    and does not name the databook. They are recorded as book 3 because:
+    (a) the German tables for naruto (26) and shikamaru (24) match their book-3 rows exactly;
+    (b) Ino's German Trivia says her Chakra value comes from the "Fähigkeiten-Parameter der
+    Schriften des Sha" (Sha no Sho = book 3); (c) all three are Part II genin, and the 4th
+    databook has no stat tables. Ino has the strongest case; for Chōji and Tenten the book
+    number is inferred.
 
 Oddities:
   - gaara book 3: page total 29, but the stats sum to 29.5.
@@ -25,16 +35,24 @@ Oddities:
   - hiruzen: rated in books 1 and 2 (dead before book 2). Sasori, Chiyo, Kakuzu, Hidan,
     Deidara and Jiraiya are rated in book 3 at the time of their fights/deaths.
   - itachi, orochimaru, tsunade, jiraiya: the pages read show only a book-3 row.
-  - tenten: German Narutopedia (de) shows a "Parameter" table naming no databook
-    (3, 3.5, 1.5, 3.5, 1.5, 3.5, 2, 2 = 20.5). It is not used here.
+  - kisame: NOT in DATABOOK. https://naruto.fandom.com/de/wiki/Kisame_Hoshigaki shows a
+    "Parameter" table naming no databook: 4.5, 4.5, 2.5, 3.5, 5, 4, 5, 3.5 = 32.5 (the sum
+    matches). German tables show a character's latest rated databook, but it is unclear
+    whether that is book 2 or book 3 for Kisame, so no book number is given. The en, fr,
+    es, pt-br, pl and ru pages could not be read, and the it page has no table.
 
 Checked, no stats table on the page: minato, nagato, konan, danzo, suigetsu, karin, jugo,
   kin, misumi, killer_b, konohamaru, yugito, rasa, gozu, hashirama, tobirama, hanzo, kushina,
   kurama, yahiko, kakko, onoki, darui, ao, chojuro, mifune, mu, toneri, izuna, shisui,
-  torune, kazekage3, izumo, kotetsu.
-Could not be read (fetch errors on every language version tried): hinata, tenten, ino,
-  choji, kisame, madara, baki, mizuki, yoroi, fu_root, meizu, a4, mei, kaguya, kinkaku,
-  gengetsu, kurotsuchi.
+  torune, kazekage3, izumo, kotetsu, madara.
+  Second pass confirmed this on other languages: minato (en + de), nagato (en + fr + de,
+  where the only table is of the Six Paths), konan (fr), hashirama (de), madara (de).
+  The rest of this list was not re-checked, because fandom refused every request partway
+  through the second pass.
+Could not be read (fetch errors on every language version tried, and Japanese/Chinese
+  sources found (pixiv dic, atwiki, moegirl) give no parameters): hinata, kisame (see
+  above), baki, mizuki, yoroi, fu_root, meizu, a4, mei, kaguya, kinkaku, gengetsu,
+  kurotsuchi.
 Not fetched; they first appeared after the 3rd databook, so no stats are expected:
   hagoromo, hamura, indra, asura, butsuma, tajima, ginkaku, raikage3, taiseki, kumo_chef.
 Skipped: the GENERIC group entries, and the Boruto-era characters (no Boruto book uses the
@@ -158,4 +176,8 @@ DATABOOK = {
     "hidan": [(3, 31.5, [5, 4.5, 3, 3, 4, 3.5, 5, 3.5])],
     "yamato": [(3, 31, [4.5, 4, 3.5, 4.5, 3.5, 4, 3.5, 3.5])],
     "sai": [(3, 27.5, [4, 3.5, 3, 3.5, 3, 3.5, 3, 4])],
+    # German Narutopedia, single unlabeled table; book 3 inferred (see docstring).
+    "ino": [(3, 21, [3.5, 1.5, 3, 3, 2.5, 2.5, 2.5, 2.5])],
+    "choji": [(3, 20.5, [3.5, 3, 1, 2, 4.5, 2, 3.5, 1])],
+    "tenten": [(3, 20.5, [3, 3.5, 1.5, 3.5, 1.5, 3.5, 2, 2])],
 }

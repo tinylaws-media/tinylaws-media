@@ -89,18 +89,19 @@ JUMPS_PART = [
 ]
 
 # ================================================================ flash-backs : ère de Rocks
-fight(-40.0, "godvalley", "rocks", "harald", "D", ta=["haki_roi"], tb=["haki_roi"],
-      note="Choc de Haki des rois à Marie-Joie lors d'une Rêverie, tout est rasé sur 5 km, puis ils fuient ensemble (ch. 1155)",
-      flags="?")
+fight(-40.0, "godvalley", "rocks", "harald", "D", ta=[], tb=[],
+      note="Choc de Haki des rois en Terre sainte, tout est rasé sur 5 km, sans vainqueur ; Rocks quitte la Red Line (ch. 1155)")
 fight(-39.8, "godvalley", "rocks", "kaido", "A", 3, note="Kaido jeune propose de battre le roi, Rocks le frappe (ch. 1156)")
-fight(-39.5, "godvalley", "rocks", "harald", "D", ta=["haki_roi"], tb=["haki_roi"],
+fight(-39.79, "godvalley", "roger", "garp", "D", note="Roger lâche tout pour échanger des coups avec Garp, sans issue montrée (ch. 1156)", flags="i")
+fight(-39.5, "godvalley", "rocks", "harald", "D", ta=[], tb=[],
       note="Duel Rocks contre Harald, impasse, fin de leur amitié (ch. 1158)")
 fight(-39.0, "godvalley", "rocks", "loki", "A", 3,
-      note="Loki enfant supplie d'entrer chez les pirates de Rocks, Rocks le rosse (ch. 1145, 1155)", flags="?")
+      note="Loki enfant se jette sur Rocks à Elbaf et est écarté sans effort (ch. 1155)")
 fight(-38.1, "godvalley", "harald", "rocks", "D", note="Bref choc, Rocks s'échappe ; Harald refuse de l'aider (ch. 1159)", flags="i")
 # ================================================================ flash-backs : God Valley (compléments à part_1)
 fight(-37.9965, "godvalley", "whitebeard", "maffey", "A", 3,
-      note="Newgate tranche Maffey en deux (elle se régénère, immortelle) (ch. 1161)", flags="?")
+      note="Un coup perdu de Newgate tranche Maffey en deux et sauve Dragon ; elle se régénère et repart avec Shamrock (ch. 1161)")
+fight(-37.991, "godvalley", "john", "dragon", "A", 3, note="John attire métal et hommes armés à lui et assomme Dragon qui portait Shanks (ch. 1163)")
 fight(-37.9905, "godvalley", "ganzui", "john", "A", 2, ta=["surprise"],
       note="John trahit l'équipage, Ganzui l'assomme avec le Bomu Bomu (ch. 1163)")
 fight(-37.9895, "godvalley", "rocks", "whitebeard", "D", ta=["boost"],
@@ -110,7 +111,7 @@ fight(-14.02, "oden", "harald", "jarul", "A", 2, ta=["boost"],
       note="Harald, corrompu par Imu, massacre les gardes et plante une épée dans le casque de Jarul (ch. 1169)")
 fight(-14.015, "oden", ["shanks", "gaban"], "harald", "D", tb=["boost"],
       note="Shanks et Gaban affaiblissent Harald immortel sans l'achever (ch. 1169-1170)", flags="i")
-fight(-14.0, "oden", "loki", "harald", "A", 2, ta=["haki_roi", "boost"], tb=["boost"],
+fight(-14.0, "oden", "loki", "harald", "A", 2, ta=["boost"], tb=["boost"],
       note="Loki, transformé par le fruit, brise Harald d'un éclair chargé de Haki des rois (ch. 1170)")
 
 # ================================================================ après Wano : Rêverie, Cross Guild, Barbe Noire
@@ -118,8 +119,6 @@ fight(2.45, "wano", "imu", "sabo", "A", 2,
       note="Rêverie : Imu et les Doyens attaquent Sabo, Imu absorbe son feu, Cobra meurt, Sabo fuit (ch. 1085-1086)")
 fight(2.451, "wano", "akainu", "kuma", "A", 1, tb=["epuise"],
       note="Kuma (cyborg) saccage Marie-Joie ; Akainu lui arrache une jambe, Kuma s'échappe gravement blessé (ch. 1092)")
-fight(2.455, "wano", ["crocodile", "mihawk"], "buggy", "A", 3,
-      note="Crocodile et Mihawk soumettent Baggy, figure de proue de Cross Guild (ch. 1056-1058)", flags="?")
 fight(2.46, "wano", "blackbeard", "hancock", "A", 2,
       note="Amazon Lily : Teach la saisit à la gorge et annule son pouvoir ; Rayleigh s'interpose (ch. 1059)", flags="i")
 fight(2.465, "wano", "blackbeard", "law", "A", 2, ta=["prepa"],
@@ -132,13 +131,13 @@ fight(2.5016, "egghead", "luffy", "lucci", "A", 2, ta=["eveil"],
       note="Gear 5 contre Zoan éveillé : Dawn Whip puis Dawn Rocket (ch. 1069-1070)")
 fight(2.5080, "egghead", "stussy", ["kaku", "lucci"], "A", 2, ta=["surprise"],
       note="Stussy (MADS) vide Kaku de son sang et entrave Lucci au granit marin (ch. 1073)")
-fight(2.5120, "egghead", "shanks", ["kid", "killer"], "A", 3, ta=["haki_roi"],
+fight(2.5120, "egghead", "shanks", ["kid", "killer"], "A", 3, ta=[],
       note="Près d'Elbaf : Kamusari d'un seul coup, Dorry et Brogy coulent le Victoria Punk (ch. 1079)")
 fight(2.5144, "egghead", "aokiji", "hibari", "A", 3, note="Hachinosu : Kuzan gèle Hibari (ch. 1081)")
 fight(2.5160, "egghead", "garp", "sanjuan_wolf", "A", 3, ta=["age"], note="Hachinosu : Garp jette Wolf à la mer (ch. 1087)")
 fight(2.5168, "egghead", "garp", "pizarro", "A", 2, ta=["age"],
       note="Galaxy Divide fend le crâne de pierre et blesse le vrai corps de Pizarro (ch. 1088)")
-fight(2.5176, "egghead", "koby", "pizarro", "A", 1, note="Honesty Impact tranche la main de pierre géante (ch. 1088)", flags="?")
+fight(2.5176, "egghead", "koby", "pizarro", "D", note="Honesty Impact tranche la main de pierre géante, sans toucher Pizarro lui-même (ch. 1088)", flags="i")
 fight(2.5184, "egghead", "aokiji", "garp", "A", 1, tb=["age", "epuise", "protege"],
       note="Garp domine d'abord (Blue Hole, ch. 1081), poignardé par Shiryu en protégeant Koby, puis empalé et gelé par Kuzan et capturé (ch. 1081-1088)")
 
@@ -163,7 +162,7 @@ fight(2.5408, "egghead", ["dorry", "brogy"], "ju_peter", "A", 1,
       note="Ju Peter (ver des sables) avale Luffy, les deux géants le décapitent ; il se régénère (ch. 1110)", flags="i")
 fight(2.5416, "egghead", ["dorry", "brogy"], "warcury", "A", 1,
       note="Svalinn Sun-Shield puis Skilja Split repoussent Warcury (ch. 1111)", flags="i")
-fight(2.5424, "egghead", "warcury", "luffy", "A", 1, ta=["haki_roi"], tb=["eveil"],
+fight(2.5424, "egghead", "warcury", "luffy", "A", 1, ta=[], tb=["eveil"],
       note="Le rugissement de Warcury défait l'aspect caoutchouc ; Red Roc se brise sur son crâne (ch. 1111-1112)", flags="i")
 fight(2.5432, "egghead", "sanji", "nusjuro", "D",
       note="Sanji fait saigner Nusjuro, qui le saisit ; Oimo et Kashii le plaquent (ch. 1113)", flags="i")
@@ -176,19 +175,18 @@ fight(2.5464, "egghead", "bonney", ["doll", "bluegrass"], "A", 2, ta=["boost"],
       note="Bonney rajeunit les deux vice-amiraux en enfants (ch. 1118)")
 fight(2.5480, "egghead", "warcury", "emet", "A", 2,
       note="Emet retient les Doyens, Ju Peter lui arrache un bras, Warcury l'écrase et broie l'escargophone (ch. 1120-1122)")
-fight(2.5488, "egghead", "emet", ["mars", "warcury", "nusjuro", "ju_peter"], "A", 2, ta=["haki_roi"],
-      note="Vague de Haki des rois scellée par Joy Boy : Doyens privés de leurs formes, trois projetés à Marie-Joie ; les Chapeaux de paille s'échappent (ch. 1122)",
-      flags="?")
+fight(2.5488, "egghead", "emet", ["mars", "warcury", "nusjuro", "ju_peter"], "A", 2, ta=[],
+      note="Vague de Haki des rois scellée par Joy Boy : Doyens privés de leurs formes, trois projetés à Marie-Joie ; les Chapeaux de paille s'échappent (ch. 1122)")
 
 # ================================================================ Elbaf
 fight(2.60, "elbaf", "yasopp", "bartolomeo", "A", 3,
-      note="Le Roux punit le Barto Club, Yasopp pulvérise le navire d'un tir (ch. 1126)", flags="?")
+      note="L'équipage du Roux soumet le Barto Club à Gartel, Yasopp pulvérise le navire d'un tir (ch. 1126)")
 fight(2.62, "elbaf", "gaban", "luffy", "A", 1, ta=["age", "retenue"],
       note="Gaban domine (Yasotakeru) puis cède la clé quand Luffy passe en Gear 5 (ch. 1140, 1151)", flags="i")
 fight(2.625, "elbaf", ["gunko", "shamrock"], "loki", "A", 2, tb=["epuise"],
       note="Loki, à peine libéré de ses chaînes et blessé, s'effondre sous leurs coups (ch. 1137, 1143)")
 fight(2.626, "elbaf", "luffy", "loki", "A", 1, tb=["epuise"],
-      note="Luffy abat Loki affaibli d'un coup mou ; Zoro le soupçonne de bluffer (ch. 1143)", flags="?")
+      note="Luffy abat Loki affaibli d'un coup mou ; Zoro le soupçonne de bluffer (ch. 1143)")
 fight(2.63, "elbaf", "sommers", "saul", "A", 2, note="Épines invisibles puis Saul inconscient (ch. 1143, 1146)")
 fight(2.631, "elbaf", "gunko", ["nami", "jinbe", "brook", "usopp"], "A", 2,
       note="Gunko renvoie Zeus, monte Jinbe contre Brook (Aloe), capture Colon ; Usopp la coupe en deux, elle se régénère (ch. 1146-1147)")
@@ -197,10 +195,10 @@ fight(2.634, "elbaf", "gaban", "sommers", "A", 2, ta=["age"],
       note="Gaban lui coupe un bras (qui ne repousse pas) puis le fend en deux (ch. 1148-1149)")
 fight(2.635, "elbaf", "gunko", "gaban", "A", 1, tb=["age", "protege"],
       note="Otage (Colon) : Gaban lâche ses haches, criblé de flèches et jeté de la branche (ch. 1149)")
-fight(2.636, "elbaf", "gunko", ["dorry", "brogy"], "A", 3, ta=["boost", "haki_roi"],
+fight(2.636, "elbaf", "gunko", ["dorry", "brogy"], "A", 3, ta=["boost"],
       note="Imu à travers le corps de Gunko (Domi Reversi) arrache la main de Brogy et démonise les deux capitaines (ch. 1149-1150)")
 fight(2.65, "elbaf", "sanji", "killingham", "A", 2,
-      note="Ifrit Jambe Concassé brise le casque de Killingham fusionné à son MMA ; il finit ligoté à un arbre (ch. 1176-1179)", flags="?")
+      note="Ifrit Jambe Concassé brise le casque de Killingham (ch. 1176) ; il finit ligoté à un arbre (ch. 1179)")
 fight(2.651, "elbaf", "gunko", "usopp", "A", 3, ta=["boost"], tb=["protege"],
       note="Imu dans le corps de Gunko massacre Usopp qui protège Brook (ch. 1177)")
 fight(2.652, "elbaf", ["luffy", "loki"], "gunko", "A", 2, ta=["eveil"], tb=["boost"],
@@ -210,14 +208,18 @@ fight(2.6602, "elbaf", "imu", "hajrudin", "A", 3, note="Un Omen met Hajrudin au 
 fight(2.6604, "elbaf", "imu", "sanji", "A", 2, note="Imu bloque et repousse Sanji d'un coup de pied (ch. 1180)")
 fight(2.665, "elbaf", "imu", "loki", "A", 1,
       note="Loki (Nidhöggr) le frappe avec Ragnir, mais Imu l'empale (Nemesis) et le brûle (Stigma) (ch. 1181-1187)", flags="i")
-fight(2.67, "elbaf", "imu", "luffy", "A", 2, ta=["haki_roi"], tb=["eveil"],
-      note="Luffy le frappe au Haki (ch. 1186-1187) puis Imu l'embroche avec ses épées (ch. 1188-1189)")
+fight(2.67, "elbaf", "imu", "luffy", "A", 2, ta=[], tb=["eveil"],
+      note="Luffy le frappe au Haki (ch. 1186-1187) ; Gear 5 à bout, Imu l'embroche avec Void (ch. 1188) puis le cloue à un arbre avec une seconde épée (ch. 1189)")
 fight(2.672, "elbaf", "imu", "gaban", "A", 2, tb=["age", "protege"],
-      note="Gaban couvre Luffy, blesse Imu à la tête puis perd un bras (ch. 1190)")
+      note="Gaban interrompt le coup de grâce (ch. 1189), tient longtemps puis perd un bras au coude (ch. 1190)")
 fight(2.675, "elbaf", ["luffy", "loki", "hajrudin"], "imu", "D", ta=["eveil", "epuise"],
-      note="Gokoku Sovereignty puis Thor Bullet : Imu ensanglanté, mais le Gear 5 de Luffy s'épuise (ch. 1191-1193)", flags="i")
-fight(2.68, "elbaf", "zoro", "sommers", "A", 2, ta=["haki_roi"],
-      note="Zoro manque le cœur puis maîtrise le Haki des rois ; Sommers terrifié fuit, Zoro l'achève (ch. 1193-1195)", flags="?")
+      note="Gokoku Sovereignty (ch. 1191) ; Imu encaisse et continue (ch. 1192) ; Dawn Thor Bullet perce sa barrière, puis le Gear 5 de Luffy s'épuise (ch. 1193)", flags="i")
+fight(2.68, "elbaf", "zoro", "sommers", "A", 3, ta=["haki_roi"],
+      note="Zoro le transperce en manquant le cœur (ch. 1193), s'exerce au Haki des rois sur lui (ch. 1194) ; Sommers fuit en pleurant, Zoro le rattrape (ch. 1195)")
 fight(2.69, "elbaf", "sanji", "killingham", "A", 2, ta=["haki_roi"], tb=["boost"],
-      note="Killingham soigné par Imu et armé de sa lance ; Sanji éveille le Haki des rois et brise son armure, Killingham fuit (ch. 1187-1198)")
-fight(2.695, "elbaf", "imu", "loki", "A", 3, note="Loki en forme hybride complète, terrassé d'un seul coup (ch. 1198)")
+      note="Killingham relancé par Imu et armé de Longinus (ch. 1187-1189) ; Sanji éveille le Haki des rois (ch. 1197), brise son armure d'Omen, Killingham fuit terrifié (ch. 1198)")
+fight(2.695, "elbaf", "imu", "loki", "A", 3, note="Loki en forme hybride complète tient d'abord, puis Imu dans une nouvelle forme le terrasse d'un seul coup, en grande partie hors champ (ch. 1198)")
+
+# ajouts : Shanks face aux autres sommets
+fight(-0.05, "avant", "shanks", "kaido", "D", note="Shanks retient Kaido pour l'empêcher de rejoindre Marineford (ch. 434, 556)", flags="i?")
+fight(2.4499, "wano", "shanks", "ryokugyu", "A", 2, note="Le Haki des rois de Shanks fait reculer Ryokugyu à distance (ch. 1055)")

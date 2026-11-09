@@ -1,5 +1,5 @@
 # Partie 2 : après l'ellipse, du retour à Sabaody jusqu'à la fin de Wano (t de 2.0 à 2.45).
-# Manga uniquement. Les numéros de chapitre précédés de "env." sont approximatifs.
+# Manga uniquement. Chapitres vérifiés (One Piece Wiki / résumés de chapitres) ; "?" = source introuvable ou contradictoire.
 # fight() est injectée par data.py.
 
 CHARS_PART = {
@@ -70,8 +70,9 @@ CHARS_PART = {
     "gladius": ("Gladius", "Famille Donquixote", 4.0, None, None),
     "lao_g": ("Lao G", "Famille Donquixote", 4.5, None, None),
     "sai": ("Sai", "Flotte de Happo", 4.5, None, None),
-    "ideo": ("Ideo", "Pirates XXX Gym", 4.0, None, None),
     "machvise": ("Machvise", "Famille Donquixote", 4.0, None, None),
+    "leo": ("Leo", "Tontatta", 2.5, None, None),
+    "giolla": ("Giolla", "Famille Donquixote", 3.5, None, None),
     # ---- Zou
     "jack": ("Jack", "Pirates aux Cent Bêtes", 5.5, None, None),
     "inuarashi": ("Inuarashi", "Minks / Fourreaux rouges", 5.0, None, None),
@@ -91,7 +92,6 @@ CHARS_PART = {
     "perospero": ("Charlotte Perospero", "Pirates de Big Mom", 5.0, None, None),
     "bege": ("Capone Bege", "Pirates de Fire Tank", 5.0, None, None),
     "katakuri": ("Charlotte Katakuri", "Pirates de Big Mom", 6.0, None, None),
-    "opera": ("Charlotte Opera", "Pirates de Big Mom", 4.5, None, None),
     "carrot": ("Carrot", "Minks", 3.0, None, None),
     "brulee": ("Charlotte Brûlée", "Pirates de Big Mom", 3.5, None, None),
     "wanda": ("Wanda", "Minks", 3.5, None, None),
@@ -118,7 +118,7 @@ CHARS_PART = {
     "kawamatsu": ("Kawamatsu", "Fourreaux rouges", 5.0, None, None),
     "denjiro": ("Denjiro", "Fourreaux rouges", 5.0, None, None),
     "raizo": ("Raizo", "Fourreaux rouges", 5.0, None, None),
-    "kanjuro": ("Kanjuro", "Fourreaux rouges (traître)", 4.5, 2.4475, None),
+    "kanjuro": ("Kanjuro", "Fourreaux rouges (traître)", 4.5, 2.4406, None),
     "marco": ("Marco", "Pirates de Barbe Blanche", 5.0, None, None),
     "king": ("King", "Pirates aux Cent Bêtes", 6.0, None, None),
     "black_maria": ("Black Maria", "Pirates aux Cent Bêtes", 5.0, None, None),
@@ -150,7 +150,7 @@ JUMPS_PART = [
     ("luffy", 2.2785, 1.0, 0.7, "Gear 4 (ch. 784)"),
     # Whole Cake Island
     ("luffy", 2.364, 0.4, 0.4, "Observation du futur apprise contre Katakuri (ch. 893-896)"),
-    ("nami", 2.37, 0.5, 0.4, "Zeus rejoint le Clima-Tact (ch. 899-902)"),
+    ("nami", 2.3647, 0.5, 0.4, "Zeus asservi au Clima-Tact (ch. 890), partenaire de Nami à Onigashima (ch. 1018)"),
     # Wano
     ("luffy", 2.418, 0.5, 0.5, "Ryuo / Haki émis appris à Udon (ch. 939-948)"),
     ("zoro", 2.42, 0.3, 0.4, "Obtient Enma (ch. 955)"),
@@ -164,27 +164,29 @@ JUMPS_PART = [
 ]
 
 # ============================================================== retour à Sabaody (ch. 598-603)
-fight(2.0, "fishman", "sentomaru", "demaro_black", "A", 3, note="Sentomaru et les Pacifista écrasent le faux Luffy (ch. 601)")
-fight(2.001, "fishman", "luffy", "pacifista", "A", 3, note="Luffy détruit le PX-5 d'un seul coup imprégné de Haki (ch. 601)")
-fight(2.002, "fishman", ["zoro", "sanji"], "pacifista", "A", 3, note="Zoro et Sanji détruisent ensemble le PX-7 (ch. 601)")
-fight(2.01, "fishman", "franky", "caribou", "A", 2, note="Franky maîtrise Caribou à bord du Sunny (env. ch. 603)", flags="?")
+fight(2.0, "fishman", "sentomaru", "demaro_black", "A", 3, note="Sentomaru écrase le faux Luffy du plat de sa hache (ch. 601)")
+fight(2.001, "fishman", "luffy", "pacifista", "A", 3, note="Luffy détruit le PX-5 d'un seul Jet Pistol imprégné de Haki (ch. 601)")
+fight(2.002, "fishman", ["zoro", "sanji"], "pacifista", "A", 3, note="Zoro et Sanji détruisent ensemble un autre Pacifista (ch. 601)")
+fight(2.01, "fishman", ["franky", "sanji"], "caribou", "A", 3, tb=["retenue"],
+      note="Caribou, monté à bord, se laisse frapper par Franky et Sanji pour cacher son Logia, ligoté (ch. 604) puis scellé dans un tonneau par Franky (ch. 606)")
 
 # ============================================================== Île des Hommes-Poissons (ch. 603-653)
 fight(2.1, "fishman", ["luffy", "zoro", "sanji"], "kraken", "A", 3,
-      note="Le Kraken assommé par l'Elephant Gun de Luffy, puis apprivoisé (ch. 605)")
-fight(2.105, "fishman", "luffy", ["hammond", "wadatsumi"], "A", 3, note="Luffy bat Hammond et ses hommes, puis Wadatsumi (env. ch. 609-610)", flags="?")
-fight(2.11, "fishman", "zoro", "neptune", "A", 2, tb=["retenue"], note="Zoro maîtrise le roi Neptune au palais Ryugu (env. ch. 614)", flags="?")
-fight(2.111, "fishman", "zoro", "hody", "A", 2, note="Zoro tranche Hody au palais Ryugu (env. ch. 616)")
-fight(2.112, "fishman", "hody", "neptune", "A", 2, ta=["surprise", "boost"],
-      note="Hody, sous Énergie Stéroïde, capture Neptune avec Zoro, Usopp et Brook déjà pris (env. ch. 617-618)", flags="?")
-fight(2.115, "fishman", "luffy", "vander_decken", "A", 2, note="Luffy repousse Decken à Coral Hill (env. ch. 618)", flags="?")
-fight(2.118, "fishman", "luffy", "jinbe", "D", note="Dispute au Sea Forest, interrompue (env. ch. 621-622)", flags="i")
-fight(2.13, "fishman", "hody", "fukaboshi", "A", 2, ta=["boost"], note="Hody, dopé, défait Fukaboshi et les princes (env. ch. 631-633)", flags="?")
-fight(2.131, "fishman", "fukaboshi", "dosun", "A", 2, note="Fukaboshi bat Dosun avant que les officiers ne se dopent (env. ch. 630)", flags="?")
-fight(2.135, "fishman", ["luffy", "zoro", "nami", "usopp", "sanji", "chopper", "robin", "franky", "brook"],
-      "hody", "A", 3, note="Luffy met à terre la moitié des 100 000 hommes de Hody au Haki des rois (env. ch. 633-634) ; codé contre Hody comme chef", flags="?")
-fight(2.14, "fishman", "hody", "vander_decken", "A", 3, ta=["surprise"], note="Hody poignarde Decken (env. ch. 642)")
-fight(2.1405, "fishman", "robin", "hammond", "A", 2, note="Double Clutch (env. ch. 641-642)", flags="?")
+      note="Le Kraken assommé par l'Elephant Gun imprégné de Luffy, puis apprivoisé (ch. 605)")
+fight(2.1005, "fishman", "kraken", "wadatsumi", "A", 3, note="Surume, désormais à Luffy, assomme Wadatsumi (ch. 606)")
+fight(2.105, "fishman", "luffy", "hammond", "A", 3, note="Luffy balaie le filet et met Hammond et ses hommes K.O. au Jet Pistol (ch. 609)")
+fight(2.11, "fishman", ["zoro", "nami", "usopp", "brook"], "neptune", "A", 2, tb=["malade"],
+      note="Zoro bloque le trident de Neptune (ch. 613) ; le roi et sa garde ligotés (ch. 614) ; Neptune souffre du dos")
+fight(2.1105, "fishman", "luffy", "vander_decken", "A", 2, note="Luffy fait chuter Decken puis Jet Hammer, tête dans le sol (ch. 618)")
+fight(2.111, "fishman", "zoro", "hody", "A", 2, note="Zoro tranche Hody sous l'eau d'un seul coup (ch. 618-619)")
+fight(2.112, "fishman", "hody", "neptune", "A", 2, ta=["boost"], tb=["malade", "protege"],
+      note="Hody, ranimé par une pilule d'Énergie Stéroïde, rattrape Neptune (dos bloqué après Ultramarine, protège ses gardes) ; Zoro, à court d'air, Usopp et Brook capturés (ch. 617-619)")
+fight(2.118, "fishman", "luffy", "jinbe", "D", note="Dispute au Sea Forest, Robin s'interpose (ch. 628-629)", flags="i")
+fight(2.129, "fishman", "fukaboshi", "dosun", "A", 2, note="Fukaboshi frappe Dosun (ch. 620) et l'enchaîne ; Dosun se libère ensuite au stéroïde (ch. 630)")
+fight(2.13, "fishman", ["dosun", "zeo", "daruma", "ikaros_much", "hyozo"], "fukaboshi", "A", 2, ta=["boost"],
+      note="Les trois princes, après avoir battu les monstres marins, défaits par les officiers dopés (ch. 631-632)")
+fight(2.14, "fishman", "hody", "vander_decken", "A", 3, ta=["surprise"], note="Hody transperce son allié Decken de son trident à bord de l'Arche (ch. 638)")
+fight(2.1405, "fishman", "robin", "hammond", "A", 3, note="Hammond tente de la prendre au filet, Robin lui brise le dos (ch. 643)")
 fight(2.141, "fishman", "luffy", "hody", "A", 3, tb=["boost"], note="Red Hawk puis Elephant Gatling ; Hody avale des pilules d'Énergie Stéroïde (ch. 645)")
 fight(2.142, "fishman", "chopper", "dosun", "A", 2, tb=["boost"], note="Monster Point contrôlé, Kokutei Palme (ch. 646)")
 fight(2.1421, "fishman", "usopp", "daruma", "A", 2, tb=["boost"], note="Impact Wolf (ch. 646)")
@@ -196,149 +198,174 @@ fight(2.1425, "fishman", "zoro", "hyozo", "A", 3, tb=["boost"], note="Rengoku On
 # ============================================================== Punk Hazard (ch. 654-699)
 fight(2.2, "punkhazard", ["luffy", "zoro", "usopp", "robin"], "punk_dragon", "A", 3, note="Zoro tue le dragon d'un seul coup (ch. 656)")
 fight(2.201, "punkhazard", ["luffy", "zoro", "usopp", "robin", "brook"], "brownbeard", "A", 3,
-      note="Les centaures battus, Barbe Brune contraint de les porter (env. ch. 659-661)", flags="?")
-fight(2.203, "punkhazard", "law", "smoker", "A", 2, note="Law arrache le cœur de Smoker et échange les corps (ch. 663-664)")
-fight(2.204, "punkhazard", "law", "tashigi", "A", 3, note="Law coupe Tashigi en deux sans la tuer (ch. 662)")
+      note="Brook retourne les bazookas gelés ; centaures battus, Barbe Brune contraint de les porter (ch. 661-662)")
+fight(2.203, "punkhazard", "law", "smoker", "A", 2, note="Law arrache le cœur de Smoker avec Mes (ch. 661-662), puis échange les corps (ch. 663)")
+fight(2.204, "punkhazard", "law", "tashigi", "A", 3, note="Law coupe Tashigi et son sabre en deux sans la tuer (ch. 661)")
 fight(2.206, "punkhazard", ["scotch", "rock"], ["zoro", "sanji", "brook"], "A", 2, ta=["surprise"],
-      note="Les frères Yéti Cool les endorment au gaz KYP (env. ch. 668)", flags="?")
-fight(2.207, "punkhazard", ["luffy", "franky"], "rock", "A", 2, note="Luffy le blesse, Franky l'achève avec un glacier (env. ch. 672-673)", flags="?")
-fight(2.2071, "punkhazard", "law", "scotch", "A", 3, note="Law le tranche en deux (env. ch. 673)", flags="?")
+      note="Les frères Yéti Cool les abattent aux balles de gaz KYP (ch. 665, montré en flash-back ch. 669) ; Sanji dans le corps de Nami")
+fight(2.207, "punkhazard", ["luffy", "franky"], "rock", "A", 3,
+      note="Luffy renvoie les balles, Franky (dans le corps de Chopper) lui jette un bloc de montagne, Elephant Gun (ch. 667)")
+fight(2.2071, "punkhazard", "law", "scotch", "A", 3, note="Law le tranche en deux puis Counter Shock (ch. 667)")
 fight(2.208, "punkhazard", "caesar", ["franky", "robin", "smoker", "tashigi"], "A", 2, ta=["prepa"],
-      note="Gaz et Gastanet, Franky, Robin et les Marines capturés (env. ch. 674-676)", flags="?")
-fight(2.209, "punkhazard", "caesar", "luffy", "A", 2, ta=["prepa"], note="Gastanet ; Luffy capturé (env. ch. 676)", flags="?")
-fight(2.21, "punkhazard", "vergo", "law", "A", 2, ta=["prepa"], tb=["protege"],
-      note="Vergo bat Law, dont Caesar tient le cœur (env. ch. 677-678)", flags="?")
-fight(2.212, "punkhazard", ["zoro", "nami", "robin"], "monet", "A", 2, note="Monet repoussée en forme de monstre de neige (env. ch. 679)", flags="?")
-fight(2.213, "punkhazard", ["zoro", "tashigi"], "monet", "A", 3, note="Zoro tranche Monet, Tashigi l'achève (ch. 680)")
-fight(2.214, "punkhazard", "vergo", "sanji", "A", 2, note="Vergo fêle les os de Sanji (env. ch. 686)", flags="?")
-fight(2.2141, "punkhazard", "vergo", "smoker", "A", 2, note="Smoker diversion ; Vergo le bat (env. ch. 689)", flags="?")
-fight(2.2145, "punkhazard", "law", "vergo", "A", 3, note="Law récupère son cœur et tranche Vergo et le labo (ch. 689-690)")
-fight(2.215, "punkhazard", "luffy", "caesar", "A", 3, note="Gomu Gomu no Grizzly Magnum (ch. 690)")
-fight(2.218, "punkhazard", "franky", ["baby_5", "buffalo"], "A", 2, note="General Cannon (env. ch. 694-696)", flags="?")
-fight(2.2181, "punkhazard", "law", ["baby_5", "buffalo"], "A", 3, note="Law les décapite (env. ch. 696)", flags="?")
+      note="Caesar les met à terre sans contact puis les fait enchaîner au granit marin (ch. 672)")
+fight(2.209, "punkhazard", "caesar", "luffy", "A", 2, ta=["prepa"],
+      note="Luffy le touche au Haki mais s'effondre, privé d'oxygène ; capturé (ch. 670-672)")
+fight(2.21, "punkhazard", "vergo", "law", "A", 3, tb=["malade"],
+      note="Vergo assomme Law en quelques secondes au bambou imprégné ; Law a échangé son cœur (ch. 672)")
+fight(2.2105, "punkhazard", "vergo", "tashigi", "A", 3, note="Vergo bloque son sabre et l'écrase au sol (ch. 680)")
+fight(2.2106, "punkhazard", "vergo", "sanji", "D", tb=["retenue"],
+      note="Vergo fêle la jambe de Sanji puis abandonne le combat (ch. 680-682)", flags="i")
+fight(2.2108, "punkhazard", "vergo", "law", "A", 2, tb=["malade"], note="Vergo serre le cœur de Law et le roue de coups (ch. 683)")
+fight(2.212, "punkhazard", ["zoro", "nami", "robin", "tashigi"], "monet", "A", 1,
+      note="Heat Ball, Quatro Mano, puis Tashigi blesse au Haki l'aile de Monet, qui se replie (ch. 685-686)", flags="i")
+fight(2.213, "punkhazard", ["zoro", "tashigi"], "monet", "A", 3, note="Zoro la tranche en deux, Tashigi l'arrête quand elle revient (ch. 687)")
+fight(2.2141, "punkhazard", "vergo", "smoker", "A", 2, tb=["retenue"],
+      note="Smoker gagne du temps pour que Law récupère son cœur ; Vergo brise son jitte (ch. 683-690)")
+fight(2.2145, "punkhazard", "law", "vergo", "A", 3, note="Law tranche Vergo, le laboratoire et la montagne (ch. 690-691)")
+fight(2.215, "punkhazard", "luffy", "caesar", "A", 3, note="Poings au visage puis Gomu Gomu no Grizzly Magnum (ch. 689-692)")
+fight(2.218, "punkhazard", "franky", ["baby_5", "buffalo"], "D", note="Ils percent l'armure du General Franky, General Cannon sans effet décisif (ch. 694-695)", flags="i")
+fight(2.2181, "punkhazard", ["nami", "usopp"], ["baby_5", "buffalo"], "A", 2,
+      note="Thunder Breed Tempo de Nami puis Hissatsu Ryusei-gun d'Usopp, menottes en granit marin sur Caesar (ch. 695)")
+fight(2.2182, "punkhazard", "law", ["baby_5", "buffalo"], "A", 3, tb=["epuise"],
+      note="Hors champ : Law leur a séparé la tête du corps, retrouvés sur un canot (ch. 697)")
+fight(2.2185, "punkhazard", "doflamingo", "smoker", "A", 3, tb=["epuise"], note="Doflamingo blesse gravement Smoker, Kuzan l'arrête (ch. 698)")
 fight(2.219, "punkhazard", "aokiji", "doflamingo", "D", ta=["retenue"], tb=["retenue"],
-      note="Bref heurt, Doflamingo se retire (ch. 698-699)", flags="i?")
+      note="Kuzan gèle Doflamingo, qui se libère et se retire (ch. 698-699)", flags="i")
 
 # ============================================================== Dressrosa (ch. 700-801)
-fight(2.23, "punkhazard", "fujitora", "zoro", "D", ta=["retenue"], note="Premier heurt dans la ville (env. ch. 709)", flags="i?")
-fight(2.232, "punkhazard", "bartolomeo", "elizabello", "A", 2, note="Finale du bloc B après le King Punch (ch. 707-708)")
-fight(2.233, "punkhazard", "luffy", "hajrudin", "A", 3, note="Bloc C, un seul coup (env. ch. 717)", flags="?")
+fight(2.232, "punkhazard", "bartolomeo", "elizabello", "A", 2, note="Bloc B : la barrière résiste au King Punch, Bartolomeo met le roi K.O. (ch. 709)")
+fight(2.233, "punkhazard", "luffy", "hajrudin", "A", 3, note="Bloc C, un seul coup de poing au visage (ch. 714)")
 fight(2.234, "punkhazard", "luffy", "chinjao", "A", 3, note="Bloc C, Thor Elephant Gun (ch. 718-719)")
-fight(2.235, "punkhazard", "burgess", "suleiman", "A", 2, note="Burgess gagne le bloc A (env. ch. 707-714) ; adversaire principal non précisé", flags="?")
 fight(2.237, "punkhazard", "doflamingo", "law", "A", 2, note="Green Bit puis le pont : Law capturé et blessé par balles (ch. 722-730)")
 fight(2.2375, "punkhazard", "doflamingo", "sanji", "A", 2, note="Sanji immobilisé, Law le téléporte (ch. 723-724)", flags="i")
-fight(2.24, "punkhazard", "cavendish", ["rebecca", "suleiman"], "A", 3, tb=[],
-      note="Hakuba balaie le bloc D, Rebecca seule à l'esquiver (ch. 734)", flags="?")
-fight(2.2401, "punkhazard", "rebecca", "suleiman", "A", 1, note="Rebecca gagne le bloc D (ch. 734)")
-fight(2.245, "punkhazard", "trebol", "usopp", "A", 2, note="Trebol bat Usopp au port (env. ch. 741)", flags="?")
-fight(2.246, "punkhazard", "usopp", "sugar", "A", 3, ta=["surprise"], note="Sugar s'évanouit de peur (Tatababasco) (ch. 743)")
+fight(2.24, "punkhazard", "cavendish", "suleiman", "A", 3,
+      note="Bloc D : Hakuba, réveillé, fauche tous les combattants sauf Rebecca (ch. 734)")
+fight(2.2401, "punkhazard", "rebecca", "suleiman", "D", note="Bloc D, interrompu par Hakuba ; Rebecca, seule à esquiver, gagne le bloc (ch. 734)", flags="i")
+fight(2.245, "punkhazard", "trebol", "usopp", "A", 2, note="Usopp coupe Trebol en deux (Platanus Shuriken) mais Trebol le prend dans sa glu (ch. 741-742)")
+fight(2.246, "punkhazard", "usopp", "sugar", "A", 3, ta=["surprise"], note="Sugar s'évanouit de peur (Tatababasco) (ch. 742)")
 fight(2.2465, "punkhazard", "sabo", ["diamante", "burgess", "bartolomeo", "rebecca"], "D",
-      note="Finale de la Corrida, Sabo détruit l'arène (ch. 742-743)", flags="i?")
+      note="Finale de la Corrida : Sabo tient Burgess, détruit l'arène et prend le Mera Mera (ch. 741-744)", flags="i")
 fight(2.247, "punkhazard", "diamante", "rebecca", "A", 2, note="Coup de masse en finale, Bartolomeo la protège (ch. 742)", flags="i")
-fight(2.25, "punkhazard", "luffy", "fujitora", "D", tb=["retenue"], note="Duel interrompu près du palais (env. ch. 746)", flags="i")
-fight(2.26, "punkhazard", "dellinger", "bellamy", "A", 2, note="Bartolomeo l'arrête (env. ch. 758)", flags="?")
-fight(2.261, "punkhazard", "luffy", "bellamy", "A", 2, tb=["epuise"], note="Bellamy refuse de tuer mais se bat ; Luffy l'emporte (ch. 759)")
-fight(2.262, "punkhazard", "doflamingo", "viola", "A", 3, note="Viola immobilisée (env. ch. 761)", flags="?")
-fight(2.2621, "punkhazard", "doflamingo", "bellamy", "A", 3, tb=["epuise"], note="Bellamy servi de bouclier (env. ch. 761-762)")
+fight(2.2585, "punkhazard", "sabo", "fujitora", "D",
+      note="Sabo bloque les Marines (ch. 750) ; duel acharné, Fujitora finit par partir parier sur Luffy (ch. 751-760)", flags="i")
+fight(2.259, "punkhazard", "usopp", "sugar", "A", 3, ta=["surprise"], note="Tir depuis le plateau portant le dessin de son visage terrifiant (ch. 758)")
+fight(2.262, "punkhazard", "doflamingo", "viola", "A", 3, note="Viola immobilisée (chapitre non retrouvé)", flags="?")
+fight(2.2621, "punkhazard", "doflamingo", "bellamy", "A", 3, tb=["epuise"],
+      note="Bellamy affronte Doflamingo sur le toit (ch. 753), retrouvé à terre (ch. 758), servi de bouclier puis de pantin (ch. 759-761)")
 fight(2.263, "punkhazard", "doflamingo", ["luffy", "law"], "D", tb=["protege"],
-      note="Combat au palais, Law sans un bras ; Luffy place un Red Hawk puis ils fuient (ch. 760-765)", flags="i")
-fight(2.265, "punkhazard", "franky", "senor_pink", "A", 1, note="Usine SMILE (ch. 763-764)")
-fight(2.27, "punkhazard", "lao_g", "chinjao", "A", 2, note="Escalier vers le palais (env. ch. 772-773)", flags="?")
-fight(2.271, "punkhazard", "hajrudin", "machvise", "A", 2, note="Hajrudin l'envoie contre la Cage (env. ch. 774)", flags="?")
+      note="Combat au palais, Law perd un bras (ch. 769) ; Luffy place un Red Hawk (ch. 759-769)", flags="i")
+fight(2.2695, "punkhazard", "hajrudin", "machvise", "A", 2, tb=[], note="Hajrudin, blessé, l'envoie dans la Cage puis s'effondre (ch. 770)")
+fight(2.27, "punkhazard", "lao_g", "chinjao", "A", 2, ta=["surprise"], note="Lao G frappe Chinjao, tête déjà pliée par Sai (ch. 771)")
+fight(2.2701, "punkhazard", "sai", "lao_g", "A", 2, note="Kiryu Kirikugi imprégné de Haki (ch. 771)")
+fight(2.2705, "punkhazard", "cavendish", "dellinger", "A", 3, note="Hakuba fauche Dellinger et les gardes du 3e niveau (ch. 773) ; Ideo l'avait touché (ch. 770)")
+fight(2.2708, "punkhazard", "leo", "giolla", "A", 2, note="Haute Couture: Patchwork, Mansherry libérée (ch. 774)")
+fight(2.2715, "punkhazard", "franky", "senor_pink", "A", 1, note="Usine SMILE, commencé ch. 732, Franky Iron Boxing (ch. 775)")
 fight(2.272, "punkhazard", "kyros", "diamante", "A", 2, note="Champ de fleurs, sur la tombe de Scarlett (ch. 776)")
-fight(2.2721, "punkhazard", "sai", "lao_g", "A", 2, note="Coup de pied Hasshoken (env. ch. 776)", flags="?")
-fight(2.2722, "punkhazard", "ideo", "dellinger", "A", 2, note="env. ch. 776", flags="?")
 fight(2.274, "punkhazard", "zoro", "pica", "A", 2, note="Sanzen Sekai (ch. 777)")
 fight(2.2741, "punkhazard", "bartolomeo", "gladius", "A", 2, note="Poing de barrière (ch. 777)")
 fight(2.2742, "punkhazard", "usopp", "sugar", "A", 3, ta=["surprise"], note="Tir à 4 km, Haki de l'observation (ch. 777)")
-fight(2.277, "punkhazard", "law", "trebol", "A", 2, note="Law tranche Trebol (env. ch. 780-781)", flags="?")
+fight(2.2765, "punkhazard", "luffy", "bellamy", "A", 2, tb=["epuise"],
+      note="Libéré des fils, Bellamy choisit un dernier combat ; Gear 2 imprégné (ch. 769-779)")
+fight(2.277, "punkhazard", "law", "trebol", "A", 2, ta=["epuise"], note="Sterben ; Trebol tente de l'emporter dans une explosion (ch. 782)")
 fight(2.278, "punkhazard", "doflamingo", "law", "A", 2, tb=["epuise"], note="Gamma Knife ne suffit pas, Doflamingo se soigne (ch. 781-782)")
 fight(2.279, "punkhazard", "luffy", "doflamingo", "A", 1, tb=["epuise"],
       note="Gear 4 ; Luffy à court de temps, puis King Kong Gun (ch. 783-790)")
-fight(2.285, "punkhazard", "sabo", "fujitora", "D", note="Duel acharné, sans vainqueur (ch. 794)", flags="i")
-fight(2.286, "punkhazard", "sabo", "burgess", "A", 2, note="Burgess le provoque au sujet d'Ace (env. ch. 795)", flags="?")
+fight(2.286, "punkhazard", "sabo", "burgess", "A", 2, note="Griffe du roi dragon (ch. 787), puis Burgess, qui le provoque au sujet d'Ace, brûlé à bout portant (ch. 792)")
+fight(2.287, "punkhazard", "luffy", "fujitora", "D", tb=["retenue"],
+      note="Au port, Luffy annonce ses coups ; Fujitora le projette par la gravité puis laisse filer la flotte (ch. 799)", flags="i")
 
 # ============================================================== Zou (ch. 802-824)
 fight(2.29, "wci", "jack", ["inuarashi", "nekomamushi"], "A", 1, ta=["prepa"],
-      note="Invasion de Zou : Jack l'emporte au bout de 5 jours avec le gaz Koro (ch. 808-809, récit)", flags="?")
-fight(2.31, "wci", "zunesha", "jack", "A", 3, note="Zunesha écrase la flotte de Jack à la demande de Luffy (env. ch. 822)")
+      note="Invasion de Zou : cinq jours de combat jour/nuit, Jack l'emporte avec le gaz Koro de Caesar (ch. 808-810, récit)")
+fight(2.31, "wci", "zunesha", "jack", "A", 3, note="Sur l'ordre de Momonosuke, un coup de trompe coule la flotte de Jack (ch. 821)")
 
 # ============================================================== Whole Cake Island (ch. 825-902)
-fight(2.311, "wci", "urouge", "snack", "A", 2, note="Snack battu par Urouge, rapporté (env. ch. 829-830)", flags="?")
-fight(2.32, "wci", ["ichiji", "niji", "yonji"], "sanji", "A", 2, tb=["protege"],
-      note="Sanji frappe Niji puis est roué par les trois frères (ch. 832-833)", flags="?")
-fight(2.322, "wci", "judge", "sanji", "A", 2, ta=["prepa"], tb=["protege"], note="Judge se sert de soldats et de la décharge électrique (env. ch. 839)", flags="?")
+fight(2.311, "wci", "urouge", "snack", "A", 2, note="Avant l'histoire : Urouge bat un Sweet Commander (Snack), récit de Brûlée (ch. 837)")
+fight(2.3112, "wci", "cracker", "urouge", "A", 2, note="Avant l'histoire : Cracker bat ensuite Urouge, qui s'enfuit (ch. 837, récit)")
+fight(2.315, "wci", "sanji", "yonji", "A", 2, note="Hors champ, Sanji enfonce le visage de Yonji (ch. 832-833, récit)")
+fight(2.322, "wci", "judge", "sanji", "A", 2, ta=["prepa"], tb=["protege"],
+      note="Judge sacrifie un soldat, lance électrique ; Sanji porte les bracelets explosifs (ch. 832-833)")
 fight(2.33, "wci", "luffy", "cracker", "A", 2, ta=["epuise"], tb=["epuise"],
       note="Onze heures de combat, Gear 4 puis Tankman (ch. 835-843)")
-fight(2.332, "wci", "carrot", "brulee", "A", 2, ta=["surprise"], note="Eau bouillante, Brûlée capturée avec Chopper (env. ch. 849-850)", flags="?")
+fight(2.3305, "wci", "nami", "brulee", "A", 2, note="Pound la fait lâcher, Thunderbolt Tempo ; Brûlée fuit dans le Mirro-World (ch. 837)")
+fight(2.3315, "wci", "niji", "sanji", "A", 2, tb=["protege"],
+      note="Sanji frappe Niji pour Cosette, Ichiji menace Zeff ; Niji le roue d'attaques électriques (ch. 840)")
+fight(2.332, "wci", ["carrot", "chopper"], "brulee", "A", 2, ta=["surprise"],
+      note="Carrot renverse la marmite bouillante sur Brûlée, Chopper se libère ; Brûlée capturée (ch. 849)")
 fight(2.335, "wci", "big_mom", "brook", "A", 3, tb=["prepa"], note="Brook vaincu après avoir copié les ponéglyphes (ch. 849-850)")
-fight(2.336, "wci", "pedro", "tamago", "A", 2, note="Pedro le tranche deux fois, Tamago se régénère (env. ch. 853)", flags="?")
+fight(2.336, "wci", "pedro", "tamago", "A", 2, note="Pedro coupe Tamago puis Hiyoko et se fait sauter, sauvé par le Mirro-World (ch. 850-853)")
 fight(2.34, "wci", "sanji", "luffy", "A", 3, tb=["retenue", "epuise"], note="Luffy refuse de riposter (ch. 856)")
-fight(2.35, "wci", "big_mom", "bege", "A", 2, tb=["prepa"], note="Le cri de Big Mom détruit les KX Launchers (env. ch. 868)")
-fight(2.351, "wci", "katakuri", "ichiji", "A", 3, note="Mariage, la Germa défaite (env. ch. 863-866)", flags="?")
-fight(2.352, "wci", "jinbe", "opera", "A", 2, note="Gosenmaigawara Seiken (env. ch. 866)", flags="?")
-fight(2.36, "wci", "tamago", "pedro", "A", 1, tb=["protege"],
-      note="Pedro se fait exploser pour libérer le Sunny ; Tamago survit (ch. 878)", flags="?")
+fight(2.35, "wci", "big_mom", "bege", "A", 2, tb=["prepa"], note="Le cri de Big Mom ruine l'assassinat et les KX Launchers (ch. 865-868)")
+fight(2.351, "wci", "katakuri", "ichiji", "A", 3, note="Katakuri domine Ichiji, arrêté par l'effondrement du château (ch. 871)", flags="i")
+fight(2.36, "wci", "perospero", "pedro", "A", 1, tb=["protege"],
+      note="Pedro maîtrisé par Perospero se fait exploser pour libérer le Sunny ; Perospero survit, perd un bras (ch. 877-878)")
 fight(2.3645, "wci", "luffy", "katakuri", "A", 1, ta=["epuise"], tb=["epuise"],
       note="Monde des miroirs, Luffy apprend l'observation du futur (ch. 882-896)")
-fight(2.37, "wci", "jinbe", "big_mom", "D", tb=["epuise"], note="Jinbe la fait tomber du Sunny (ch. 900-901)", flags="i?")
-fight(2.371, "wci", ["nami", "zeus"], "big_mom", "A", 1, ta=["surprise"], note="Zeus foudroie Big Mom (ch. 899-900)", flags="?")
+fight(2.3646, "wci", ["jinbe", "nami", "brook", "zeus"], "big_mom", "D", tb=["malade"],
+      note="Big Mom, folle de faim, sur le Sunny : Jinbe la fait tomber et l'arrose, Brook coupe Zeus, Nami l'électrocute (ch. 890)", flags="i")
 
 # ============================================================== Rêverie (ch. 903-908, conséquences ch. 956)
 fight(2.38, "wci", "sabo", ["fujitora", "ryokugyu"], "D",
-      note="Les commandants révolutionnaires affrontent deux amiraux à Marie-Joie, et s'échappent (ch. 956, récit)", flags="?")
+      note="Les commandants révolutionnaires affrontent deux amiraux à Marie-Joie puis s'échappent (ch. 956, récit) ; rôle direct de Sabo non précisé", flags="?")
 
 # ============================================================== Wano acte 1 (ch. 909-924)
-fight(2.4, "wano", "hawkins", ["luffy", "zoro"], "D", ta=["prepa"], note="Les coups renvoyés sur la poupée de paille, retraite (env. ch. 913)", flags="i")
+fight(2.4, "wano", "hawkins", ["luffy", "zoro"], "D", ta=["prepa"], note="Les coups renvoyés sur ses hommes ; Komachiyo emporte Luffy et Zoro (ch. 912-913)", flags="i")
 fight(2.401, "wano", "luffy", "urashima", "A", 3, note="Gear 3 Harite (ch. 916)")
 fight(2.402, "wano", "kiku", "urashima", "A", 3, note="Kiku lui tranche le chignon (ch. 916)")
-fight(2.403, "wano", "luffy", "holdem", "A", 2, note="Red Hawk à Bakura (ch. 919)")
-fight(2.404, "wano", "hawkins", "law", "A", 2, note="Hawkins démasque Law, puis clou en granit marin (env. ch. 920-924)", flags="?")
+fight(2.403, "wano", "luffy", "holdem", "A", 2, note="Red Hawk à Bakura (ch. 917)")
+fight(2.404, "wano", "law", "hawkins", "D", note="Bref heurt à Bakura, Hawkins démasque Law, blessures renvoyées sur ses hommes (ch. 918)", flags="i")
 fight(2.405, "wano", "kaido", "luffy", "A", 3, note="Ruines du château d'Oden, Raimei Hakke (ch. 923-924)")
-fight(2.406, "wano", "kaido", "kid", "A", 3, ta=["prepa"], note="Kid capturé après une défaite contre Kaido (récit, ch. 925 env.)", flags="?")
+fight(2.406, "wano", "kaido", "kid", "A", 3, ta=["prepa"], note="Kid battu par Kaido avant l'histoire et envoyé à Udon (récit ; Kid aux mines ch. 926)", flags="?")
 
 # ============================================================== Wano acte 2 (ch. 925-957)
-fight(2.41, "wano", "sanji", "page_one", "A", 1, note="Raid Suit, Sanji contre-attaque d'en haut (env. ch. 931-932)", flags="?")
-fight(2.411, "wano", "babanuki", "luffy", "A", 2, tb=["epuise"], note="Udon, Luffy affamé et sous granit marin (env. ch. 937)", flags="?")
-fight(2.412, "wano", "zoro", "gyukimaru", "D", note="Premier duel sur le pont Oihagi (env. ch. 937-938)", flags="i")
-fight(2.413, "wano", "zoro", "killer", "A", 1, tb=[], note="Zoro bat Kamazo (Killer sous SMILE) au Rengoku Oni Giri (env. ch. 937-939)", flags="?")
-fight(2.414, "wano", "law", "hawkins", "A", 2, note="Prison de Rasetsu, Law le découpe (env. ch. 944)", flags="?")
+fight(2.41, "wano", "sanji", "page_one", "A", 1, note="Raid Suit invisible, Sanji contre-attaque d'en haut ; issue non montrée (ch. 931)", flags="?")
+fight(2.412, "wano", "zoro", "gyukimaru", "D", note="Premier duel sur le pont Oihagi (ch. 937-938)", flags="i")
+fight(2.413, "wano", "zoro", "killer", "A", 1, tb=["malade"], note="Zoro abat Kamazo (Killer sous SMILE) avec sa propre faux (ch. 937-938)")
 fight(2.416, "wano", "big_mom", "queen", "A", 2, note="Udon, Big Mom amnésique écrase Queen (ch. 945-946)")
 fight(2.4161, "wano", "big_mom", ["luffy", "hyogoro"], "A", 2, note="Sumo Inferno, Luffy arrache les colliers (ch. 946-947)", flags="i")
-fight(2.417, "wano", "luffy", "babanuki", "A", 2, note="Révolte d'Udon, Babanuki pris dans sa propre explosion (env. ch. 948)", flags="?")
-fight(2.42, "wano", "zoro", "gyukimaru", "D", note="Second duel, Kawamatsu intervient (env. ch. 951-952)", flags="i")
-fight(2.421, "wano", "inuarashi", "ashura_doji", "D", note="Kin'emon arrête le combat (env. ch. 953)", flags="i?")
+fight(2.417, "wano", "luffy", "babanuki", "A", 2, note="Luffy noue la trompe, l'Excite Shell explose dans Babanuki (ch. 949)")
+fight(2.4199, "wano", "hawkins", "law", "A", 2, tb=["protege"],
+      note="Hawkins lie Bepo, Shachi et Penguin à sa paille ; Law se rend (ch. 945-951)")
+fight(2.42, "wano", "zoro", "gyukimaru", "D", note="Second duel, Kawamatsu intervient (ch. 951-952)", flags="i")
+fight(2.421, "wano", "inuarashi", "ashura_doji", "D", note="Combat à égalité, Kin'emon arrête (chapitre non retrouvé)", flags="i?")
 
 # ============================================================== Wano acte 3 et Onigashima (ch. 958-1057)
-fight(2.43, "wano", "luffy", ["ulti", "page_one"], "D", note="Toits d'Onigashima (ch. 980-983)", flags="i")
-fight(2.431, "wano", "yamato", "ulti", "A", 2, ta=["surprise"], note="Yamato met Ulti hors combat (env. ch. 984)", flags="?")
-fight(2.433, "wano", "kaido", "orochi", "A", 3, ta=["surprise"], note="Kaido décapite Orochi au banquet (ch. 985) ; Orochi survit", flags="?")
+fight(2.43, "wano", "luffy", ["ulti", "page_one"], "D", note="Toits d'Onigashima, interrompu par Yamato (ch. 981-983)", flags="i")
+fight(2.4301, "wano", "yamato", "ulti", "A", 3, ta=["surprise"], note="Yamato assomme Ulti d'un coup de kanabo, Raimei Hakke (ch. 983)")
+fight(2.433, "wano", "kaido", "orochi", "A", 3, ta=["surprise"], note="Kaido décapite Orochi avec le sabre de King au banquet (ch. 985) ; Orochi survit")
 fight(2.435, "wano", "kaido", ["kinemon", "kiku", "kawamatsu", "denjiro", "raizo", "ashura_doji", "inuarashi", "nekomamushi", "kanjuro"], "A", 2,
       ta=[], tb=["prepa"], note="Fourreaux rouges sur le toit : Kaido entaillé mais vainqueur (ch. 990-993)")
+fight(2.4365, "wano", ["ulti", "page_one"], ["usopp", "nami"], "A", 3, note="Ulti les roue de coups de tête, Tama les sauve sur un komainu (ch. 995-996)")
 fight(2.438, "wano", ["kaido", "big_mom"], ["luffy", "zoro", "law", "kid", "killer"], "D",
-      note="Les cinq Supernovas contre les deux Empereurs ; Zoro entaille Kaido (ch. 1000-1009)", flags="i")
-fight(2.439, "wano", "marco", ["king", "queen"], "D", note="Marco retient King et Queen (env. ch. 1001-1007)", flags="i?")
-fight(2.4392, "wano", "sanji", "black_maria", "D", tb=["prepa"], note="Sanji ne frappe pas une femme, s'échappe (env. ch. 1006-1007)", flags="i?")
+      note="Les cinq Supernovas contre les deux Empereurs ; Zoro entaille Kaido (ch. 1000-1009)", flags="ei")
+fight(2.439, "wano", "marco", ["king", "queen"], "D", note="Marco retient King et Queen, Hoo-in, Bluebird (ch. 1001-1007)", flags="i")
+fight(2.4392, "wano", "black_maria", "sanji", "A", 2, ta=["prepa"], tb=["retenue"],
+      note="Sanji refuse de frapper une femme, roué dans la toile ; Robin la renverse, Sanji s'échappe (ch. 1004-1005)", flags="i")
+fight(2.4393, "wano", "perospero", ["carrot", "wanda"], "A", 2, tb=["epuise"],
+      note="Blessé par leurs Sulong (ch. 995), Perospero les bat une fois la lune cachée (ch. 1006)")
 fight(2.44, "wano", "kaido", "luffy", "A", 2, tb=["haki_roi"], note="Luffy découvre le Haki des rois imprégné mais tombe (ch. 1010-1015)")
+fight(2.4401, "wano", "big_mom", "ulti", "A", 3, note="Napoleon, Prometheus et Hera combinés ; Ulti assommée en voulant tuer Nami (ch. 1013)")
+fight(2.4405, "wano", "kinemon", "kanjuro", "A", 2, tb=["surprise"],
+      note="Kanjuro, déguisé en Oden, transperce Kiku ; Kin'emon lui porte le coup fatal (ch. 1014)")
+fight(2.4415, "wano", ["nami", "zeus", "usopp"], "ulti", "A", 2, tb=["epuise"],
+      note="Zeus, logé dans le Clima-Tact, foudroie Ulti ; Usopp la ligote (Midori Boshi: Devil) (ch. 1016)")
+fight(2.4417, "wano", "jinbe", "who_s_who", "A", 2, note="Ancien CP9 ; doigts brisés sur le Haki, Onigawara Seiken (ch. 1017-1018)")
+fight(2.4418, "wano", "franky", "sasaki", "A", 2, note="General Franky détruit, Franky éjecté le met K.O. au Radical Beam (ch. 1016-1019)")
 fight(2.442, "wano", "kaido", "yamato", "D", note="Yamato tient Kaido jusqu'au retour de Luffy (ch. 1018-1026)", flags="i")
-fight(2.4432, "wano", ["nami", "zeus"], "ulti", "A", 2, note="Ulti assommée par l'éclair de Zeus (env. ch. 1019)", flags="?")
 fight(2.444, "wano", "robin", "black_maria", "A", 2, note="Demonio Fleur (ch. 1021-1022)")
-fight(2.4442, "wano", "franky", "sasaki", "A", 2, note="Franky Shogun (env. ch. 1023)", flags="?")
-fight(2.4444, "wano", "jinbe", "who_s_who", "A", 2, note="Ancien CP9 (env. ch. 1024)", flags="?")
-fight(2.4445, "wano", "perospero", ["carrot", "wanda"], "A", 2, note="Onigashima (env. ch. 1017-1019)", flags="?")
-fight(2.4455, "wano", "big_mom", "page_one", "A", 3, note="Un seul coup (env. ch. 1028)", flags="?")
+fight(2.4446, "wano", "inuarashi", "jack", "A", 2, ta=["boost"], note="Sulong ; Oden Ittoryu: Inu Spire (ch. 1023-1026)")
+fight(2.4447, "wano", "nekomamushi", "perospero", "A", 2, ta=["boost"],
+      note="Sulong, d'abord dominé quand la lune se cache, puis Oden Ittoryu: Neko Niko Ban (ch. 1023-1026)")
+fight(2.4455, "wano", "killer", "hawkins", "A", 2,
+      note="Blessures d'abord renvoyées sur la poupée de Kid (ch. 1022) ; Killer lui coupe le bras et décapite l'homme de paille (ch. 1029)")
 fight(2.446, "wano", "sanji", "queen", "A", 2, ta=["boost"], note="Sanji éveille son corps modifié (ch. 1031-1034)")
 fight(2.4462, "wano", "zoro", "king", "A", 1, ta=["haki_roi"], note="Haki des rois imprégné et Enma, Kokujo O Tatsumaki ; King chute (ch. 1033-1035)")
-fight(2.4467, "wano", "killer", "hawkins", "A", 2, note="Killer venge Kid (env. ch. 1036)", flags="?")
-fight(2.4468, "wano", ["inuarashi", "nekomamushi"], ["jack", "perospero"], "A", 2, ta=["boost"],
-      note="Sulong sous la pleine lune (env. ch. 1036-1037)", flags="?")
-fight(2.447, "wano", "izo", "maha", "A", 1, tb=["surprise"], note="Izo l'emporte au prix de sa vie (env. ch. 1040)", flags="?")
+fight(2.447, "wano", "izo", "maha", "D", 1, note="Izo et Maha (CP0) s'entretuent (ch. 1038-1041)")
 fight(2.4472, "wano", ["law", "kid"], "big_mom", "A", 1, ta=["eveil"], tb=["epuise"],
-      note="Éveils de Law et Kid, Big Mom jetée dans la chambre magmatique (ch. 1039-1042)")
-fight(2.4473, "wano", "kinemon", "kanjuro", "A", 2, note="Kanjuro meurt de ses blessures (env. ch. 1046)", flags="?")
-fight(2.4474, "wano", "raizo", "fukurokuju", "A", 1, note="Raizo tient plus longtemps dans la pièce en feu (env. ch. 1047-1048)", flags="?")
+      note="Éveils de Law et Kid, Big Mom jetée par la cheminée jusqu'au dépôt d'armes (ch. 1039-1040)", flags="e")
+fight(2.4474, "wano", "raizo", "fukurokuju", "A", 1, note="Impasse de paralysie, puis Raizo tient plus longtemps dans la pièce en feu (ch. 1040-1046)")
 fight(2.4485, "wano", "kaido", "luffy", "A", 1, ta=["surprise"], tb=["haki_roi", "epuise"],
-      note="Guernica (CP0) immobilise Luffy et Kaido le frappe (ch. 1042-1043)", flags="?")
+      note="Le CP0 immobilise Luffy et Kaido le frappe (ch. 1042-1043)")
 fight(2.4486, "wano", "kaido", "guernica", "A", 3, note="Kaido punit le CP0 qui s'est mêlé du duel (ch. 1043)")
 fight(2.449, "wano", "luffy", "kaido", "A", 2, ta=["eveil", "haki_roi"], tb=["epuise"],
       note="Gear 5, Bajrang Gun ; Kaido tombe dans le magma (ch. 1044-1049)")
