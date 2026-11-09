@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Minato vs Itachi · animation v2</title>
+<style>
+html,body{margin:0;background:#07080b;color:#f2f2ee;font-family:'Inter',system-ui,sans-serif}
+canvas{display:block;width:100%;max-width:1080px;margin:0 auto;aspect-ratio:1080/960}
+#ui{max-width:1080px;margin:10px auto;display:flex;gap:12px;align-items:center;padding:0 16px;box-sizing:border-box}
+#ui button{font:600 15px inherit;background:#1d2029;color:#f2f2ee;border:1px solid #333743;border-radius:8px;padding:8px 14px;cursor:pointer}
+#ui input{flex:1;accent-color:#F5C542}
+#tt{font:13px ui-monospace,monospace;color:#a9abb3;min-width:64px;text-align:right}
+body.film #ui{display:none}
+</style></head><body>
+<canvas id="c" width="1080" height="960"></canvas>
+<div id="ui"><button id="pp">▶ Lecture</button><input type="range" id="sc" min="0" max="60" step="0.01" value="0"><span id="tt">0.0 s</span></div>
+<script id="data" type="application/json">__DATA__</script>
+<script>
+// renderAt(t) dessine l'image exacte à t secondes : lecture dans le navigateur ou rendu vidéo image par image.
+const D=JSON.parse(document.getElementById('data').textContent);
+const W=1080,H=960,K=1.6,C1=0.352,DUR=60;
+const GOLD='#F5C542',RED='#E5384F',GREY='#8A8D96',STEEL='#7FA7D9',INK='#F2F2EE',INK2='#A9ABB3',AMBER='#FF9F43',CYAN='#5BE0D0',BG='#07080b';
+const F="'Inter Display','Inter',system-ui,sans-serif";
+const cv=document.getElementById('c'),x=cv.getContext('2d');
+const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),lerp=(a,b,t)=>a+(b-a)*t;
+const eo=t=>1-Math.pow(1-cl(t),3),eio=t=>{t=cl(t);return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2};
+const back=t=>{t=cl(t);const c=1.9;return 1+(c+1)*Math.pow(t-1,3)+c*Math.pow(t-1,2)};
+const seg=(t,a,b)=>cl((t-a)/(b-a));
+const win=(t,a,b,fi=.35,fo=.35)=>Math.min(seg(t,a,a+fi),1-seg(t,b-fo,b));
+const hh=s=>{let h=7;for(const ch of s)h=(h*31+ch.charCodeAt(0))|0;return((h>>>0)%997)/997};
+function rng(s){return()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+
+// --- probabilités : même calcul que le modèle
+function odds(a,sa,b,sb){const mu=(a-b)*K,s=Math.hypot(sa,sb)*K;let pa=0,pb=0,ws=0;
+  for(let i=0;i<=600;i++){const z=-9+18*i/600,w=Math.exp(-.5*((z-mu)/s)**2);ws+=w;pa+=w*(1-1/(1+Math.exp(-(C1-z))));pb+=w/(1+Math.exp(C1+z))}
+  return [pa/ws,1-(pa+pb)/ws,pb/ws]}
+// croyance du modèle à chaque étape : départ = titres officiels, arrivée = modèle ajusté
+const KF=[[0,6.0,.5,5.5,.6],[12.6,6.0,.5,5.5,.6],[13.8,6.05,.47,5.5,.6],[19.6,6.05,.47,5.5,.6],[21,6.05,.47,5.85,.45],[24.8,6.05,.47,5.85,.45],[26.8,5.7,.6,5.75,.42],[34.4,5.7,.6,5.75,.42],[36.6,5.84,.635,5.671,.378]];
+function belief(t){let i=0;while(i<KF.length-1&&t>KF[i+1][0])i++;const a=KF[i],b=KF[Math.min(i+1,KF.length-1)];
+  if(a===b||t<=a[0])return a.slice(1);const u=eio((t-a[0])/(b[0]-a[0]));return a.slice(1).map((v,j)=>lerp(v,b[j+1],u))}
+const FIN=odds(5.84,.635,5.671,.378);
+
+// --- dessin
+function T(s,px,py,size,{w=800,c=INK,al='center',a=1,ls=0,bl='alphabetic',glow=0}={}){if(a<=0)return;x.save();x.globalAlpha*=a;x.font=`${w} ${size}px ${F}`;x.fillStyle=c;x.textAlign=al;x.textBaseline=bl;x.letterSpacing=ls+'px';if(glow){x.shadowColor=c;x.shadowBlur=glow}x.fillText(s,px,py);x.restore()}
+function rr(px,py,w,h,r){x.beginPath();x.roundRect(px,py,w,h,r)}
+const IMG={};const qs=new URLSearchParams(location.search);
+['minato','itachi','obito','kakashi','a4','killer_b'].forEach(id=>{const im=new Image();im.onload=()=>{IMG[id]=im;if(!playing)renderAt(tcur)};im.src=`img/${id}.png`});
+function node(px,py,r,col,name,ini,id,a=1,glow=0){if(a<=0||r<=0)return;x.save();x.globalAlpha*=a;
+  if(glow>0){x.shadowColor=col;x.shadowBlur=70*glow}
+  const g=x.createRadialGradient(px,py-r*.4,r*.1,px,py,r);g.addColorStop(0,'#2a2d38');g.addColorStop(1,'#12141a');
+  x.beginPath();x.arc(px,py,r,0,7);x.fillStyle=g;x.fill();x.shadowBlur=0;
+  const img=IMG[id];if(img){x.save();x.beginPath();x.arc(px,py,r,0,7);x.clip();const s=Math.max(2*r/img.naturalWidth,2*r/img.naturalHeight);x.drawImage(img,px-img.naturalWidth*s/2,py-img.naturalHeight*s/2,img.naturalWidth*s,img.naturalHeight*s);x.restore()}
+  else T(ini,px,py+r*.04,r*.8,{c:col,bl:'middle',w:900});
+  x.lineWidth=Math.max(3,r*.075);x.strokeStyle=col;x.beginPath();x.arc(px,py,r,0,7);x.stroke();
+  if(name)T(name.toUpperCase(),px,py+r+32,Math.max(19,r*.34),{c:INK,ls:2});x.restore()}
+function arrow(x1,y1,x2,y2,p,col,lw,{dash=false,head=true,a=1,flow=-1}={}){if(p<=0||a<=0)return;const ex=lerp(x1,x2,p),ey=lerp(y1,y2,p);x.save();x.globalAlpha*=a;x.strokeStyle=col;x.fillStyle=col;x.lineWidth=lw;x.lineCap='round';
+  if(dash)x.setLineDash([lw*1.6,lw*2.2]);x.beginPath();x.moveTo(x1,y1);x.lineTo(ex,ey);x.stroke();x.setLineDash([]);
+  if(head&&p>.15){const an=Math.atan2(y2-y1,x2-x1),hs=lw*3.2+6;x.beginPath();x.moveTo(ex,ey);x.lineTo(ex-hs*Math.cos(an-.45),ey-hs*Math.sin(an-.45));x.lineTo(ex-hs*Math.cos(an+.45),ey-hs*Math.sin(an+.45));x.closePath();x.fill()}
+  if(flow>=0&&p>=1){for(let k=0;k<3;k++){const u=((flow*.9+k/3)%1);x.beginPath();x.arc(lerp(x1,x2,u),lerp(y1,y2,u),lw*.9,0,7);x.globalAlpha=a*(1-Math.abs(u-.5)*1.6);x.shadowColor=col;x.shadowBlur=14;x.fill()}}
+  x.restore()}
+function card(cx,cy,w,kick,title,col,a){if(a<=0)return;x.save();x.globalAlpha*=a;const yy=cy+(1-a)*20;
+  rr(cx-w/2,yy,w,98,16);x.fillStyle='rgba(18,20,27,.94)';x.fill();x.lineWidth=2;x.strokeStyle=col;x.stroke();
+  T(kick,cx,yy+33,16,{c:col,ls:2.5,w:800});T(title,cx,yy+74,26,{w:800});x.restore()}
+
+// --- constellation : tous les combats codés de Naruto (force ↑, histoire →)
+const CX0=70,CX1=1010,CY0=236,CY1=790,mlo=-1,mhi=9;
+const NP=D.N.map(([a,m,c])=>({x:CX0+(a+.12+.76*hh(c))/D.narcs*(CX1-CX0),y:CY1-(m-mlo)/(mhi-mlo)*(CY1-CY0),c,a}));
+const ERANK=new Array(D.E.length);D.order.forEach((ei,r)=>ERANK[ei]=r);
+function constellation(t,alpha,draw,hiEdges){if(alpha<=0)return;x.save();x.globalAlpha=alpha;
+  const nE=D.E.length,shown=Math.floor(draw*nE);x.globalCompositeOperation='lighter';
+  if(draw<1&&t>4.3){const e=D.E[D.order[Math.max(0,shown-1)]];const sxp=Math.max(NP[e[0]].x,NP[e[1]].x);const lg=x.createLinearGradient(sxp-120,0,sxp+4,0);lg.addColorStop(0,'rgba(91,224,208,0)');lg.addColorStop(1,'rgba(91,224,208,.22)');x.fillStyle=lg;x.fillRect(sxp-120,CY0-20,124,CY1-CY0+40);x.fillStyle='rgba(91,224,208,.8)';x.fillRect(sxp,CY0-20,2,CY1-CY0+40)}
+  // arêtes
+  D.E.forEach((e,i)=>{const r=ERANK[i];if(r>=shown)return;const A=NP[e[0]],B=NP[e[1]];const fresh=cl(1-(shown-r)/18);
+    x.strokeStyle=fresh>0?`rgba(91,224,208,${.35+.6*fresh})`:'rgba(150,170,230,.30)';x.lineWidth=1.4+fresh*2;x.beginPath();x.moveTo(A.x,A.y);x.quadraticCurveTo((A.x+B.x)/2+(B.y-A.y)*.12,(A.y+B.y)/2-(B.x-A.x)*.12,B.x,B.y);x.stroke()});
+  // arêtes mises en lumière
+  if(hiEdges)hiEdges.forEach(([i,col,k])=>{if(k<=0)return;const e=D.E[i],A=NP[e[0]],B=NP[e[1]];x.save();x.globalAlpha=alpha*k;x.strokeStyle=col;x.lineWidth=3.2;x.shadowColor=col;x.shadowBlur=16;x.beginPath();x.moveTo(A.x,A.y);x.quadraticCurveTo((A.x+B.x)/2+(B.y-A.y)*.12,(A.y+B.y)/2-(B.x-A.x)*.12,B.x,B.y);x.stroke();x.restore()});
+  // points
+  const used=new Set();D.E.forEach((e,i)=>{if(ERANK[i]<shown){used.add(e[0]);used.add(e[1])}});
+  NP.forEach((p,i)=>{if(!used.has(i))return;const tw=.55+.45*Math.sin(t*2.3+i*1.7);x.beginPath();x.arc(p.x,p.y,7+tw*3,0,7);x.fillStyle=`rgba(120,190,255,${.06+.06*tw})`;x.fill();x.beginPath();x.arc(p.x,p.y,3+tw*1.4,0,7);x.fillStyle=`rgba(230,235,255,${.5+.45*tw})`;x.fill()});
+  x.restore()}
+function axes(a){if(a<=0)return;T('HISTOIRE  →',CX1,CY1+26,15,{al:'right',c:INK2,ls:3,w:800,a});x.save();x.translate(CX0-26,CY0+40);x.rotate(-Math.PI/2);T('FORCE  →',0,0,15,{al:'right',c:INK2,ls:3,w:800,a});x.restore()}
+
+// --- pluie de combats simulés
+const ND=500,nA=Math.round(FIN[0]*ND),nD=Math.round(FIN[1]*ND);
+const DOTS=(()=>{const r=rng(7);const lab=[];for(let i=0;i<ND;i++)lab.push(i<nA?0:i<nA+nD?1:2);for(let i=ND-1;i>0;i--){const j=Math.floor(r()*(i+1));[lab[i],lab[j]]=[lab[j],lab[i]]}
+  const cnt=[0,0,0];return lab.map((b,i)=>({b,k:cnt[b]++,t0:42.5+i*.0092,jx:(r()-.5)*420}))})();
+
+const CHAIN={M:[150,300],O:[420,300],Kk:[660,300],I:[930,300]};
+const SHAKES=[2.55,19.55,33.55,47.6];
+function shakeAt(t){let dx=0,dy=0,fl=0;SHAKES.forEach(s=>{const u=t-s;if(u>=0&&u<.45){const k=1-u/.45;dx+=Math.sin(u*90)*15*k;dy+=Math.cos(u*70)*10*k;fl=Math.max(fl,k*.3)}});return [dx,dy,fl]}
+const pctS=v=>Math.round(v*100)+' %';
+const fmt=n=>String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ');
+
+function renderAt(t){
+  x.setTransform(1,0,0,1,0,0);
+  const g=x.createRadialGradient(W/2,H*.42,40,W/2,H*.42,H*.95);g.addColorStop(0,'#141826');g.addColorStop(1,BG);x.fillStyle=g;x.fillRect(0,0,W,H);
+  const [sx,sy,fl]=shakeAt(t);x.translate(sx,sy);
+
+  // ---------- constellation (fond vivant de tout le film)
+  const draw=t<4?.18+.05*Math.sin(t):eio(seg(t,4.4,8.2))*.82+.18;
+  const cA=t<4?.28:t<9.4?lerp(.28,1,eo(seg(t,4,4.7))):t<42?lerp(1,.16,eio(seg(t,9.4,10.4))):t<50?lerp(.16,.06,seg(t,42,43)):lerp(.06,0,seg(t,50,51));
+  const hi=[];
+  if(t>11&&t<28.6){const k=win(t,11.2,28.6,.4,.6);hi.push([D.key.MO,GOLD,k*(1+.0)]);}
+  if(t>14.6&&t<28.6)hi.push([D.key.OK,INK,win(t,14.8,28.6,.4,.6)]);
+  if(t>18.6&&t<28.6)hi.push([D.key.IK,RED,win(t,18.8,28.6,.4,.6)]);
+  // scintillement des chaînes Minato → Itachi
+  let pathK=0;if(t>21.2&&t<23.6){pathK=win(t,21.2,23.6,.2,.4);const i0=Math.floor((t-21.2)*40);for(let j=0;j<10;j++){const p=D.paths[(i0+j*7)%D.paths.length];p.forEach(ei=>hi.push([ei,CYAN,pathK*.85]))}}
+  const cBoost=pathK>0?lerp(cA,.55,pathK):cA;
+  constellation(t,cBoost,draw,hi);
+  axes(win(t,5,9.6,.5,.4));
+
+  // en-tête
+  T('THE REAL ODDS',40,62,22,{al:'left',c:INK2,ls:5,w:800});
+  rr(W-170,34,130,40,20);x.fillStyle='rgba(29,32,41,.9)';x.fill();T('NARUTO',W-105,61,18,{c:INK2,ls:3,w:800});
+  const caps=[[4.2,9.8,'LE MODÈLE : TOUS LES COMBATS DU MANGA'],[10,23.4,'1 · QUI A BATTU QUI'],[23.4,28.6,'2 · OUI, MAIS QUAND ?'],[28.6,42,'3 · LE VRAI CLASH'],[42,50,'4 · LE VERDICT'],[50,56,'RESPECT À ITACHI']];
+  caps.forEach(([a,b,s])=>{const k=win(t,a,b,.3,.25);T(s,W/2,132+(1-k)*14,29,{a:k,ls:3,c:INK,w:900})});
+
+  // ---------- 0-4 s : accroche
+  if(t<4.6){const a1=win(t,0,3.0,.25,.5);T("LES FANS D'ITACHI,",W/2,380-eo(seg(t,0,.5))*20,74,{a:a1,w:900});
+    const k=seg(t,1.0,1.35),sc=lerp(1.9,1,back(k));x.save();x.translate(W/2,520);x.scale(sc,sc);T('ASSEYEZ-VOUS.',0,0,112,{a:k*win(t,1,3.0,.01,.5),c:GOLD,w:900,glow:30});x.restore();}
+
+  // ---------- personnages : entrée, plongée dans la constellation, puis chaîne
+  const enter=eo(seg(t,2.4,3.0));
+  const toStar=eio(seg(t,4.0,4.9)),fromStar=eio(seg(t,9.2,10.2));
+  const mStar=NP[D.mi],iStar=NP[D.ii];
+  let mx=lerp(-200,300,enter),ix=lerp(W+200,780,enter),my=480,iy=480,nr=118;
+  mx=lerp(mx,mStar.x,toStar);my=lerp(my,mStar.y,toStar);ix=lerp(ix,iStar.x,toStar);iy=lerp(iy,iStar.y,toStar);nr=lerp(nr,26,toStar);
+  mx=lerp(mx,CHAIN.M[0],fromStar);my=lerp(my,CHAIN.M[1],fromStar);ix=lerp(ix,CHAIN.I[0],fromStar);iy=lerp(iy,CHAIN.I[1],fromStar);nr=lerp(nr,62,fromStar);
+  const s4=eio(seg(t,28.6,30)),s4out=eio(seg(t,41,42.2));
+  const mX=lerp(mx,300,s4*(1-s4out)),mY=lerp(my,430,s4*(1-s4out)),mR=lerp(nr,96,s4*(1-s4out));
+  const iA=1-s4*(1-s4out),vHide=1-win(t,42,50.2,.4,.01);
+  if(t>2.4&&t<4.6){const k=win(t,2.5,4.1,.15,.3);x.save();x.translate(W/2,480);const s=lerp(1.6,1,back(seg(t,2.5,2.8)));x.scale(s,s);T('VS',0,0,96,{a:k,c:INK,w:900,bl:'middle'});x.restore()}
+  const mGlow=(t>33.4&&t<42?.6+.4*Math.sin(t*5):0)+(t>4.9&&t<9.4?.5+.5*Math.sin(t*6):0);
+  const iGlow=t>4.9&&t<9.4?.5+.5*Math.sin(t*6+1):0;
+  if(t<50.2){node(mX,mY,mR,GOLD,toStar>.5&&fromStar<.5?'':'Minato','M','minato',vHide,mGlow);node(ix,iy,nr,RED,toStar>.5&&fromStar<.5?'':'Itachi','I','itachi',iA*vHide,iGlow)}
+  // étiquettes dans la constellation
+  const lab=win(t,5.2,9.2,.4,.3);T('MINATO · nuit de Kyûbi',mStar.x-36,mStar.y+6,19,{al:'right',c:GOLD,w:800,a:lab});T('ITACHI · partie 1',iStar.x+36,iStar.y+6,19,{al:'left',c:RED,w:800,a:lab});
+
+  // ---------- 4-10 s : compteurs et fil des combats
+  if(t>4.2&&t<10){const a=win(t,4.3,9.9,.3,.4);const u=eio(seg(t,4.4,8.2));
+    const nShown=Math.floor(u*D.E.length);const idx=D.order[Math.max(0,Math.min(D.E.length-1,nShown-1))];
+    rr(70,170,940,46,12);x.save();x.globalAlpha=a*.92;x.fillStyle='rgba(12,14,20,.85)';x.fill();x.restore();
+    T('●',94,201,14,{c:CYAN,a:a*(.5+.5*Math.sin(t*20)),al:'left'});T(D.tick[idx]||'',116,201,19,{al:'left',c:INK,w:600,a});
+    const items=[[D.nf,'COMBATS'],[D.nc,'PERSONNAGES'],[D.narcs,'ARCS'],[D.nst+D.nor,'PREUVES OFFICIELLES']];
+    items.forEach(([n,l],i)=>{const cx=150+i*260,k=eo(seg(t,4.6+i*.35,6.8+i*.35));T(fmt(n*k),cx,890,54,{w:900,a,c:i===3?GOLD:INK});T(l,cx,926,16,{c:INK2,ls:3,w:800,a})});
+  }
+
+  // étiquettes d'a priori
+  const tagA=win(t,10.2,11.4,.3,.4);
+  T('départ : 4e Hokage',CHAIN.M[0]-60,442,19,{a:tagA,c:GOLD,w:700,al:'left'});T('départ : rang S',CHAIN.I[0]+60,442,19,{a:tagA,c:RED,w:700,al:'right'});
+
+  // ---------- 10-28 s : la chaîne
+  const chainA=1-seg(t,28.4,29.4);
+  if(t>10&&t<29.5){
+    const oPop=back(seg(t,10.3,10.75)),kPop=back(seg(t,14,14.45));const thin=eio(seg(t,24.6,26.4));
+    arrow(CHAIN.M[0]+66,300,CHAIN.O[0]-62,300,eo(seg(t,10.9,12.2)),GOLD,lerp(9,3,thin),{a:chainA*lerp(1,.5,thin),flow:t});
+    arrow(CHAIN.O[0]+62,300,CHAIN.Kk[0]-62,300,eo(seg(t,14.6,15.6)),GREY,6,{dash:true,head:false,a:chainA});
+    if(t>15.4)T('=',540,288,52,{a:chainA*seg(t,15.4,15.8),c:INK,w:900,bl:'middle'});
+    arrow(CHAIN.I[0]-66,300,CHAIN.Kk[0]+62,300,eo(seg(t,18.3,19.5)),RED,lerp(9,3,thin),{a:chainA*lerp(1,.5,thin),flow:t});
+    if(oPop>0){x.save();x.translate(CHAIN.O[0],300);x.scale(oPop,oPop);node(0,0,56,GREY,'Obito','O','obito',chainA);x.restore()}
+    if(kPop>0){x.save();x.translate(CHAIN.Kk[0],300);x.scale(kPop,kPop);node(0,0,56,GREY,'Kakashi','K','kakashi',chainA);x.restore()}
+    const cardsA=chainA*(1-seg(t,23.4,24));
+    card(285,412,236,'NUIT DE KYÛBI','Minato bat Obito',GOLD,cardsA*eo(seg(t,11.6,12.3)));
+    card(540,412,236,'DIMENSION KAMUI','Égalité',GREY,cardsA*eo(seg(t,15.2,15.9)));
+    card(795,412,236,'TSUKUYOMI','Itachi plie Kakashi',RED,cardsA*eo(seg(t,19.2,19.9)));
+    // les 350 chaînes
+    if(pathK>0){const n=Math.round(D.npaths*eo(seg(t,21.3,22.6)));T('+ '+n+' CHAÎNES DE COMBATS',W/2,190,34,{c:CYAN,w:900,a:pathK,glow:20});T('relient Minato à Itachi dans le manga',W/2,226,20,{c:INK,w:700,a:pathK})}
+    // frise du temps
+    if(t>23.4){const a=win(t,23.6,28.6,.4,.5);const X0=110,X1=970,Y=590,tl=v=>X0+(v+5)/(18+5)*(X1-X0);
+      x.save();x.globalAlpha=a;x.strokeStyle='rgba(255,255,255,.25)';x.lineWidth=3;x.beginPath();x.moveTo(X0,Y);x.lineTo(X1,Y);x.stroke();x.restore();
+      [[-4,'3e guerre'],[0,'Kyûbi'],[12.6,'Partie 1'],[17,'4e guerre']].forEach(([v,s])=>{T(s,tl(v),Y+34,16,{c:INK2,w:700,a});x.save();x.globalAlpha=a;x.fillStyle='rgba(255,255,255,.4)';x.fillRect(tl(v)-1,Y-6,2,12);x.restore()});
+      const ev=[[0,GOLD,'Minato bat Obito','Obito a 15 ans',24.0],[12.9,RED,'Itachi plie Kakashi','Kakashi jeune',24.5],[17,GREY,'Obito = Kakashi','des années après',25.0]];
+      ev.forEach(([v,col,s,sub,t0],j)=>{const k=back(seg(t,t0,t0+.4));if(k<=0)return;const px=tl(v),py=Y-60-(j===1?0:0);
+        x.save();x.globalAlpha=a;x.beginPath();x.arc(px,Y,9*k,0,7);x.fillStyle=col;x.shadowColor=col;x.shadowBlur=18;x.fill();x.restore();
+        const lx=j===0?px+10:j===1?px-10:px;T(s,lx,Y-58+(j===2?-34:0),21,{c:col,w:800,a:a*k,al:j===0?'left':j===1?'right':'center'});T(sub,lx,Y-32+(j===2?-34:0),17,{c:AMBER,w:700,a:a*seg(t,t0+.4,t0+.8),al:j===0?'left':j===1?'right':'center'})});
+      // lien qui s'étire : l'écart dans le temps affaiblit ce que chaque combat dit de l'autre
+      const st=eio(seg(t,25.4,26.6));if(st>0){x.save();x.globalAlpha=a;x.setLineDash([6,8]);x.lineWidth=3;x.strokeStyle=AMBER;x.beginPath();x.moveTo(tl(0),Y+60);x.lineTo(lerp(tl(0),tl(17),st),Y+60);x.stroke();x.beginPath();x.moveTo(tl(12.9),Y+74);x.lineTo(lerp(tl(12.9),tl(17),st),Y+74);x.stroke();x.restore();
+        T('plus l’écart est grand, moins le combat compte',W/2,Y+112,22,{c:AMBER,w:800,a:a*seg(t,26,26.5)})}
+    }
+  }
+  // ---------- 28-42 s : Raikage + Killer B, puis les preuves officielles
+  if(t>29.4&&t<42.6){const a=win(t,29.6,42.4,.4,.5);
+    const p1=back(seg(t,30.2,30.7)),p2=back(seg(t,30.7,31.2));
+    T('3E GRANDE GUERRE NINJA',W/2,196,22,{a:a*seg(t,29.8,30.3),c:INK2,ls:4,w:800});
+    const ln=(bx,by)=>{const an=Math.atan2(by-430,bx-300);arrow(300+100*Math.cos(an),430+100*Math.sin(an),bx-72*Math.cos(an),by-72*Math.sin(an),eo(seg(t,32.4,33.5)),GOLD,7,{dash:true,head:false,a})};ln(760,310);ln(800,540);
+    if(p1>0){x.save();x.translate(760,310);x.scale(p1,p1);node(0,0,66,STEEL,'Raikage','A','a4',a);x.restore()}
+    if(p2>0){x.save();x.translate(800,540);x.scale(p2,p2);node(0,0,66,STEEL,'Killer B','B','killer_b',a);x.restore()}
+    const sub=1-seg(t,36.6,37.1);
+    const k=seg(t,33.5,33.85);x.save();x.translate(W/2,716);const s=lerp(1.7,1,back(k));x.scale(s,s);T('TIENT TÊTE AUX DEUX',0,0,64,{a:a*k*sub,c:GOLD,w:900,glow:24});x.restore();
+    T('Seul. En même temps.',W/2,770,28,{a:a*seg(t,35,35.5)*sub,c:INK,w:700});
+    // preuves officielles qui tombent comme des tampons
+    const st=[[37.1,'RAIKAGE ET JIRAIYA','« Minato, le plus rapide de son temps »',GOLD],[38.0,'TITRE OFFICIEL','4e Hokage, choisi pour ses exploits',GOLD],[38.9,'ET POUR TOUT LE MONDE',`${D.nst} statuts · ${D.nor} hiérarchies · 3 databooks`,CYAN]];
+    st.forEach(([t0,k1,k2,col],j)=>{const u=back(seg(t,t0,t0+.3));if(u<=0)return;const y=668+j*0-0;x.save();const yy=640+j*0;x.translate(W/2,660+j*58);const s=lerp(1.5,1,u);x.scale(s,s);x.rotate((j-1)*.012);
+      x.globalAlpha=a*cl(u);rr(-400,-25,800,50,12);x.fillStyle='rgba(14,16,22,.94)';x.fill();x.lineWidth=2;x.strokeStyle=col;x.stroke();
+      T(k1,-380,6,15,{al:'left',c:col,ls:2.5,w:900});T(k2,380,7,20,{al:'right',c:INK,w:700});x.restore()});
+  }
+  // ---------- courbes de croyance
+  const curA=t<10?0:t<23.4?seg(t,10,11):t<28.6?1-seg(t,23.4,23.9):0;
+  const [mA,sA,mI,sI]=belief(t);
+  if(curA>0){const yBase=770,hMax=190,X0=90,X1=990,lo=3.8,hi=7.8,xs=v=>X0+(v-lo)*(X1-X0)/(hi-lo);
+    x.save();x.globalAlpha=curA;x.strokeStyle='rgba(255,255,255,.14)';x.lineWidth=2;x.beginPath();x.moveTo(X0,yBase);x.lineTo(X1,yBase);x.stroke();
+    for(let v=4;v<=7.5;v+=1)T(String(v),xs(v),yBase+26,15,{c:INK2,w:600});T('FORCE ESTIMÉE (échelons)',X1,yBase+26,14,{al:'right',c:INK2,ls:1.5,w:700});
+    [[mA,sA,GOLD,mA>=mI],[mI,sI,RED,mI>mA]].forEach(([m,s,c,right])=>{const pk=hMax*.378/s;x.beginPath();for(let i=0;i<=180;i++){const v=lo+(hi-lo)*i/180,y=yBase-pk*Math.exp(-.5*((v-m)/s)**2);i?x.lineTo(xs(v),y):x.moveTo(xs(v),y)}
+      x.lineWidth=4;x.strokeStyle=c;x.shadowColor=c;x.shadowBlur=12;x.stroke();x.shadowBlur=0;x.lineTo(xs(hi),yBase);x.lineTo(xs(lo),yBase);x.closePath();x.globalAlpha*=.16;x.fillStyle=c;x.fill();x.globalAlpha/=.16;
+      T(m.toFixed(1),xs(m)+(right?12:-12),yBase-pk-12,22,{c,w:800,al:right?'left':'right'})});x.restore()}
+
+  // ---------- 42-50 s : le verdict
+  if(t>42&&t<50.4){const a=win(t,42.2,50.3,.3,.4);const bx=[250,540,830],cols=[GOLD,GREY,RED],base=716,cs=18,gap=13;
+    const n=Math.min(4000,4000*eo(seg(t,42.5,47.2)));T(fmt(n)+' COMBATS SIMULÉS',W/2,200,24,{a,c:INK2,ls:4,w:800});
+    x.save();x.globalAlpha*=a;
+    DOTS.forEach(d=>{const u=seg(t,d.t0,d.t0+.6);if(u<=0)return;const col=d.k%cs,row=Math.floor(d.k/cs);const tx=bx[d.b]+(col-(cs-1)/2)*gap,ty=base-row*gap;
+      const px=lerp(W/2+d.jx,tx,eio(u)),py=lerp(230,ty,u*u);x.beginPath();x.arc(px,py,4.8,0,7);x.fillStyle=cols[d.b];x.fill()});x.restore();
+    const cnt=[0,0,0];DOTS.forEach(d=>{if(t>=d.t0+.6)cnt[d.b]++});
+    ['MINATO','NUL','ITACHI'].forEach((s,i)=>{T(s,bx[i],758,22,{a,c:cols[i],ls:3,w:900});const tot=i===0?nA:i===1?nD:ND-nA-nD;T(Math.round(FIN[i]*100*cnt[i]/tot)+' %',bx[i],base-Math.ceil(tot/cs)*gap-24,46,{a:a*seg(t,42.8,43.2),c:INK,w:900})});
+    const k=seg(t,47.6,48);x.save();x.translate(W/2,290);const s=lerp(1.6,1,back(k));x.scale(s,s);T('MINATO PASSE DEVANT',0,0,62,{a:a*k,c:GOLD,w:900,glow:30});x.restore();
+  }
+  // ---------- 50-56 s : respect, tout le casting
+  if(t>50&&t<56.3){const a=win(t,50.1,56.2,.4,.4);const n=D.cast.length,cols=13,gx=56,gy=44,X0=W/2-(cols-1)*gx/2,Y0=246;
+    let lit=0;D.cast.forEach((r,i)=>{const cx=X0+(i%cols)*gx,cy=Y0+Math.floor(i/cols)*gy;const ord=n-1-i;const on=r[2]&&t>50.6+ord*.016;if(on)lit++;
+      x.save();x.globalAlpha=a*cl((t-50.2-i*.004)/.3);x.beginPath();x.arc(cx,cy,on?11:9,0,7);x.fillStyle=on?RED:'rgba(255,255,255,.14)';if(on){x.shadowColor=RED;x.shadowBlur=12}x.fill();x.restore()});
+    const top=D.cast.filter(r=>!r[2]).slice(0,5).map(r=>r[0]).join(', ');T('en gris, ceux qu’il ne bat pas : '+top+'…',W/2,800,19,{a:a*seg(t,52,52.5),c:INK2,w:700});
+    const pct=Math.round(lit/n*100);T(pct+' %',W/2,720,96,{a,c:INK,w:900});T('DU CASTING BATTU PAR ITACHI',W/2,762,20,{a,c:INK2,ls:3,w:800});
+    T('Surcoté ? Jamais.',W/2,212,36,{a:a*seg(t,53,53.5),c:RED,w:900,glow:20});}
+  // ---------- 56-60 s : appel aux commentaires
+  if(t>55.8){const a=seg(t,55.9,56.4),pulse=1+.04*Math.sin(t*7);x.save();x.translate(W/2,380);x.scale(pulse,pulse);T('ET TOI ?',0,0,150,{a,c:GOLD,w:900,glow:30});x.restore();
+    T('Ton argument en commentaire',W/2,500,44,{a:seg(t,56.5,57),w:800});T('↓',W/2,590+Math.sin(t*6)*10,70,{a:seg(t,56.8,57.2),c:GOLD,w:900});
+    T('S’il tient, je corrige le modèle.',W/2,700,28,{a:seg(t,57.5,58),c:INK2,w:700});}
+  // ---------- barre de probabilités
+  const bA=seg(t,9.8,10.5);
+  if(bA>0&&t<56){x.save();x.globalAlpha*=bA*(1-seg(t,55.4,56));const [pa,pd,pb]=t>=42?FIN:odds(mA,sA,mI,sI);const X0=40,Wb=W-80,Y=850,Hb=34;
+    rr(X0,Y,Wb,Hb,10);x.fillStyle='#1d2029';x.fill();
+    const g1=Wb*pa,g2=Wb*pd;x.save();rr(X0,Y,Wb,Hb,10);x.clip();x.fillStyle=GOLD;x.fillRect(X0,Y,g1-2,Hb);x.fillStyle='#4a4d57';x.fillRect(X0+g1+2,Y,g2-4,Hb);x.fillStyle=RED;x.fillRect(X0+g1+g2+2,Y,Wb-g1-g2-2,Hb);
+    const sh=(t*.35)%1;const sg=x.createLinearGradient(X0+Wb*(sh-.15),0,X0+Wb*(sh+.15),0);sg.addColorStop(0,'rgba(255,255,255,0)');sg.addColorStop(.5,'rgba(255,255,255,.22)');sg.addColorStop(1,'rgba(255,255,255,0)');x.fillStyle=sg;x.fillRect(X0,Y,Wb,Hb);x.restore();
+    T('MINATO',X0,836,20,{al:'left',c:GOLD,ls:3,w:900});T('ITACHI',X0+Wb,836,20,{al:'right',c:RED,ls:3,w:900});
+    T(pctS(pa),X0,930,44,{al:'left',w:900});T(pctS(pb),X0+Wb,930,44,{al:'right',w:900});T('nul '+pctS(pd),X0+g1+g2/2,922,20,{c:INK2,w:700});
+    const tight=win(t,26.8,32,.3,.5);if(tight>0)T('SERRÉ',W/2,836,20,{c:AMBER,ls:4,w:900,a:tight});
+    x.restore()}
+  if(fl>0){x.setTransform(1,0,0,1,0,0);x.fillStyle=`rgba(255,255,255,${fl})`;x.fillRect(0,0,W,H)}
+}
+window.renderAt=renderAt;
+let playing=false,t0=0,tcur=0;const pp=document.getElementById('pp'),sc=document.getElementById('sc'),tt=document.getElementById('tt');
+function frame(now){if(!playing)return;tcur=(now-t0)/1000;if(tcur>=DUR){tcur=DUR;playing=false;pp.textContent='▶ Lecture'}sc.value=tcur;tt.textContent=tcur.toFixed(1)+' s';renderAt(tcur);if(playing)requestAnimationFrame(frame)}
+pp.onclick=()=>{if(playing){playing=false;pp.textContent='▶ Lecture';return}if(tcur>=DUR)tcur=0;playing=true;pp.textContent='❚❚ Pause';t0=performance.now()-tcur*1000;requestAnimationFrame(frame)};
+sc.oninput=()=>{tcur=+sc.value;tt.textContent=tcur.toFixed(1)+' s';if(playing)t0=performance.now()-tcur*1000;renderAt(tcur)};
+if(qs.has('film'))document.body.classList.add('film');
+(document.fonts?document.fonts.ready:Promise.resolve()).then(()=>renderAt(qs.has('t')?+qs.get('t'):0));
+</script></body></html>
