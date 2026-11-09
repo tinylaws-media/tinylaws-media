@@ -10,6 +10,8 @@ Egghead 2.5-2.55, Elbaf 2.6+. God Valley -38, exécution de Roger -22.
 """
 
 STATUS = [
+    ("loki", 2.6, 6.8, 0.6, "Prince d'Elbaf, fruit mythique, prime 2,6 Mds ; Luffy ne le bat qu'enchaîné (ch. 1130-1143)"),
+    ("gaban", 2.6, 6.8, 0.6, "Bras gauche de Roger, toujours de premier plan à Elbaf (ch. 1159-1190)"),
     # ---------------- Légendes et God Valley ----------------
     ("rocks", -38.0, 8.5, 0.6, "Capitaine des pirates de Rocks, chef de Whitebeard, Big Mom, Kaido ; il faut l'alliance Roger + Garp pour l'abattre (ch. 957, 1096, 1165-1166)"),
     ("roger", -24.0, 8.0, 0.5, "Roi des pirates, prime record 5,564 Mds (ch. 957)"),
@@ -50,9 +52,9 @@ STATUS = [
     ("buggy", 0.1, 2.0, 0.6, "Boss d'East Blue, prime 15 M (ch. 9-20)"),
     ("buggy", -24.0, 1.0, 1.0, "Apprenti de l'équipage de Roger (ch. 966)"),
     # ---------------- Équipage de Roger, Oden ----------------
-    ("rayleigh", -24.0, 6.5, 0.6, "« Roi des Ténèbres », bras droit du Roi des pirates (ch. 506)"),
+    ("rayleigh", -24.0, 7.2, 0.6, "« Roi des Ténèbres », bras droit du Roi des pirates (ch. 506)"),
     ("rayleigh", 0.85, 6.0, 0.7, "Ancien second de Roger, âgé, tient tête à Kizaru (ch. 506-510)"),
-    ("gaban", -24.0, 6.0, 0.8, "Bras gauche de Roger, « Gaban le Hache de guerre » (ch. 1096)"),
+    ("gaban", -24.0, 7.2, 0.6, "Bras gauche de Roger, « Gaban le Hache de guerre » (ch. 1096)"),
     ("oden", -24.0, 6.5, 0.7, "Daimyo de Kuri, membre de l'équipage de Roger, respecté par Whitebeard et Kaido (ch. 960-972)"),
     ("nekomamushi", -24.0, 4.5, 0.8, "Mousse puis membre de l'équipage de Roger (ch. 967)"),
     ("inuarashi", -24.0, 4.5, 0.8, "Mousse puis membre de l'équipage de Roger (ch. 967)"),
@@ -81,7 +83,7 @@ STATUS = [
     ("akainu", 2.0, 7.0, 0.6, "Amiral en chef après avoir vaincu Aokiji en duel (ch. 594, 907)"),
     ("akainu", 2.5, 7.0, 0.6, "Amiral en chef (ch. 1080-1087)"),
     ("aokiji", 0.9, 6.0, 0.6, "Amiral (ch. 552)"),
-    ("aokiji", 2.45, 6.0, 0.7, "Capitaine de navire titanesque de Barbe Noire (ch. 1059-1082)"),
+    ("aokiji", 2.45, 6.6, 0.6, "Ancien amiral, presque l'égal d'Akainu, capitaine titanesque de Barbe Noire (ch. 699, 1059-1082)"),
     ("kizaru", 0.9, 6.0, 0.6, "Amiral (ch. 552)"),
     ("kizaru", 2.5, 6.0, 0.6, "Amiral à Egghead (ch. 1091-1121)"),
     ("fujitora", 2.2, 6.0, 0.6, "Amiral nommé après l'ellipse (ch. 700)"),
@@ -103,8 +105,8 @@ STATUS = [
     ("sadi", 0.9, 3.0, 0.8, "Chef des gardiennes d'Impel Down (ch. 531)"),
     # ---------------- Shichibukai ----------------
     ("mihawk", 0.3, 6.0, 0.7, "Shichibukai et « plus grand sabreur du monde » (ch. 50-51)"),
-    ("mihawk", 0.9, 6.0, 0.7, "Plus grand sabreur du monde, Shichibukai, ancien rival de Shanks (ch. 434, 553)"),
-    ("mihawk", 2.45, 6.5, 0.7, "Cofondateur de Cross Guild, prime 3,59 Mds (ch. 1058)"),
+    ("mihawk", 0.9, 6.8, 0.6, "Plus grand sabreur du monde, ancien rival de Shanks dans des duels « qui ébranlaient Grand Line » (ch. 434, 553)"),
+    ("mihawk", 2.45, 7.0, 0.6, "Plus grand sabreur du monde, cofondateur de Cross Guild, prime 3,59 Mds (ch. 1058)"),
     ("crocodile", 0.4, 4.0, 0.6, "Shichibukai, chef de Baroque Works (ch. 155)"),
     ("crocodile", 2.45, 5.0, 0.7, "Cofondateur de Cross Guild, prime 1,965 Md (ch. 1058)"),
     ("doflamingo", 0.9, 4.0, 0.6, "Shichibukai (ch. 233, 553)"),
@@ -307,8 +309,10 @@ ORDER = [
     ("imu", 2.65, "shamrock", 2.6, 2.0, 0.8, "Les Chevaliers divins servent Imu (ch. 1086, 1138)"),
     # ---------- Ère de Roger ----------
     ("roger", -24.0, "whitebeard", -24.0, 0.3, 0.6, "Roi des pirates, prime 5,564 Mds contre 5,046 ; Whitebeard reconnaît qu'il n'atteindra pas le One Piece (ch. 957, 966)"),
-    ("roger", -24.0, "rayleigh", -24.0, 0.8, 0.6, "Capitaine et son second (ch. 506, 966)"),
-    ("roger", -24.0, "gaban", -24.0, 1.0, 0.7, "Capitaine et son bras gauche (ch. 966, 1096)"),
+    ("roger", -24.0, "rayleigh", -24.0, 0.4, 0.6, "Capitaine et son second (ch. 506, 966)"),
+    ("roger", -24.0, "gaban", -24.0, 0.4, 0.6, "Capitaine et son bras gauche (ch. 966, 1096)"),
+    ("rayleigh", -24.0, "gaban", -24.0, -0.3, 0.4, "Bras droit et bras gauche du Roi des pirates, présentés d'égal à égal (ch. 966, 1096)"),
+    ("gaban", -24.0, "rayleigh", -24.0, -0.3, 0.4, "Bras droit et bras gauche du Roi des pirates, présentés d'égal à égal (ch. 966, 1096)"),
     ("roger", -24.0, "oden", -24.0, 0.7, 0.7, "Oden rejoint l'équipage de Roger comme membre (ch. 966-968)"),
     ("whitebeard", -24.0, "kaido", -20.0, 1.0, 0.8, "Whitebeard au sommet, « homme le plus fort du monde », quand Kaido monte en puissance (ch. 552, 966)"),
     # ---------- Whitebeard ----------
@@ -319,6 +323,7 @@ ORDER = [
     ("marco", 0.9, "ace", 0.9, 0.3, 0.8, "1er commandant contre 2e commandant (ch. 552)"),
     # ---------- Marine ----------
     ("akainu", 2.0, "aokiji", 0.95, 0.3, 0.7, "Akainu remporte le duel de 10 jours à Punk Hazard pour le poste d'amiral en chef (ch. 594, 699)"),
+    ("aokiji", 1.5, "akainu", 1.5, -0.4, 0.4, "Duel de 10 jours qui change le climat de Punk Hazard, gagné de justesse par Akainu : les deux sont presque égaux (ch. 699)"),
     ("akainu", 2.5, "kizaru", 2.5, 0.6, 0.6, "L'amiral en chef commande les amiraux ; Kizaru est un pair d'Aokiji, vaincu par Akainu (ch. 594, 907, 1080)"),
     ("akainu", 2.2, "fujitora", 2.2, 0.6, 0.6, "Amiral en chef au-dessus des amiraux recrutés après l'ellipse (ch. 700, 907)"),
     ("akainu", 2.45, "ryokugyu", 2.45, 0.6, 0.6, "Amiral en chef au-dessus des amiraux recrutés après l'ellipse (ch. 907, 1054)"),
@@ -343,7 +348,8 @@ ORDER = [
     ("blackbeard", 2.45, "pizarro", 2.45, 1.2, 0.6, "Empereur et son capitaine titanesque (ch. 925)"),
     ("blackbeard", 2.45, "aokiji", 2.45, 0.3, 0.9, "L'ancien amiral Kuzan sert désormais Barbe Noire (ch. 925, 1059)"),
     ("shanks", 2.5, "ryokugyu", 2.45, 0.8, 0.7, "Ryokugyu renonce face au seul Haki des rois de Shanks (ch. 1055, 1079)"),
-    ("shanks", 2.45, "mihawk", 2.45, 0.3, 0.9, "Empereur ; Mihawk a cessé leurs duels « qui ébranlaient Grand Line » après la perte du bras de Shanks (ch. 434)"),
+    ("shanks", -15.0, "mihawk", -15.0, -0.3, 0.4, "Rivaux dont les duels « ébranlaient Grand Line » (ch. 434)"),
+    ("mihawk", -15.0, "shanks", -15.0, -0.3, 0.4, "Rivaux dont les duels « ébranlaient Grand Line » (ch. 434)"),
     # ---------- Straw Hats et Pire Génération ----------
     ("luffy", 2.45, "zoro", 2.45, 0.9, 0.6, "Empereur et son « aile » : Luffy vainc Kaido, Zoro vainc King (ch. 1035, 1049, 1053)"),
     ("luffy", 2.45, "sanji", 2.45, 1.0, 0.6, "Empereur et son « aile » : Luffy vainc Kaido, Sanji vainc Queen (ch. 1031-1053)"),
@@ -351,7 +357,7 @@ ORDER = [
     ("luffy", 2.45, "kid", 2.45, 0.8, 0.7, "Luffy seul est promu Empereur ; Law et Kid ont dû s'unir contre Big Mom (ch. 1038-1053)"),
     ("luffy", 2.45, "jinbe", 2.45, 1.2, 0.6, "Empereur et son timonier (ch. 976, 1053)"),
     ("zoro", 2.45, "sanji", 2.45, 0.2, 0.9, "Zoro, vice-capitaine de fait, prime 1,111 Md contre 1,032 (ch. 1053)"),
-    ("mihawk", 2.45, "zoro", 2.45, 0.6, 0.7, "Mihawk reste le plus grand sabreur du monde que Zoro cherche à dépasser, prime 3,59 Mds (ch. 51, 597, 1058)"),
+    ("mihawk", 2.6, "zoro", 2.6, 0.8, 0.4, "Mihawk reste le plus grand sabreur du monde que Zoro cherche à dépasser, prime 3,59 Mds (ch. 51, 597, 1058)"),
     ("mihawk", 2.45, "crocodile", 2.45, 0.8, 0.7, "Cross Guild : Mihawk 3,59 Mds contre Crocodile 1,965 Md, Buggy simple façade (ch. 1058)"),
     ("mihawk", 2.45, "buggy", 2.45, 2.0, 0.7, "Buggy est le chef de façade de Cross Guild, Mihawk et Crocodile le dominent (ch. 1058)"),
     ("crocodile", 2.45, "buggy", 2.45, 1.0, 0.8, "Buggy est le chef de façade de Cross Guild (ch. 1058)"),

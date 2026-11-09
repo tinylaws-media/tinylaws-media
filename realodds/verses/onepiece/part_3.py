@@ -138,7 +138,7 @@ fight(2.5160, "egghead", "garp", "sanjuan_wolf", "A", 3, ta=["age"], note="Hachi
 fight(2.5168, "egghead", "garp", "pizarro", "A", 2, ta=["age"],
       note="Galaxy Divide fend le crâne de pierre et blesse le vrai corps de Pizarro (ch. 1088)")
 fight(2.5176, "egghead", "koby", "pizarro", "D", note="Honesty Impact tranche la main de pierre géante, sans toucher Pizarro lui-même (ch. 1088)", flags="i")
-fight(2.5184, "egghead", "aokiji", "garp", "A", 1, tb=["age", "epuise", "protege"],
+fight(2.5184, "egghead", "aokiji", "garp", "A", 1, tb=["protege"],
       note="Garp domine d'abord (Blue Hole, ch. 1081), poignardé par Shiryu en protégeant Koby, puis empalé et gelé par Kuzan et capturé (ch. 1081-1088)")
 
 # ================================================================ Egghead (Kizaru, Saturn, Kuma)

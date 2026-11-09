@@ -396,8 +396,8 @@ fight(0.9404, "marineford", "smoker", "luffy", "A", 1, note="Smoker plaque Luffy
 fight(0.9405, "marineford", "hancock", "smoker", "A", 2, note="Hancock repousse Smoker et brise son jitte (ch. 559-560)", flags="i")
 fight(0.9406, "marineford", "jozu", "crocodile", "A", 1, note="Coup de poing qui envoie Crocodile au loin, Doflamingo bloque la suite (ch. 560)", flags="i")
 fight(0.9407, "marineford", "ivankov", "kuma", "D", note="Face Spectrum et Galaxy Wink contre Kuma, sans issue montrée (ch. 560)", flags="i")
-fight(0.9408, "marineford", "mihawk", "luffy", "A", 1, note="Luffy fuit plutôt que perdre un bras, Baggy en bouclier (ch. 561)", flags="i")
-fight(0.9409, "marineford", "vista", "mihawk", "D", note="Vista intercepte Mihawk (ch. 561-562)", flags="i")
+fight(0.9408, "marineford", "mihawk", "luffy", "A", 1, ta=["retenue"], note="Luffy fuit plutôt que perdre un bras, Baggy en bouclier (ch. 561)", flags="i")
+fight(0.9409, "marineford", "vista", "mihawk", "D", tb=["retenue"], note="Vista intercepte Mihawk (ch. 561-562)", flags="i")
 fight(0.941, "marineford", "squard", "whitebeard", "A", 1, ta=["surprise"],
       note="Squard poignarde Barbe Blanche, qui le pardonne (ch. 562-563)")
 fight(0.9411, "marineford", "crocodile", "doflamingo", "D", note="Doflamingo décapite Crocodile, qui se reforme et contre-attaque (ch. 566)", flags="i")
