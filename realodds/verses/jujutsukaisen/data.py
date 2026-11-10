@@ -21,7 +21,10 @@ ARCS = [
     ("bouddha", "Peinture de la mort", 0.3),
     ("shibuya", "Incident de Shibuya", 0.35),
     ("culling", "Jeu d'abattage", 0.45),
-    ("shinjuku", "Bataille de Shinjuku", 0.6),
+    # 2e revue : Shinjuku scindé. « shinjuku » = Gojo contre Sukuna (Sukuna à 20 doigts dans le corps de Megumi) ;
+    # « shinjuku2 » = la relève après la mort de Gojo (Sukuna dans sa vraie forme, Yuji avec son domaine).
+    ("shinjuku", "Shinjuku : Gojo contre Sukuna", 0.6),
+    ("shinjuku2", "Shinjuku : la relève après Gojo", 0.604),
     ("modulo", "Jujutsu Kaisen Modulo (2086)", 68.4),   # audit : 68.0→68.4, sinon les personnages de Modulo (1er combat 68.4) n'avaient aucun nœud affiché   # suite officielle (Akutami / Iwasaki, WSJ 2025-2026)
 ]
 

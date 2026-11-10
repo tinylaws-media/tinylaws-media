@@ -56,3 +56,24 @@ Une ligne par personnage ayant au moins 2 combats ou un statut officiel (40 pers
 ## Rangs des pourfendeurs
 
 Rangs (Mizunoto … Kinoe) : seul le rang Mizunoto de la Sélection finale est encodé. Les rangs suivants de Tanjiro (Kanoe puis au-delà) ne sont pas datés précisément dans le manga et récompensent le nombre de démons tués plus que la force ; non ajoutés.
+
+## 2e revue
+
+### Arcs scindés et visibilité
+- **Marques** : aucune scission nécessaire. Chaque Marque tombe entre deux arcs où le personnage a déjà un état sans Marque (Muichiro, Mitsuri sans Marque visibles jusqu'au quartier des plaisirs ; Giyu, Gyomei, Sanemi à l'entraînement ; Tanjiro au train) ; l'état d'arc pris après le dernier combat donne l'état marqué au village, au château et à l'aube.
+- **Flash-backs** répartis : « hakuji » (passé d'Akaza, t = −120,2), « jeunesse » (Gyomei, Sanemi, Sabito, t = −6), « avant » (Kanae, t = −2), « prologue » (massacre des Kamado, Muichiro à 11 ans, entraînement de Tanjiro, t = 0). Tanjiro, Nezuko, Giyu, Muichiro, Gyomei, Sanemi, Keizo étaient invisibles dans l'arc de leurs combats de flash-back. **Hakuji** n'avait pas de date de fin et s'affichait dans tous les arcs (1,75) : fin fixée à sa transformation en Akaza (−119,99). Makomo (morte à son unique combat, −6,7) reste hors de tout arc (limite de model.py).
+
+### Faits vérifiés
+- Zenitsu contre Kaigaku : ch. 143-146 (vol. 17), décapitation d'un seul coup au septième mouvement, Zenitsu grièvement blessé. Note corrigée (ch. 144-145 → 143-146).
+- Numéros de chapitres du château (vol. 17-20) et de Muichiro contre Gyokko (vol. 14) cohérents au niveau des volumes (Wikipédia, liste des volumes).
+
+### Points de jugement
+- **Zenitsu vs Kaigaku** : 34 % / 55 % → 50 % / 38 %. Victoire nette d'un seul coup : marge 1 → 2 ; incertitude du saut du septième mouvement 0,6 → 0,9 (le saut se mesure par cette victoire). Zenitsu château 3,6 → 4,2, Kaigaku 4,0.
+- **Muichiro vs Gyokko** : 46 % / 39 % → 52 % / 35 %. Saut Mémoire + Marque sd 0,4 → 0,8, statut de Lune 5 sd 0,5 → 0,8, écart Gyomei > Muichiro 0,4 → 0,3. Reste serré parce que Kokushibo écrase Muichiro (marge 3) et que Gyomei (le plus fort des Piliers) plafonne Muichiro ; aller plus loin contredirait le rang officiel Lune 5 > Lune 6. Laissé.
+- **Inosuke bas** (2,5 contre Zenitsu 4,2) : aucune victoire individuelle ni déclaration canon pour le relever (Doma battu en duo « e » grâce au poison). Laissé, NON RÉSOLU.
+
+### Duels de contrôle (après 2e revue)
+Yoriichi vs Muzan (Sengoku) 86 % ; Yoriichi octogénaire vs Kokushibo 79 % ; Gyomei vs Kokushibo 25 % / 62 % ; Rengoku vs Akaza 7 % ; Tanjiro vs Akaza (château) 13 % ; Giyu vs Akaza 17 % ; Shinobu vs Doma 5 % ; Tengen vs Gyutaro 32 % / 54 % ; Tanjiro vs Rui 39 % / 47 % ; Muichiro vs Gyomei (château) 25 % / 63 % ; Zenitsu vs Kaigaku 50 % / 38 % ; Muichiro vs Gyokko 52 % / 35 % ; Inosuke vs Zenitsu (château) 11 % / 82 %.
+
+### Reste ouvert
+- Inosuke bas ; Muichiro vs Gyokko encore serré ; Tanjiro démon visible dès le village des forgerons (fenêtre d'affichage de model.py).

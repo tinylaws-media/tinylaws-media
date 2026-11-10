@@ -29,17 +29,26 @@ ARCS = [
     ("tournoi23", "23e Championnat (Piccolo junior)", 756.3),
     ("raditz", "Raditz", 761.8),
     ("saiyan", "Arrivée des Saiyans (Nappa et Vegeta)", 762.4),
-    ("namek", "Namek et Freezer", 762.8),
+    # 2e revue : arcs scindés là où une transformation majeure tombe en cours d'arc (état d'arc = juste après le dernier
+    # combat du personnage dans l'arc) : Goku avant / après le Super Saiyan, Gohan SSJ / SSJ2, Gohan avant / après le
+    # pouvoir ultime, Goku avant / après l'Ultra Instinct, Gohan avant / après Beast, Gas avant / après son vœu.
+    ("namek", "Namek : Dragon Balls et commando Ginyu", 762.8),
+    ("freezer", "Namek : Freezer et le Super Saiyan", 762.876),
     ("retourfreezer", "Trunks contre Freezer et le roi Cold", 764.4),
     ("cyborgs", "Cyborgs et Cell", 767.36),
-    ("cellgame", "Cell Game", 767.5),
-    ("buu", "Majin Buu", 774.3),
+    ("cellgame", "Cell Game : Goku et Gohan contre Cell parfait", 767.5),
+    ("ssj2", "Cell Game : Gohan Super Saiyan 2", 767.5055),
+    ("buu", "Majin Buu : tournoi, Babidi et le gros Buu", 774.3),
+    ("superbuu", "Majin Buu : Super Buu, Vegito et Buu originel", 774.338),
     ("dieux", "Beerus et la résurrection de Freezer", 778.0),
     ("univ6", "Tournoi contre l'univers 6 et Goku Black", 779.5),
-    ("tdp", "Tournoi du Pouvoir", 780.0),
+    ("tdp1", "Tournoi du Pouvoir : avant l'Ultra Instinct", 780.0),
+    ("tdp", "Tournoi du Pouvoir : Ultra Instinct et finale", 780.165),
     ("moro", "Moro", 780.5),
-    ("granolah", "Granolah", 781.0),
-    ("superhero", "Super Hero et après", 781.56),
+    ("granolah", "Granolah : Granolah contre Goku et Vegeta", 781.0),
+    ("gas", "Granolah : le vœu de Gas, puis Black Freezer", 781.05),
+    ("superhero", "Super Hero : Ruban rouge et Gamma", 781.5),
+    ("beast", "Super Hero : Gohan Beast et après", 781.575),
     ("epilogue", "28e Championnat (Uub, dix ans après Buu)", 784.5),
 ]
 

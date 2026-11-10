@@ -32,7 +32,7 @@ STATUS = [
     ("akaza", 2.35, 6.0, 0.4, "Lune supérieure 3 (ch. 63-66, ch. 98)"),
     ("akaza", 2.8, 6.0, 0.4, "Lune supérieure 3 (ch. 147-157)"),
     ("hantengu", 2.6, 5.4, 0.5, "Lune supérieure 4 (ch. 98, ch. 106-126)"),
-    ("gyokko", 2.6, 5.1, 0.5, "Lune supérieure 5 (ch. 98, ch. 108-122)"),
+    ("gyokko", 2.6, 5.1, 0.8, "Lune supérieure 5 (ch. 98, ch. 108-122) ; 2e revue : sd 0,5 → 0,8, Muichiro marqué l'écrase seul (ch. 118-122)"),
     ("gyutaro", 2.5, 4.9, 0.5, "Lune supérieure 6, le vrai pouvoir du duo avec Daki (ch. 81-97)"),
     ("daki", 2.5, 4.4, 0.8, "Lune supérieure 6 (rang partagé, la plus faible du duo) (ch. 70-97)"),
     ("kaigaku", 2.8, 4.4, 0.7, "Nouvelle Lune supérieure 6, promue depuis peu après la mort de Gyutaro (ch. 144-145)"),
@@ -67,7 +67,7 @@ ORDER = [
     ("gyomei", 2.7, "sanemi", 2.7, 0.4, 0.8, "Gyomei, le plus fort des Piliers (Tanjiro et Inosuke, ch. 134-135 ; Kokushibo, ch. 168-172)"),
     ("gyomei", 2.7, "giyu", 2.7, 0.5, 0.8, "Gyomei, le plus fort des Piliers (entraînement des Piliers, ch. 134-135)"),
     ("gyomei", 2.7, "iguro", 2.7, 0.5, 0.8, "Gyomei, le plus fort des Piliers (entraînement des Piliers, ch. 134-135)"),
-    ("gyomei", 2.7, "muichiro", 2.7, 0.4, 0.8, "Gyomei, le plus fort des Piliers, au-dessus du prodige Muichiro (ch. 134-135, ch. 168-172)"),
+    ("gyomei", 2.7, "muichiro", 2.7, 0.3, 0.8, "Gyomei, le plus fort des Piliers, au-dessus du prodige Muichiro (ch. 134-135, ch. 168-172)"),
     ("gyomei", 2.7, "mitsuri", 2.7, 0.5, 0.8, "Gyomei, le plus fort des Piliers (entraînement des Piliers, ch. 134-135)"),
     ("giyu", 2.8, "shinobu", 2.8, 0.4, 0.8, "Shinobu, la seule Pilier incapable de trancher la tête d'un démon (ch. 141-143)"),
 ]

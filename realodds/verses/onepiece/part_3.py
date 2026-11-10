@@ -108,11 +108,11 @@ fight(-37.9905, "godvalley", "ganzui", "john", "A", 2, ta=["surprise"],
 fight(-37.9895, "godvalley", "rocks", "whitebeard", "D", ta=["possede"],
       note="Rocks démonisé par Imu et Newgate échangent à égalité, le pic nord-est s'effondre (ch. 1164)", flags="i")
 # ================================================================ flash-back : mort de Harald (il y a 14 ans)
-fight(-14.02, "oden", "harald", "jarul", "A", 2, ta=["possede"],
+fight(-14.02, "harald", "harald", "jarul", "A", 2, ta=["possede"],
       note="Harald, corrompu par Imu, massacre les gardes et plante une épée dans le casque de Jarul (ch. 1169)")
-fight(-14.015, "oden", ["shanks", "gaban"], "harald", "D", tb=["possede"],
+fight(-14.015, "harald", ["shanks", "gaban"], "harald", "D", tb=["possede"],
       note="Shanks et Gaban affaiblissent Harald immortel sans l'achever (ch. 1169-1170)", flags="i")
-fight(-14.0, "oden", "loki", "harald", "A", 2, tb=["possede", "epuise"],
+fight(-14.0, "harald", "loki", "harald", "A", 2, tb=["possede", "epuise"],
       note="Loki, transformé par le fruit, brise d'un éclair chargé de Haki des rois un Harald déjà usé par Shanks et Gaban (ch. 1169-1170)")
 
 # ================================================================ après Wano : Rêverie, Cross Guild, Barbe Noire
@@ -145,7 +145,7 @@ fight(2.5184, "egghead", "aokiji", "garp", "A", 1, tb=["protege"],
 
 # ================================================================ Egghead (Kizaru, Saturn, Kuma)
 fight(2.5240, "egghead", "kizaru", "sentomaru", "A", 2, note="Rayon laser, Sentomaru inconscient (ch. 1090-1091)")
-fight(2.5248, "egghead", "kizaru", "luffy", "A", 2, note="Luffy en Gear 4 : Kizaru bloque tout et l'envoie dans la barrière (ch. 1092)")
+fight(2.5248, "egghead", "kizaru", "luffy", "A", 2, tb=["retenue"], note="Luffy commence en Gear 4 sans passer en Gear 5 (forme retenue, 2e revue) : Kizaru bloque tout et l'envoie dans la barrière ; il passe en Gear 5 juste après (ch. 1092)")
 fight(2.5250, "egghead", "kizaru", "bonney", "A", 3, ta=["retenue"], note="Kizaru esquive Toshi Tsuki et l'envoie dans la barrière (ch. 1092)")
 fight(2.5256, "egghead", "luffy", "kizaru", "A", 1, ta=[], tb=["retenue"],
       note="Gear 5 : coup critique à la tête, Kizaru hors de combat un moment ; Luffy épuisé ensuite (ch. 1092-1094)")
@@ -223,5 +223,5 @@ fight(2.69, "elbaf", "sanji", "killingham", "A", 2, ta=["haki_roi"], tb=["boost"
 fight(2.695, "elbaf", "imu", "loki", "A", 3, note="Loki en forme hybride complète tient d'abord, puis Imu dans une nouvelle forme le terrasse d'un seul coup, en grande partie hors champ (ch. 1198)")
 
 # ajouts : Shanks face aux autres sommets
-fight(-0.05, "avant", "shanks", "kaido", "D", note="Shanks retient Kaido pour l'empêcher de rejoindre Marineford (ch. 434, 556)", flags="i?")
+fight(0.93, "marineford", "shanks", "kaido", "D", note="Shanks retient Kaido pour l'empêcher de rejoindre Marineford, juste avant la guerre (ch. 434, 556) ; daté -0,05 auparavant", flags="i?")
 fight(2.4499, "wano", "shanks", "ryokugyu", "A", 2, note="Le Haki des rois de Shanks fait reculer Ryokugyu à distance (ch. 1055)")

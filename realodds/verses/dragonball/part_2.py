@@ -183,46 +183,46 @@ fight(779.68, "univ6", ["trunks", "vegeta"], "fused_zamasu", "D",
       flags="i")
 
 # ---------------------------------------------------------------- avant le Tournoi du Pouvoir (ch. 27-32)
-fight(780.0, "tdp", "beerus", "vegeta", "A", 3, ta=["retenue"], note="Entraînement : Vegeta Blue touche une fois, explosion de Beerus (ch. 27)")
-fight(780.01, "tdp", "toppo", "goku", "A", 1, tb=["retenue"],
+fight(780.0, "tdp1", "beerus", "vegeta", "A", 3, ta=["retenue"], note="Entraînement : Vegeta Blue touche une fois, explosion de Beerus (ch. 27)")
+fight(780.01, "tdp1", "toppo", "goku", "A", 1, tb=["retenue"],
       note="Match d'exhibition devant les Zeno, Goku passe jusqu'au SSG, sorti du ring en voulant passer Blue (ch. 29)")
-fight(780.02, "tdp", "android_17", "goku", "D", ta=["retenue"], tb=["retenue"],
+fight(780.02, "tdp1", "android_17", "goku", "D", ta=["retenue"], tb=["retenue"],
       note="Goku masqué, jusqu'au SSJ3, 17 le bloque ; ils s'arrêtent pour parler (ch. 31)", flags="i")
-fight(780.03, "tdp", "cabba", "caulifla", "A", 2, ta=["retenue"], note="Test de recrutement, Cabba SSJ (ch. 32)")
+fight(780.03, "tdp1", "cabba", "caulifla", "A", 2, ta=["retenue"], note="Test de recrutement, Cabba SSJ (ch. 32)")
 
 # ---------------------------------------------------------------- Tournoi du Pouvoir (ch. 33-42)
-fight(780.1, "tdp", "goku", "pride_troopers", "A", 2, note="Les Troupes de l'Orgueil foncent sur Goku SSJ (ch. 33)")
-fight(780.101, "tdp", "frost", ["krillin"], "A", 3, note="Krillin éliminé (ch. 34)")
-fight(780.102, "tdp", "frost", ["tien"], "A", 3, note="Le Kikōhō ne fait rien, Tenshinhan éliminé (ch. 34)")
-fight(780.103, "tdp", "frost", "u9_combattants", "A", 3, note="Frost à pleine puissance élimine six guerriers de l'Univers 9 (ch. 34)")
-fight(780.104, "tdp", "gohan", "u9_combattants", "A", 2, ta=["retenue"], note="Gohan contre le Trio de Dangers, Piccolo le retient (ch. 34)", flags="i")
-fight(780.105, "tdp", "freeza", "frost", "A", 3, ta=["surprise"], tb=["epuise"], note="Freezer trahit son allié et le jette hors du ring (ch. 34)")
-fight(780.11, "tdp", ["toppo", "dyspo"], "goku", "A", 2, tb=["retenue"], note="Goku SSJ enfoncé dans le sol (ch. 35)")
-fight(780.111, "tdp", "jiren", "hit", "A", 3, ta=["retenue"], note="Le saut temporel échoue, Hit éliminé d'un coup au dernier moment (ch. 35)")
-fight(780.112, "tdp", "jiren", "goku", "A", 3, note="Goku Blue, le Kamehameha ne fait rien (ch. 35)", flags="i")
-fight(780.12, "tdp", "android_17", "botamo", "A", 3, note="Coup au ventre, Botamo éjecté (ch. 36)")
-fight(780.121, "tdp", "android_17", "u10_combattants", "A", 3, note="Dium, Napapa et Methiop sortis (ch. 36)")
-fight(780.122, "tdp", "android_18", "ribrianne", "A", 2, note="18 se libère et force Ribrianne, Rozie et Kakunsa hors du ring (ch. 36)")
-fight(780.123, "tdp", "vegeta", "toppo", "D", note="Vegeta Blue « parfait » surprend Toppo (ch. 36)", flags="i")
-fight(780.13, "tdp", "freeza", "caulifla", "A", 2, ta=["retenue"], note="Freezer passe Golden après avoir été touché (ch. 37)")
-fight(780.131, "tdp", "freeza", ["caulifla", "cabba"], "A", 3, note="Freezer Golden contre les deux Saiyans (ch. 37)")
-fight(780.132, "tdp", "kale", "freeza", "A", 1, note="Kale berserk repousse Golden Freezer au bord (ch. 37)", flags="i")
-fight(780.133, "tdp", "goku", "kale", "D", ta=["retenue"], tb=["boost"], note="Goku Blue arrête Kale, Freezer s'interpose (ch. 37)", flags="i")
-fight(780.14, "tdp", "kale", ["u4_combattants", "u10_combattants", "magetta"], "A", 3, ta=["boost"],
+fight(780.1, "tdp1", "goku", "pride_troopers", "A", 2, note="Les Troupes de l'Orgueil foncent sur Goku SSJ (ch. 33)")
+fight(780.101, "tdp1", "frost", ["krillin"], "A", 3, note="Krillin éliminé (ch. 34)")
+fight(780.102, "tdp1", "frost", ["tien"], "A", 3, note="Le Kikōhō ne fait rien, Tenshinhan éliminé (ch. 34)")
+fight(780.103, "tdp1", "frost", "u9_combattants", "A", 3, note="Frost à pleine puissance élimine six guerriers de l'Univers 9 (ch. 34)")
+fight(780.104, "tdp1", "gohan", "u9_combattants", "A", 2, ta=["retenue"], note="Gohan contre le Trio de Dangers, Piccolo le retient (ch. 34)", flags="i")
+fight(780.105, "tdp1", "freeza", "frost", "A", 3, ta=["surprise"], tb=["epuise"], note="Freezer trahit son allié et le jette hors du ring (ch. 34)")
+fight(780.11, "tdp1", ["toppo", "dyspo"], "goku", "A", 2, tb=["retenue"], note="Goku SSJ enfoncé dans le sol (ch. 35)")
+fight(780.111, "tdp1", "jiren", "hit", "A", 3, ta=["retenue"], note="Le saut temporel échoue, Hit éliminé d'un coup au dernier moment (ch. 35)")
+fight(780.112, "tdp1", "jiren", "goku", "A", 3, note="Goku Blue, le Kamehameha ne fait rien (ch. 35)", flags="i")
+fight(780.12, "tdp1", "android_17", "botamo", "A", 3, note="Coup au ventre, Botamo éjecté (ch. 36)")
+fight(780.121, "tdp1", "android_17", "u10_combattants", "A", 3, note="Dium, Napapa et Methiop sortis (ch. 36)")
+fight(780.122, "tdp1", "android_18", "ribrianne", "A", 2, note="18 se libère et force Ribrianne, Rozie et Kakunsa hors du ring (ch. 36)")
+fight(780.123, "tdp1", "vegeta", "toppo", "D", note="Vegeta Blue « parfait » surprend Toppo (ch. 36)", flags="i")
+fight(780.13, "tdp1", "freeza", "caulifla", "A", 2, ta=["retenue"], note="Freezer passe Golden après avoir été touché (ch. 37)")
+fight(780.131, "tdp1", "freeza", ["caulifla", "cabba"], "A", 3, note="Freezer Golden contre les deux Saiyans (ch. 37)")
+fight(780.132, "tdp1", "kale", "freeza", "A", 1, note="Kale berserk repousse Golden Freezer au bord (ch. 37)", flags="i")
+fight(780.133, "tdp1", "goku", "kale", "D", ta=["retenue"], tb=["boost"], note="Goku Blue arrête Kale, Freezer s'interpose (ch. 37)", flags="i")
+fight(780.14, "tdp1", "kale", ["u4_combattants", "u10_combattants", "magetta"], "A", 3, ta=["boost"],
       note="Rage de Kale : Univers 4 et 10 effacés, Magetta jeté dehors (ch. 38)")
-fight(780.141, "tdp", "kale", "anilaza", "A", 3, ta=["boost"], note="Anilaza sorti d'un seul coup de poing, Univers 3 effacé (ch. 38)")
-fight(780.142, "tdp", "dyspo", "cabba", "A", 2, note="Dyspo surclasse Cabba (ch. 38)", flags="i")
-fight(780.143, "tdp", "kefla", "pride_troopers", "A", 2, note="Kefla met Tupper KO d'un coup et accule les Troupes (ch. 38)")
-fight(780.15, "tdp", "gohan", "kefla", "D",
+fight(780.141, "tdp1", "kale", "anilaza", "A", 3, ta=["boost"], note="Anilaza sorti d'un seul coup de poing, Univers 3 effacé (ch. 38)")
+fight(780.142, "tdp1", "dyspo", "cabba", "A", 2, note="Dyspo surclasse Cabba (ch. 38)", flags="i")
+fight(780.143, "tdp1", "kefla", "pride_troopers", "A", 2, note="Kefla met Tupper KO d'un coup et accule les Troupes (ch. 38)")
+fight(780.15, "tdp1", "gohan", "kefla", "D",
       note="Gohan sous sa forme ultime (sans Super Saiyan) ; double coup de poing, les deux éliminés, Univers 6 effacé (ch. 39)")
-fight(780.151, "tdp", "roshi", "casserale", "A", 2, note="Rōshi l'attrape et le jette hors de l'arène (ch. 39)")
-fight(780.152, "tdp", "jiren", "roshi", "A", 3, note="Rōshi esquive puis tombe sur un coup à la nuque (ch. 39)")
-fight(780.153, "tdp", "jiren", "goku", "A", 2, ta=["retenue"], tb=["boost"],
+fight(780.151, "tdp1", "roshi", "casserale", "A", 2, note="Rōshi l'attrape et le jette hors de l'arène (ch. 39)")
+fight(780.152, "tdp1", "jiren", "roshi", "A", 3, note="Rōshi esquive puis tombe sur un coup à la nuque (ch. 39)")
+fight(780.153, "tdp1", "jiren", "goku", "A", 2, ta=["retenue"], tb=["boost"],
       note="Goku Blue force ses réserves, effleure l'Ultra Instinct, projeté à travers l'arène (ch. 39)", flags="i")
-fight(780.16, "tdp", "vegeta", "toppo", "A", 2, note="Toppo projeté hors de l'arène (ch. 40)")
-fight(780.161, "tdp", "jiren", "vegeta", "A", 2, note="Vegeta au nouveau palier de Blue le touche puis est assommé (ch. 40)", flags="i")
-fight(780.162, "tdp", ["freeza", "android_17"], ["toppo", "dyspo"], "A", 2, note="Freezer piège Toppo et Dyspo sur des rochers flottants (ch. 40)")
-fight(780.163, "tdp", "jiren", ["freeza", "android_17"], "A", 2, tb=["retenue"],
+fight(780.16, "tdp1", "vegeta", "toppo", "A", 2, note="Toppo projeté hors de l'arène (ch. 40)")
+fight(780.161, "tdp1", "jiren", "vegeta", "A", 2, note="Vegeta au nouveau palier de Blue le touche puis est assommé (ch. 40)", flags="i")
+fight(780.162, "tdp1", ["freeza", "android_17"], ["toppo", "dyspo"], "A", 2, note="Freezer piège Toppo et Dyspo sur des rochers flottants (ch. 40)")
+fight(780.163, "tdp1", "jiren", ["freeza", "android_17"], "A", 2, tb=["retenue"],
       note="Jiren intervient, Dyspo et Toppo éliminés ; 17 fait semblant de s'autodétruire (ch. 40)")
 fight(780.17, "tdp", "jiren", "goku", "A", 1, tb=["ultra"],
       note="Goku Ultra Instinct le touche, Kamehameha qui perce l'arène, puis l'Ultra Instinct s'épuise (ch. 41)")
@@ -294,19 +294,19 @@ fight(781.03, "granolah", "granolah", "vegeta", "A", 1, tb=["epuise"],
       note="Vegeta passe Ultra Ego en fin de ch. 74 ; Granolah éveille son œil gauche et pulvérise la sphère finale (ch. 74-75)")
 fight(781.04, "granolah", "granolah", "vegeta", "A", 1, tb=["ultra"], note="Ultra Ego brisé par des tirs rapides au cou (ch. 76)")
 fight(781.041, "granolah", "granolah", "goku", "D", note="Goku Blue pare les coups mais ne peut pas gagner en défense ; Monaito interrompt (ch. 76)", flags="i")
-fight(781.06, "granolah", "gas", "granolah", "A", 3, note="Gas après le vœu, Granolah broyé (ch. 78)")
-fight(781.061, "granolah", "gas", ["goku", "vegeta"], "A", 3, tb=["epuise"], note="Armes de ki, Goku entravé aux quatre membres (ch. 78)")
-fight(781.07, "granolah", "granolah", ["oil", "maki"], "A", 3, note="Envoyés dans une montagne pour avoir menacé Monaito (ch. 79)")
-fight(781.08, "granolah", "gas", "granolah", "A", 3, ta=["boost"],
+fight(781.06, "gas", "gas", "granolah", "A", 3, note="Gas après le vœu, Granolah broyé (ch. 78)")
+fight(781.061, "gas", "gas", ["goku", "vegeta"], "A", 3, tb=["epuise"], note="Armes de ki, Goku entravé aux quatre membres (ch. 78)")
+fight(781.07, "gas", "granolah", ["oil", "maki"], "A", 3, note="Envoyés dans une montagne pour avoir menacé Monaito (ch. 79)")
+fight(781.08, "gas", "gas", "granolah", "A", 3, ta=["boost"],
       note="Granolah domine en vitesse, puis Elec retire le limiteur : Gas berserk lui brise les bras (ch. 79-81)")
-fight(781.09, "granolah", "goku", "gas", "D", note="Goku Blue l'emmène de planète en planète par téléportation (ch. 81-82)", flags="i")
-fight(781.1, "granolah", "gas", ["goku", "vegeta"], "A", 2, tb=["ultra"], note="UI et Ultra Ego, Gas les tient tous les deux (ch. 84)", flags="i")
-fight(781.11, "granolah", "gas", "vegeta", "A", 2, tb=["ultra"], note="Vegeta Ultra Ego s'évanouit (ch. 85)")
-fight(781.12, "granolah", ["goku", "granolah"], "gas", "A", 2, ta=["ultra"],
+fight(781.09, "gas", "goku", "gas", "D", note="Goku Blue l'emmène de planète en planète par téléportation (ch. 81-82)", flags="i")
+fight(781.1, "gas", "gas", ["goku", "vegeta"], "A", 2, tb=["ultra"], note="UI et Ultra Ego, Gas les tient tous les deux (ch. 84)", flags="i")
+fight(781.11, "gas", "gas", "vegeta", "A", 2, tb=["ultra"], note="Vegeta Ultra Ego s'évanouit (ch. 85)")
+fight(781.12, "gas", ["goku", "granolah"], "gas", "A", 2, ta=["ultra"],
       note="Goku « Sign » puis UI maîtrisé et avatar géant, rayon chargé de Granolah (ch. 85-86)")
-fight(781.25, "granolah", "freeza", ["gas", "elec"], "A", 3, tb=["epuise"],
+fight(781.25, "gas", "freeza", ["gas", "elec"], "A", 3, tb=["epuise"],
       note="Freezer les abat chacun d'un coup, Gas déjà vaincu par Goku et Granolah (ch. 87)")
-fight(781.251, "granolah", "freeza", ["goku", "vegeta"], "A", 3, tb=["ultra", "epuise"],
+fight(781.251, "gas", "freeza", ["goku", "vegeta"], "A", 3, tb=["ultra", "epuise"],
       note="Black Freezer met UI Goku et Ultra Ego Vegeta au tapis d'un coup chacun, puis repart (ch. 87)")
 
 # ---------------------------------------------------------------- Super Hero (ch. 88-100)
@@ -326,11 +326,11 @@ fight(781.56, "superhero", "cell_max", ["goten", "trunks_kid", "gamma_1", "gamma
       note="Tornado Super Hurricane, Cell Max se remet aussitôt (ch. 97)")
 fight(781.57, "superhero", "cell_max", ["krillin", "gamma_2", "piccolo"], "A", 2,
       note="Taiyōken de Krillin, Gamma 2 se sacrifie, Piccolo Orange tient jusqu'au réveil de Gohan (ch. 98)")
-fight(781.6, "superhero", ["gohan", "piccolo"], "cell_max", "A", 2, ta=["ultra"],
+fight(781.6, "beast", ["gohan", "piccolo"], "cell_max", "A", 2, ta=["ultra"],
       note="Gohan Beast, le coup de Cell Max ne passe pas son aura ; Makankōsappō dans la tête (ch. 99-100)")
 
 # ---------------------------------------------------------------- après Super Hero (ch. 101-104)
-fight(781.7, "superhero", "gohan", "carmine", "A", 3, ta=["ultra"], note="Carmine attaque la maison de Gohan, qui passe Beast (ch. 101)")
-fight(781.71, "superhero", "gohan", ["goten", "trunks_kid"], "A", 3, note="Sur la planète de Beerus, la fusion échoue encore (ch. 102)")
-fight(781.72, "superhero", "goku", "gohan", "D", ta=["ultra"], tb=["ultra"],
+fight(781.7, "beast", "gohan", "carmine", "A", 3, ta=["ultra"], note="Carmine attaque la maison de Gohan, qui passe Beast (ch. 101)")
+fight(781.71, "beast", "gohan", ["goten", "trunks_kid"], "A", 3, note="Sur la planète de Beerus, la fusion échoue encore (ch. 102)")
+fight(781.72, "beast", "goku", "gohan", "D", ta=["ultra"], tb=["ultra"],
       note="UI contre Beast : Gohan fait sortir Goku de l'Ultra Instinct d'un coup au ventre, Goku arrête satisfait (ch. 102-103)")

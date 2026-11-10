@@ -19,7 +19,10 @@ ARCS = [
     ("godvalley", "Ère de Rocks et God Valley", -38.0),
     ("roger", "Ère de Roger", -24.0),
     ("oden", "Oden et la chute de Wano", -20.0),
-    ("avant", "Avant l'histoire (enfance de Luffy, Ace, Sabo)", -10.0),
+    ("harald", "Elbaf : chute de Harald", -14.02),   # ch. 1169-1170
+    ("avant", "Avant l'histoire : Shanks, Corazon, enfance de Luffy, Ace, Sabo", -10.0),
+    ("cocoyashi", "Avant l'histoire : Arlong à Cocoyashi, Ace et Dadan", -8.0),
+    ("ace_wb", "Avant l'histoire : Ace chez Barbe Blanche", -2.5),
     ("eastblue", "East Blue", 0.1),
     ("alabasta", "Alabasta", 0.4),
     ("skypiea", "Skypiea", 0.55),
@@ -28,8 +31,10 @@ ARCS = [
     ("marineford", "Sabaody, Impel Down, Marineford", 0.9),
     ("fishman", "Île des Hommes-Poissons", 2.1),
     ("punkhazard", "Punk Hazard et Dressrosa", 2.2),
+    ("gear4", "Dressrosa : Gear 4 et chute de Doflamingo", 2.279),   # ch. 784-791
     ("wci", "Zou et Whole Cake Island", 2.3),
     ("wano", "Wano", 2.4),
+    ("wano5", "Wano : Gear 5 et chute de Kaido", 2.4495),   # ch. 1044-1050
     ("egghead", "Egghead", 2.5),
     ("elbaf", "Elbaf", 2.6),
 ]
@@ -64,6 +69,6 @@ for _p in sorted(glob.glob(os.path.join(_here, "part_*.py"))):
     GENERIC |= set(getattr(_m, "GENERIC_PART", set()))
     JUMPS += list(getattr(_m, "JUMPS_PART", []))
 
-CHECKS = [("luffy", "wano", "kaido", "wano"), ("shanks", "egghead", "kaido", "wano"), ("zoro", "wano", "sanji", "wano"),
+CHECKS = [("luffy", "wano5", "kaido", "wano5"), ("luffy", "wano", "kaido", "wano"), ("shanks", "egghead", "kaido", "wano"), ("zoro", "wano", "sanji", "wano"),
           ("akainu", "punkhazard", "aokiji", "punkhazard"), ("mihawk", "marineford", "shanks", "marineford"),
           ("whitebeard", "roger", "roger", "roger"), ("luffy", "egghead", "kizaru", "egghead")]

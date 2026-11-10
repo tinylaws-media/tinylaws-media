@@ -27,6 +27,7 @@ STATUS = [
     ("asura", -1000.0, 7.0, 0.7, "Asura, successeur désigné du Sage, ancêtre des Senju (ch. 670)"),
     ("kaguya", 17.06, 8.5, 0.6, "Kaguya libérée par le Tsukuyomi infini ; il faut Naruto et Sasuke réunis pour la sceller (ch. 674-691)"),
     ("kurama", -56.0, 6.5, 0.8, "Kurama, le plus puissant des neuf bijū (ch. ~568 ; 4e databook)"),
+    ("tobirama", -70.0, 4.5, 0.8, "Tobirama, frère de Hashirama, l'un des deux plus forts Senju de sa génération, rival d'Izuna (ch. 624)"),
     ("izuna", -70.0, 4.5, 0.8, "Izuna, frère de Madara, l'un des deux plus forts Uchiha de sa génération (ch. 624)"),
     ("yahiko", -4.0, 3.0, 0.8, "Yahiko, chef de l'Akatsuki d'origine, élève de Jiraiya (ch. 446)"),
     # ---- Konoha : Hokage et fondateurs
@@ -184,7 +185,7 @@ ORDER = [
     ("gai", 17.03, "kakashi", 17.03, 0.5, 0.7, "Kakashi reconnaît que Gai l'a surpassé quand il ouvre la 8e porte (ch. 667-669)"),
     # ---- Suna
     ("kazekage3", -25.0, "rasa", 12.0, 0.5, 0.7, "3e Kazekage, Kage le plus puissant de l'histoire de Suna (ch. 266 p. 11, 268 p. 9)"),
-    ("sasori", -20.0, "kazekage3", -25.0, 0.3, 0.8, "Sasori a enlevé et tué le 3e Kazekage pour en faire une marionnette (ch. 266-268)"),
+    ("sasori", -4.0, "kazekage3", -25.0, 0.3, 0.8, "Sasori a enlevé et tué le 3e Kazekage pour en faire une marionnette (ch. 266-268)"),
     # ---- Naruto / Sasuke
     ("naruto", 17.1, "sasuke", 17.1, 0.0, 0.6, "Rivaux de puissance égale à la Vallée de la Fin (ch. 695-698 ; 4e databook)"),
     ("naruto", 32.0, "sasuke", 32.0, 0.0, 0.5, "Sasuke a une puissance égale à celle de Naruto ; même avec un bras il suit Naruto au combat (Boruto ; databook)"),
@@ -192,7 +193,7 @@ ORDER = [
     ("isshiki", 33.1, "momoshiki", 32.0, 0.7, 0.8, "Isshiki, de rang supérieur même à Kaguya (Boruto ch. 51 p. 11), au-dessus de Momoshiki"),
     ("momoshiki", 32.0, "kinshiki", 32.0, 0.5, 0.7, "Kinshiki, serviteur de Momoshiki, se laisse absorber par lui (Boruto ch. 8-10)"),
     ("jigen", 32.5, "naruto", 32.5, 0.3, 0.8, "Jigen tient tête à Naruto et Sasuke réunis (Boruto ch. 38)"),
-    ("code", 34.0, "jigen", 32.5, 0.5, 0.8, "Amado : au sommet de ses capacités (limiteurs retirés), Code dépasse de loin Jigen (Boruto ch. 56 p. 31-34 ; Narutopedia)"),
+    ("code", 34.0, "jigen", 32.5, 0.5, 0.25, "Amado : au sommet de ses capacités (limiteurs retirés), Code dépasse de loin Jigen (Boruto ch. 56 p. 31-34 ; Narutopedia)"),
     ("code", 33.3, "kashin_koji", 33.0, 0.3, 0.7, "Code, le plus fort des Inners après Isshiki ressuscité (Boruto ch. 56) ; statut absolu remplacé par cet ordre"),
     ("code", 33.3, "boro", 32.5, 0.5, 0.7, "Code, même bridé, jugé plus fort que Delta et Boro (Boruto ch. 56 p. 35)"),
     ("code", 33.3, "delta", 32.5, 0.5, 0.7, "Code, même bridé, jugé plus fort que Delta et Boro (Boruto ch. 56 p. 35)"),

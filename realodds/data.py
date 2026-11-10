@@ -20,6 +20,7 @@ ARCS = [
     ("guerre2", "2e Grande Guerre", -32.0),
     ("guerre3", "3e Grande Guerre", -4.0),
     ("kyubi", "Attaque de Kyubi", 0.0),
+    ("hyuga", "Affaire des Hyūga", 3.3),   # Hinata a 3 ans (ch. 102)
     ("akatsuki", "Massacre des Uchiha, débuts d'Akatsuki", 8.0),
     ("vague", "Pays des Vagues", 12.0),
     ("chunin", "Examen chuunin", 12.3),
@@ -29,16 +30,20 @@ ARCS = [
     ("kazekage", "Sauvetage du Kazekage", 15.5),
     ("tenchi", "Pont du Tenchi", 15.6),
     ("hidan", "Hidan et Kakuzu", 15.8),
-    ("itachi", "Poursuite d'Itachi", 16.1),
+    ("itachi", "Poursuite d'Itachi", 16.05),   # ancre à la mort de Deidara (16,05), pour qu'il y figure
+    ("hachibi", "Mort de Jiraiya, Taka contre Killer B", 16.2),   # Sasuke avec le Mangekyō (ch. 401-415)
     ("pain", "Assaut de Pain", 16.4),
     ("sommet", "Sommet des Kage", 16.6),
     ("guerre4a", "4e Grande Guerre : Edo Tensei", 16.9),
-    ("guerre4b", "4e Grande Guerre : Obito et Madara", 17.0),
+    ("guerre4b", "4e Grande Guerre : Jūbi et Madara ressuscité", 17.0),
+    ("guerre4c", "4e Grande Guerre : Pouvoir des Six Chemins", 17.03),   # ch. 672-677 : 8e porte de Gai, Six Chemins
     ("final", "4e Grande Guerre : Kaguya et Vallée de la Fin", 17.08),
     ("last", "The Last", 19.0),
     ("momoshiki", "Boruto : Momoshiki", 32.0),
-    ("kara", "Boruto : Kara et Isshiki", 32.2),
+    ("kara", "Boruto : Kara et Jigen", 32.2),
+    ("isshiki", "Boruto : Isshiki et mode Baryon", 33.06),   # Boruto ch. 41-55
     ("code", "Boruto : Code, Eida et Daemon", 33.15),
+    ("omni", "Boruto : Omnipotence, Code sans limiteurs", 34.0),   # Boruto ch. 72-80
     ("tbv", "Boruto : Two Blue Vortex", 36.0),
 ]
 
@@ -65,7 +70,7 @@ CHARS = {
     "tsunade": ("Tsunade", "Konoha", 3.0, None, None),
     "orochimaru": ("Orochimaru", "Oto", 3.0, None, None),
     "sasori": ("Sasori", "Akatsuki", 4.0, 15.52, 15.52),
-    "kazekage3": ("3e Kazekage", "Suna", 5.0, -22, None),
+    "kazekage3": ("3e Kazekage", "Suna", 5.0, -4.0, None),   # disparu ~20 ans avant la 2e partie (Sasori a quitté Suna « il y a 20 ans », ch. 266-268), mort fixée au début de l'arc de la 3e guerre
     "minato": ("Minato Namikaze", "Konoha", 5.5, 0.02, 0.02),
     "kushina": ("Kushina Uzumaki", "Konoha", 4.0, 0.02, 0.02),
     "a4": ("A (4e Raikage)", "Kumo", 5.0, None, None),
@@ -83,8 +88,8 @@ CHARS = {
     "meizu": ("Meizu", "Kiri", 2.0, None, None),
     "zabuza": ("Zabuza Momochi", "Kiri", 3.5, 12.06, 12.06),
     "haku": ("Haku", "Kiri", 2.5, 12.06, 12.06),
-    "naruto": ("Naruto Uzumaki", "Konoha", 1.0, None, None),
-    "sasuke": ("Sasuke Uchiha", "Konoha", 1.5, None, None),
+    "naruto": ("Naruto Uzumaki", "Konoha", 1.0, 33.99, None),   # scellé dans une autre dimension par Kawaki (Boruto ch. 77), toujours scellé dans TBV : retiré des arcs où il ne peut pas combattre
+    "sasuke": ("Sasuke Uchiha", "Konoha", 1.5, 34.21, None),   # changé en Arbre-Dieu par Code et Eida (Boruto ch. 80 ; TBV ch. 4) : retiré de TBV
     "sakura": ("Sakura Haruno", "Konoha", 0.8, None, None),
     "rock_lee": ("Rock Lee", "Konoha", 2.0, None, None),
     "gai": ("Might Gai", "Konoha", 4.5, None, None),
@@ -133,6 +138,7 @@ CHARS = {
     "mifune": ("Mifune", "Pays du Fer", 4.5, None, None),
     "hinata_last": None,  # placeholder removed below
     "alliance": ("Armée de l'Alliance (groupe)", "Alliance", 4.0, None, None),
+    "armee_10000": ("Armée de 10 000 ninjas (groupe)", "3e guerre", 5.0, -3.99, None),
     "toneri": ("Toneri Ōtsutsuki", "Ōtsutsuki", 6.0, None, None),
     "boruto": ("Boruto Uzumaki", "Konoha", 3.0, None, None),
     "momoshiki": ("Momoshiki Ōtsutsuki", "Ōtsutsuki", 8.0, 32.05, None),
@@ -145,7 +151,7 @@ CHARS = {
     "baki": ("Baki", "Suna", 3.5, None, None),
     "hayate": ("Hayate Gekkō", "Konoha", 3.0, 12.33, None),
     "anko": ("Anko Mitarashi", "Konoha", 3.0, None, None),
-    "raikage3": ("A (3e Raikage)", "Kumo", 5.5, -10, -10),
+    "raikage3": ("A (3e Raikage)", "Kumo", 5.5, -4.0, -4.0),   # mort pendant la 3e guerre face à 10 000 ninjas, fixée à l'ancre de l'arc
     "rasa": ("Rasa (4e Kazekage)", "Suna", 5.0, 12.4, 12.4),
     "shin": ("Shin Uchiha", "Akatsuki", 5.5, 32.0, None),   # mort fixée au début de l'arc pour qu'il y figure
     "boro": ("Boro", "Kara", 6.0, 33.02, None),
@@ -156,7 +162,7 @@ CHARS = {
     "kawaki": ("Kawaki", "Konoha", 4.0, None, None),
     "sarada": ("Sarada Uchiha", "Konoha", 2.5, None, None),
     "taiseki": ("Taiseki (Iwa)", "Iwa", 3.0, -4.0, None),
-    "yahiko": ("Yahiko", "Ame", 3.0, -2.9, None),
+    "yahiko": ("Yahiko", "Ame", 3.0, -3.7, None),
     "kumo_ninja": ("Ninjas de Kumo (groupe)", "Kumo", 2.0, -12.0, None),
     "hiashi": ("Hiashi Hyūga", "Konoha", 4.0, None, None),
     "kumo_chef": ("Chef ninja de Kumo (affaire Hyūga)", "Kumo", 3.0, 3.3, None),
@@ -192,7 +198,7 @@ CHECKS = [("itachi", "guerre4a", "minato", "guerre4b"), ("jiraiya", "tsunade", "
           ("hashirama", "guerre4b", "madara", "guerre4b"), ("madara", "final", "hashirama", "guerre4b"),
           ("gai", "guerre4b", "kakashi", "guerre4b"), ("nagato", "pain", "itachi", "itachi"),
           ("kisame", "sommet", "gai", "sommet"), ("naruto", "final", "sasuke", "final")]
-GENERIC = {"alliance", "ame_genin", "kiri_anbu", "kumo_ninja", "uchiha_police", "kumo_chef"}
+GENERIC = {"armee_10000", "alliance", "ame_genin", "kiri_anbu", "kumo_ninja", "uchiha_police", "kumo_chef"}
 
 # permanent power-ups / losses: (char, time, mean change in tiers, sd)
 JUMPS = [
@@ -212,6 +218,7 @@ JUMPS = [
     ("kawaki", 35.0, 1.5, 1.0, "Ellipse de Two Blue Vortex"),
     ("sarada", 35.0, 1.5, 1.0, "Ellipse de Two Blue Vortex"),
     ("obito", 16.999, 2.5, 1.0, "Jinchūriki de Jūbi"),
+    ("obito", 17.011, -2.5, 0.8, "Bijū arrachés par Naruto, Sasuke et l'Alliance : Obito n'est plus jinchūriki (ch. 652-655)"),
     ("madara", 17.011, 1.0, 1.0, "Retour à la vie, Rinnegan"),
     ("madara", 17.02, 2.0, 1.0, "Jinchūriki de Jūbi"),
     ("gaara", 15.55, -0.5, 0.6, "Extraction de Shukaku"),
@@ -258,7 +265,7 @@ fight(-48, "guerre1", ["kinkaku", "ginkaku"], "tobirama", "A", 1, ta=["surprise"
 # ---------------------------------------------------------------- 2e guerre
 fight(-32, "guerre2", "hanzo", ["jiraiya", "tsunade", "orochimaru"], "A", 3, ta=["retenue"],
       note="Hanzō bat les trois futurs Sannin et leur donne leur surnom")
-fight(-22, "guerre2", "sasori", "kazekage3", "A", 2, ta=["prepa"], note="Sasori fait du 3e Kazekage une marionnette", flags="?")
+fight(-4.0, "guerre3", "sasori", "kazekage3", "A", 2, ta=["prepa"], note="Sasori fait du 3e Kazekage une marionnette ; sa disparition, ~20 ans avant la 2e partie, précède la 3e guerre (ch. 266-268)", flags="?")
 # ---------------------------------------------------------------- 3e guerre
 fight(-5, "guerre3", "minato", ["a4", "killer_b"], "D", note="Choc de la 3e guerre, sans vainqueur", flags="i")
 fight(-4.0, "guerre3", "kakkou", ["kakashi", "obito"], "A", 1, tb=["epuise"], note="Obito écrasé par le rocher")
@@ -343,9 +350,9 @@ fight(15.842, "hidan", ["naruto", "kakashi"], "kakuzu", "A", 3, ta=["surprise"],
 fight(15.9, "itachi", "sasuke", "orochimaru", "A", 3, tb=["malade"], note="Orochimaru, corps en rejet, tente la transmigration ; l'issue se joue dans l'esprit de Sasuke (ch. 343-346)", flags="?")
 fight(16.05, "itachi", "sasuke", "deidara", "A", 1, ta=["contre"], note="Deidara s'autodétruit")
 fight(16.1, "itachi", "sasuke", "itachi", "A", 1, tb=["malade", "retenue"], note="Itachi mourant, se retient")
-fight(16.2, "itachi", "nagato", "jiraiya", "A", 2, note="Les six chemins de Pain")
-fight(16.19, "itachi", "jiraiya", "konan", "A", 3)
-fight(16.3, "itachi", "killer_b", ["sasuke", "karin", "suigetsu", "jugo"], "A", 1, note="B s'échappe avec un faux corps")
+fight(16.2, "hachibi", "nagato", "jiraiya", "A", 2, note="Les six chemins de Pain")
+fight(16.19, "hachibi", "jiraiya", "konan", "A", 3)
+fight(16.3, "hachibi", "killer_b", ["sasuke", "karin", "suigetsu", "jugo"], "A", 1, note="B s'échappe avec un faux corps")
 # ---------------------------------------------------------------- Pain
 fight(16.4, "pain", "nagato", "kakashi", "A", 2, ta=["prepa"])
 fight(16.42, "pain", "nagato", "hinata", "A", 3)
@@ -378,8 +385,8 @@ fight(16.997, "guerre4b", "kakashi", "obito", "D", note="Dans la dimension de Ka
 fight(16.996, "guerre4b", ["naruto", "kakashi"], "obito", "A", 1, note="Rasengan et Kamui, masque d'Obito brisé")
 fight(17.008, "guerre4b", "madara", "hashirama", "D", ta=["edo"], tb=["edo"], flags="i")
 fight(17.005, "guerre4b", "obito", ["hashirama", "tobirama", "hiruzen", "minato"], "A", 2, tb=["edo"], note="Obito jinchūriki de Jūbi brise la Barrière rouge et transperce les Hokage (ch. 638-643)")
-fight(17.03, "guerre4b", "madara", "gai", "A", 2, note="Gai ouvre la 8e porte (saut daté) ; Madara, jinchūriki de Jūbi, se régénère et reste debout, Gai s'effondre (ch. 669-671)")
-fight(17.035, "guerre4b", ["naruto", "sasuke"], "madara", "A", 1, note="Pouvoir des Six Chemins ; Madara s'échappe et lance le Tsukuyomi infini (ch. 673-674)", flags="i")
+fight(17.03, "guerre4c", "madara", "gai", "A", 2, note="Gai ouvre la 8e porte (saut daté) ; Madara, jinchūriki de Jūbi, se régénère et reste debout, Gai s'effondre (ch. 669-671)")
+fight(17.035, "guerre4c", ["naruto", "sasuke"], "madara", "A", 1, note="Pouvoir des Six Chemins ; Madara s'échappe et lance le Tsukuyomi infini (ch. 673-674)", flags="i")
 # ---------------------------------------------------------------- Kaguya et Vallée de la Fin
 fight(17.06, "final", ["naruto", "sasuke"], "kaguya", "A", 2, note="Kaguya scellée par Naruto et Sasuke réunis, seuls capables de le faire ; Kakashi, Sakura et Obito en soutien (ch. 678-691)", flags="e")
 fight(17.08, "final", "naruto", "sasuke", "A", 1, note="Dernière Vallée de la Fin : chacun perd un bras, Sasuke dit « j'ai perdu »")
@@ -393,8 +400,8 @@ fight(32.03, "momoshiki", ["sasuke", "naruto", "gaara", "darui", "chojuro", "kur
 fight(32.05, "momoshiki", ["naruto", "sasuke", "boruto"], "momoshiki", "A", 2, ta=["surprise"], note="Rasengan de Boruto")
 fight(33.0, "kara", "jigen", ["naruto", "sasuke"], "A", 2, note="Naruto scellé dans une autre dimension")
 fight(33.05, "kara", "kashin_koji", "jigen", "A", 2, tb=["epuise", "malade"], note="Jigen, épuisé par Naruto et Sasuke, meurt dans les flammes de Koji")
-fight(33.07, "kara", "isshiki", "kashin_koji", "A", 3, note="Koji s'échappe gravement blessé")
-fight(33.08, "kara", "naruto", "isshiki", "A", 2, ta=["boost"], tb=["malade"], note="Mode Baryon ; le temps d'Isshiki est compté")
+fight(33.07, "isshiki", "isshiki", "kashin_koji", "A", 3, note="Koji s'échappe gravement blessé")
+fight(33.08, "isshiki", "naruto", "isshiki", "A", 2, ta=["boost"], tb=["malade"], note="Mode Baryon ; le temps d'Isshiki est compté")
 fight(36.0, "tbv", "boruto", "code", "A", 3, note="Boruto joue avec Code, Rasengan Uzuhiko ; Code s'enfuit (TBV ch. 2-3)")
 fight(36.01, "tbv", "boruto", "kawaki", "A", 2, note="Boruto domine Kawaki presque aussitôt, puis se retire à cause de la résonance du Karma (TBV ch. ~3)", flags="i")
 
@@ -411,7 +418,7 @@ fight(16.921, "guerre4a", "gaara", "rasa", "A", 2, tb=["edo", "retenue"], note="
 fight(16.955, "guerre4a", ["naruto", "killer_b"], "itachi", "D", tb=["edo_ctrl"], note="Itachi se libère du contrôle", flags="i")
 fight(31.5, "momoshiki", ["sasuke", "naruto"], "shin", "A", 3, note="Naruto Gaiden", flags="?")
 fight(33.02, "kara", ["boruto", "sarada", "mitsuki", "kawaki"], "boro", "A", 2, ta=["possede"], note="Momoshiki prend le corps de Boruto pour l'achever (ch. 40-43)")
-fight(33.06, "kara", "isshiki", ["naruto", "sasuke", "boruto", "kawaki"], "A", 2, note="Avant le mode Baryon")
+fight(33.06, "isshiki", "isshiki", ["naruto", "sasuke", "boruto", "kawaki"], "A", 2, note="Avant le mode Baryon")
 
 fight(16.63, "sommet", "sasuke", "sakura", "A", 3, tb=["retenue"], note="Sakura n'ose pas frapper ; Kakashi intervient", flags="i")
 fight(36.1, "tbv", "jura", "himawari", "A", 3, note="Himawari s'évanouit, Boruto la téléporte")
@@ -421,14 +428,14 @@ fight(36.3, "tbv", "boruto", "matsuri", "A", 2, note="Boruto la tranche avec le 
 fight(36.31, "tbv", "jura", "boruto", "A", 3, note="Jura annule l'Uzuhiko")
 
 # ---------------------------------------------------------------- recherche du 8 nov. (Narutopedia, chapitres)
-fight(-12.0, "guerre2", "minato", "kumo_ninja", "A", 3, note="Minato libère Kushina enlevée par Kumo (ch. 498)", flags="?")
+fight(-12.0, "guerre3", "minato", "kumo_ninja", "A", 3, note="Minato libère Kushina enlevée par Kumo (ch. 498)", flags="?")
 fight(-4.005, "guerre3", ["obito", "kakashi"], "taiseki", "A", 1, tb=["surprise"], note="Taiseki crève l'œil de Kakashi ; Obito éveille son Sharingan et le tue (ch. 242)")
-fight(-2.9, "guerre3", "hanzo", ["yahiko", "nagato", "konan"], "A", 2, ta=["prepa"], note="Piège de Hanzō allié à Danzō, mort de Yahiko (ch. 446)", flags="?")
-fight(-2.899, "guerre3", "nagato", "hanzo", "A", 1, ta=["boost"], note="Statue démoniaque ; Hanzō s'enfuit, Nagato a les jambes détruites (ch. 447)", flags="i")
-fight(3.3, "kyubi", "hiashi", "kumo_chef", "A", 3, tb=["surprise"], note="Affaire Hyūga (ch. 102)")
+fight(-3.7, "guerre3", "hanzo", ["yahiko", "nagato", "konan"], "A", 2, ta=["prepa"], note="Piège de Hanzō allié à Danzō, mort de Yahiko (ch. 446)", flags="?")
+fight(-3.699, "guerre3", "nagato", "hanzo", "A", 1, ta=["boost"], note="Statue démoniaque ; Hanzō s'enfuit, Nagato a les jambes détruites (ch. 447)", flags="i")
+fight(3.3, "hyuga", "hiashi", "kumo_chef", "A", 3, tb=["surprise"], note="Affaire Hyūga (ch. 102)")
 fight(7.98, "akatsuki", "danzo", "shisui", "A", 1, ta=["surprise"], note="Danzō vole l'œil droit de Shisui (ch. 590)", flags="?")
 fight(8.0, "akatsuki", "itachi", "uchiha_police", "A", 3, note="Yashiro, Inabi et Tekka (ch. 222)")
-fight(11.0, "akatsuki", "itachi", "deidara", "A", 3, note="Recrutement de Deidara (ch. 359)", flags="?")
+fight(11.0, "vague", "itachi", "deidara", "A", 3, note="Recrutement de Deidara (ch. 359) ; un an avant la 1re partie, rattaché à l'arc suivant pour que Deidara y figure", flags="?")
 fight(11.99, "vague", "naruto", "mizuki", "A", 3, note="Multiclonage, Naruto protège Iruka (ch. 1)")
 fight(12.4, "chunin", "gaara", "dosu", "A", 3, note="Gaara tue Dosu avant la finale (ch. 91)")
 fight(12.649, "tsunade", "tsunade", "naruto", "A", 3, ta=["retenue"], note="Pari du collier (ch. 159)")
@@ -451,12 +458,12 @@ fight(32.3, "kara", ["boruto", "sarada", "mitsuki", "konohamaru"], "ao", "A", 1,
 fight(32.32, "kara", "kashin_koji", ["konohamaru", "boruto", "sarada", "mitsuki"], "A", 2, note="(ch. 23)", flags="i")
 fight(32.5, "kara", "kawaki", "garo", "A", 3, note="(ch. 25)")
 fight(32.7, "kara", "naruto", "delta", "A", 2, ta=["retenue"], note="Naruto protège les enfants (ch. 30-33)")
-fight(33.09, "kara", ["kawaki", "sasuke"], "boruto", "A", 1, tb=["possede"], note="Momoshiki possède Boruto et crève le Rinnegan de Sasuke (ch. 53-54)")
+fight(33.09, "isshiki", ["kawaki", "sasuke"], "boruto", "A", 1, tb=["possede"], note="Momoshiki possède Boruto et crève le Rinnegan de Sasuke (ch. 53-54)")
 fight(33.2, "code", "code", "kawaki", "A", 2, note="(ch. 62)")
 fight(33.21, "code", "code", "boruto", "A", 1, tb=["boost"], note="Code domine Boruto, puis se retire sur ordre d'Eida (ch. 63-65)", flags="i")
 fight(33.23, "code", "code", "kawaki", "A", 2, ta=["prepa"], note="Daemon par une griffe (ch. 67)")
 fight(33.3, "code", "daemon", "code", "A", 3, note="(ch. 71-72)")
-fight(34.2, "code", "code", ["sasuke", "boruto"], "A", 1, tb=["protege"], note="Code sans limiteurs ; Sasuke (qui lui crève un œil) se sacrifie pour que Boruto fuie (Boruto ch. ~79-80)")
+fight(34.2, "omni", "code", ["sasuke", "boruto"], "A", 1, tb=["protege"], note="Code sans limiteurs ; Sasuke (qui lui crève un œil) se sacrifie pour que Boruto fuie (Boruto ch. ~79-80)")
 fight(36.02, "tbv", "hidari", "boruto", "A", 1, note="Boruto se replie pour ne pas être absorbé par l'Arbre-Dieu (TBV ch. 4)", flags="i")
 fight(36.04, "tbv", "boruto", "mitsuki", "A", 3, note="(ch. 7)")
 fight(36.105, "tbv", "hidari", ["sarada", "konohamaru"], "A", 2, note="(ch. 10-11)", flags="i")
@@ -468,6 +475,12 @@ fight(36.32, "tbv", "jura", ["boruto", "kawaki"], "A", 2, ta=["retenue"], note="
 fight(36.4, "tbv", ["boruto", "kawaki", "sarada", "daemon", "delta"], "mamushi", "A", 2, note="(ch. 26-33)")
 fight(36.45, "tbv", "boruto", "code", "A", 2, tb=["prepa"], note="Code l'attendait en embuscade ; Boruto l'arrache à sa Marque de griffe, Code s'enfuit (TBV ch. 34)", flags="i")
 fight(36.5, "tbv", ["hidari", "code"], "sarada", "A", 1, note="(ch. 37-38, en cours)", flags="i")
+
+# ---------------------------------------------------------------- 2e revue : vies avant l'Edo Tensei (sinon Mū, Gengetsu, 3e Raikage et Rasa
+# n'avaient aucun combat vivant, donc aucun nœud : absents du classement et leurs statuts ignorés)
+fight(-30.0, "guerre2", "mu", "gengetsu", "D", note="Mū et Gengetsu se sont entretués (Gengetsu, ch. ~556-557)", flags="?")
+fight(-4.0, "guerre3", "raikage3", "armee_10000", "D", note="Trois jours et trois nuits seul contre 10 000 ninjas, puis il meurt (ch. ~545, 557)", flags="i?")
+fight(12.4, "chunin", "orochimaru", "rasa", "A", 2, ta=["surprise"], note="Orochimaru assassine le 4e Kazekage et son escorte avant la finale (corps retrouvé, ch. ~138)", flags="?")
 
 # drop placeholder names kept by mistake
 for f in F:

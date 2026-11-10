@@ -97,3 +97,35 @@ Une ligne par personnage ayant au moins 2 combats ou un statut / niveau de puiss
 - **bandages** (La Momie, 2 combats) — baba —→1.0 — absent → CORRIGÉ (arc Baba)
 - **mr_satan** (Mr. Satan, 2 combats) — cellgame 0.9→0.9, buu 0.9→0.9 — ok
 - **pilaf** (Pilaf, Shu et Mai (et leurs machines), 2 combats) — pilaf 0.7→0.6, baba 0.9→0.9 — ok
+
+## 2e revue
+
+### Arcs scindés (état d'arc = juste après le dernier combat du personnage dans l'arc)
+- **Namek** → « namek » (Dragon Balls, commando Ginyu) + « freezer » (Freezer, t ≥ 762,876) : Goku de base 5,1 / Super Saiyan 6,1 ; Freezer 1re forme 5,1 / forme finale 5,9 ; Piccolo avant / après la fusion avec Nail 3,7 / 4,6.
+- **Cell Game** → « cellgame » + « ssj2 » (t ≥ 767,5055) : Gohan SSJ 6,5 / SSJ2 7,2 ; Cell parfait 6,6 / 7,0.
+- **Majin Buu** → « buu » (tournoi, Babidi, gros Buu) + « superbuu » (t ≥ 774,338) : Gohan rouillé 5,5 / Gohan Ultime 6,9 ; Super Buu 7,8 ; Vegito 9,2 ; Goku SSJ3 7,3 dans les deux (SSJ3 acquis dès 772, pas de scission utile pour lui).
+- **Tournoi du Pouvoir** → « tdp1 » (avant l'Ultra Instinct) + « tdp » (t ≥ 780,165) : Goku 7,7 / 8,3 ; Jiren 8,9. L'identifiant « tdp » garde la fin (classement par défaut).
+- **Granolah** → « granolah » + « gas » (vœu de Gas, Black Freezer, t ≥ 781,05) : Gas 8,0 / 9,9 ; Freezer Golden 8,6 / Black 10,1.
+- **Super Hero** → « superhero » + « beast » (t ≥ 781,575) : Gohan rouillé / Ultime 6,5 / Beast 9,0.
+- Non scindés : Moro (Ultra Instinct maîtrisé en fin d'arc ; Goku avant maîtrise ≈ Goku du Tournoi du Pouvoir, déjà sélectionnable), Univers 6 / Black (Blue maîtrisé sans nouvelle forme), Ultra Ego de Vegeta (un seul combat avant, contre Beerus).
+
+### Faits vérifiés (Kanzenshuu, guides de chapitre)
+- **Trunks et les cyborgs** : « Ils sont trop forts… », il ne peut que les fuir — ch. 335 (et non 333-335). Libellé corrigé.
+- **C-16 ≥ C-17** : C-16 calcule que sa puissance est à peu près égale à celle de Cell (ch. 371) ; aucune comparaison directe avec C-17. Libellé corrigé, ordre conservé (écart 0).
+- **Jiren > dieu de la destruction** : bien dans le manga (DBS ch. 29 : « plus fort encore que leur dieu de la destruction, Vermoud » ; Toppo pendant l'exhibition), pas seulement dans l'anime (ép. 110). Conservé, libellé corrigé ; écart sur Beerus (référence de dieu de la destruction) 0,3 → 0,1 puisque Belmod ≠ Beerus.
+- **Les anges au-dessus des mortels** : aucune réplique trouvée dans le manga (DBS ch. 27-29). Les deux ordres Whis > Jiren et Whis > Black Freezer sont gardés comme corollaires de Whis > Beerus (ch. 1-5), libellés corrigés.
+- **Gohan Ultime > Goku SSJ3** : aucune réplique des ch. 496-502 ne le dit ; seule comparaison officielle relevée, un encart du V Jump (Gohan « au niveau de Goku SSJ3 »). → ordre +0,3 remplacé par une quasi-égalité.
+- **Goku contre Goku Black** : n'existe pas dans le manga Super (ch. 15-22 : Vegeta affronte Black, Goku affronte Zamasu ; le duel Goku–Black est propre à l'anime). Rien à ajouter.
+- **Super Buu contre Goku avant Vegito** : ajouté, ch. 502 : Goku SSJ3 coupe Super Buu au Kienzan, Buu se reforme ; Goku juge la fusion avec Gohan seule issue → nul « i? » + ordre Super Buu > Goku SSJ3 (0,3). Vegeta n'affronte pas Super Buu avant la fusion (ch. 503).
+
+### Points de jugement
+- **Vegito ≈ 2 échelons au-dessus de Goku SSJ3** (9,2 contre 7,3 ; 88 %) : conservé. Chaîne canon : Vegito écrase Super Buu (Gohan absorbé) en se jouant de lui (ch. 504-506), Super Buu > Goku SSJ3 (ch. 502), Gohan Ultime ≈ Goku SSJ3. Effet indésirable : Vegito de l'arc Buu (9,2) au-dessus de Beerus (8,9), sans contradiction canon directe.
+- **Black Freezer vs Beerus** : 78 % / 16 %. Aucune comparaison canon (ch. 87-88) ; NON RÉSOLU.
+- **Gohan Ultime vs Goku SSJ3** : quasi-égalité visée, 32 % / 60 % (Gohan 6,9 contre 7,3).
+- **Granolah vs Goku / Vegeta** : ajout de Granolah ≥ Vegeta (0,2) et ≥ Goku (0) (vœu « le plus fort de l'univers », ch. 70 ; deux victoires sur Vegeta Ultra Ego, ch. 75-76). Résultat 43 % / 48 % contre Goku, 45 % / 46 % contre Vegeta : quasi-égalité.
+
+### Duels de contrôle (après 2e revue)
+Goku vs Jiren (fin du TdP) 26 % / 66 %, avant l'UI 12 % ; Goku SSJ vs Freezer 100 % 54 % / 37 %, Goku de base vs Freezer 22 % ; Gohan SSJ2 vs Cell 51 % / 39 %, Gohan SSJ vs Cell 40 % / 50 % ; Goku vs Cell 34 % / 57 % ; Vegeta vs Goku (Buu) 20 % / 74 % ; Goku SSJ3 vs Buu originel 31 % / 61 % ; Goku SSG vs Beerus 16 % ; Jiren vs Beerus 42 % / 49 % ; Black Freezer vs Whis 33 % / 58 % ; Vegeta vs Goku (Granolah) 44 % / 47 % ; Gohan Beast vs Goku 54 % / 39 %.
+
+### Reste ouvert
+- Black Freezer > Beerus (pas de canon) ; Vegito de l'arc Buu au-dessus de Beerus ; Piccolo Orange 8,7 ≈ Goku (forcé par sa victoire écrasante sur Gamma 2, ch. 96) ; Black Freezer seulement 0,4 sous Whis.

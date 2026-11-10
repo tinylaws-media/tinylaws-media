@@ -15,7 +15,11 @@ import os
 ARCS = [
     ("sengoku", "Ère Sengoku (Yoriichi)", -400.0),
     ("vieillesse", "Yoriichi octogénaire contre Kokushibo", -340.0),
-    ("avant", "Avant l'histoire", -2.0),
+    # 2e revue : flash-backs répartis pour que chaque combattant soit visible dans l'arc de ses combats
+    ("hakuji", "Passé d'Akaza (Hakuji)", -120.2),
+    ("jeunesse", "Jeunesse des Piliers (Gyomei, Sanemi, Sabito)", -6.0),
+    ("avant", "Avant l'histoire (Kanae, démon aux mains)", -2.0),
+    ("prologue", "Prologue : massacre des Kamado, entraînement de Tanjiro", 0.0),
     ("selection", "Sélection finale", 2.0),
     ("asakusa", "Asakusa et le manoir Tsuzumi", 2.1),
     ("natagumo", "Mont Natagumo", 2.2),

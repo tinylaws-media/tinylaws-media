@@ -67,3 +67,24 @@ Une ligne par personnage ayant au moins 2 combats ou un statut/ordre officiel. V
 - **ponzu** (Ponzu, 3 combats) — examen 0,2→0,2, zoldyck 0,2→0,2, arene 0,2→0,2, yorknew 1,1→1,0, greedisland 1,1→1,0, fourmis 1,1→1,0 — ok
 - **pokkle** (Pokkle, 2 combats) — examen -0,1→-0,1, zoldyck -0,1→-0,1, arene -0,1→-0,1, yorknew 0,8→0,8, greedisland 0,8→0,8, fourmis 0,8→0,8 — ok
 - **bodoro** (Bodoro, 2 combats) — examen 0,6→0,6 — ok
+
+## 2e revue
+
+### Arcs scindés (état d'arc = juste après le dernier combat du personnage dans l'arc)
+- **Fourmis-chimères** → « ngl » (NGL et Est-Gorteau, t 0,80-0,929) + « fourmis » (assaut du palais, t ≥ 0,93). Gon normal 3,9 (ngl) / Gon adulte 7,3 (fourmis) ; Killua sans Godspeed 4,6 / avec Godspeed 5,1 ; Meruem avant absorption 7,2 / après 7,8. L'identifiant « fourmis » garde le palais (duel par défaut Netero–Meruem inchangé).
+- **avant2** (Tour céleste deux ans plus tôt, t = −2) : Hisoka et Kastro étaient invisibles dans l'arc de leur premier duel (arc « avant » daté −10).
+
+### Faits vérifiés
+- **Ch. 281 « Godspeed »** (Hunterpedia) : l'électricité de Killua paralyse Youpi, Knuckle le roue de coups et l'envoie au sol d'un coup de pied, puis fuit ; ensuite Killua frappe Youpi qui ne peut réagir, coups trop faibles pour le blesser, puis s'éclipse à court d'électricité. → recodé : [Killua, Knuckle] bat Youpi marge 1 « i » (au lieu de Knuckle–Youpi nul) ; Killua–Youpi nul « i » conservé avec la note corrigée.
+
+### Points de jugement
+- **Killua près du sommet** : 5,1 au palais (≈ Illumi 5,1, sous Hisoka 5,3, Pouf 5,8, Youpi 5,9) ; Illumi ≥ Killua (ch. 326) tenu de justesse. Godspeed rend Youpi incapable de réagir (ch. 281) : base canon suffisante pour le placer au-dessus de Morel/Knuckle. Laissé.
+- **Palm** : 4,7 → 4,5 ± 1,1. Sa seule victoire (un mini-clone de Pouf) passe en « i » ; elle reste haute à cause de son a priori de Fourmi convertie et de l'absence d'autre combat. Laissé, très incertain.
+- **Hanzo** : 4,2 ± 1,1, inchangé ; une seule victoire (surprise) depuis le saut Nen. Aucune déclaration canon pour le placer. Laissé.
+
+### Duels de contrôle (après 2e revue)
+Netero vs Meruem (palais) 6 % / nul 5 % / 89 % ; Gon adulte vs Pitou 80 % ; Gon normal (NGL) vs Pitou 5 % ; Killua Godspeed vs Youpi 20 % / 68 % ; Hisoka vs Chrollo (succession) 44 % / 41 % ; Hisoka vs Kastro (−2) 93 % ; Illumi vs Killua (élection) 45 % / 41 % ; Kurapika vs Uvogin 47 % / 38 % ; Netero vs Hisoka (examen) 73 % ; Knuckle vs Youpi 8 % ; Biscuit vs Razor 40 % / 46 % ; Zeno vs Chrollo 47 % / 38 % ; Palm vs Morel 46 % / 43 %.
+
+### Reste ouvert
+- Hanzo et Palm (une seule victoire chacun, écarts-types > 1).
+- Gon contre Genthru à Greed Island : 26 % alors que Gon gagne (étiquette « prepa », main sacrifiée) — cohérent avec le canon (victoire par stratégie), laissé.

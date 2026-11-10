@@ -43,7 +43,7 @@ CHARS_PART = {
     "tamayo": ("Tamayo", "Alliés démons", 2.5, 2.8065, None),
     "yushiro": ("Yushiro", "Alliés démons", 1.8, None, None),
     # ---------------------------------------------------------------- humains des flash-back
-    "hakuji": ("Hakuji (Akaza humain)", "Humains", 1.5, None, None),
+    "hakuji": ("Hakuji (Akaza humain)", "Humains", 1.5, -119.99, None),   # 2e revue : « fin » à sa transformation en Akaza (sinon affiché dans tous les arcs)
     "keizo": ("Keizo (dojo Soryu)", "Humains", 1.5, -120.05, None),
     "voyous": ("Voyous armés (groupe)", "Humains", 0.3, None, None),
     "dojo_rival": ("Élèves du dojo rival (67, groupe)", "Humains", 0.6, -120.0, None),
@@ -100,7 +100,7 @@ JUMPS_PART = [
     ("nezuko", 2.6052, 0.3, 0.3, "Nezuko surmonte le soleil (ch. 126-127)"),
     ("nezuko", 2.809, -3.0, 0.8, "Redevenue humaine grâce au remède de Tamayo (ch. ~196-197)"),
     ("zenitsu", 2.285, 0.4, 0.3, "Concentration totale permanente (ch. 50-51)"),
-    ("zenitsu", 2.78, 0.8, 0.6, "Septième mouvement de la foudre créé seul (révélé ch. 145)"),
+    ("zenitsu", 2.78, 0.8, 0.9, "Septième mouvement de la foudre créé seul (révélé ch. 145) ; 2e revue : incertitude 0,6 → 0,9, le saut est mesuré par la victoire sur Kaigaku"),
     ("inosuke", 2.285, 0.4, 0.3, "Concentration totale permanente (ch. 50-51)"),
     ("inosuke", 2.75, 0.3, 0.3, "Entraînement des Piliers"),
     ("zenitsu", 2.75, 0.3, 0.3, "Entraînement des Piliers"),
@@ -108,7 +108,7 @@ JUMPS_PART = [
     ("genya", 2.4, 1.0, 0.6, "Dévoration de démons, fusil et entraînement auprès de Gyomei"),
     ("genya", 2.75, 0.3, 0.3, "Entraînement des Piliers et de Gyomei"),
     ("muichiro", 1.0, 2.5, 1.0, "Pilier deux mois après avoir pris le sabre"),
-    ("muichiro", 2.6025, 0.8, 0.4, "Mémoire retrouvée et Marque (ch. 118-119)"),
+    ("muichiro", 2.6025, 0.8, 0.8, "Mémoire retrouvée et Marque (ch. 118-119) ; 2e revue : incertitude élargie (0,4 → 0,8), le saut est mesuré par la victoire écrasante sur Gyokko"),
     ("mitsuri", 2.6034, 0.3, 0.3, "Marque éveillée contre Zohakuten (ch. 123)"),
     ("giyu", 2.8005, 0.3, 0.3, "Marque éveillée contre Akaza (ch. 151)"),
     ("sanemi", 2.8014, 0.3, 0.3, "Marque éveillée contre Kokushibo (ch. ~167-168)"),
@@ -136,33 +136,33 @@ fight(-340.0, "vieillesse", "yoriichi", "kokushibo", "A", 2,
       note="Yoriichi, plus de 80 ans, tranche le cou de Kokushibo puis meurt debout avant le coup final (ch. 174)", flags="i")
 
 # ============================================================== Avant l'histoire (flash-back)
-fight(-120.3, "avant", "hakuji", "voyous", "A", 3, note="Hakuji assomme sept hommes armés à mains nues (ch. 154)")
-fight(-120.2, "avant", "keizo", "hakuji", "A", 3, note="Keizo met Hakuji K.-O. d'un coup et le prend comme élève (ch. 154)")
-fight(-120.0, "avant", "hakuji", "dojo_rival", "A", 3, note="Après l'empoisonnement du puits, il tue 67 élèves à mains nues (ch. 155)")
-fight(-119.99, "avant", "muzan", "hakuji", "A", 3, note="Muzan lui transperce la tête et en fait Akaza (ch. 155)")
+fight(-120.3, "hakuji", "hakuji", "voyous", "A", 3, note="Hakuji assomme sept hommes armés à mains nues (ch. 154)")
+fight(-120.2, "hakuji", "keizo", "hakuji", "A", 3, note="Keizo met Hakuji K.-O. d'un coup et le prend comme élève (ch. 154)")
+fight(-120.0, "hakuji", "hakuji", "dojo_rival", "A", 3, note="Après l'empoisonnement du puits, il tue 67 élèves à mains nues (ch. 155)")
+fight(-119.99, "hakuji", "muzan", "hakuji", "A", 3, note="Muzan lui transperce la tête et en fait Akaza (ch. 155)")
 fight(-47.0, "avant", "urokodaki", "hand_demon", "A", 2, note="Urokodaki capture le démon aux mains à l'ère Keiō (ch. 7)")
-fight(-7.0, "avant", "gyomei", "demon_gyomei", "A", 2,
+fight(-7.0, "jeunesse", "gyomei", "demon_gyomei", "A", 2,
       note="Moine aveugle sans entraînement, il écrase la tête du démon à coups de poing jusqu'à l'aube pour protéger Sayo (ch. 135)")
 fight(-6.7, "avant", "hand_demon", "makomo", "A", 2,
       note="Makomo tuée à sa Sélection finale, avant Sabito (ch. 6-7) ; date estimée", flags="?")
-fight(-6.0, "avant", "sanemi", "mere_shinazugawa", "A", 2,
+fight(-6.0, "jeunesse", "sanemi", "mere_shinazugawa", "A", 2,
       note="Sanemi, adolescent, tue sa mère changée en démon en la retenant jusqu'à l'aube (ch. 115) ; date estimée", flags="?")
-fight(-5.71, "avant", "sabito", "demons_mineurs", "A", 3, note="Sabito tue presque tous les démons du mont Fujikasane (ch. 7)")
-fight(-5.7, "avant", "hand_demon", "sabito", "A", 1, tb=["epuise"],
+fight(-5.71, "jeunesse", "sabito", "demons_mineurs", "A", 3, note="Sabito tue presque tous les démons du mont Fujikasane (ch. 7)")
+fight(-5.7, "jeunesse", "hand_demon", "sabito", "A", 1, tb=["epuise"],
       note="La lame de Sabito se brise sur le cou du démon aux mains (ch. 7)")
 fight(-1.8, "avant", "doma", "kanae", "A", 2,
       note="Doma tue Kanae, Shinobu arrive à sa mort (souvenirs ch. 141-143) ; date estimée")
-fight(-0.5, "avant", "muichiro", "demon_tokito", "A", 2,
+fight(-0.5, "prologue", "muichiro", "demon_tokito", "A", 2,
       note="Rage de Muichiro, 11 ans : il écrase le démon qui a blessé Yuichiro jusqu'à l'aube (ch. 118) ; date estimée")
 
 # ============================================================== Massacre et entraînement (t 0-1.9)
-fight(0.0, "avant", "giyu", ["tanjiro", "nezuko"], "A", 3, ta=["retenue"], tb=["surprise"],
+fight(0.0, "prologue", "giyu", ["tanjiro", "nezuko"], "A", 3, ta=["retenue"], tb=["surprise"],
       note="Hache lancée de derrière l'arbre ; Giyu assomme Tanjiro puis Nezuko et les épargne (ch. 1)")
-fight(0.01, "avant", ["tanjiro", "nezuko"], "demon_temple", "A", 1,
+fight(0.01, "prologue", ["tanjiro", "nezuko"], "demon_temple", "A", 1,
       note="Tanjiro cloue la tête du démon à un arbre avec sa hache, Nezuko lui arrache la tête ; il brûle à l'aube (ch. 3)")
-fight(1.3, "avant", "sabito", "tanjiro", "A", 3, ta=["retenue"],
+fight(1.3, "prologue", "sabito", "tanjiro", "A", 3, ta=["retenue"],
       note="Esprit de Sabito, sabre de bois contre sabre réel ; il bat Tanjiro deux fois (ch. 5)")
-fight(1.8, "avant", "tanjiro", "sabito", "A", 1,
+fight(1.8, "prologue", "tanjiro", "sabito", "A", 1,
       note="Six mois plus tard, Tanjiro frappe le premier et fend le masque de Sabito (ch. 5)")
 
 # ============================================================== Sélection finale
@@ -258,7 +258,7 @@ fight(2.7995, "chateau", ["gyomei", "tamayo", "sanemi", "giyu", "iguro", "mitsur
       flags="i")
 fight(2.8, "chateau", "doma", "shinobu", "A", 2,
       note="Le poison de Shinobu ne suffit pas, Doma l'absorbe (ch. 141-143)")
-fight(2.8003, "chateau", "zenitsu", "kaigaku", "A", 1, note="Septième mouvement, Honoikazuchi no Kami : Zenitsu décapite Kaigaku (ch. 144-145)")
+fight(2.8003, "chateau", "zenitsu", "kaigaku", "A", 2, note="Septième mouvement, Honoikazuchi no Kami : Zenitsu, blessé, décapite Kaigaku d'un seul coup que celui-ci ne voit pas (ch. 143-146 ; 2e revue : marge 1 → 2, victoire nette en un éclair)")
 fight(2.8006, "chateau", ["tanjiro", "giyu"], "akaza", "A", 1,
       note="Marque de Giyu, Monde transparent de Tanjiro qui décapite Akaza ; Akaza régénéré renonce et se détruit (ch. 147-156)",
       flags="e")

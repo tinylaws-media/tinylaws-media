@@ -128,7 +128,7 @@ CHARS_PART = {
     "izo": ("Izo", "Pirates de Barbe Blanche", 5.0, 2.4472, None),
     "maha": ("Maha", "CP0", 5.0, None, None),
     "guernica": ("Guernica", "CP0", 5.0, None, None),
-    "orochi": ("Kurozumi Orochi", "Shogunat de Wano", 3.0, 2.4495, None),
+    "orochi": ("Kurozumi Orochi", "Shogunat de Wano", 3.0, 2.4498, None),
 }
 
 GENERIC_PART = {"pacifista"}
@@ -147,21 +147,21 @@ JUMPS_PART = [
     ("brook", 1.5, 1.0, 0.6, "Ellipse : maîtrise de l'âme (Yomi Yomi)"),
     # Dressrosa
     ("sabo", 2.255, 1.0, 0.7, "Mange le Mera Mera no Mi (ch. 744)"),
-    ("usopp", 2.276, 0.4, 0.4, "Éveil du Haki de l'observation (ch. 777)"),
+    ("usopp", 2.2741, 0.4, 0.4, "Éveil du Haki de l'observation (ch. 777)"),
     ("luffy", 2.2785, 1.0, 0.7, "Gear 4 (ch. 784)"),
     # Whole Cake Island
     ("luffy", 2.364, 0.4, 0.4, "Observation du futur apprise contre Katakuri (ch. 893-896)"),
-    ("nami", 2.3647, 0.5, 0.4, "Zeus asservi au Clima-Tact (ch. 890), partenaire de Nami à Onigashima (ch. 1018)"),
+    ("nami", 2.36455, 0.5, 0.4, "Zeus asservi au Clima-Tact (ch. 890), partenaire de Nami à Onigashima (ch. 1018)"),
     # Wano
-    ("luffy", 2.418, 0.5, 0.5, "Ryuo / Haki émis appris à Udon (ch. 939-948)"),
+    ("luffy", 2.4165, 0.5, 0.5, "Ryuo / Haki émis appris à Udon (ch. 939-948)"),
     ("zoro", 2.42, 0.3, 0.4, "Obtient Enma (ch. 955)"),
     ("luffy", 2.4435, 0.5, 0.5, "Haki des rois imprégné maîtrisé (ch. 1010-1043)"),
-    ("robin", 2.4441, 0.4, 0.4, "Demonio Fleur (ch. 1021-1022)"),
-    ("sanji", 2.4461, 0.8, 0.6, "Éveil du corps modifié Germa (ch. 1031-1034)"),
-    ("zoro", 2.4466, 0.8, 0.6, "Haki des rois éveillé et imprégné (ch. 1033-1035)"),
-    ("law", 2.4476, 0.8, 0.6, "Éveil de l'Ope Ope no Mi (ch. 1039-1042)"),
-    ("kid", 2.4476, 0.8, 0.6, "Éveil du Jiki Jiki no Mi (ch. 1039-1042)"),
-    ("luffy", 2.4492, 1.0, 0.8, "Gear 5 / éveil du Gomu Gomu (Hito Hito modèle Nika) acquis (ch. 1044)"),
+    ("robin", 2.4439, 0.4, 0.4, "Demonio Fleur (ch. 1021-1022)"),
+    ("sanji", 2.4459, 0.8, 0.6, "Éveil du corps modifié Germa (ch. 1031-1034)"),
+    ("zoro", 2.4461, 0.8, 0.6, "Haki des rois éveillé et imprégné (ch. 1033-1035)"),
+    ("law", 2.4471, 0.8, 0.6, "Éveil de l'Ope Ope no Mi (ch. 1039-1042)"),
+    ("kid", 2.4471, 0.8, 0.6, "Éveil du Jiki Jiki no Mi (ch. 1039-1042)"),
+    ("luffy", 2.4495, 1.0, 0.8, "Gear 5 / éveil du Gomu Gomu (Hito Hito modèle Nika) acquis (ch. 1044)"),
 ]
 
 # ============================================================== retour à Sabaody (ch. 598-603)
@@ -269,10 +269,10 @@ fight(2.2765, "punkhazard", "luffy", "bellamy", "A", 2, tb=["epuise"],
       note="Libéré des fils, Bellamy choisit un dernier combat ; Gear 2 imprégné (ch. 769-779)")
 fight(2.277, "punkhazard", "law", "trebol", "A", 2, ta=["epuise"], note="Sterben ; Trebol tente de l'emporter dans une explosion (ch. 782)")
 fight(2.278, "punkhazard", "doflamingo", "law", "A", 2, tb=["epuise"], note="Gamma Knife ne suffit pas, Doflamingo se soigne (ch. 781-782)")
-fight(2.279, "punkhazard", "luffy", "doflamingo", "A", 1, tb=["epuise"],
+fight(2.279, "gear4", "luffy", "doflamingo", "A", 1, tb=["epuise"],
       note="Gear 4 ; Luffy à court de temps, puis King Kong Gun (ch. 783-790)")
-fight(2.286, "punkhazard", "sabo", "burgess", "A", 2, note="Griffe du roi dragon (ch. 787), puis Burgess, qui le provoque au sujet d'Ace, brûlé à bout portant (ch. 792)")
-fight(2.287, "punkhazard", "luffy", "fujitora", "D", tb=["retenue"],
+fight(2.286, "gear4", "sabo", "burgess", "A", 2, note="Griffe du roi dragon (ch. 787), puis Burgess, qui le provoque au sujet d'Ace, brûlé à bout portant (ch. 792)")
+fight(2.287, "gear4", "luffy", "fujitora", "D", tb=["retenue"],
       note="Au port, Luffy annonce ses coups ; Fujitora le projette par la gravité puis laisse filer la flotte (ch. 799)", flags="i")
 
 # ============================================================== Zou (ch. 802-824)
@@ -372,6 +372,6 @@ fight(2.4474, "wano", "raizo", "fukurokuju", "A", 1, note="Impasse de paralysie,
 fight(2.4485, "wano", "kaido", "luffy", "A", 1, ta=["surprise"], tb=["haki_roi", "epuise"],
       note="Le CP0 immobilise Luffy et Kaido le frappe (ch. 1042-1043)")
 fight(2.4486, "wano", "kaido", "guernica", "A", 3, note="Kaido punit le CP0 qui s'est mêlé du duel (ch. 1043)")
-fight(2.449, "wano", "luffy", "kaido", "A", 2,
+fight(2.4497, "wano5", "luffy", "kaido", "A", 2,
       note="Gear 5, Bajrang Gun ; Kaido tombe dans le magma (ch. 1044-1049)")
-fight(2.4495, "wano", "denjiro", "orochi", "A", 3, note="Orochi piégé dans le feu puis décapité (ch. 1049-1050)")
+fight(2.4498, "wano5", "denjiro", "orochi", "A", 3, note="Orochi piégé dans le feu puis décapité (ch. 1049-1050)")

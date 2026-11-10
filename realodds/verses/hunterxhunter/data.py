@@ -14,12 +14,16 @@ import os
 
 ARCS = [
     ("avant", "Avant l'histoire", -10.0),
+    ("avant2", "Tour céleste, deux ans plus tôt (Hisoka contre Kastro)", -2.0),   # 2e revue : sinon Hisoka et Kastro invisibles dans l'arc de ce combat
     ("examen", "Examen Hunter", 0.0),
     ("zoldyck", "Famille Zoldyck", 0.05),
     ("arene", "Tour céleste", 0.15),
     ("yorknew", "York New City", 0.5),
     ("greedisland", "Greed Island", 0.6),
-    ("fourmis", "Fourmis-chimères", 0.8),
+    # 2e revue : arc scindé pour que Gon normal (NGL) et Gon adulte (palais) soient tous deux sélectionnables,
+    # ainsi que Killua avant / après Godspeed et Meruem avant / après l'absorption de Youpi et Pouf.
+    ("ngl", "Fourmis-chimères : NGL et Est-Gorteau", 0.8),
+    ("fourmis", "Fourmis-chimères : assaut du palais", 0.93),
     ("election", "Élection du président", 1.1),
     ("succession", "Guerre de succession", 1.3),
 ]

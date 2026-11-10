@@ -4,13 +4,13 @@
 # Numéros de chapitre vérifiés sur les résumés de chapitres du Jujutsu Kaisen Wiki (miroir daddyjim.com, le fandom
 # étant inaccessible) et, pour Modulo, sur Beebom / ComicBook / Soap Central. "ch. ~N" = à un ou deux chapitres près.
 # Repères de temps (t = années depuis juin 2018) : passé 2006 = -12, JJK0 -1.0 à -0.92, débuts 0.0-0.2, Kyoto 0.25,
-# Peinture de la mort 0.3-0.31, Shibuya 0.35-0.365, Jeu d'abattage 0.45-0.557, Shinjuku 0.6-0.602, Modulo 68.4-68.6.
+# Peinture de la mort 0.3-0.31, Shibuya 0.35-0.365, Jeu d'abattage 0.45-0.557, Shinjuku 0.600-0.601 (Gojo contre Sukuna) puis 0.604-0.619 (la relève ; 2e revue : pas de 0,001 car model.py place l'état d'arc 0,0009 après le dernier combat), Modulo 68.4-68.6.
 # Les combats de Shinjuku sont ordonnés à 0.0001 près dans l'ordre des chapitres.
 # Sukuna = un seul id ("sukuna") : dans Yuji, dans Megumi puis forme Heian, avec JUMPS pour les doigts et les corps.
 
 CHARS_PART = {
     # ---------------------------------------------------------------- exorcistes de Tokyo
-    "gojo": ("Satoru Gojo", "Exorcistes de Tokyo", 5.5, 0.6001, None),
+    "gojo": ("Satoru Gojo", "Exorcistes de Tokyo", 5.5, 0.601, None),
     "geto": ("Suguru Geto", "Exorcistes / Fidèles de Geto", 4.0, -0.92, None),
     "yuta": ("Yuta Okkotsu", "Exorcistes de Tokyo", 4.0, None, None),
     "maki": ("Maki Zen'in", "Exorcistes de Tokyo", 2.0, None, None),
@@ -43,20 +43,20 @@ CHARS_PART = {
     "naoya_fleau": ("Naoya Zen'in (fléau vengeur)", "Fléaux", 4.0, 0.53, None),
     # ---------------------------------------------------------------- tueurs, ennemis humains
     "toji": ("Toji Fushiguro", "Tueur de sorciers", 6.0, -11.993, -11.993),
-    "kenjaku": ("Kenjaku (corps de Geto)", "Kenjaku", 4.5, 0.6004, None),
-    "uraume": ("Uraume", "Kenjaku / Sukuna", 4.0, 0.6018, None),
+    "kenjaku": ("Kenjaku (corps de Geto)", "Kenjaku", 4.5, 0.606, None),
+    "uraume": ("Uraume", "Kenjaku / Sukuna", 4.0, 0.62, None),
     "junpei": ("Junpei Yoshino", "Utilisateurs maudits", 1.0, 0.2, None),
     "juzo": ("Juzo Kumiya", "Utilisateurs maudits", 1.5, None, None),
     "haruta": ("Haruta Shigemo", "Utilisateurs maudits", 2.0, None, None),
     "hasaba": ("Jumelles Hasaba (Mimiko et Nanako)", "Utilisateurs maudits", 2.0, 0.355, None),
     # ---------------------------------------------------------------- fléaux
-    "sukuna": ("Ryomen Sukuna", "Fléaux", 7.5, 0.6018, None),
+    "sukuna": ("Ryomen Sukuna", "Fléaux", 7.5, 0.62, None),
     "mahoraga": ("Mahoraga (Général divin des Dix Ombres)", "Shikigami", 5.5, None, None),
     "jogo": ("Jogo", "Fléaux", 5.0, 0.356, None),
     "hanami": ("Hanami", "Fléaux", 4.8, 0.3502, None),
     "dagon": ("Dagon", "Fléaux", 4.8, 0.353, None),
     "mahito": ("Mahito", "Fléaux", 4.5, None, None),   # absorbé par Kenjaku (ch. 133), réapparaît dans Modulo
-    "choso": ("Choso", "Peintures de la mort", 4.0, 0.6011, None),
+    "choso": ("Choso", "Peintures de la mort", 4.0, 0.613, None),
     "eso": ("Eso", "Peintures de la mort", 3.0, 0.31, None),
     "kechizu": ("Kechizu", "Peintures de la mort", 2.5, 0.31, None),
     "smallpox": ("Divinité de la variole (fléau)", "Fléaux", 3.8, 0.3515, None),
@@ -65,10 +65,10 @@ CHARS_PART = {
     "fleaux_divers": ("Fléaux divers (groupe)", "Fléaux", 1.5, None, None),
     "kurourushi": ("Kurourushi", "Fléaux", 3.5, 0.502, None),
     # ---------------------------------------------------------------- joueurs du Jeu d'abattage
-    "higuruma": ("Hiromi Higuruma", "Joueurs du jeu d'abattage", 3.5, 0.6005, None),
+    "higuruma": ("Hiromi Higuruma", "Joueurs du jeu d'abattage", 3.5, 0.607, None),
     "reggie": ("Reggie Star", "Joueurs du jeu d'abattage", 2.5, 0.49, None),
     "charles": ("Charles Bernard", "Joueurs du jeu d'abattage", 2.5, None, None),
-    "kashimo": ("Hajime Kashimo", "Joueurs du jeu d'abattage", 4.3, 0.6002, None),
+    "kashimo": ("Hajime Kashimo", "Joueurs du jeu d'abattage", 4.3, 0.604, None),
     "dhruv": ("Dhruv Lakdawalla", "Joueurs du jeu d'abattage", 3.0, 0.5, None),
     "ryu_ishigori": ("Ryu Ishigori", "Joueurs du jeu d'abattage", 3.8, 0.557, None),
     "uro": ("Takako Uro", "Joueurs du jeu d'abattage", 3.5, None, None),
@@ -96,7 +96,7 @@ JUMPS_PART = [
     ("sukuna", 0.3545, 2.0, 0.8, "Jogo lui fait avaler dix doigts : quinze doigts (ch. 111-112)"),
     ("sukuna", 0.554, 0.8, 0.8, "Prend le corps de Megumi et les Dix Ombres (ch. 212)"),
     ("sukuna", 0.58, 0.4, 0.5, "Ingère les doigts restants avant Shinjuku (ch. ~221)"),
-    ("sukuna", 0.60015, 1.0, 0.8, "Retrouve sa vraie forme de l'ère Heian (ch. 237)"),
+    ("sukuna", 0.603, 1.0, 0.8, "Retrouve sa vraie forme de l'ère Heian (ch. 237), après la mort de Gojo"),
     # Gojo
     ("gojo", -11.996, 1.5, 0.8, "Éveil après sa mort face à Toji : technique inversée, Violet (ch. 75)"),
     # Yuta
@@ -106,7 +106,7 @@ JUMPS_PART = [
     ("yuji", 0.2542, 0.6, 0.5, "Premier Éclair noir, contrôle de l'énergie occulte (ch. 48)"),
     ("yuji", 0.37, 0.6, 0.5, "Éclair noir maîtrisé après Shibuya (ch. 132)"),
     ("yuji", 0.59, 0.8, 0.6, "Manipulation du sang et Démantèlement de Sukuna (ch. 252-257)"),
-    ("yuji", 0.6016, 0.4, 0.5, "Expansion du territoire (ch. 264)"),
+    ("yuji", 0.618, 0.4, 0.5, "Expansion du territoire (ch. 264)"),
     ("yuji", 68.0, 0.8, 0.8, "Ellipse de 68 ans : techniques de Sukuna maîtrisées, domaine de l'âme (Modulo ch. 19-22) ; aucune déclaration canon ne le place au-dessus de Gojo ou de Sukuna"),
     # Megumi
     ("megumi", 0.3, 0.5, 0.4, "Ébauche d'Expansion du territoire : Jardin des ombres chimériques (ch. 58)"),
@@ -291,37 +291,37 @@ fight(0.5565, "culling", "sukuna", "yorozu", "A", 2, ta=["retenue"],
 # ============================================================================== bataille de Shinjuku (24 décembre)
 fight(0.6, "shinjuku", "gojo", "mahoraga", "A", 2,
       note="Rouge et Bleu combinés désintègrent Mahoraga et blessent Sukuna (ch. 230-232)")
-fight(0.6001, "shinjuku", "sukuna", "gojo", "A", 1, ta=["prepa"],
+fight(0.601, "shinjuku", "sukuna", "gojo", "A", 1, ta=["prepa"],
       note="Duel des plus forts : le Démantèlement adapté par Mahoraga tranche l'Infini (ch. 223-236)")
-fight(0.6002, "shinjuku", "sukuna", "kashimo", "A", 3, tb=["boost"],
+fight(0.604, "shinjuku2", "sukuna", "kashimo", "A", 3, tb=["boost"],
       note="Kashimo force la vraie forme de Sukuna puis meurt (ch. 237-238)")
-fight(0.6003, "shinjuku", "takaba", "kenjaku", "D",
+fight(0.605, "shinjuku2", "takaba", "kenjaku", "D",
       note="L'humoriste rend Takaba intouchable ; duel comique sans issue martiale, Kenjaku s'amuse (ch. 239-242) ; audit : victoire→nul interrompu (gag)", flags="i?")
-fight(0.6004, "shinjuku", "yuta", "kenjaku", "A", 3, ta=["surprise"], tb=["epuise"],
+fight(0.606, "shinjuku2", "yuta", "kenjaku", "A", 3, ta=["surprise"], tb=["epuise"],
       note="Yuta décapite Kenjaku distrait par Takaba (ch. 243)")
-fight(0.6005, "shinjuku", "sukuna", ["higuruma", "yuji", "kusakabe"], "A", 3,
+fight(0.607, "shinjuku2", "sukuna", ["higuruma", "yuji", "kusakabe"], "A", 3,
       note="Confiscation ratée (Kamutoke au lieu du Sanctuaire) ; Higuruma tué (ch. 244-247)")
-fight(0.6006, "shinjuku", "sukuna", ["yuta", "yuji"], "A", 2,
+fight(0.608, "shinjuku2", "sukuna", ["yuta", "yuji"], "A", 2,
       note="Domaine de Yuta, Rika et l'Épée ; Sukuna finit par mettre Yuta hors combat (ch. 248-251)")
-fight(0.6007, "shinjuku", "sukuna", "maki", "A", 2, tb=["surprise"],
+fight(0.609, "shinjuku2", "sukuna", "maki", "A", 2, tb=["surprise"],
       note="L'embuscade de Maki blesse Sukuna, éjectée par un Éclair noir (ch. 252-253)")
-fight(0.6008, "shinjuku", "sukuna", "ino", "A", 3,
+fight(0.61, "shinjuku2", "sukuna", "ino", "A", 3,
       note="Ino et Kaichi balayés (ch. 253)")
-fight(0.6009, "shinjuku", "sukuna", "kusakabe", "A", 3,
+fight(0.611, "shinjuku2", "sukuna", "kusakabe", "A", 3,
       note="Simple Domaine de Kusakabe ; Sukuna pince la lame et l'ouvre, Ui Ui le sauve (ch. 253-254) ; audit : marge 2→3, Kusakabe ne survit que par la téléportation")
-fight(0.601, "shinjuku", "sukuna", ["miguel", "larue"], "A", 3,
+fight(0.612, "shinjuku2", "sukuna", ["miguel", "larue"], "A", 3,
       note="Miguel et Larue harcèlent Sukuna ; Cutie Honey de Larue ouvre la voie à Yuji (ch. 254-256) ; audit : marge 2→3, simple diversion balayée", flags="?")
-fight(0.6011, "shinjuku", "sukuna", ["choso", "yuji"], "A", 2,
+fight(0.613, "shinjuku2", "sukuna", ["choso", "yuji"], "A", 2,
       note="Flamme divine : Choso protège Yuji et meurt (ch. 258-259)")
-fight(0.6012, "shinjuku", ["yuji", "todo", "ino"], "sukuna", "D", tb=["epuise"],
+fight(0.614, "shinjuku2", ["yuji", "todo", "ino"], "sukuna", "D", tb=["epuise"],
       note="Sept Éclairs noirs d'affilée, Boogie Woogie de Todo (ch. 257, 259-260)", flags="i")
-fight(0.6014, "shinjuku", "yuta", "sukuna", "D", ta=["emprunt"], tb=["epuise"],
+fight(0.616, "shinjuku2", "yuta", "sukuna", "D", ta=["emprunt"], tb=["epuise"],
       note="Yuta dans le corps de Gojo : Violet amplifié, le pouvoir emprunté expire (ch. 261-263)", flags="i")
-fight(0.6015, "shinjuku", "sukuna", ["hana_kurusu", "todo"], "A", 2, ta=["epuise"],
+fight(0.617, "shinjuku2", "sukuna", ["hana_kurusu", "todo"], "A", 2, ta=["epuise"],
       note="Échelle de Jacob puis Sukuna met Angel et Todo hors combat (ch. 263-264)")
-fight(0.6016, "shinjuku", ["yuji", "nobara"], "sukuna", "A", 1, tb=["epuise", "malade"],
+fight(0.618, "shinjuku2", ["yuji", "nobara"], "sukuna", "A", 1, tb=["epuise", "malade"],
       note="Domaine de Yuji, Résonance de Nobara sur le dernier doigt, Éclair noir final ; Megumi libéré (ch. 264-268) ; audit : marge 2→1 (dernier debout au bout du relais, coup décisif de Nobara) ; + « malade », Sukuna privé de domaine et rejeté par le corps de Megumi")
-fight(0.6017, "shinjuku", "hakari", "uraume", "A", 1, ta=["domaine"],
+fight(0.619, "shinjuku2", "hakari", "uraume", "A", 1, ta=["domaine"],
       note="Duel en marge de Shinjuku ; Uraume cède à la mort de Sukuna (ch. 244-268)", flags="?")
 
 # ============================================================================== Jujutsu Kaisen Modulo (2086)
@@ -334,7 +334,7 @@ fight(68.45, "modulo", "dabura", "usami", "A", 2,
 fight(68.5, "modulo", "maru", "tsurugi", "A", 1, tb=["retenue"],
       note="Tsurugi fusionné à Rika domine, puis lâche son sabre et se laisse frapper (Modulo ch. 14-21)", flags="?")
 fight(68.55, "modulo", "dabura", "mahoraga", "A", 1, ta=["domaine"],
-      note="Mahoraga de Yuka s'adapte ; Dabura apprend technique inversée et domaine ; Maru arrête le duel (Modulo ch. 15-23)",
+      note="Mahoraga de Yuka s'adapte ; Dabura apprend technique inversée et domaine ; Dabura prend l'ascendant, mais Maru le téléporte hors de la Terre pour épargner Yuka (Modulo ch. 18-23 ; vérifié 2e revue, Beebom / ComicBook)",
       flags="i")
 fight(68.56, "modulo", "yuji", "mahito", "A", 3, tb=["epuise"],
-      note="Yuji découpe en cubes Mahito, dont l'énergie n'est revenue que par l'Harmonie de Maru (Modulo ch. 22)")
+      note="Yuji découpe en cubes Mahito, dont l'énergie n'est revenue que par l'Harmonie de Maru (Modulo ch. 22 ; vérifié 2e revue : Mahito réduit à une poupée sans énergie, partiellement rechargé par l'Harmonie de Maru)")

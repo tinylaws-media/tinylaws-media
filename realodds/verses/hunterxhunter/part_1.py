@@ -172,7 +172,7 @@ JUMPS_PART = [
 fight(-13.0, "avant", "uvogin", ["franklin", "shalnark", "chrollo"], "D",
       note="Enfants à Meteor City : Uvogin frappe Shalnark, échange avec Franklin, Chrollo s'enfuit avec la cassette (ch. 395)",
       flags="i")
-fight(-2.0, "avant", "hisoka", "kastro", "A", 3, ta=["retenue"], note="Premier duel deux ans plus tôt : Hisoka l'épargne (flashback, ch. ~52)")
+fight(-2.0, "avant2", "hisoka", "kastro", "A", 3, ta=["retenue"], note="Premier duel deux ans plus tôt : Hisoka l'épargne (flashback, ch. ~52)")
 
 # ================================================================ examen Hunter
 fight(0.003, "examen", "hisoka", "candidats", "A", 3, note="Massacre dans le brouillard des marais de Numere (ch. 9)")
@@ -262,37 +262,37 @@ fight(0.732, "greedisland", "gon", "genthru", "A", 1, ta=["prepa"],
       note="Gon sacrifie sa main gauche, essence et Jajanken (ch. 176-181)")
 
 # ================================================================ Fourmis-chimères
-fight(0.80, "fourmis", ["zazan", "fourmis"], ["pokkle", "ponzu"], "A", 3, note="Ponzu tuée, Pokkle capturé (ch. ~190)")
-fight(0.805, "fourmis", ["gon", "killua"], "rammot", "A", 2, note="Rammot récupéré par Colt (ch. 191)", flags="e")
-fight(0.81, "fourmis", ["kite", "gon", "killua"], "fourmis", "A", 3, note="Escouade de Yunju (ch. 192-193)")
-fight(0.811, "fourmis", ["kite", "gon", "killua"], "fourmis", "A", 3, note="Escouade de Hagya, Silent Waltz de Kite (ch. 194-196)")
-fight(0.82, "fourmis", "pitou", "kite", "A", 3, ta=["surprise"], tb=["protege"],
+fight(0.80, "ngl", ["zazan", "fourmis"], ["pokkle", "ponzu"], "A", 3, note="Ponzu tuée, Pokkle capturé (ch. ~190)")
+fight(0.805, "ngl", ["gon", "killua"], "rammot", "A", 2, note="Rammot récupéré par Colt (ch. 191)", flags="e")
+fight(0.81, "ngl", ["kite", "gon", "killua"], "fourmis", "A", 3, note="Escouade de Yunju (ch. 192-193)")
+fight(0.811, "ngl", ["kite", "gon", "killua"], "fourmis", "A", 3, note="Escouade de Hagya, Silent Waltz de Kite (ch. 194-196)")
+fight(0.82, "ngl", "pitou", "kite", "A", 3, ta=["surprise"], tb=["protege"],
       note="Pitou tranche le bras de Kite, Killua emmène Gon ; Kite tué (ch. 198-200)")
-fight(0.84, "fourmis", ["netero", "morel", "knov"], "fourmis", "A", 3, note="Assaut contre la base de NGL (ch. ~206)")
-fight(0.85, "fourmis", "knuckle", "gon", "A", 3, ta=["retenue"], note="Premier affrontement (ch. ~206)")
-fight(0.86, "fourmis", "knuckle", "gon", "A", 2, note="Duel aux plaquettes : Gon en faillite d'aura (ch. ~210)")
-fight(0.861, "fourmis", "shoot", "killua", "A", 2, note="Killua fuit, inhibé par l'aiguille d'Illumi (ch. ~211-212)")
-fight(0.87, "fourmis", "killua", "rammot", "A", 3, note="Rammot tué (ch. ~218-219)")
-fight(0.875, "fourmis", ["knuckle", "morel"], "cheetu", "D", note="Cheetu s'enfuit (ch. ~220-221)", flags="i")
-fight(0.88, "fourmis", "feitan", "zazan", "A", 2, note="Pain Packer : Rising Sun (ch. ~224-229)")
-fight(0.89, "fourmis", "gon", "fourmis", "A", 3, note="Officiers et soldats de l'ex-escouade de Meleoron (ch. ~231-233)")
-fight(0.90, "fourmis", "killua", "ikalgo", "A", 2, note="Killua épargne Ikalgo (ch. ~238)")
-fight(0.901, "fourmis", "killua", "ortho", "A", 2, ta=["prepa"], note="Fléchettes : Killua feint la mort et les décapite, grièvement blessé ; Ikalgo l'emporte (ch. 239-241)")
-fight(0.91, "fourmis", "morel", "cheetu", "D", note="Cheetu marque Morel, pas de vainqueur (ch. ~244)", flags="i")
-fight(0.911, "fourmis", "morel", "cheetu", "A", 2, ta=["prepa"], note="Prison de fumée (ch. ~247)")
-fight(0.92, "fourmis", "morel", "leol", "A", 2, ta=["prepa"], note="Église abandonnée, Leol asphyxié au CO2 (ch. ~248-254)")
+fight(0.84, "ngl", ["netero", "morel", "knov"], "fourmis", "A", 3, note="Assaut contre la base de NGL (ch. ~206)")
+fight(0.85, "ngl", "knuckle", "gon", "A", 3, ta=["retenue"], note="Premier affrontement (ch. ~206)")
+fight(0.86, "ngl", "knuckle", "gon", "A", 2, note="Duel aux plaquettes : Gon en faillite d'aura (ch. ~210)")
+fight(0.861, "ngl", "shoot", "killua", "A", 2, note="Killua fuit, inhibé par l'aiguille d'Illumi (ch. ~211-212)")
+fight(0.87, "ngl", "killua", "rammot", "A", 3, note="Rammot tué (ch. ~218-219)")
+fight(0.875, "ngl", ["knuckle", "morel"], "cheetu", "D", note="Cheetu s'enfuit (ch. ~220-221)", flags="i")
+fight(0.88, "ngl", "feitan", "zazan", "A", 2, note="Pain Packer : Rising Sun (ch. ~224-229)")
+fight(0.89, "ngl", "gon", "fourmis", "A", 3, note="Officiers et soldats de l'ex-escouade de Meleoron (ch. ~231-233)")
+fight(0.90, "ngl", "killua", "ikalgo", "A", 2, note="Killua épargne Ikalgo (ch. ~238)")
+fight(0.901, "ngl", "killua", "ortho", "A", 2, ta=["prepa"], note="Fléchettes : Killua feint la mort et les décapite, grièvement blessé ; Ikalgo l'emporte (ch. 239-241)")
+fight(0.91, "ngl", "morel", "cheetu", "D", note="Cheetu marque Morel, pas de vainqueur (ch. ~244)", flags="i")
+fight(0.911, "ngl", "morel", "cheetu", "A", 2, ta=["prepa"], note="Prison de fumée (ch. ~247)")
+fight(0.92, "ngl", "morel", "leol", "A", 2, ta=["prepa"], note="Église abandonnée, Leol asphyxié au CO2 (ch. ~248-254)")
 fight(0.93, "fourmis", "netero", "pitou", "A", 2, ta=["surprise"],
       note="Dragon Dive de Zeno : Netero projette Pitou au loin (ch. ~263-265)", flags="i")
 fight(0.931, "fourmis", "knuckle", "youpi", "D", ta=["surprise"], note="Knuckle frappe Youpi dans l'escalier du palais (ch. ~265-266)", flags="i")
 fight(0.932, "fourmis", "pouf", "morel", "A", 2, note="Pouf aspire le Nen de Morel (ch. ~270)", flags="i")
 fight(0.933, "fourmis", "youpi", "shoot", "A", 3, note="Shoot presque tué, Knuckle intervient (ch. ~272)")
-fight(0.94, "fourmis", "knuckle", "youpi", "D", note="Knuckle cogne (Hakoware, coups sans dégâts par construction) puis fuit ; Youpi intact (ch. 281)", flags="i")
-fight(0.941, "fourmis", "killua", "youpi", "D", note="Godspeed ; à court d'électricité, Killua s'éclipse (ch. 281)", flags="i")
+fight(0.94, "fourmis", ["killua", "knuckle"], "youpi", "A", 1, note="2e revue (Hunterpedia, ch. 281 « Godspeed ») : l'électricité de Killua paralyse Youpi, Knuckle le roue de coups et l'envoie au sol d'un coup de pied, puis fuit ; Youpi peu blessé (coups de Hakoware sans dégâts par construction)", flags="i")
+fight(0.941, "fourmis", "killua", "youpi", "D", note="Godspeed : Youpi ne peut réagir aux coups de Killua, trop faibles pour le blesser ; à court d'électricité, Killua s'éclipse (ch. 281)", flags="i")
 fight(0.942, "fourmis", "ikalgo", "bloster", "A", 2, ta=["prepa"], note="Bloster endormi par sédatif (ch. ~279-283)")
 fight(0.95, "fourmis", "youpi", ["morel", "knuckle"], "A", 2,
       note="Morel blessé ; Youpi part avec Pouf quand Knuckle relâche son Nen (ch. ~284-289)", flags="i")
 fight(0.96, "fourmis", "ikalgo", "welfin", "A", 1, note="Ikalgo tire sur Welfin, qui survit (ch. ~294)", flags="i")
-fight(0.961, "fourmis", "palm", "pouf_clones", "A", 3, note="Palm tue un mini-clone de Pouf (ch. ~294)")
+fight(0.961, "fourmis", "palm", "pouf_clones", "A", 3, note="Palm tue un mini-clone de Pouf (ch. ~294) ; 2e revue : clone-mouche jetable, victoire peu informative, pondérée « i »", flags="i")
 fight(0.97, "fourmis", "meruem", "netero", "A", 2,
       note="Le duel de Nen : Zero Hand impuissant, Netero mutilé et vaincu. La Poor Man's Rose (bombe militaire, circonstance externe) n'est pas créditée à Netero (ch. ~290-298, 316-317)")
 fight(0.98, "fourmis", "knuckle", "pouf_clones", "A", 2, note="Clone de Pouf détruit, APR transféré au corps principal (ch. ~301)")

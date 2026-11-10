@@ -59,3 +59,25 @@ Une ligne par personnage ayant au moins 2 combats ou un statut officiel. Valeurs
 
 ## Duels de contrôle (après audit)
 Voir le rapport ; principaux : Gojo vs Sukuna (Shinjuku, fin d'arc) 34 % / nul 16 % / 50 % ; Toji vs Gojo (passé, Gojo éveillé) 9 % ; Gojo vs Sukuna 15 doigts (Shibuya) 49 % / 35 %.
+
+## 2e revue
+
+### Arcs scindés
+- **Shinjuku** → « shinjuku » (Gojo contre Sukuna, ch. 222-236) + « shinjuku2 » (la relève après la mort de Gojo, ch. 237-271). Sukuna à 20 doigts dans le corps de Megumi 7,2 / Sukuna dans sa vraie forme 7,5 ; Yuji 5,5 / 5,9 (domaine, ch. 264). Gojo n'apparaît que dans la première phase (mort à la fin du duel). L'identifiant « shinjuku » garde le duel par défaut Gojo–Sukuna.
+- **Correction de dates** : les combats de Shinjuku étaient espacés de 0,0001 an alors que model.py place l'état d'arc 0,0009 après le dernier combat : « Sukuna à Shinjuku » incluait donc déjà la vraie forme (saut à 0,60015) et des combats de la relève. Combats, sauts et morts de Shinjuku re-datés (0,600-0,601 puis 0,604-0,619), vraie forme de Sukuna à 0,603.
+
+### Faits vérifiés (Modulo)
+- Yuji contre Mahito : Modulo ch. 22 confirmé ; Mahito réduit à une poupée sans énergie, partiellement rechargé par l'Harmonie de Maru → « epuise » justifié.
+- Dabura contre Mahoraga : Modulo ch. 18-23 ; Dabura prend l'ascendant (technique inversée, domaine) puis Maru le téléporte hors de la Terre pour épargner Yuka → victoire marge 1 « i » conservée, note corrigée (ch. 15-23 → 18-23). Modulo s'achève au ch. 25.
+- Yuta : « quand il s'emballe, Hakari est plus fort que moi » (jeu d'abattage) confirmé sur le fond ; numéro de chapitre non confirmé.
+
+### Points de jugement
+- **Yuji vs Yuta, fin de Shinjuku** : 76 % / 15 %. Aucune hiérarchie canon explicite entre eux ; Yuji finit l'arc avec le domaine et la victoire finale, Yuta n'a que des combats partagés ou empruntés. Laissé, NON RÉSOLU.
+- **Maki vs Yuta** (jeu d'abattage) : 50 % / 36 %. Aucune déclaration canon ; la seule description officielle relevée (sondage du Jump : Yuta « second après Gojo pour les capacités hors norme ») porte sur les techniques, pas sur la force. Laissé.
+- **Gojo affiché pendant son scellement** : le corriger avec REVIVE (fausse mort au scellement, retour à 0,58) ferait afficher Gojo mort dans « shinjuku2 » (fenêtre de retour de model.py). Sa force ne change pas pendant le scellement : laissé, cosmétique.
+
+### Duels de contrôle (après 2e revue)
+Gojo vs Sukuna (Shinjuku, 20 doigts) 41 % / nul 15 % / 44 % ; Gojo vs Sukuna vraie forme 32 % / 54 % ; Gojo vs Sukuna 15 doigts (Shibuya) 52 % / 33 % ; Toji vs Gojo éveillé 10 % ; Yuta vs Geto (JJK 0) 44 % / 41 % ; Yuji vs Mahito (Shibuya) 30 % / 58 % ; Hakari vs Kashimo 36 % / 51 % ; Kenjaku vs Yuki 65 % ; Sukuna vs Jogo 97 % ; Maki vs Naoya 89 % ; Yuji vs Sukuna vraie forme 10 % / 84 % ; Todo vs Hanami 14 %.
+
+### Reste ouvert
+- Yuji vs Yuta, Maki vs Yuta (pas de base canon) ; Gojo scellé affiché (cosmétique).

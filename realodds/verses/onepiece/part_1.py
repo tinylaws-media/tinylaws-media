@@ -35,14 +35,14 @@ CHARS_PART = {
     "saul": ("Jaguar D. Saul", "Marine (déserteur)", 4.0, None, None),
     "aokiji": ("Kuzan (Aokiji)", "Marine", 5.0, None, None),
     "kizaru": ("Borsalino (Kizaru)", "Marine", 5.5, None, None),
-    "fisher_tiger": ("Fisher Tiger", "Pirates du Soleil", 4.0, -12.0, None),
+    "fisher_tiger": ("Fisher Tiger", "Pirates du Soleil", 4.0, -10.0, None),   # mort à -12, fixée à l'ancre de l'arc « avant » pour qu'il y figure
     "strawberry": ("Strawberry", "Marine", 3.5, None, None),
     "arlong": ("Arlong", "Pirates d'Arlong", 2.5, None, None),
     "bellemere": ("Bell-mère", "Village de Cocoyashi", 1.0, -8.0, None),
     "genzo": ("Genzo", "Village de Cocoyashi", 0.5, None, None),
     "doflamingo": ("Donquixote Doflamingo", "Famille Donquixote", 4.0, None, None),
     "vergo": ("Vergo", "Famille Donquixote", 4.0, None, None),
-    "rosinante": ("Donquixote Rosinante (Corazon)", "Marine", 3.5, -11.0, None),
+    "rosinante": ("Donquixote Rosinante (Corazon)", "Marine", 3.5, -10.0, None),   # mort à -11, fixée à l'ancre de l'arc « avant »
     "crocodile": ("Sir Crocodile", "Baroque Works", 3.5, None, None),   # 1er nœud = sa défaite de jeunesse contre Barbe Blanche (t = -24), pas encore Shichibukai
     "shanks": ("Shanks le Roux", "Pirates du Roux", 2.0, None, None),   # 1er nœud = mousse de Roger (t = -24, ch. 966) ; la montée vient du saut daté ci-dessous
     "mihawk": ("Dracule Mihawk", "Shichibukai", 6.0, None, None),   # 1er nœud = jeunes duels avec Shanks (t = -15, ch. 434)
@@ -57,7 +57,7 @@ CHARS_PART = {
     "bluejam": ("Bluejam", "Pirates de Bluejam", 1.5, None, None),
     "dadan": ("Curly Dadan", "Bandits de Dadan", 1.0, None, None),
     "zoro": ("Roronoa Zoro", "Équipage du Chapeau de paille", 0.5, None, None),
-    "kuina": ("Kuina", "Dojo Isshin", 1.0, -10.4, None),
+    "kuina": ("Kuina", "Dojo Isshin", 1.0, -10.0, None),   # morte peu après ses duels (-10,4), fixée à l'ancre de l'arc « avant »
     "jinbe": ("Jinbe", "Pirates du Soleil / Shichibukai", 4.5, None, None),
     # ---------------------------------------------------------------- East Blue
     "alvida": ("Alvida", "Pirates d'Alvida", 1.0, None, None),
@@ -195,8 +195,8 @@ JUMPS_PART = [
     ("shanks", -20.0, 3.5, 1.0, "Après l'exécution de Roger : capitaine, duels avec Mihawk « qui ébranlaient Grand Line » (ch. 434)"),
     ("luffy", -0.02, 1.7, 0.6, "Dix ans d'entraînement (enfant -> départ en mer)"),
     ("sanji", 0.745, 0.4, 0.4, "Diable Jambe"),
-    ("luffy", 0.736, 0.6, 0.4, "Gear 2 et Gear 3 maîtrisés"),
-    ("blackbeard", 0.953, 1.5, 0.8, "Vole le Gura Gura no Mi de Barbe Blanche"),
+    ("luffy", 0.7299, 0.6, 0.4, "Gear 2 et Gear 3 (Gear 2 dès Blueno, ch. 387-388)"),   # placé avant le combat où il apparaît
+    ("blackbeard", 0.9523, 1.5, 0.8, "Vole le Gura Gura no Mi de Barbe Blanche"),
 ]
 
 # ================================================================ God Valley (ch. 1096, 1158-1166)
@@ -249,12 +249,12 @@ fight(-10.0, "avant", "shanks", "seigneur_cote", "A", 3, ta=["protege"],
 fight(-9.9, "avant", "ace", "luffy", "A", 3, note="Ace bat Luffy à chaque duel, enfants (ch. 584-588)")
 fight(-9.89, "avant", "porchemy", "luffy", "A", 3, note="Porchemy capture et torture Luffy (ch. 584)")
 fight(-9.88, "avant", ["ace", "sabo"], "porchemy", "A", 2, note="Ace et Sabo sauvent Luffy (ch. 584-585)")
-fight(-9.0, "avant", ["ace", "dadan"], "bluejam", "A", 1,
+fight(-9.0, "cocoyashi", ["ace", "dadan"], "bluejam", "A", 1,
       note="Incendie du Grey Terminal : Ace éveille le Haki des rois et tient tête, Dadan abat Bluejam d'un coup de hache (ch. 587)")
-fight(-8.0, "avant", "arlong", "bellemere", "A", 3, note="Arlong abat Bell-mère (ch. 77-78)")
-fight(-8.0, "avant", "arlong", "genzo", "A", 3, note="Genzo lacéré (ch. 78-79)")
-fight(-2.5, "avant", "ace", "jinbe", "D", note="Cinq jours de combat, arrêtés par Barbe Blanche (ch. 552)")
-fight(-2.49, "avant", "whitebeard", "ace", "A", 3, ta=["retenue"], note="Ace écrasé puis cent tentatives d'assassinat ratées (ch. 552)")
+fight(-8.0, "cocoyashi", "arlong", "bellemere", "A", 3, note="Arlong abat Bell-mère (ch. 77-78)")
+fight(-8.0, "cocoyashi", "arlong", "genzo", "A", 3, note="Genzo lacéré (ch. 78-79)")
+fight(-2.5, "ace_wb", "ace", "jinbe", "D", note="Cinq jours de combat, arrêtés par Barbe Blanche (ch. 552)")
+fight(-2.49, "ace_wb", "whitebeard", "ace", "A", 3, ta=["retenue"], note="Ace écrasé puis cent tentatives d'assassinat ratées (ch. 552)")
 
 # ================================================================ East Blue
 fight(0.01, "eastblue", "luffy", "alvida", "A", 3, note="Gomu Gomu no Pistol (ch. 2)")

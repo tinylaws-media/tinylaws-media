@@ -330,20 +330,20 @@ fight(762.866, "namek", "freeza", "nail", "A", 2, ta=["retenue"], note="Freezer 
 fight(762.87, "namek", "vegeta", "jeice", "A", 3, note="(ch. ~289)")
 fight(762.871, "namek", "vegeta", "ginyu", "A", 2, tb=["epuise"],
       note="Ginyu dans le corps de Goku, qu'il maîtrise mal ; il finit en grenouille (ch. 288-290)", flags="?")
-fight(762.88, "namek", "freeza", "krillin", "A", 3, note="2e forme : Krilin empalé, soigné par Dende (ch. 296)")
-fight(762.881, "namek", "freeza", ["gohan", "vegeta", "krillin"], "A", 2, tb=["boost"],
+fight(762.88, "freezer", "freeza", "krillin", "A", 3, note="2e forme : Krilin empalé, soigné par Dende (ch. 296)")
+fight(762.881, "freezer", "freeza", ["gohan", "vegeta", "krillin"], "A", 2, tb=["boost"],
       note="Rage de Gohan, Freezer reprend le dessus (ch. 297-299)")
-fight(762.882, "namek", "piccolo", "freeza", "A", 1, note="Piccolo fusionné avec Nail domine la 2e forme (ch. 300-301)",
+fight(762.882, "freezer", "piccolo", "freeza", "A", 1, note="Piccolo fusionné avec Nail domine la 2e forme (ch. 300-301)",
       flags="i")
-fight(762.885, "namek", "freeza", ["piccolo", "gohan"], "A", 2, note="3e forme ; Masenko en rafale inefficace (ch. 302-303)")
-fight(762.886, "namek", "freeza", "dende", "A", 3, tb=["surprise"], note="Forme finale, Dende tué (ressuscité) (ch. 304)")
-fight(762.887, "namek", "freeza", ["piccolo", "gohan", "krillin"], "A", 3, note="Forme finale (ch. 304-305)")
-fight(762.888, "namek", "freeza", "vegeta", "A", 3, note="Vegeta tué (ressuscité ch. ~329) (ch. 305-308)")
-fight(762.89, "namek", "freeza", "goku", "A", 1, ta=["retenue"], tb=["boost"],
+fight(762.885, "freezer", "freeza", ["piccolo", "gohan"], "A", 2, note="3e forme ; Masenko en rafale inefficace (ch. 302-303)")
+fight(762.886, "freezer", "freeza", "dende", "A", 3, tb=["surprise"], note="Forme finale, Dende tué (ressuscité) (ch. 304)")
+fight(762.887, "freezer", "freeza", ["piccolo", "gohan", "krillin"], "A", 3, note="Forme finale (ch. 304-305)")
+fight(762.888, "freezer", "freeza", "vegeta", "A", 3, note="Vegeta tué (ressuscité ch. ~329) (ch. 305-308)")
+fight(762.89, "freezer", "freeza", "goku", "A", 1, ta=["retenue"], tb=["boost"],
       note="Freezer à 50 % ; Kaiōken x20 puis Genki Dama sans effet décisif (ch. 307-316)")
-fight(762.891, "namek", "freeza", "piccolo", "A", 3, ta=["surprise"], note="Rayon dans le torse (ch. 316)")
-fight(762.892, "namek", "freeza", "krillin", "A", 3, note="Krilin explosé (ressuscité) (ch. 317)")
-fight(762.90, "namek", "goku", "freeza", "A", 2, tb=["boost"],
+fight(762.891, "freezer", "freeza", "piccolo", "A", 3, ta=["surprise"], note="Rayon dans le torse (ch. 316)")
+fight(762.892, "freezer", "freeza", "krillin", "A", 3, note="Krilin explosé (ressuscité) (ch. 317)")
+fight(762.90, "freezer", "goku", "freeza", "A", 2, tb=["boost"],
       note="Goku Super Saiyan contre Freezer à 100 %, coupé en deux par son propre disque (ch. 318-326)")
 
 # ============================================================== Trunks contre Freezer (764)
@@ -387,16 +387,16 @@ fight(767.502, "cellgame", "cell", "gohan", "A", 2, ta=["retenue"], tb=["retenue
 fight(767.503, "cellgame", "cell", "android_16", "A", 3, tb=["epuise"], note="Tête de C-16 écrasée (ch. 406-407)")
 fight(767.504, "cellgame", "cell_jr", ["piccolo", "vegeta", "trunks", "krillin", "tien", "yamcha"], "A", 2,
       note="Les Cell juniors (ch. 407)")
-fight(767.506, "cellgame", "gohan", "cell_jr", "A", 3, note="Super Saiyan 2 (ch. 408)")
-fight(767.507, "cellgame", "gohan", "cell", "A", 3, note="Cell recrache C-18, se fait exploser ; Goku meurt (ch. 409-412)")
-fight(767.510, "cellgame", "cell", "trunks", "A", 3, tb=["surprise"], note="Trunks tué (ressuscité ch. 418) (ch. 413)")
-fight(767.511, "cellgame", "cell", "vegeta", "A", 3, note="Gohan perd un bras en protégeant Vegeta (ch. 414)")
-fight(767.512, "cellgame", "gohan", "cell", "A", 1, ta=["epuise"],
+fight(767.506, "ssj2", "gohan", "cell_jr", "A", 3, note="Super Saiyan 2 (ch. 408)")
+fight(767.507, "ssj2", "gohan", "cell", "A", 3, note="Cell recrache C-18, se fait exploser ; Goku meurt (ch. 409-412)")
+fight(767.510, "ssj2", "cell", "trunks", "A", 3, tb=["surprise"], note="Trunks tué (ressuscité ch. 418) (ch. 413)")
+fight(767.511, "ssj2", "cell", "vegeta", "A", 3, note="Gohan perd un bras en protégeant Vegeta (ch. 414)")
+fight(767.512, "ssj2", "gohan", "cell", "A", 1, ta=["epuise"],
       note="Kamehameha père-fils, Vegeta distrait Cell (ch. 415-417)")
 
 # ============================================================== futur de Trunks (767)
-fight(767.60, "cellgame", "trunks", ["android_17_futur", "android_18_futur"], "A", 3, note="(ch. 419)")
-fight(767.61, "cellgame", "trunks", "cell_futur", "A", 3, note="(ch. 419-420)")
+fight(767.60, "ssj2", "trunks", ["android_17_futur", "android_18_futur"], "A", 3, note="(ch. 419)")
+fight(767.61, "ssj2", "trunks", "cell_futur", "A", 3, note="(ch. 419-420)")
 
 # ============================================================== Majin Buu (774)
 fight(774.29, "buu", "videl", "criminels", "A", 3, note="(ch. 421)")
@@ -425,16 +425,17 @@ fight(774.325, "buu", "majin_buu", "vegeta", "A", 2,
 fight(774.330, "buu", "goku", "majin_buu", "D", note="Super Saiyan 3, Goku s'arrête (ch. 474-476)", flags="i")
 fight(774.331, "buu", "majin_buu", "babidi", "A", 3, note="(ch. 475)")
 fight(774.335, "buu", "majin_buu", "criminels", "A", 3, note="Les tireurs qui ont blessé Bee (ch. ~482)", flags="?")
-fight(774.34, "buu", "super_buu", "majin_buu", "A", 2, note="Le Buu maléfique absorbe le gros Buu (ch. 485-486)")
-fight(774.345, "buu", "super_buu", "gotenks", "A", 2, tb=["retenue"], note="Salle de l'Esprit et du Temps, Gotenks normal puis SSJ (ch. ~489-491)")
-fight(774.347, "buu", "gotenks", "super_buu", "A", 1, note="Gotenks SSJ3 domine jusqu'à la défusion (ch. 494-496)", flags="i")
-fight(774.350, "buu", "gohan", "super_buu", "A", 2, note="Buu absorbe Gotenks et Piccolo par ruse (ch. 497-500)", flags="i")
-fight(774.352, "buu", "super_buu", "gohan", "A", 2, note="(ch. 500-501)")
-fight(774.36, "buu", "vegito", "super_buu", "A", 3, note="Vegito se laisse absorber (ch. 503-506)")
-fight(774.37, "buu", "goku", "kid_buu", "D", ta=["retenue"], note="Goku SSJ3 contre Buu originel (ch. 510-511)", flags="i")
-fight(774.371, "buu", "kid_buu", "vegeta", "A", 3, note="(ch. 512-513)")
-fight(774.372, "buu", "kid_buu", "majin_buu", "A", 2, note="(ch. 513-514)")
-fight(774.38, "buu", "goku", "kid_buu", "A", 2, ta=["emprunt"], note="Genki Dama de l'énergie de toute la Terre (ch. 515-516)")
+fight(774.34, "superbuu", "super_buu", "majin_buu", "A", 2, note="Le Buu maléfique absorbe le gros Buu (ch. 485-486)")
+fight(774.345, "superbuu", "super_buu", "gotenks", "A", 2, tb=["retenue"], note="Salle de l'Esprit et du Temps, Gotenks normal puis SSJ (ch. ~489-491)")
+fight(774.347, "superbuu", "gotenks", "super_buu", "A", 1, note="Gotenks SSJ3 domine jusqu'à la défusion (ch. 494-496)", flags="i")
+fight(774.350, "superbuu", "gohan", "super_buu", "A", 2, note="Buu absorbe Gotenks et Piccolo par ruse (ch. 497-500)", flags="i")
+fight(774.352, "superbuu", "super_buu", "gohan", "A", 2, note="(ch. 500-501)")
+fight(774.354, "superbuu", "goku", "super_buu", "D", note="2e revue : Goku SSJ3 coupe Super Buu en deux au Kienzan, Buu se reforme ; Goku juge la fusion seule issue, Buu absorbe Gohan (ch. 502)", flags="i?")
+fight(774.36, "superbuu", "vegito", "super_buu", "A", 3, note="Vegito se laisse absorber (ch. 503-506)")
+fight(774.37, "superbuu", "goku", "kid_buu", "D", ta=["retenue"], note="Goku SSJ3 contre Buu originel (ch. 510-511)", flags="i")
+fight(774.371, "superbuu", "kid_buu", "vegeta", "A", 3, note="(ch. 512-513)")
+fight(774.372, "superbuu", "kid_buu", "majin_buu", "A", 2, note="(ch. 513-514)")
+fight(774.38, "superbuu", "goku", "kid_buu", "A", 2, ta=["emprunt"], note="Genki Dama de l'énergie de toute la Terre (ch. 515-516)")
 
 # ============================================================== 28e Championnat (784)
 fight(784.5, "epilogue", "goku", "uub", "D", ta=["retenue"], note="Goku part entraîner Uub (ch. 518-519)", flags="i")
