@@ -265,9 +265,18 @@ def cat_logp(d, cuts):
     return jnp.log(jnp.clip(cdf[:, 1:] - cdf[:, :-1], 1e-12, 1.0))
 
 
+# Vraisemblance robuste : une part EPS de chaque résultat peut venir d'un « coup de chance » ou d'une incohérence
+# d'écriture ; un combat très surprenant tire donc moins fort sur les forces estimées.
+EPS = float(getattr(D, "EPS", 0.05))
+
+
+def rob_logp(d, cuts):
+    return jnp.logaddexp(jnp.log1p(-EPS) + cat_logp(d, cuts), math.log(EPS / 7.0))
+
+
 def fight_ll(th):
     s, beta, cuts, _ = unpack(th)
-    return wts * jnp.take_along_axis(cat_logp(diff(s, beta), cuts), ya[:, None], axis=1)[:, 0]
+    return wts * jnp.take_along_axis(rob_logp(diff(s, beta), cuts), ya[:, None], axis=1)[:, 0]
 
 
 def db_ll(th):
@@ -364,7 +373,36 @@ Esrc = np.vstack([Es, Eo, En]) if len(src_lab) else np.zeros((0, len(qnodes)))
 qpos = {n: i for i, n in enumerate(qnodes)}
 
 d_map = np.asarray(diff(jnp.array(s_map), jnp.array(beta_map)))
-probs = np.exp(np.asarray(cat_logp(jnp.array(d_map), jnp.array(cuts_map))))
+probs = np.exp(np.asarray(rob_logp(jnp.array(d_map), jnp.array(cuts_map))))
+
+# ---- surdispersion : quand les combats d'un personnage se contredisent plus que le modèle ne l'attend,
+# sa fourchette s'élargit (facteur phi sur la variance, calculé arc par arc, avec un poids décroissant
+# pour les combats des arcs éloignés et la part de chaque membre dans un combat d'équipe).
+AIDX = {k: i for i, (k, _, _) in enumerate(ARCS)}
+node_char = [c for c, _ in nodes]
+dev = -2 * np.log(np.clip(probs[np.arange(len(F)), np.asarray(ya)], 1e-12, 1))
+edev = -2 * (probs * np.log(np.clip(probs, 1e-12, 1))).sum(1)
+wnp = np.asarray(wts); exc = wnp * (dev - edev)
+fidx = [np.asarray(fa_idx), np.asarray(fb_idx)]; fmask = [np.asarray(fa_mask), np.asarray(fb_mask)]; eqn = np.asarray(eqf)
+part = {}   # character -> [(fight j, arc index, share)]
+for j, f in enumerate(F):
+    for side in (0, 1):
+        idx = fidx[side][j]; m = fmask[side][j] > 0
+        if not m.any():
+            continue
+        sv = s_map[idx[m]]
+        sh = np.full(m.sum(), 1.0 / m.sum()) if eqn[j] > 0 else np.exp(sv - sv.max()) / np.exp(sv - sv.max()).sum()
+        for c, w_ in zip([node_char[i] for i in idx[m]], sh):
+            part.setdefault(c, []).append((j, AIDX.get(f["arc"], 0), float(w_)))
+PHI_K0 = 4.0
+
+
+def phi_of(c, k):
+    num = den = 0.0
+    for j, ai, w_ in part.get(c, []):
+        dk = abs(ai - AIDX[k]); kap = w_ * (1.0 if dk == 0 else 0.5 if dk == 1 else 0.2)
+        num += kap * exc[j]; den += kap * wnp[j] * edev[j]
+    return float(min(4.0, 1.0 + max(0.0, num) / (den + PHI_K0)))
 
 out_chars = {}
 for c, (name, team_, tier, death, edo) in CHARS.items():
@@ -380,7 +418,8 @@ for c, (name, team_, tier, death, edo) in CHARS.items():
                for j in np.argsort(-np.abs(Ed[:, q]))[:3] if abs(Ed[j, q]) >= 0.03] if len(db_obs) else []
         srcw = [dict(kind=src_lab[j][0], label=src_lab[j][1], v=round(float(Esrc[j, q]) / TIER, 3))
                 for j in np.argsort(-np.abs(Esrc[:, q]))[:5] if abs(Esrc[j, q]) >= 0.03] if len(src_lab) else []
-        series.append(dict(arc=k, mean=round(float(s_map[i]) / TIER, 3), sd=round(float(sd[i]) / TIER, 3), src=srcw,
+        ph = phi_of(c, k)
+        series.append(dict(arc=k, mean=round(float(s_map[i]) / TIER, 3), sd=round(float(sd[i] * math.sqrt(ph)) / TIER, 3), phi=round(ph, 2), src=srcw,
                            info=round(float(max(0.0, 1 - sd[i] ** 2 / prior_var[i])), 3),
                            edo=bool(k in edo_arcs.get(c, ())) and query[(c, k)] != t, why=why, db=dbw))
     nf = sum(1 for f in F if c in f["a"] + f["b"])

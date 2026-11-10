@@ -207,6 +207,7 @@ fight(2.652, "elbaf", ["luffy", "loki"], "gunko", "A", 2, ta=[], tb=["possede"],
       note="Domi Reversi échoue, Luffy la martèle et Loki gèle Imu-Gunko avec Niflheim (ch. 1178)")
 fight(2.66, "elbaf", "imu", "zoro", "A", 3, note="Imu pare Rengoku Oni Giri avec sa queue, Zoro à terre d'un Omen (ch. 1180)")
 fight(2.6602, "elbaf", "imu", "hajrudin", "A", 3, note="Un Omen met Hajrudin au tapis (ch. 1180)")
+fight(2.6745, "elbaf", "hajrudin", "imu", "D", flags="i", note="Hajrudin frappe Imu en plein visage, sans suite (ch. 1191) : un coup réussi, pas un duel gagné")
 fight(2.6604, "elbaf", "imu", "sanji", "A", 2, note="Imu bloque et repousse Sanji d'un coup de pied (ch. 1180)")
 fight(2.665, "elbaf", "imu", "loki", "A", 1,
       note="Loki (Nidhöggr) le frappe avec Ragnir, mais Imu l'empale (Nemesis) et le brûle (Stigma) (ch. 1181-1187)", flags="i")
