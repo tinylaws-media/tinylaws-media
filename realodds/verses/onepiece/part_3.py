@@ -164,8 +164,8 @@ fight(2.5408, "egghead", ["dorry", "brogy"], "ju_peter", "A", 1,
       note="Ju Peter (ver des sables) avale Luffy, les deux géants le décapitent ; il se régénère (ch. 1110)", flags="i")
 fight(2.5416, "egghead", ["dorry", "brogy"], "warcury", "A", 1,
       note="Svalinn Sun-Shield puis Skilja Split repoussent Warcury (ch. 1111)", flags="i")
-fight(2.5424, "egghead", "warcury", "luffy", "A", 1, ta=[], tb=[],
-      note="Le rugissement de Warcury défait l'aspect caoutchouc ; Red Roc se brise sur son crâne (ch. 1111-1112)", flags="i")
+fight(2.5424, "egghead", "warcury", "luffy", "A", 1, ta=[], tb=["epuise"],
+      note="Le rugissement de Warcury défait l'aspect caoutchouc ; Red Roc se brise sur son crâne (ch. 1111-1112) ; Luffy, vidé après Kizaru, Saturn et Ju Peter, ne tient que grâce aux rations des géants : épuisé (2e revue)", flags="i")
 fight(2.5432, "egghead", "sanji", "nusjuro", "D",
       note="Sanji fait saigner Nusjuro, qui le saisit ; Oimo et Kashii le plaquent (ch. 1113)", flags="i")
 fight(2.5440, "egghead", "saturn", ["nami", "chopper", "usopp", "brook"], "A", 2,
@@ -183,8 +183,8 @@ fight(2.5488, "egghead", "emet", ["mars", "warcury", "nusjuro", "ju_peter"], "A"
 # ================================================================ Elbaf
 fight(2.60, "elbaf", "yasopp", "bartolomeo", "A", 3,
       note="L'équipage du Roux soumet le Barto Club à Gartel, Yasopp pulvérise le navire d'un tir (ch. 1126)")
-fight(2.62, "elbaf", "gaban", "luffy", "A", 1, ta=["retenue"],
-      note="Gaban domine (Yasotakeru) puis cède la clé quand Luffy passe en Gear 5 (ch. 1140, 1151)", flags="i")
+fight(2.62, "elbaf", "gaban", "luffy", "A", 1, ta=["retenue"], tb=["retenue"],
+      note="Gaban domine (Yasotakeru) un Luffy qui n'est pas encore en Gear 5, puis cède la clé dès qu'il y passe (ch. 1140, 1151) ; Luffy retenu ajouté à la 2e revue, comme pour Kizaru (ch. 1092)", flags="i")
 fight(2.625, "elbaf", ["gunko", "shamrock"], "loki", "A", 2, tb=["epuise"],
       note="Loki, à peine libéré de ses chaînes et blessé, s'effondre sous leurs coups (ch. 1137, 1143)")
 fight(2.626, "elbaf", "luffy", "loki", "A", 1, tb=["epuise"],

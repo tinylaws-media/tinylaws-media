@@ -106,3 +106,39 @@ Une ligne par personnage ayant au moins 2 combats ou un statut / ordre officiel.
 - **himawari** (Himawari Uzumaki, 1 combats) — tbv 4.3→4.3 — ok
 
 102 personnages contrôlés.
+
+## 2e revue (10 nov.)
+
+Contexte : arcs ajoutés à la 1re partie de cette revue (Affaire des Hyūga, Killer B / mort de Jiraiya, Pouvoir des Six Chemins, Isshiki et mode Baryon, Omnipotence) ; Naruto et Sasuke retirés de TBV (scellé / changé en Arbre-Dieu).
+
+### Présence dans chaque arc où l'on combat
+- Contrôle automatique de tous les combats : chaque combattant figure bien dans l'arc de son combat. Seules exceptions : deux groupes génériques (Ninjas de Kumo, ANBU de Kiri) dans la 3e guerre, invisibles dans le classement → sans effet, laissés.
+
+### Arbitrages
+- **code / jigen** — CORRIGÉ en partie : saut « limiteurs retirés » 0,8 → 1,8 (bridé, Code ≈ Naruto sans Kurama, ch. 59 ; libéré, il « dépasse de loin » Jigen, ch. 56) ; ordre Code > Jigen remis à sd 0,5 (0,25 l'imposait de force et faisait passer Jigen sous Naruto) ; Jigen 6,8 → 7,1 (≈ Naruto 7,1, 41 % / 44 %), Code Omnipotence 6,9 → 6,9 (39 % / 46 % contre Jigen). Reste une tension canon : Boruto TBV écrase Code (ch. 2-3) alors que Jura bat Boruto. PARTIELLEMENT RÉSOLU
+- **Jura contre Boruto** (TBV ch. 22-24) — CORRIGÉ : le même affrontement était codé deux fois (victoire écrasante ch. 22 + victoire ch. 23-24) ; ch. 22 ramené à une 1re phase (marge 1, interrompue). Boruto TBV 6,8 → 7,2 ; Jura 8,3 → 8,1 (69 % / 20 % sur Boruto)
+- **Hidari contre Boruto** (TBV ch. 4) — CORRIGÉ : Boruto se replie sans être battu → nul interrompu au lieu d'une victoire de Hidari ; Hidari 6,4 → 6,5
+- **Gai contre Kisame** (ch. 505-507) — CORRIGÉ : Gai le défait seul (Hirudora, 7e porte) ; Killer B retiré de l'équipe, tag boost supprimé (les portes sont sa force du moment). Gai 4,7 → 5,0 au Sommet ; Kisame 4,8 → 4,5 ; Gai > Kisame 39 % → 56 %
+- **3e Kazekage** — RÉSOLU (1re partie de la revue) : disparition placée avant la 3e guerre (Sasori quitte Suna « il y a 20 ans », ch. 266-268) ; 4,9 dans la 3e guerre, > Rasa 4,5 et < Sasori 5,2, conforme à « Kage le plus puissant de Suna »
+- **Hanzō (vieillissement)** — RÉSOLU sans changement : le déclin 6,2 (2e guerre) → 5,1 (3e guerre) → 3,7 (mort) a une base canon : il fuit devant Nagato (ch. 447), est renversé par Pain, et, ressuscité, reconnaît avoir perdu sa voie avant d'être battu par Mifune (ch. 563-564). Aucune date de déclin en canon : la dérive progressive est la lecture la plus neutre
+- **Itachi contre Jiraiya** — RÉSOLU sans changement : 3e databook à égalité (35,5 chacun) et ordre « quasi-égalité » (ch. ~147) ; 54 % / 31 % pour Itachi, écart de 0,4 dans l'incertitude, conforme au canon
+- **Daemon** — inchangé : 8,0-8,2, pouvoir conditionnel (reflet), NON RÉSOLU
+
+### Duels classiques (après correction)
+- Itachi (Akatsuki, sain) contre Minato (Kyūbi) : 37 % / 48 %
+- Hashirama (Edo) contre Naruto Six Chemins : 16 % / 76 %
+- Madara (jinchūriki de Jūbi) contre Kaguya : 40 % / 47 %
+- Kakashi contre Gai (guerre, avant la 8e porte) : 46 % / 39 % ; Gai 8e porte contre Kakashi double Mangekyō : 42 % / 44 %
+- Itachi contre Jiraiya : 54 % / 31 % ; Jiraiya contre Orochimaru : 61 % / 25 %
+- Nagato (Pain) contre Itachi : 47 % / 37 % ; Naruto mode Ermite contre Pain : 28 % / 58 % (Pain vidé par le Chibaku Tensei en fin d'arc, sans tag : lecture prudente)
+- Naruto contre Sasuke (Vallée de la Fin) : 49 % / 37 %
+- Hashirama contre Madara (fondation) : 50 % / 34 % ; tous deux en Edo : 42 % / 46 %
+- Minato contre Tobirama : 55 % / 32 % ; Hiruzen à son apogée contre Minato : 37 % / 49 % ; A (4e Raikage) contre Minato : 34 % / 52 %
+- Gai contre Kisame : 56 % / 32 %
+- Isshiki contre Kaguya : 48 % / 36 % (Isshiki de rang supérieur, Boruto ch. 51)
+- Boruto TBV contre Naruto (Momoshiki) : 40 % / 46 %
+- Jigen contre Naruto (Kara) : 41 % / 44 % ; Code libéré contre Jigen : 39 % / 46 %
+
+### Restant ouvert
+- Code > Jigen : encore légèrement inversé (voir plus haut)
+- Daemon : pouvoir conditionnel, pas d'ordre canon chiffrable

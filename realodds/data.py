@@ -235,7 +235,7 @@ JUMPS = [
     ("sarada", 36.27, 1.0, 0.7, "Mangekyō Sharingan (TBV ch. 19-21)"),
     ("hiruzen", 2.0, -0.5, 0.4, "Âge : Hiruzen reprend le poste à plus de 60 ans (ch. 126 p. 10)"),
     ("boruto", 35.0, 1.5, 1.0, "Ellipse de Two Blue Vortex"),
-    ("code", 33.4, 0.8, 0.6, "Limiteurs retirés sous la menace par Amado (Boruto ch. 71-72)"),
+    ("code", 33.4, 1.8, 0.6, "Limiteurs retirés sous la menace par Amado (Boruto ch. 71-72) ; taille fixée par le canon (2e revue) : bridé, Code ≈ Naruto sans Kurama (ch. 59), libéré, il « dépasse de loin » Jigen, vainqueur de Naruto et Sasuke réunis (ch. 56)"),
 ]
 
 F = []
@@ -368,7 +368,7 @@ fight(16.75, "sommet", "obito", "konan", "A", 1, tb=["prepa"], note="Six cents m
 # retiré : Naruto et Kushina contre Kurama (16.8) — lutte de volonté dans l'espace du sceau, pas un combat
 fight(16.612, "sommet", "kisame", "killer_b", "A", 1, note="B inconscient dans le dôme d'eau, Samehada trahit Kisame (ch. 470-472)", flags="i")
 fight(16.613, "sommet", ["killer_b", "a4"], "kisame", "A", 2, tb=["epuise"], note="Double Lariat ; Kisame survit caché dans Samehada (ch. 473)", flags="?")
-fight(16.87, "sommet", ["gai", "killer_b"], "kisame", "A", 2, ta=["boost"], note="Île-tortue : Kisame se tue pour ne rien révéler (ch. 505-507)")
+fight(16.87, "sommet", "gai", "kisame", "A", 2, note="Île-tortue : Gai, 7e porte (Hirudora), défait seul Kisame, que Yamato capture ; Kisame se tue pour ne rien révéler (ch. 505-507) ; Killer B, absent de ce duel, retiré et tag boost (portes = force du moment) supprimé à la 2e revue")
 fight(16.9, "guerre4a", "kakashi", ["zabuza", "haku"], "A", 2, tb=["edo"])
 fight(16.91, "guerre4a", "darui", ["kinkaku", "ginkaku"], "A", 2, ta=["prepa"], tb=["edo"], note="Outils de scellement")
 fight(16.92, "guerre4a", ["gaara", "onoki", "naruto"], "mu", "A", 2, tb=["edo"])
@@ -425,7 +425,7 @@ fight(36.1, "tbv", "jura", "himawari", "A", 3, note="Himawari s'évanouit, Borut
 fight(36.12, "tbv", ["boruto", "sarada", "kawaki"], "hidari", "A", 2, note="Uzuhiko, puis Kawaki l'achève")
 fight(36.05, "tbv", "jura", "kawaki", "A", 3, note="Un seul coup (ch. 8)")
 fight(36.3, "tbv", "boruto", "matsuri", "A", 2, note="Boruto la tranche avec le sabre de Sasuke")
-fight(36.31, "tbv", "jura", "boruto", "A", 3, note="Jura annule l'Uzuhiko")
+fight(36.31, "tbv", "jura", "boruto", "A", 1, note="1re phase du même combat (ch. 22) : Jura annule l'Uzuhiko, Boruto reste debout et Kawaki le rejoint (suite au combat suivant, ch. 23-24) ; codé 3 auparavant, ce qui comptait deux fois le même affrontement (2e revue)", flags="i")
 
 # ---------------------------------------------------------------- recherche du 8 nov. (Narutopedia, chapitres)
 fight(-12.0, "guerre3", "minato", "kumo_ninja", "A", 3, note="Minato libère Kushina enlevée par Kumo (ch. 498)", flags="?")
@@ -464,7 +464,7 @@ fight(33.21, "code", "code", "boruto", "A", 1, tb=["boost"], note="Code domine B
 fight(33.23, "code", "code", "kawaki", "A", 2, ta=["prepa"], note="Daemon par une griffe (ch. 67)")
 fight(33.3, "code", "daemon", "code", "A", 3, note="(ch. 71-72)")
 fight(34.2, "omni", "code", ["sasuke", "boruto"], "A", 1, tb=["protege"], note="Code sans limiteurs ; Sasuke (qui lui crève un œil) se sacrifie pour que Boruto fuie (Boruto ch. ~79-80)")
-fight(36.02, "tbv", "hidari", "boruto", "A", 1, note="Boruto se replie pour ne pas être absorbé par l'Arbre-Dieu (TBV ch. 4)", flags="i")
+fight(36.02, "tbv", "hidari", "boruto", "D", note="Boruto se replie pour ne pas être absorbé par l'Arbre-Dieu, sans être battu (TBV ch. 4) ; codé victoire de Hidari auparavant (2e revue)", flags="i")
 fight(36.04, "tbv", "boruto", "mitsuki", "A", 3, note="(ch. 7)")
 fight(36.105, "tbv", "hidari", ["sarada", "konohamaru"], "A", 2, note="(ch. 10-11)", flags="i")
 fight(36.15, "tbv", "matsuri", "gaara", "A", 2, note="(ch. 14-15)")

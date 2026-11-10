@@ -1,0 +1,38 @@
+eren                   (31 f, prior 0.3) — avant 0.8±0.8, chute 0.9±0.9, entrainement 1.9±0.7, trost 3.9±0.5, feminin 3.9±0.5, stohess 3.9±0.5, utgard 3.9±0.5, rose 3.9±0.5, insurrection 4.3±0.6, shiganshina 4.3±0.6, mahr 4.2±0.6, liberio 4.6±0.6, paradis 4.6±0.6, grondement 8.2±0.4, ciel_terre 8.1±0.4
+uri                    ( 1 f, prior 6.0) — kenny 6.5±0.6, hibou 6.5±0.8
+levi                   (19 f, prior 6.0) — trost 6.0±0.3, feminin 6.0±0.3, stohess 6.0±0.3, utgard 6.0±0.3, rose 6.0±0.3, insurrection 6.0±0.3, shiganshina 6.0±0.3, mahr 6.0±0.4, liberio 6.0±0.4, paradis 5.5±0.5, grondement 5.5±0.5, ciel_terre 5.5±0.5
+armin                  (13 f, prior 0.8) — trost 2.2±0.8, feminin 2.2±0.8, stohess 2.2±0.8, utgard 2.2±0.8, rose 2.2±0.8, insurrection 2.2±0.8, shiganshina 2.3±0.8, mahr 5.6±0.6, liberio 5.5±0.6, paradis 5.6±0.6, grondement 5.6±0.6, ciel_terre 5.6±0.7
+zeke                   (11 f, prior 5.5) — trost 5.3±0.5, feminin 5.3±0.5, stohess 5.3±0.5, utgard 5.3±0.5, rose 5.3±0.5, insurrection 5.2±0.5, shiganshina 5.1±0.4, mahr 4.5±0.6, liberio 4.4±0.6, paradis 4.4±0.6, grondement 4.4±0.6, ciel_terre 4.4±0.6
+mikasa                 (25 f, prior 1.6) — avant 2.0±0.8, chute 2.1±0.9, entrainement 4.0±0.6, trost 4.1±0.4, feminin 4.1±0.4, stohess 4.1±0.4, utgard 4.2±0.4, rose 4.2±0.4, insurrection 4.2±0.5, shiganshina 4.3±0.5, mahr 5.1±0.8, liberio 5.1±0.8, paradis 5.1±0.8, grondement 5.1±0.8, ciel_terre 5.1±0.8
+kenny                  ( 4 f, prior 5.0) — kenny 4.8±0.5, hibou 4.9±0.5, avant 5.0±0.5, chute 5.0±0.5, entrainement 5.0±0.5, trost 5.1±0.5, feminin 5.1±0.5, stohess 5.1±0.5, utgard 5.1±0.5, rose 5.1±0.5, insurrection 5.1±0.5
+lara                   ( 2 f, prior 5.0) — mahr 5.0±0.5, liberio 5.0±0.5
+annie                  (21 f, prior 4.8) — entrainement 4.7±0.6, trost 4.8±0.4, feminin 4.8±0.4, stohess 4.8±0.4, utgard 4.8±0.4, rose 4.8±0.4, insurrection 4.8±0.5, shiganshina 4.8±0.5, mahr 4.7±0.9, liberio 4.7±1.0, paradis 4.7±1.0, grondement 4.7±1.0, ciel_terre 4.7±1.0
+bertholdt              (11 f, prior 5.0) — chute 4.7±1.0, entrainement 4.6±0.7, trost 4.6±0.5, feminin 4.6±0.5, stohess 4.6±0.5, utgard 4.6±0.5, rose 4.6±0.5, insurrection 4.7±0.5, shiganshina 4.8±0.5
+reiner                 (23 f, prior 4.3) — chute 4.2±0.9, entrainement 4.5±0.6, trost 4.5±0.4, feminin 4.5±0.4, stohess 4.5±0.4, utgard 4.5±0.4, rose 4.5±0.4, insurrection 4.5±0.4, shiganshina 4.5±0.5, mahr 4.3±0.7, liberio 4.3±0.7, paradis 4.3±0.7, grondement 4.3±0.7, ciel_terre 4.3±0.7
+grisha                 ( 1 f, prior 3.0) — chute 4.3±0.9
+kruger                 ( 1 f, prior 4.0) — hibou 4.2±1.3
+frieda                 ( 1 f, prior 4.5) — chute 4.2±0.7
+falco                  ( 2 f, prior 0.8) — mahr 0.7±0.5, liberio 0.7±0.5, paradis 0.7±0.5, grondement 3.8±0.6, ciel_terre 4.1±0.6
+porco                  ( 4 f, prior 4.3) — mahr 4.1±0.5, liberio 4.1±0.5, paradis 4.1±0.5
+mike                   ( 3 f, prior 3.5) — trost 3.7±0.4, feminin 3.7±0.4, stohess 3.7±0.4, utgard 3.7±0.4
+pieck                  ( 7 f, prior 3.8) — mahr 3.6±0.5, liberio 3.6±0.5, paradis 3.6±0.5, grondement 3.6±0.6, ciel_terre 3.6±0.6
+ymir                   ( 3 f, prior 1.5) — chute 2.3±1.0, entrainement 3.6±1.2, trost 3.5±1.1, feminin 3.5±1.1, stohess 3.4±1.1, utgard 3.4±1.1, rose 3.4±1.1, insurrection 3.4±1.2, shiganshina 3.4±1.2
+traute                 ( 2 f, prior 3.0) — stohess 3.0±0.9, utgard 3.0±0.9, rose 3.0±0.9, insurrection 3.0±0.9
+petra                  ( 2 f, prior 2.8) — trost 2.8±0.5, feminin 2.8±0.5
+oruo                   ( 2 f, prior 2.8) — trost 2.8±0.5, feminin 2.8±0.5
+eld                    ( 2 f, prior 2.8) — trost 2.8±0.5, feminin 2.8±0.5
+erwin                  ( 2 f, prior 2.5) — trost 2.7±0.6, feminin 2.7±0.6, stohess 2.7±0.6, utgard 2.7±0.6, rose 2.7±0.6, insurrection 2.7±0.6, shiganshina 2.7±0.6
+gunther                ( 1 f, prior 2.7) — trost 2.7±0.5, feminin 2.7±0.5
+hange                  ( 8 f, prior 2.5) — trost 2.4±0.5, feminin 2.4±0.5, stohess 2.4±0.5, utgard 2.4±0.5, rose 2.4±0.5, insurrection 2.4±0.5, shiganshina 2.4±0.5, mahr 2.4±0.6, liberio 2.4±0.6, paradis 2.4±0.6, grondement 2.4±0.6
+jean                   (11 f, prior 1.3) — entrainement 1.5±0.6, trost 1.6±0.6, feminin 1.6±0.6, stohess 1.6±0.6, utgard 1.6±0.6, rose 1.6±0.6, insurrection 1.6±0.7, shiganshina 1.6±0.7, mahr 2.2±1.2, liberio 2.2±1.2, paradis 2.2±1.3, grondement 2.2±1.3, ciel_terre 2.2±1.3
+sasha                  ( 7 f, prior 1.1) — trost 1.5±0.4, feminin 1.5±0.4, stohess 1.5±0.5, utgard 1.5±0.5, rose 1.5±0.5, insurrection 1.5±0.5, shiganshina 1.5±0.6, mahr 2.0±0.6, liberio 2.0±0.6
+magath                 ( 1 f, prior 2.0) — liberio 2.0±1.5, paradis 2.0±1.5, grondement 2.0±1.5
+rod                    ( 1 f, prior 2.0) — stohess 2.0±1.5, utgard 2.0±1.5, rose 2.0±1.5, insurrection 2.0±1.5
+connie                 (10 f, prior 1.1) — trost 1.5±0.5, feminin 1.5±0.5, stohess 1.5±0.5, utgard 1.5±0.5, rose 1.5±0.5, insurrection 1.5±0.6, shiganshina 1.5±0.7, mahr 1.9±1.2, liberio 1.9±1.2, paradis 1.9±1.2, grondement 1.9±1.2, ciel_terre 1.9±1.2
+dina                   ( 3 f, prior 1.8) — chute 1.6±1.0, entrainement 1.8±1.1, trost 1.9±1.1, feminin 1.9±1.1, stohess 1.9±1.1, utgard 1.9±1.1, rose 1.9±1.1
+gabi                   ( 5 f, prior 1.2) — mahr 1.6±0.4, liberio 1.6±0.5, paradis 1.6±0.5, grondement 1.6±0.5, ciel_terre 1.6±0.5
+marcel                 ( 1 f, prior 3.5) — chute 1.4±1.1
+floch                  ( 1 f, prior 1.5) — liberio 1.3±1.3, paradis 1.3±1.3, grondement 1.3±1.3
+marco                  ( 1 f, prior 1.2) — trost 1.2±1.5
+historia               ( 1 f, prior 0.8) — trost 1.1±0.6, feminin 1.1±0.6, stohess 1.1±0.6, utgard 1.1±0.6, rose 1.1±0.6, insurrection 1.1±0.7, shiganshina 1.1±0.7, mahr 1.1±1.1, liberio 1.1±1.2, paradis 1.1±1.2, grondement 1.1±1.2, ciel_terre 1.1±1.2
+hannes                 ( 2 f, prior 1.0) — chute 0.4±1.1, entrainement -0.2±1.3, trost -0.4±1.3, feminin -0.4±1.3, stohess -0.4±1.3, utgard -0.4±1.3, rose -0.4±1.3

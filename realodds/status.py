@@ -193,7 +193,7 @@ ORDER = [
     ("isshiki", 33.1, "momoshiki", 32.0, 0.7, 0.8, "Isshiki, de rang supérieur même à Kaguya (Boruto ch. 51 p. 11), au-dessus de Momoshiki"),
     ("momoshiki", 32.0, "kinshiki", 32.0, 0.5, 0.7, "Kinshiki, serviteur de Momoshiki, se laisse absorber par lui (Boruto ch. 8-10)"),
     ("jigen", 32.5, "naruto", 32.5, 0.3, 0.8, "Jigen tient tête à Naruto et Sasuke réunis (Boruto ch. 38)"),
-    ("code", 34.0, "jigen", 32.5, 0.5, 0.25, "Amado : au sommet de ses capacités (limiteurs retirés), Code dépasse de loin Jigen (Boruto ch. 56 p. 31-34 ; Narutopedia)"),
+    ("code", 34.0, "jigen", 32.5, 0.5, 0.5, "Amado : au sommet de ses capacités (limiteurs retirés), Code dépasse de loin Jigen (Boruto ch. 56 p. 31-34 ; Narutopedia)"),
     ("code", 33.3, "kashin_koji", 33.0, 0.3, 0.7, "Code, le plus fort des Inners après Isshiki ressuscité (Boruto ch. 56) ; statut absolu remplacé par cet ordre"),
     ("code", 33.3, "boro", 32.5, 0.5, 0.7, "Code, même bridé, jugé plus fort que Delta et Boro (Boruto ch. 56 p. 35)"),
     ("code", 33.3, "delta", 32.5, 0.5, 0.7, "Code, même bridé, jugé plus fort que Delta et Boro (Boruto ch. 56 p. 35)"),

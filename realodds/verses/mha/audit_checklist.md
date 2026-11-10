@@ -1,0 +1,79 @@
+# Audit My Hero Academia (mha)
+
+Une ligne par personnage (≥2 combats ou statut officiel) : arcs, valeur avant → après (dernier arc), verdict, source.
+
+- **All For One** (nana→final, 11 combats) : 6.41 → 6.32 — Apogée, Kamino, guerre finale (rajeuni) cohérents ; tue Gigantomachia et Stain (ch. 385, ~402) — OK
+- **Shota Aizawa (Eraser Head)** (usj→final, 7 combats) : 1.89 → 2.62 — Trop bas (2,5) : statut héros pro 3,3 ; combat ajouté contre Bakugo (ch. 6-7) — corrigé
+- **All Might (Toshinori Yagi)** (apogee→final, 9 combats) : 3.67 → 3.56 — Apogée 7,2 > All For One 6,8 (56 %) ; Kamino 60 % ; le raid du bar déplacé avant le duel (t 1,31→1,2999) pour que la perte de One For All ne tombe pas dans l'état « Kamino » — corrigé (ch. 84-95)
+- **Yuga Aoyama (Can't Stop Twinkling)** (usj→final, 4 combats) : 0.28 → 0.87 — OK, cohérent avec les combats du manga
+- **Katsuki Bakugo (Dynamight)** (debut→final, 22 combats) : 5.43 → 5.44 — Gonflé au début (3,8 > Aizawa) : statut d'entrée, marge Kirishima 2→1, combat Aizawa ajouté (ch. 6-7) ; retour contre All For One OK (ch. 403-410)
+- **Best Jeanist** (festival→final, 3 combats) : 4.17 → 4.16 — OK, cohérent avec les combats du manga
+- **Candidats à la licence provisoire (groupe)** (examens→final, 2 combats) : — → 0.62 — OK, cohérent avec les combats du manga
+- **Cementoss** (usj→final, 1 combats) : 4.04 → 3.43 — OK, cohérent avec les combats du manga
+- **Élèves de la classe 1-B (groupe)** (usj→final, 6 combats) : — → 1.45 — OK, cohérent avec les combats du manga
+- **Mr. Compress** (festival→final, 5 combats) : 1.87 → 1.85 — OK, cohérent avec les combats du manga
+- **Crust** (licence→guerre, 1 combats) : 4.00 → 4.00 — OK, cohérent avec les combats du manga
+- **Dabi (Toya Todoroki)** (festival→final, 8 combats) : 4.78 → 4.76 — Bat Hawks, domine Shoto puis éteint par Phosphor ; vivant (coma) à la fin — OK (ch. 266-391)
+- **Izuku Midoriya (Deku)** (debut→final, 30 combats) : 7.37 → 7.61 — Sans Alter au ch. 1 (combat ajouté contre le vilain de boue, prior au bon nœud) ; One For All en sauts datés ; Deku final ≈ Shigaraki final (52 %) — OK (ch. 1-423)
+- **Ectoplasm** (usj→final, 1 combats) : 2.77 → 2.90 — OK, cohérent avec les combats du manga
+- **Edgeshot** (festival→final, 3 combats) : 4.18 → 4.18 — OK, cohérent avec les combats du manga
+- **Endeavor (Enji Todoroki)** (usj→final, 7 combats) : 4.50 → 4.45 — N°2 puis n°1 (Billboard) ; Hood à 48 % contre lui seul (vaincu avec Hawks) — OK (ch. 185-191)
+- **Gang Orca** (stain→final, 2 combats) : 3.75 → 3.73 — OK, cohérent avec les combats du manga
+- **Gigantomachia** (overhaul→final, 5 combats) : 4.31 → 4.26 — 4,3-4,4 ; ORDER Ligue < Gigantomachia ; détruit par All For One (ch. 385) — OK
+- **Gran Torino** (usj→final, 5 combats) : 3.24 → 3.21 — OK, cohérent avec les combats du manga
+- **Toru Hagakure (Invisible Girl)** (usj→final, 4 combats) : 0.71 → 1.06 — OK, cohérent avec les combats du manga
+- **Mei Hatsume** (usj→final, 2 combats) : 0.15 → 0.17 — OK, cohérent avec les combats du manga
+- **Hawks (Keigo Takami)** (festival→final, 7 combats) : 2.85 → 2.75 — N°3 puis n°2 ; ailes brûlées puis volées (sauts datés) — OK (ch. 185, 268, 376)
+- **Tenya Iida (Ingenium)** (usj→final, 12 combats) : 2.40 → 3.02 — OK, cohérent avec les combats du manga
+- **Inasa Yoarashi** (examens→final, 2 combats) : 2.94 → 2.80 — OK, cohérent avec les combats du manga
+- **Kyoka Jiro (Earphone Jack)** (usj→final, 4 combats) : 1.63 → 2.33 — OK, cohérent avec les combats du manga
+- **Denki Kaminari (Chargebolt)** (usj→final, 6 combats) : -0.40 → 0.88 — -0,4 (sous un civil) : marge Shiozaki 3→2, progression de classe — corrigé
+- **Kamui Woods** (festival→final, 2 combats) : 3.63 → 3.63 — OK, cohérent avec les combats du manga
+- **Itsuka Kendo (Battle Fist)** (festival→final, 2 combats) : 2.26 → 2.38 — OK, cohérent avec les combats du manga
+- **Eijiro Kirishima (Red Riot)** (usj→final, 13 combats) : 2.21 → 2.98 — Stagnait à 1,9 jusqu'à la guerre finale : sauts de classe datés (licence, préparation finale) — corrigé
+- **Koji Koda (Anima)** (usj→final, 3 combats) : 1.76 → 2.19 — OK, cohérent avec les combats du manga
+- **Kurogiri** (usj→final, 5 combats) : 3.03 → 3.21 — Mort pendant la guerre finale (Sportskeeda) — OK
+- **Lady Nagant (Kaina Tsutsumi)** (agence→final, 1 combats) : 5.19 → 4.28 — 5,2 (> Endeavor) par une victoire courte de Deku : marge 1→2 — corrigé à 4,3 (ch. 310-313)
+- **Magne** (festival→licence, 4 combats) : 2.70 → 2.67 — OK, cohérent avec les combats du manga
+- **Midnight** (usj→guerre, 1 combats) : 1.84 → 2.54 — Mort ajoutée pendant la guerre du Paranormal (t 1,9004) — corrigé
+- **Mina Ashido (Pinky)** (usj→final, 7 combats) : 1.47 → 2.00 — OK, cohérent avec les combats du manga
+- **Minoru Mineta (Grape Juice)** (usj→final, 3 combats) : 0.34 → 1.50 — OK, cohérent avec les combats du manga
+- **Mirio Togata (Lemillion)** (examens→final, 6 combats) : 5.29 → 4.89 — Perte de Permeation datée après l'arc Overhaul (sinon l'état Overhaul était sans Alter) ; retour par Rewind +3,2→+2,6 — corrigé (ch. 122-150, ~333-366)
+- **Mirko (Rumi Usagiyama)** (licence→final, 1 combats) : 3.58 → 3.97 — Abaissée par les Nomu de Fukuoka attribués à Hawks : adversaire de Hawks remplacé par les Nomu ordinaires, marge Mirko 1→2 — corrigé (ch. 186-187, 263-267)
+- **Neito Monoma (Phantom Thief)** (usj→final, 2 combats) : 1.43 → 1.08 — OK, cohérent avec les combats du manga
+- **Moonfish** (festival→final, 2 combats) : 1.32 → 1.10 — OK, cohérent avec les combats du manga
+- **Mt. Lady** (usj→final, 4 combats) : 3.04 → 2.91 — OK, cohérent avec les combats du manga
+- **Muscular** (festival→final, 2 combats) : 2.70 → 2.40 — OK, cohérent avec les combats du manga
+- **Nejire Hado (Nejire-chan)** (camp→final, 2 combats) : 3.10 → 3.16 — OK, cohérent avec les combats du manga
+- **Sir Nighteye** (examens→overhaul, 1 combats) : 3.32 → 3.32 — OK, cohérent avec les combats du manga
+- **Nomu de l'USJ (anti-All Might)** (usj→final, 4 combats) : 4.86 → 4.90 — OK, cohérent avec les combats du manga
+- **Nomu de Hosu (groupe)** (usj→final, 3 combats) : — → 2.23 — OK, cohérent avec les combats du manga
+- **Nomu de Kamino (groupe)** (stain→final, 2 combats) : — → 1.38 — OK, cohérent avec les combats du manga
+- **Mashirao Ojiro (Tailman)** (usj→final, 4 combats) : 0.59 → 1.14 — OK, cohérent avec les combats du manga
+- **Overhaul (Kai Chisaki)** (examens→final, 5 combats) : 4.15 → 4.15 — OK, cohérent avec les combats du manga
+- **Present Mic** (usj→final, 2 combats) : 2.58 → 2.70 — OK, cohérent avec les combats du manga
+- **Re-Destro (Rikiya Yotsubashi)** (overhaul→final, 2 combats) : 3.51 → 3.52 — OK, cohérent avec les combats du manga
+- **Robots de l'examen et du festival (groupe)** (usj→final, 2 combats) : — → -0.62 — Prior 1,0→0,5 (machines d'examen) — corrigé
+- **Ryukyu** (camp→final, 2 combats) : 3.67 → 3.67 — OK, cohérent avec les combats du manga
+- **Rikido Sato (Sugarman)** (usj→final, 3 combats) : 1.02 → 1.67 — OK, cohérent avec les combats du manga
+- **Hanta Sero (Cellophane)** (usj→final, 5 combats) : 0.37 → 0.60 — OK, cohérent avec les combats du manga
+- **Tomura Shigaraki** (usj→final, 13 combats) : 7.30 → 7.37 — Éveil de Decay, opération d'Ujiko, fusion : 3,1 → 6,5 → 7,4 ; bat Star and Stripe (63 %) — OK (ch. 237-423)
+- **Hitoshi Shinso** (usj→final, 4 combats) : 1.71 → 1.69 — OK, cohérent avec les combats du manga
+- **Ibara Shiozaki (Vine)** (usj→final, 3 combats) : 1.39 → 1.14 — OK, cohérent avec les combats du manga
+- **Mezo Shoji (Tentacole)** (usj→final, 7 combats) : 0.31 → 0.85 — OK, cohérent avec les combats du manga
+- **Le vilain de boue** (debut→final, 4 combats) : 3.22 → 2.47 — Gonflé par la capture de Bakugo : marge 2→1 — corrigé
+- **Snipe** (usj→final, 2 combats) : 2.96 → 2.84 — OK, cohérent avec les combats du manga
+- **Spinner (Shuichi Iguchi)** (festival→final, 4 combats) : 2.74 → 2.96 — OK, cohérent avec les combats du manga
+- **Stain (le Tueur de héros)** (usj→final, 6 combats) : 4.79 → 4.03 — 4,8 (niveau Endeavor) : marges contre Native, Iida et le Nomu 3→2 — corrigé à 3,9 (ch. 51-56)
+- **Star and Stripe (Cathleen Bate)** (sombre→star, 1 combats) : 6.14 → 6.16 — N°1 des États-Unis (statut 6,0) ; perd contre Shigaraki — OK (ch. 329-334)
+- **Tamaki Amajiki (Suneater)** (camp→final, 2 combats) : 3.37 → 3.42 — OK, cohérent avec les combats du manga
+- **Tetsutetsu Tetsutetsu (Real Steel)** (usj→final, 3 combats) : 1.65 → 1.71 — OK, cohérent avec les combats du manga
+- **Thirteen** (usj→final, 2 combats) : 1.81 → 2.30 — OK, cohérent avec les combats du manga
+- **Shoto Todoroki** (usj→final, 21 combats) : 4.56 → 4.67 — Admis sur recommandation (statut) ; Phosphor daté ; bat Dabi (ch. 349-353, 386-391) — OK
+- **Himiko Toga** (festival→final, 6 combats) : 2.90 → 2.88 — OK, cohérent avec les combats du manga
+- **Fumikage Tokoyami (Tsukuyomi)** (usj→final, 12 combats) : 3.94 → 4.35 — OK, cohérent avec les combats du manga
+- **Tsuyu Asui (Froppy)** (usj→final, 7 combats) : 0.76 → 1.51 — OK, cohérent avec les combats du manga
+- **Twice (Jin Bubaigawara)** (festival→guerre, 4 combats) : 3.34 → 3.29 — OK, cohérent avec les combats du manga
+- **Ochaco Uraraka (Uravity)** (usj→final, 12 combats) : 2.58 → 2.87 — OK, cohérent avec les combats du manga
+- **Voyous de l'USJ (groupe)** (usj→final, 6 combats) : — → -0.83 — OK, cohérent avec les combats du manga
+- **Momo Yaoyorozu (Creati)** (usj→final, 6 combats) : 0.32 → 1.90 — 0,4 : marge Tokoyami 3→2, progression de classe — corrigé

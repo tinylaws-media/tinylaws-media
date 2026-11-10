@@ -59,6 +59,19 @@ V["demonslayer"] = simple("demonslayer", "Demon Slayer", "Chaque combat du manga
     "gyomei", "chateau", "kokushibo", "chateau", ["tanjiro", "giyu", "rengoku", "akaza"], "chateau",
     "['marque','Marque du pourfendeur','marque'],", "la Respiration totale constante, la Marque, la lame rouge", "pourfendeur débutant, Pilier, Lune supérieure…")
 
+V["bleach"] = simple("bleach", "Bleach", "Chaque combat du manga, de Turn Back the Pendulum à la Guerre de Mille Ans (ch. 686),",
+    "ichigo", "getsuga", "aizen", "getsuga", ["ichigo", "aizen", "kenpachi", "yhwach"], "final",
+    "", "le Shikai, le Bankai, le masque Hollow, le Fullbring, le vrai Zanpakutō, les stades du Hōgyoku", "lieutenant, capitaine, Espada, Sternritter…")
+V["mha"] = simple("mha", "My Hero Academia", "Chaque combat du manga, de la mort de Nana Shimura à la guerre finale,",
+    "all_might", "kamino", "afo", "kamino", ["deku", "bakugo", "all_might", "shigaraki"], "final",
+    "", "One For All à 5, 20, 45 puis 100 %, les Alters des anciens détenteurs, l'éveil de Decay", "élève de Yuei, héros pro, top 10, Symbole de la paix…")
+V["aot"] = simple("aot", "L'Attaque des Titans", "Chaque combat du manga, de la chute du mur Maria à la bataille du Ciel et de la Terre (ch. 139),",
+    "levi", "shiganshina", "zeke", "shiganshina", ["eren", "mikasa", "levi", "reiner"], "shiganshina",
+    "", "la transformation en Titan, le durcissement, le Marteau d'armes, le Titan Originel", "recrue, soldat d'élite, détenteur d'un des Neuf Titans…")
+V["chainsawman"] = simple("chainsawman", "Chainsaw Man", "Chaque combat du manga, du Démon Zombie à la guerre contre Yoru (ch. 232),",
+    "makima", "controle", "pochita", "controle", ["denji", "makima", "pochita", "yoru"], "controle",
+    "", "les contrats démoniaques, Tank et Fusil, les armes nucléaires, Denji Man", "chasseur de démons, hybride, démon primordial, Cavalier…")
+
 
 for name in (sys.argv[1:] or V):
     cfg = V[name]

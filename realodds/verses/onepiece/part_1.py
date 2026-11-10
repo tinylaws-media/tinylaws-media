@@ -427,7 +427,7 @@ fight(0.952, "marineford", "blackbeard_pirates", "whitebeard", "A", 1, tb=["epui
       note="Barbe Blanche étrangle Teach, puis meurt sous les balles de son équipage (ch. 576)")
 fight(0.9521, "marineford", "akainu", ["jinbe", "luffy"], "A", 3, tb=["epuise"], note="Poing de magma à travers Jinbe (ch. 577-578)")
 fight(0.9522, "marineford", "akainu", ["marco", "vista"], "D", note="Marco et Vista s'interposent entre Akainu et Luffy (ch. 578)", flags="i")
-fight(0.9523, "marineford", "crocodile", "akainu", "D", note="Vague de sable, Akainu coupé en deux (ch. 578)", flags="i")
+fight(0.9523, "marineford", "crocodile", "akainu", "D", note="Vague de sable, Akainu coupé en deux puis reformé : simple interception pour couvrir la fuite de Luffy, pas un combat mesuré (ch. 578) ; poids réduit (« ? ») à la 2e revue, il gonflait Crocodile jusqu'à Alabasta", flags="i?")
 fight(0.9524, "marineford", "sengoku", "blackbeard", "D", note="Bouddha écrase deux fois les séismes de Teach et disperse son équipage (ch. 578)", flags="i")
 fight(0.9525, "marineford", "shanks", "akainu", "D", note="Shanks bloque le poing d'Akainu visant Koby, fin de la guerre (ch. 579)", flags="i")
 

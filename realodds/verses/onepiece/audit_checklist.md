@@ -193,3 +193,41 @@ Une ligne par personnage du classement ayant au moins 2 combats ou un statut/pri
 - **shamrock** (Saint Figarland Shamrock, 1 combats) — elbaf 6.5→6.5 — ok
 - **gunko** (Sainte Gunko, 6 combats) — elbaf 6.1→6.0 — trop haut de ~0,6 à Elbaf (6,1 contre statut 5,5), parce que la prise d'otage où Gaban lâche ses haches était codée comme une victoire sur Gaban → CORRIGÉ (retirée, ch. 1149)
 - **killingham** (Saint Killingham, 2 combats) — elbaf 5.1→5.1 — ok
+
+## 2e revue (10 nov.)
+
+Contexte : arcs ajoutés à la 1re partie de cette revue (Elbaf : chute de Harald, Cocoyashi, Ace chez Barbe Blanche, Gear 4 et chute de Doflamingo, Gear 5 et chute de Kaido).
+
+### Présence dans chaque arc où l'on combat
+- Contrôle automatique de tous les combats : chaque combattant figure dans l'arc de son combat, aucune absence.
+
+### Arbitrages
+- **crocodile** — RÉSOLU : 4,7 à Alabasta est justifié par le canon (il bat Luffy deux fois nettement, ch. 177-178 et 199-200 ; Luffy ne gagne le 3e duel qu'avec l'eau et le sang, tag prepa) et par sa parité avec Doflamingo à Marineford ; l'interception d'Akainu (ch. 578), codée nul, n'est qu'une couverture de fuite → poids réduit (« ? ») ; effet faible (4,8 → 4,7 Alabasta, 4,9 → 4,8 Marineford)
+- **luffy (début)** — RÉSOLU sans changement : 3,6 à East Blue comme à Alabasta, faute de progrès canon datable entre les deux arcs ; il bat un Shichibukai (statut 4,0) avec préparation à Alabasta : 3,6 n'est pas trop haut
+- **luffy contre Gaban** (ch. 1140, 1151) — CORRIGÉ : Gaban domine un Luffy qui n'est pas encore en Gear 5 et cède dès qu'il y passe → Luffy « retenu », comme pour Kizaru (ch. 1092)
+- **luffy contre Warcury** (ch. 1111-1112) — CORRIGÉ : Luffy est vidé (après Kizaru, Saturn, Ju Peter ; il ne tient que grâce aux rations des géants) → tag épuisé ; Warcury 6,4 → 6,3
+- **luffy Gear 5 contre Kaido** — NON RÉSOLU : 41 % / 42 % malgré la victoire nette (ch. 1044-1049). Cause : les ordres « Empereur et son aile » (Luffy > Zoro, Sanji, Law, Kid, Jinbe de 0,8 à 1,2) tirent Luffy vers ~6,9, et ceux de Kaido sur ses Calamités, avec ses statuts d'Empereur, le tiennent à 7,0 ; aucun énoncé canon direct ne permet de trancher sans inventer un écart
+- **hajrudin** — NON RÉSOLU : 3,4 à Elbaf ; son coup au visage d'Imu (ch. 1191) n'est qu'un échange dans une attaque à trois, et le seul résultat mesuré est un K.-O. d'un seul Omen (ch. 1180) ; ni prime ni progrès canon datable depuis Dressrosa
+- **pedro** — laissé (léger excès, voir 1re revue)
+
+### Duels classiques (après correction)
+- Shanks contre Mihawk : 53 % / 32 % (Egghead) ; 57 % / 28 % (Marineford)
+- Akainu contre Aokiji (Marineford) : 58 % / 27 % (Akainu gagne Punk Hazard)
+- Luffy Gear 5 contre Kaido : 41 % / 42 % (voir plus haut)
+- Zoro contre King (Wano) : 49 % / 35 %
+- Garp contre Aokiji : 52 % / 33 % (Marineford) ; 45 % / 40 % (Egghead, Garp vieilli)
+- Roger contre Barbe Blanche : 44 % / 40 % ; Roger contre Garp (God Valley) : 39 % / 45 %
+- Barbe Blanche (malade, Marineford) contre Akainu : 45 % / 39 %
+- Kaido contre Big Mom (Wano) : 43 % / 40 %
+- Shanks (Egghead) contre Kaido (Wano) : 45 % / 38 % ; Luffy contre Shanks (Egghead) : 36 % / 47 %
+- Zoro contre Mihawk (Elbaf) : 34 % / 50 %
+- Zoro contre Sanji (Wano) : 49 % / 35 % ; Law contre Kid : 49 % / 35 %
+- Luffy Gear 5 contre Kizaru : 57 % / 28 %
+- Rayleigh contre Kizaru (Marineford) : 33 % / 52 %
+- Katakuri contre Luffy (WCI) : 38 % / 47 %
+- Barbe Noire contre Shanks (Egghead) : 29 % / 56 %
+- Sabo contre Fujitora : 42 % / 43 %
+
+### Restant ouvert
+- Luffy Gear 5 contre Kaido (quasi-égalité malgré la victoire canon)
+- Hajrudin trop bas à Elbaf
