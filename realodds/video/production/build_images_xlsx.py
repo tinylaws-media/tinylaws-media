@@ -4,7 +4,7 @@ from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.utils import get_column_letter
 
-P = "Pied détouré"; B = "Buste détouré"; R = "Portrait (capture)"; D = "Décor (capture)"; O = "Objet détouré"
+P = "Pied détouré"; B = "Buste détouré"; R = "Visage détouré (PNG)"; D = "Décor (capture)"; O = "Objet détouré"
 # (fichier, personnage, version / époque, catégorie, pose, orientation, tenue / détails, priorité, statut, fichier reçu)
 NAR = [
  ("itachi_combat.png","Itachi","Akatsuki, adulte (Partie 2)",P,"Pose de combat, bras tendu","Face",'Manteau Akatsuki ouvert, corbeaux bienvenus',1,"Reçu","itachi facing front fight mode.png"),
@@ -103,6 +103,43 @@ DEC = [
 ]
 PORT_N = ["hinata","kiba","yamato","kabuto","konan","jugo","kakuzu","hidan","neji","shikamaru","kurama","code","jigen","sakura","kankuro","temari","zabuza","haku","kimimaro","mifune","onoki","mei","hanzo","chiyo","sai"]
 PORT_O = ["nami","usopp","chopper","robin","franky","brook","jinbe","vivi","enel","lucci","kuma","magellan","boa_hancock","smoker","coby","issho","jozu","vista","queen","jack","perospero","bartolomeo","cavendish","oden","kozuki_momonosuke"]
+
+# portraits supplémentaires : tous les persos importants de la toile des combats (classés par nombre de combats)
+PORT_N2 = ["gaara","boruto","kinshiki","kawaki","momoshiki","sarada","hidari","asuma","darui","kashin_koji","isshiki","jura","tobirama","sasori","deidara","ao","konohamaru","kaguya","rock_lee","choji","mu","boro","mitsuki","hiruzen","shino","ino","suigetsu","chojuro","kurotsuchi","raikage3","gengetsu","kinkaku","ginkaku","danzo","toneri","hagoromo","indra","asura","izuna","kushina"]
+PORT_O2 = ["rocks","gunko","loki","saturn","mr_3","ulti","vergo","harald","tashigi","moria","hawkins","fukaboshi","caesar","monet","brogy","neptune","killer","warcury","arlong","sentomaru","hody","baby_5","inuarashi","page_one","bonney","nusjuro","ivankov","ashura_doji","bellamy","kaku","urouge","rebecca","sugar","diamante","nekomamushi","ju_peter","dorry","gin","hannyabal","buffalo"]
+# effets, objets et symboles pour les plans « fancy » (fichier, œuvre, quoi, catégorie, détails, priorité)
+FX = [
+ ("fx_sharingan_itachi.png","Naruto","Mangekyō Sharingan d'Itachi (œil seul)",O,"Gros plan de l'œil, détouré ; sert aux transitions et aux tampons",1),
+ ("fx_sharingan_3tomoe.png","Naruto","Sharingan 3 tomoe (œil seul)",O,"Gros plan de l'œil",2),
+ ("fx_rinnegan.png","Naruto","Rinnegan (œil seul)",O,"Gros plan, violet à cercles",2),
+ ("fx_susanoo_itachi.png","Naruto","Susanoo d'Itachi (rouge, bouclier Yata + épée Totsuka)",P,"En entier, détouré",1),
+ ("fx_susanoo_madara.png","Naruto","Susanoo parfait de Madara (bleu)",P,"En entier, détouré",2),
+ ("fx_kurama.png","Naruto","Kurama (Kyûbi) en entier",P,"Pose menaçante, détouré",1),
+ ("fx_corbeaux.png","Naruto","Nuée de corbeaux d'Itachi",O,"Plusieurs corbeaux en vol, détourés",1),
+ ("fx_amaterasu.png","Naruto","Flammes noires d'Amaterasu",O,"Flammes seules, détourées",2),
+ ("fx_rasengan.png","Naruto","Rasengan",O,"Sphère seule, détourée",1),
+ ("fx_chidori.png","Naruto","Chidori / Raikiri",O,"Éclair seul, détouré",2),
+ ("fx_hiraishin_flash.png","Naruto","Éclair jaune / marque du Hiraishin",O,"Formule de sceau du Hiraishin ou traînée jaune",2),
+ ("fx_chapeau_hokage.png","Naruto","Chapeau de Hokage",O,"Seul, détouré",2),
+ ("fx_manteau_hokage.png","Naruto","Manteau de Hokage à flammes (dos, kanji « 4e Hokage »)",O,"Vu de dos, détouré",2),
+ ("sym_akatsuki.png","Naruto","Nuage rouge d'Akatsuki",O,"Symbole seul, détouré",1),
+ ("sym_konoha.png","Naruto","Symbole de Konoha (bandeau)",O,"Plaque de bandeau, détourée ; une version barrée aussi",1),
+ ("fx_gamabunta.png","Naruto","Gamabunta (crapaud)",P,"En entier, détouré",3),
+ ("fx_gunbai.png","Naruto","Éventail Gunbai de Madara",O,"Seul, détouré",3),
+ ("op_chapeau_paille.png","One Piece","Chapeau de paille",O,"Seul, détouré",1),
+ ("op_haki_rois.png","One Piece","Éclairs noirs du Haki des rois",O,"Éclairs seuls (fond noir accepté)",1),
+ ("op_gear5_nuage.png","One Piece","Luffy Gear 5, nuage / rire",P,"En entier, détouré",1),
+ ("op_kaido_dragon.png","One Piece","Kaido en dragon",P,"En entier, détouré",1),
+ ("op_fruit_gomu.png","One Piece","Fruit du Gomu Gomu / Hito Hito modèle Nika",O,"Fruit seul, détouré",2),
+ ("op_wanted_luffy.png","One Piece","Avis de recherche de Luffy (prime actuelle)",O,"Affiche entière, à plat ; idem pour chaque perso d'un duel si possible",1),
+ ("op_wanted_vierge.png","One Piece","Avis de recherche vierge",O,"Affiche sans photo ni prime : je remplis moi-même",1),
+ ("op_jolly_roger_mugiwara.png","One Piece","Pavillon de l'équipage du Chapeau de paille",O,"Drapeau seul",2),
+ ("op_jolly_roger_empereurs.png","One Piece","Pavillons de Barbe Blanche, Kaido, Big Mom, Shanks, Barbe Noire",O,"Un fichier par pavillon (suffixe _kaido, _bigmom…)",2),
+ ("op_sabres_zoro.png","One Piece","Sabres de Zoro (Wado, Enma, Sandai Kitetsu)",O,"Croisés ou séparés, détourés",2),
+ ("op_manteau_justice.png","One Piece","Manteau de la Marine « Justice »",O,"Vu de dos, détouré",2),
+ ("op_den_den_mushi.png","One Piece","Den Den Mushi",O,"Seul, détouré",3),
+ ("op_log_pose.png","One Piece","Log Pose",O,"Seul, détouré",3),
+]
 VID = [
  (1,"Naruto","Itachi vs Minato",["itachi_combat.png","itachi_face.png","minato_combat.png","minato_droite.png"],"Faite (v3)"),
  (2,"Naruto","Itachi vs Madara",["itachi_combat.png","itachi_face.png","madara_edo.png","madara_jubi.png"],""),
@@ -189,9 +226,10 @@ lines = [
  ("LE VERDICT — images à fournir pour les 50 premières vidéos", True),
  ("", False),
  ("Comment remplir", True),
- ("1. Cherche chaque image des onglets « Naruto », « One Piece », « Décors » et « Portraits ».", False),
+ ("1. Cherche chaque image des onglets « Naruto », « One Piece », « Décors », « Portraits » et « Effets & objets ».", False),
  ("2. Enregistre-la sous le nom exact de la colonne « Fichier » (minuscules, sans espaces), dans le dossier indiqué ci-dessous.", False),
  ("3. Mets à jour la colonne « Statut » (liste déroulante : À chercher / Trouvé / Reçu / Introuvable). Seule cette colonne et « Remarque » sont à modifier.", False),
+ ("Nouveaux : l'onglet « Portraits » couvre maintenant tous les persos importants de la toile des combats, et l'onglet « Effets & objets » liste les yeux, symboles, objets et avis de recherche pour les plans les plus stylés.", False),
  ("4. L'onglet « Vidéos » se met à jour tout seul : il indique, pour chaque vidéo, combien d'images sont reçues et si elle est prête.", False),
  ("", False),
  ("Rangement du dossier", True),
@@ -200,7 +238,7 @@ lines = [
  ("Les catégories", True),
  ("Pied détouré : personnage entier de la tête aux pieds, fond transparent (PNG), au moins 1 000 px de haut, sans ombre portée ni décor ni texte.", False),
  ("Buste détouré : de la taille à la tête, fond transparent (PNG), au moins 800 px de haut. Utile quand le visage ou un détail (yeux, Sharingan) compte.", False),
- ("Portrait (capture) : simple capture d'anime ou de manga, visage bien centré et net, fond conservé, JPG ou PNG, au moins 600 px. Je le découpe en cercle pour le réseau.", False),
+ ("Visage détouré (PNG) : tête et haut des épaules, fond transparent, au moins 600 px. Remplit les cercles de la toile. Une capture avec fond reste acceptée, je la découpe en cercle.", False),
  ("Décor (capture) : image de lieu sans personnage au premier plan si possible, au moins 1 280 px de large, JPG. Je la passe en trame de manga, la qualité compte peu.", False),
  ("Objet détouré : objet seul (kunai, sabre…), fond transparent (PNG).", False),
  ("", False),
@@ -236,9 +274,15 @@ table(ws, ["Fichier", "Œuvre", "Lieu", "Catégorie", "Priorité", "Utilisé dan
 ws = wb.create_sheet("Portraits")
 rows = [(f"p_{n}.jpg", "Naruto", n.replace("_", " ").title(), R, 3, "À chercher", "visage centré, de face ou de trois quarts") for n in PORT_N]
 rows += [(f"p_{n}.jpg", "One Piece", n.replace("_", " ").title(), R, 3, "À chercher", "visage centré, de face ou de trois quarts") for n in PORT_O]
+rows += [(f"p_{n}.png", "Naruto", n.replace("_", " ").title(), R, 2 if i < 20 else 3, "À chercher", "toile des combats ; visage centré, de face ou de trois quarts") for i, n in enumerate(PORT_N2)]
+rows += [(f"p_{n}.png", "One Piece", n.replace("_", " ").title(), R, 2 if i < 20 else 3, "À chercher", "toile des combats ; visage centré, de face ou de trois quarts") for i, n in enumerate(PORT_O2)]
 rows += [(f"p_{n}.webp", "Naruto", n.title(), R, 3, "Reçu", "déjà fourni") for n in ["madara", "hashirama", "naruto", "sasuke", "jiraiya", "orochimaru", "nagato", "kisame", "gai", "tsunade"]]
 table(ws, ["Fichier", "Œuvre", "Personnage", "Catégorie", "Priorité", "Statut", "Remarque"], rows, [22, 12, 24, 20, 9, 13, 40], status_col=6)
-ws.cell(ws.max_row + 2, 1, "Ces portraits servent aux nœuds du réseau des combats (les personnages qui relient les deux adversaires). Sans portrait, le nœud affiche l'initiale : la vidéo reste faisable.").font = Font(name=F, italic=True, size=10)
+ws.cell(ws.max_row + 2, 1, "Ces visages remplissent les cercles de la toile des combats. Idéal : PNG détouré (tête + haut des épaules, fond transparent, 600 px mini). Une capture avec fond reste acceptée : je la découpe en cercle.").font = Font(name=F, italic=True, size=10)
+
+ws = wb.create_sheet("Effets & objets")
+table(ws, ["Fichier", "Œuvre", "Quoi", "Catégorie", "Détails", "Priorité", "Statut", "Remarque"], [(f, o, q, c, d, pr, "À chercher", "") for f, o, q, c, d, pr in FX], [28, 12, 46, 18, 50, 9, 13, 30], status_col=7)
+ws.cell(ws.max_row + 2, 1, "Ces éléments servent aux transitions, tampons et plans « fancy » (yeux en gros plan, symboles, avis de recherche…). Aucun n'est bloquant pour une vidéo.").font = Font(name=F, italic=True, size=10)
 
 # 5) Vidéos, avec suivi automatique
 ws = wb.create_sheet("Vidéos")
