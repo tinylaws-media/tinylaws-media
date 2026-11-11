@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Le Verdict · 100 hommes contre 1 gorille</title>
+<style>
+html,body{margin:0;background:#07080b;color:#f2f2ee;font-family:'Inter',system-ui,sans-serif}
+canvas{display:block;width:100%;max-width:1080px;margin:0 auto;aspect-ratio:1080/960}
+#ui{max-width:1080px;margin:10px auto;display:flex;gap:12px;align-items:center;padding:0 16px;box-sizing:border-box}
+#ui button{font:600 15px inherit;background:#1d2029;color:#f2f2ee;border:1px solid #333743;border-radius:8px;padding:8px 14px;cursor:pointer}
+#ui input{flex:1;accent-color:#F5C542}
+#tt{font:13px ui-monospace,monospace;color:#a9abb3;min-width:64px;text-align:right}
+body.film #ui{display:none}
+</style></head><body>
+<canvas id="c" width="1080" height="960"></canvas>
+<div id="ui"><button id="pp">▶ Lecture</button><input type="range" id="sc" min="0" max="40" step="0.01" value="0"><span id="tt">0.0 s</span></div>
+<script id="data" type="application/json">__DATA__</script>
+<script>
+// « Le Verdict » — 100 hommes contre 1 gorille. renderAt(t) dessine l'image exacte à t secondes (40 s, moitié haute 1080×960).
+// Chiffres : modèle animaux (284 sources réelles, avis d'experts sourcés), courbes humains vs gorille pour n = 1..100.
+const D=JSON.parse(document.getElementById('data').textContent);
+const W=1080,H=960,DUR=40;
+const GOLD='#F5C542',RED='#E5384F',INK='#F2F2EE',INK2='#A9ABB3',GREY='#5d606b',AMBER='#FF9F43',CYAN='#5BE0D0',BG='#07080b';
+const F="'Inter Display','Inter',system-ui,sans-serif";
+const cv=document.getElementById('c'),x=cv.getContext('2d');
+const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),lerp=(a,b,t)=>a+(b-a)*t;
+const eo=t=>1-Math.pow(1-cl(t),3),eio=t=>{t=cl(t);return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2};
+const back=t=>{t=cl(t);const c=1.9;return 1+(c+1)*Math.pow(t-1,3)+c*Math.pow(t-1,2)};
+const seg=(t,a,b)=>cl((t-a)/(b-a));
+const win=(t,a,b,fi=.3,fo=.3)=>Math.min(seg(t,a,a+fi),1-seg(t,b-fo,b));
+function rng(s){return()=>{s|=0;s=s+0x6D2B79F5|0;let q=Math.imul(s^s>>>15,1|s);q=q+Math.imul(q^q>>>7,61|q)^q;return((q^q>>>14)>>>0)/4294967296}}
+function T(s,px,py,size,{w=800,c=INK,al='center',a=1,ls=0,bl='alphabetic',glow=0}={}){if(a<=0)return;x.save();x.globalAlpha*=a;x.font=`${w} ${size}px ${F}`;x.fillStyle=c;x.textAlign=al;x.textBaseline=bl;x.letterSpacing=ls+'px';if(glow){x.shadowColor=c;x.shadowBlur=glow}x.fillText(s,px,py);x.restore()}
+function rr(px,py,w,h,r){x.beginPath();x.roundRect(px,py,w,h,r)}
+function pop(t,t0,d=.32){return back(seg(t,t0,t0+d))}
+// silhouette humaine générique (tête + buste), centrée en (px,py), hauteur h
+function human(px,py,h,col,a=1,glow=0){if(a<=0)return;x.save();x.globalAlpha*=a;x.fillStyle=col;if(glow){x.shadowColor=col;x.shadowBlur=glow}
+  const r=h*.17;x.beginPath();x.arc(px,py-h*.32,r,0,7);x.fill();
+  x.beginPath();x.moveTo(px-h*.26,py+h*.5);x.quadraticCurveTo(px-h*.3,py-h*.08,px-h*.1,py-h*.12);x.lineTo(px+h*.1,py-h*.12);x.quadraticCurveTo(px+h*.3,py-h*.08,px+h*.26,py+h*.5);x.closePath();x.fill();x.restore()}
+const IMG={};{const im=new Image();im.onload=()=>{IMG.g=im;if(!playing)renderAt(tcur)};im.src='img/gorille.png'}
+function gorilla(px,py,r,a=1,glow=0,label=true){if(a<=0)return;x.save();x.globalAlpha*=a;if(glow){x.shadowColor=RED;x.shadowBlur=70*glow}
+  const g=x.createRadialGradient(px,py-r*.4,r*.1,px,py,r);g.addColorStop(0,'#2b2d37');g.addColorStop(1,'#111318');x.beginPath();x.arc(px,py,r,0,7);x.fillStyle=g;x.fill();x.shadowBlur=0;
+  if(IMG.g){x.save();x.beginPath();x.arc(px,py,r,0,7);x.clip();const s=Math.max(2*r/IMG.g.naturalWidth,2*r/IMG.g.naturalHeight);x.drawImage(IMG.g,px-IMG.g.naturalWidth*s/2,py-IMG.g.naturalHeight*s/2,IMG.g.naturalWidth*s,IMG.g.naturalHeight*s);x.restore()}
+  else T('🦍',px,py+r*.05,r*1.05,{bl:'middle'});
+  x.lineWidth=Math.max(4,r*.07);x.strokeStyle=RED;x.beginPath();x.arc(px,py,r,0,7);x.stroke();
+  if(label)T('1 GORILLE',px,py+r+40,Math.max(22,r*.3),{c:RED,ls:3,w:900});x.restore()}
+
+// positions des hommes autour du gorille : anneau de contact (C ≈ 4-5), puis rangées d'attente derrière
+const GX=700,GY=430;
+function slot(i,n){ // i-ème homme quand il y en a n
+  if(n<=12){const ring=[[-1.0,0],[-.62,-.78],[-.62,.78],[0,-1],[0,1],[.62,-.78],[.62,.78],[1,0],[-1.25,-.45],[-1.25,.45],[1.25,-.45],[1.25,.45]];const p=ring[i];return [GX+p[0]*230,GY+p[1]*205]}
+  const cols=10,row=Math.floor(i/cols),col=i%cols;return [70+col*44,232+row*62]}
+
+// réseau des espèces (vraies arêtes du modèle)
+const NS=D.species.length,NP=D.species.map((s,i)=>{const a=-Math.PI/2+i/NS*2*Math.PI;return [540+330*Math.cos(a),470+250*Math.sin(a)]});
+
+function renderAt(t){
+  x.setTransform(1,0,0,1,0,0);
+  const g=x.createRadialGradient(W/2,H*.45,40,W/2,H*.45,H);g.addColorStop(0,'#151927');g.addColorStop(1,BG);x.fillStyle=g;x.fillRect(0,0,W,H);
+  // secousses + flashs sur les temps forts
+  let sx=0,sy=0,fl=0;[0.55,10.2,29.0,33.2].forEach(s=>{const u=t-s;if(u>=0&&u<.45){const k=1-u/.45;sx+=Math.sin(u*90)*16*k;sy+=Math.cos(u*70)*11*k;fl=Math.max(fl,k*.32)}});x.translate(sx,sy);
+  // marque
+  T('LE VERDICT',40,62,22,{al:'left',c:GOLD,ls:6,w:900});rr(W-210,34,170,40,20);x.fillStyle='rgba(29,32,41,.9)';x.fill();T('ANIMAUX RÉELS',W-125,61,16,{c:INK2,ls:2.5,w:800});
+
+  // ---- 0-2 s : 100 HOMMES vs 1 GORILLE (et la boucle de fin 39,4-40 s revient ici)
+  const hookA=Math.max(1-seg(t,1.9,2.3),seg(t,39.35,39.7));
+  if(hookA>0){const tt=t>30?t-39.35+0.9:t;const rngH=rng(5);
+    for(let i=0;i<100;i++){const c=i%10,r=Math.floor(i/10);const k=seg(tt,.05+i*.006,.3+i*.006);human(70+c*40+(r%2)*10,220+r*62,46,GOLD,hookA*k*.9)}
+    gorilla(800,430,150,hookA*pop(tt,.35),.8);
+    x.save();x.translate(W/2,860);const s=lerp(1.8,1,back(seg(tt,.5,.8)));x.scale(s,s);T('100 HOMMES  VS  1 GORILLE',0,0,64,{w:900,a:hookA*seg(tt,.5,.6),glow:20});x.restore()}
+
+  // ---- 2-4 s : prédiction (« écris ton chiffre »)
+  if(t>1.9&&t<4.3){const a=win(t,2.0,4.25,.2,.3);const k=pop(t,2.0);x.save();x.translate(W/2,430);x.scale(k,k);
+    rr(-250,-120,500,240,28);x.fillStyle='rgba(18,20,28,.95)';x.fill();x.lineWidth=4;x.strokeStyle=GOLD;x.globalAlpha=a;x.stroke();
+    T('TON CHIFFRE ?',0,-60,32,{c:INK2,ls:4,w:900,a});const spin=t<3.3?String(1+Math.floor((t*37)%99)):'?';T(spin,0,70,140,{c:GOLD,w:900,a,glow:24});x.restore();
+    T('Combien d’hommes pour battre UN gorille ?',W/2,220,34,{w:800,a});T('écris-le en commentaire AVANT la fin ↓',W/2,760,30,{c:GOLD,w:800,a:a*seg(t,2.6,2.9)})}
+
+  // ---- 4-9,5 s : les preuves (dossiers réels + réseau des 284 sources)
+  if(t>4.0&&t<9.9){const a=win(t,4.1,9.8,.25,.35);
+    const cards=[[4.2,'ZOO DE ROTTERDAM · 2007','Bokito, 180 kg, franchit le fossé','une visiteuse grièvement blessée'],[5.2,'ZOO DE DALLAS · 2004','Jabari contre 3 personnes','trois blessés, aucun n’a pu le stopper'],[6.2,'RWANDA · 1977','Digit face à 6 braconniers armés de lances','il en blesse, tue un chien, meurt sous les lances']];
+    cards.forEach(([t0,k1,k2,k3],j)=>{const u=pop(t,t0,.28);if(u<=0)return;const out=seg(t,7.2,7.6);const yy=lerp(250+j*170,250+j*170-40,out);x.save();x.globalAlpha=a*(1-out)*cl(u);x.translate(W/2,yy);x.rotate((j-1)*.015);const s=lerp(1.25,1,u);x.scale(s,s);
+      rr(-430,-62,860,132,16);x.fillStyle='rgba(16,18,25,.96)';x.fill();x.lineWidth=2;x.strokeStyle=RED;x.stroke();
+      T(k1,-405,-24,17,{al:'left',c:RED,ls:3,w:900});T(k2,-405,16,30,{al:'left',w:800});T(k3,-405,50,20,{al:'left',c:INK2,w:600});
+      x.save();x.translate(330,12);x.rotate(-.2);rr(-70,-26,140,52,8);x.lineWidth=3;x.strokeStyle=RED;x.globalAlpha*=.85;x.stroke();T('RÉEL',0,10,26,{c:RED,w:900,ls:3});x.restore();x.restore()});
+    // réseau
+    const na=seg(t,7.3,7.7);if(na>0){x.save();x.globalAlpha=a*na;x.globalCompositeOperation='lighter';const prog=eio(seg(t,7.4,9.0));
+      D.edges.forEach(([i,j],k)=>{if(k/D.edges.length>prog)return;const A=NP[i],B=NP[j];const hot=i===D.gi||j===D.gi||i===D.hi||j===D.hi;x.strokeStyle=hot?'rgba(229,56,79,.75)':'rgba(91,224,208,.35)';x.lineWidth=hot?2.4:1.4;x.beginPath();x.moveTo(A[0],A[1]);x.quadraticCurveTo(540+(A[0]+B[0]-1080)*.15,470+(A[1]+B[1]-940)*.15,B[0],B[1]);x.stroke()});
+      NP.forEach(([px,py],i)=>{const hot=i===D.gi||i===D.hi;x.beginPath();x.arc(px,py,hot?9:5,0,7);x.fillStyle=hot?(i===D.gi?RED:GOLD):'rgba(230,235,255,.85)';x.fill();if(hot)T(D.species[i].toUpperCase(),px+(px<540?-16:16),py+6,18,{al:px<540?'right':'left',c:i===D.gi?RED:GOLD,w:900})});x.restore();
+      [[D.n_rows,'SOURCES RÉELLES'],[D.n_enc,'RENCONTRES'],[D.n_exp,'AVIS D’EXPERTS']].forEach(([n,l],i)=>{const k=eo(seg(t,7.6+i*.25,8.9+i*.25));const cx=200+i*340;T(String(Math.round(n*k)).replace(/\B(?=(\d{3})+(?!\d))/g,' '),cx,880,56,{w:900,a:a*na,c:i===0?GOLD:INK});T(l,cx,918,16,{c:INK2,ls:3,w:800,a:a*na})})}}
+
+  // ---- 9,5-36 s : le duel qui s'agrandit
+  const duelA=t>9.6&&t<36.2?win(t,9.7,36.1,.3,.4):0;
+  // nombre d'hommes affichés en fonction du temps
+  let n=1;if(t>14.2)n=3;if(t>17.0)n=10;if(t>26.3)n=Math.round(lerp(10,25,eio(seg(t,26.4,28.9))));if(t>31.2)n=Math.round(lerp(25,100,eio(seg(t,31.3,33.0))));
+  if(duelA>0){
+    const crowd=t>20.2&&t<26.3?win(t,20.3,26.3,.4,.3):0;const big=t>29.6&&t<31.3;
+    const gr=t<31.2?lerp(150,170,seg(t,29.6,30)*(1-seg(t,31,31.3))):lerp(150,95,eio(seg(t,31.3,32.3)));const gxx=t<31.2?GX:lerp(GX,800,eio(seg(t,31.3,32.3)));
+    gorilla(gxx,GY,gr,duelA*pop(t,9.7),t>9.9&&t<11?1:0.4,t>31.2);
+    for(let i=0;i<n;i++){let [px,py]=slot(i,n);let a=duelA;if(n>12&&t<31.2){const ring=i<12?slot(i,12):[60+((i-12)%8)*44,200+Math.floor((i-12)/8)*52];px=ring[0];py=ring[1]}
+      if(t>31.2){const c=i%10,r=Math.floor(i/10);px=lerp(px,70+c*44+(r%2)*10,eio(seg(t,31.3,32.3)));py=lerp(py,230+r*58,eio(seg(t,31.3,32.3)))}
+      const inContact=i<4||(i===4&&crowd>0);const dim=crowd>0&&!inContact?lerp(1,.25,crowd):1;
+      const appear=n<=12?pop(t,(i<1?9.9:i<3?14.3+i*.12:17.1+i*.07)):1;human(px,py,t>31.2?44:(n>12&&i>=12?46:78),GOLD,a*dim*cl(appear),crowd>0&&inContact?26:0)}
+    // grand compteur d'hommes
+    if(t<31.2){const k=pop(t,n===1?9.9:n===3?14.3:17.1,.25);T('×'+n,170,860,96,{c:GOLD,w:900,a:duelA*cl(k),glow:18});T(n>1?'HOMMES':'HOMME',170,900,18,{c:INK2,ls:4,w:900,a:duelA})}
+    // la gêne autour de la cible
+    if(crowd>0){x.save();x.globalAlpha=crowd;x.setLineDash([10,10]);x.lineWidth=3;x.strokeStyle=CYAN;x.beginPath();x.ellipse(GX,GY,275,250,0,0,7);x.stroke();x.restore();
+      T('SEULS 4 À 5 PEUVENT FRAPPER',W/2,190,38,{c:CYAN,w:900,a:crowd,glow:16});T('en même temps · les autres attendent leur tour',W/2,230,24,{w:700,a:crowd*seg(t,21,21.4)})}
+    // révélation
+    if(t>28.9&&t<31.4){const k=pop(t,29.0,.3);x.save();x.translate(220,520);x.scale(k,k);T('25',0,40,220,{c:GOLD,w:900,a:duelA*win(t,29,31.3,.05,.25),glow:40});T('HOMMES',0,110,34,{c:INK,ls:6,w:900,a:duelA*win(t,29,31.3,.05,.25)});x.restore();
+      const k2=seg(t,29.8,30.1);if(k2>0){x.save();x.translate(250,700);x.rotate(-.05);rr(-220,-34,440,68,10);x.fillStyle='rgba(229,56,79,.15)';x.globalAlpha=k2*win(t,29.8,31.3,.05,.25);x.fill();x.lineWidth=3;x.strokeStyle=RED;x.stroke();T('DOS ARGENTÉ 170 KG : 45',0,12,29,{c:RED,w:900});x.restore()}}
+    if(t>33.0){const k=pop(t,33.2,.3);x.save();x.translate(W/2,812);x.rotate(-.03);x.scale(k,k);rr(-430,-46,860,92,12);x.fillStyle='rgba(16,18,25,.95)';x.globalAlpha=duelA;x.fill();x.lineWidth=4;x.strokeStyle=GOLD;x.stroke();
+      T('VERDICT : 100 HOMMES GAGNENT 2 FOIS SUR 3',0,14,36,{c:GOLD,w:900});x.restore()}
+  }
+  // ---- barre de probabilités (9,7-33 s)
+  const nn=Math.max(1,Math.min(100,n)),big=t>29.8&&t<31.2;const [pa,pd,pb]=(big?D.big:D.avg)[(big?45:nn)-1];
+  const bA=t>9.8&&t<33.1?win(t,9.9,33.1,.3,.3):0;
+  if(bA>0){x.save();x.globalAlpha=bA;const X0=440,Wb=600,Y=842,Hb=30;rr(X0,Y,Wb,Hb,9);x.fillStyle='#1d2029';x.fill();x.save();rr(X0,Y,Wb,Hb,9);x.clip();x.fillStyle=GOLD;x.fillRect(X0,Y,Wb*pa-2,Hb);x.fillStyle=GREY;x.fillRect(X0+Wb*pa+2,Y,Wb*pd-4,Hb);x.fillStyle=RED;x.fillRect(X0+Wb*(pa+pd)+2,Y,Wb*pb-2,Hb);x.restore();
+    x.strokeStyle='rgba(255,255,255,.55)';x.setLineDash([4,4]);x.beginPath();x.moveTo(X0+Wb/2,Y-8);x.lineTo(X0+Wb/2,Y+Hb+8);x.stroke();x.setLineDash([]);
+    T('HOMMES '+Math.round(pa*100)+' %',X0,826,26,{al:'left',c:GOLD,w:900});T('GORILLE '+Math.round(pb*100)+' %',X0+Wb,826,26,{al:'right',c:RED,w:900});
+    T('nul '+Math.round(pd*100)+' %',X0+Wb/2,904,17,{c:INK2,w:700});x.restore()}
+  // ---- 36-40 s : appel + boucle
+  if(t>35.9&&t<39.5){const a=win(t,36.0,39.5,.25,.3);x.save();x.translate(W/2,400);const s=1+.04*Math.sin(t*7);x.scale(s,s);T('T’ÉTAIS PROCHE ?',0,0,104,{c:GOLD,w:900,a,glow:30});x.restore();
+    T('ton chiffre en commentaire ↓',W/2,500,42,{w:800,a:a*seg(t,36.4,36.8)});T('Le prochain duel, c’est toi qui le choisis.',W/2,600,30,{c:INK2,w:700,a:a*seg(t,37.2,37.6)})}
+  if(fl>0){x.setTransform(1,0,0,1,0,0);x.fillStyle=`rgba(255,255,255,${fl})`;x.fillRect(0,0,W,H)}
+}
+window.renderAt=renderAt;
+let playing=false,t0=0,tcur=0;const pp=document.getElementById('pp'),sc=document.getElementById('sc'),tt=document.getElementById('tt');
+function frame(now){if(!playing)return;tcur=(now-t0)/1000;if(tcur>=DUR){tcur=0;t0=now}sc.value=tcur;tt.textContent=tcur.toFixed(1)+' s';renderAt(tcur);requestAnimationFrame(frame)}
+pp.onclick=()=>{if(playing){playing=false;pp.textContent='▶ Lecture';return}playing=true;pp.textContent='❚❚ Pause';t0=performance.now()-tcur*1000;requestAnimationFrame(frame)};
+sc.oninput=()=>{tcur=+sc.value;tt.textContent=tcur.toFixed(1)+' s';if(playing)t0=performance.now()-tcur*1000;renderAt(tcur)};
+if(new URLSearchParams(location.search).has('film'))document.body.classList.add('film');
+(document.fonts?document.fonts.ready:Promise.resolve()).then(()=>renderAt(0));
+</script></body></html>
