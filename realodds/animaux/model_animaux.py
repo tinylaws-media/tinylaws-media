@@ -24,11 +24,16 @@ def load(name):
 
 
 SPECIES = load("species").SPECIES
+BIG = load("species").BIG
 PLURAL = {'lion': 'lions', 'tigre': 'tigres', 'jaguar': 'jaguars', 'leopard': 'léopards', 'guepard': 'guépards', 'puma': 'pumas', 'ours_brun': 'ours bruns', 'ours_noir': 'ours noirs', 'ours_polaire': 'ours polaires', 'loup': 'loups', 'coyote': 'coyotes', 'lycaon': 'lycaons', 'chien': 'gros chiens', 'hyene': 'hyènes', 'crocodile_nil': 'crocodiles du Nil', 'alligator': 'alligators', 'caiman': 'caïmans', 'anaconda': 'anacondas', 'orque': 'orques', 'requin_blanc': 'grands requins blancs', 'morse': 'morses', 'elephant': 'éléphants', 'hippopotame': 'hippopotames', 'rhinoceros': 'rhinocéros', 'buffle': 'buffles', 'bison': 'bisons', 'orignal': 'orignaux', 'gorille': 'gorilles', 'chimpanze': 'chimpanzés', 'babouin': 'babouins', 'humain': 'humains', 'ratel': 'ratels', 'kangourou': 'kangourous'}
 ENC = []
-for f in ("data_afrique", "data_nord", "data_transverse"):
+for f in ("data_afrique", "data_nord", "data_transverse", "data_complements"):
     ENC += load(f).ENC
 ENC, CORR_LOG = load("corrections").apply(ENC)
+# avis d'experts sourcés (contraintes douces, comme les déclarations officielles dans les œuvres) ; on retire ceux qui ne font
+# que reformuler une étude déjà comptée dans les rencontres
+_DUP = ("Slotow", "Miller", "Seryodkin", "Cooper", "Towner", "Wilson and Richard")
+EXP = [x for x in load("experts").EXPERTS if not any(k in (x["qui"] + x["src"] + x["note"]) for k in _DUP)]
 SP = list(SPECIES); IX = {s: i for i, s in enumerate(SP)}; NSP = len(SP)
 WEAP = ["griffes", "crocs", "morsure", "cornes", "defenses", "coups", "constriction", "mains", "predateur"]
 PRED = {"lion", "tigre", "jaguar", "leopard", "guepard", "puma", "ours_brun", "ours_polaire", "loup", "coyote", "lycaon", "hyene", "crocodile_nil", "alligator", "caiman", "anaconda", "orque", "requin_blanc"}
@@ -101,6 +106,20 @@ def enc_ll(th):
     return w * jnp.take_along_axis(ord_logp(d, sc, cuts), y[:, None], axis=1)[:, 0]
 
 
+xa = jnp.array([IX[x["a"]] for x in EXP]); xb = jnp.array([IX[x["b"]] for x in EXP])
+xna = jnp.array([float(x["na"]) for x in EXP]); xnb = jnp.array([float(x["nb"]) for x in EXP])
+xg = jnp.array([float(x["gap"]) for x in EXP]); xs = jnp.array([float(x["sd"]) for x in EXP])
+
+
+def exp_ll(th):
+    """Avis d'expert : logit de la victoire de A ≈ gap (± sd), variabilité individuelle comprise."""
+    s, g, lk, a0, b, bw, bt, cuts = unpack(th)
+    d = team(s, g, lk, xa, xna, xb) - team(s, g, lk, xb, xnb, xa)
+    v = ((b * sdlnm_j[xa]) ** 2 + RESID ** 2) / xna + ((b * sdlnm_j[xb]) ** 2 + RESID ** 2) / xnb
+    L = (d - cuts[3]) / jnp.sqrt(1.0 + math.pi * v / 8.0)
+    return -0.5 * ((L - xg) / xs) ** 2
+
+
 def neg_logpost(th):
     s, g, lk, a0, b, bw, bt, cuts = unpack(th)
     mu = a0 + b * lnm_j + Wm_j @ bw
@@ -111,7 +130,7 @@ def neg_logpost(th):
     lp += -0.5 * jnp.sum(((bt - jnp.array([TAG_PRIOR[t][0] for t in TAGS])) / jnp.array([TAG_PRIOR[t][1] for t in TAGS])) ** 2)
     a = th[o_c:o_c + 3]
     lp += -0.5 * jnp.sum(((a - jnp.array([math.log(.4), 0., math.log(1.2)])) / .5) ** 2)
-    return -(lp + jnp.sum(enc_ll(th)))
+    return -(lp + jnp.sum(enc_ll(th)) + (jnp.sum(exp_ll(th)) if len(EXP) else 0.0))
 
 
 f_val = jax.jit(neg_logpost); f_grad = jax.jit(jax.grad(neg_logpost))
@@ -141,7 +160,7 @@ rows = [r for r in ENC if r["a"] in IX and r["b"] in IX]
 out = dict(
     rel_h=[(float(s_[i] - s_[IX['humain']]), float(math.sqrt(max(cov[i, i] + cov[IX['humain'], IX['humain']] - 2 * cov[i, IX['humain']], 1e-9)))) for i in range(NSP)],
     species=[dict(id=s, name=SPECIES[s][0], pl=PLURAL.get(s, SPECIES[s][0]), sg=SPECIES[s][0].split(' (')[0].lower().replace('du nil', 'du Nil').replace("d'amérique", "d'Amérique").replace("d'afrique", "d'Afrique"), fam=SPECIES[s][1], mass=SPECIES[s][2], m5=SPECIES[s][3], m95=SPECIES[s][4],
-                  weapons=SPECIES[s][5], social=SPECIES[s][6], s=round(float(s_[i]), 4), sd=round(float(sd[i]), 4),
+                  weapons=SPECIES[s][5], social=SPECIES[s][6], big=BIG[s][0], big_label=BIG[s][1], s=round(float(s_[i]), 4), sd=round(float(sd[i]), 4),
                   prior=round(float(a0_ + b_ * lnm[i] + Wm[i] @ bw_), 3), rel=round(float(s_[i] - s_[IX['humain']]), 3), rel_sd=round(float(math.sqrt(max(cov[i, i] + cov[IX['humain'], IX['humain']] - 2 * cov[i, IX['humain']], 1e-9))), 3), sdlnm=round(float(sdlnm[i]), 4),
                   n_enc=int(sum(1 for r in rows if s in (r["a"], r["b"]))), n_tot=int(sum(r["count"] for r in rows if s in (r["a"], r["b"]))),
                   why=[dict(e=int(j), v=round(float(EF[j, i]), 3)) for j in np.argsort(-np.abs(EF[:, i]))[:8] if abs(EF[j, i]) >= .02])
@@ -155,6 +174,7 @@ out = dict(
     tags={t: dict(beta=round(float(bt_[i]), 3), sd=round(float(sd[o_t + i]), 3)) for i, t in enumerate(TAGS)},
     mean=[round(float(th[k]), 5) for k in keep], chol=[[round(float(v), 6) for v in row] for row in L],
     corrections=[dict(rule=k, n=v) for k, v in CORR_LOG.items()],
+    experts=[dict(a=x['a'], b=x['b'], na=x['na'], nb=x['nb'], gap=x['gap'], sd=x['sd'], qui=x['qui'], quote=x['quote'], src=x['src']) for x in EXP],
     meta=dict(n_rows=len(rows), n_enc=int(sum(r["count"] for r in rows)), eps=EPS, count_cap=COUNT_CAP, converged=gmax < 1e-2),
 )
 json.dump(out, open(os.path.join(HERE, "animaux_out.json"), "w"), ensure_ascii=False)

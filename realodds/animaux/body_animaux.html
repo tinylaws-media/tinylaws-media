@@ -24,10 +24,12 @@ td.src{max-width:200px;word-break:break-word}
   <div class="panel">
     <div class="row" style="align-items:stretch">
       <div class="fighter fa"><span class="tag">CAMP A</span>
-        <div><label for="ca">Espèce et nombre</label><div class="sel2"><select id="ca"></select><input type="number" id="na" min="1" max="200" value="1" aria-label="Nombre dans le camp A"></div></div></div>
+        <div><label for="ca">Espèce et nombre</label><div class="sel2"><select id="ca"></select><input type="number" id="na" min="1" max="200" value="1" aria-label="Nombre dans le camp A"></div></div>
+        <div><label for="ia">Individu</label><select id="ia"></select></div></div>
       <div class="vs">VS</div>
       <div class="fighter fb"><span class="tag">CAMP B</span>
-        <div><label for="cb">Espèce et nombre</label><div class="sel2"><select id="cb"></select><input type="number" id="nb" min="1" max="200" value="1" aria-label="Nombre dans le camp B"></div></div></div>
+        <div><label for="cb">Espèce et nombre</label><div class="sel2"><select id="cb"></select><input type="number" id="nb" min="1" max="200" value="1" aria-label="Nombre dans le camp B"></div></div>
+        <div><label for="ib">Individu</label><select id="ib"></select></div></div>
     </div>
     <div class="odds">
       <div class="oddsnum"><div class="big" style="color:var(--a)"><span id="pa">–</span><small id="la"></small></div>
@@ -50,6 +52,7 @@ td.src{max-width:200px;word-break:break-word}
     <div class="row" style="align-items:end">
       <div><label for="hx">Combien de…</label><select id="hx"></select></div>
       <div><label for="hy">…contre un seul</label><select id="hy"></select></div>
+      <div><label for="hi">Individu ciblé</label><select id="hi"></select></div>
     </div>
     <div class="answer" id="hans"></div>
     <p class="note" id="hsub"></p>
@@ -83,7 +86,9 @@ td.src{max-width:200px;word-break:break-word}
     <p><b>Le nombre compte, mais pas en multipliant.</b> Un groupe de n individus vaut un individu plus un bonus qui croît comme le logarithme du nombre « efficace » d'attaquants : au-delà de quelques-uns, ils se gênent autour de la cible, et ce seuil grandit quand la cible est plus grosse qu'eux. La force de ce bonus (selon que l'espèce chasse en meute, se défend en groupe ou vit seule) et le seuil de gêne sont estimés à partir des rencontres où les effectifs varient.</p>
     <p><b>Les individus ne sont pas tous pareils.</b> Chaque espèce a une dispersion de masse connue (5 % à 95 % des adultes) ; le modèle en déduit la variabilité d'un individu à l'autre, qui s'ajoute au hasard du combat. La cote affichée vaut pour deux individus tirés au hasard ; le panneau « selon les individus » montre un petit contre un grand.</p>
     <p><b>Les circonstances sont estimées puis retirées.</b> Embuscade, petits à défendre, combat dans l'eau, individu jeune, vieux ou blessé, humain avec un bâton ou une lame : leur effet est estimé à partir des données, puis le duel est calculé sans elles (terrain neutre, à mains nues pour l'humain).</p>
-    <p><b>Les biais connus sont corrigés.</b></p>
+    <p><b>Les avis d'experts comptent un peu.</b> Comme les déclarations officielles dans les œuvres de fiction, des avis sourcés de spécialistes (primatologues, conservateurs de zoo, biologistes de terrain) entrent comme contraintes souples, avec une marge d'erreur large. Ceux qui ne font que résumer une étude déjà comptée sont retirés pour ne pas la compter deux fois.</p>
+    <ul id="expl" class="note"></ul>
+    <p><b>Les biais connus sont corrigés.</b> Chaque rencontre a été revérifiée à la source (nul quand l'attaquant lâche prise, contact réel ou non, âge et sexe des individus, doublons retirés). Restent des biais de sélection qu'on corrige par des poids :</p>
     <ul id="corr" class="note"></ul>
     <p><b>Effet estimé des circonstances</b> (écart de force ; + favorise le camp concerné) :</p>
     <div class="tw"><table><thead><tr><th>Circonstance</th><th>Effet</th><th>Fourchette</th></tr></thead><tbody id="tagt"></tbody></table></div>
@@ -108,10 +113,13 @@ const K=D.mean.length,ND=800,TH=[];for(let k=0;k<ND;k++){const z=Array.from({len
 const sig=x=>1/(1+Math.exp(-x));
 function team(th,id,n,opp){const C=1+Math.exp(th[NSP+3])*Math.sqrt(SP[IX[opp]].mass/SP[IX[id]].mass);const ne=Math.log1p(n/C)/Math.log1p(1/C);return th[IX[id]]+th[NSP+SOCI[id]]*Math.log(ne)}
 // probas pour un tirage : variabilité individuelle et hasard du combat intégrés ; zA/zB = individu décalé (en écarts-types)
-function probs(th,a,na,b,nb,zA=0,zB=0){const bb=th[NSP+4];const va=((bb*SP[IX[a]].sdlnm)**2+D.resid**2),vb=((bb*SP[IX[b]].sdlnm)**2+D.resid**2);
-  let d=team(th,a,na,b)-team(th,b,nb,a)+zA*Math.sqrt(va)-zB*Math.sqrt(vb);const v=(zA||zB)?0:va/na+vb/nb;const sc=Math.sqrt(1+Math.PI*v/8);
+// bigA/bigB : individus « grand adulte » (masse fixée) ; zA/zB : individu décalé de z écarts-types (panneau « selon les individus »)
+function probs(th,a,na,b,nb,zA=0,zB=0,bigA=false,bigB=false){const bb=th[NSP+4];const A=SP[IX[a]],B=SP[IX[b]];
+  const va=bigA?D.resid**2:((bb*A.sdlnm)**2+D.resid**2),vb=bigB?D.resid**2:((bb*B.sdlnm)**2+D.resid**2);
+  let d=team(th,a,na,b)-team(th,b,nb,a)+(bigA?bb*Math.log(A.big/A.mass):0)-(bigB?bb*Math.log(B.big/B.mass):0)+zA*Math.sqrt(va)-zB*Math.sqrt(vb);
+  const v=(zA||zB)?0:va/na+vb/nb;const sc=Math.sqrt(1+Math.PI*v/8);
   const pa=1-sig((C1-d)/sc),pb=sig((-C1-d)/sc);return [pa,1-pa-pb,pb]}
-function summary(a,na,b,nb,zA=0,zB=0){let s=[0,0,0];const pas=[];TH.forEach(th=>{const p=probs(th,a,na,b,nb,zA,zB);s[0]+=p[0];s[1]+=p[1];s[2]+=p[2];pas.push(p[0])});
+function summary(a,na,b,nb,zA=0,zB=0,bigA=false,bigB=false){let s=[0,0,0];const pas=[];TH.forEach(th=>{const p=probs(th,a,na,b,nb,zA,zB,bigA,bigB);s[0]+=p[0];s[1]+=p[1];s[2]+=p[2];pas.push(p[0])});
   pas.sort((x,y)=>x-y);return {p:s.map(v=>v/ND),lo:pas[Math.floor(.05*ND)],hi:pas[Math.floor(.95*ND)]}}
 
 // routage
@@ -122,10 +130,13 @@ addEventListener('hashchange',route);
 function fill(sel,def){const fam={};SP.forEach(s=>(fam[s.fam]=fam[s.fam]||[]).push(s));sel.innerHTML=Object.keys(fam).sort((a,b)=>a.localeCompare(b,'fr')).map(f=>`<optgroup label="${esc(f)}">`+fam[f].sort((a,b)=>a.name.localeCompare(b.name,'fr')).map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join('')+'</optgroup>').join('');sel.value=def}
 const ca=document.getElementById('ca'),cb=document.getElementById('cb'),na=document.getElementById('na'),nb=document.getElementById('nb');
 fill(ca,'ours_brun');fill(cb,'tigre');
-const plural=(id,n)=>n>1?`${n} ${SP[IX[id]].pl}`:nm(id);
-function duel(){const a=ca.value,b=cb.value,A=Math.max(1,Math.min(200,+na.value||1)),B=Math.max(1,Math.min(200,+nb.value||1));const r=summary(a,A,b,B);
+const ia=document.getElementById('ia'),ib=document.getElementById('ib');
+function fillInd(sel,id,def){const keep=sel.value;const s=SP[IX[id]];sel.innerHTML=`<option value="moy">Tiré au hasard (${s.m5}–${s.m95} kg)</option><option value="big">${esc(s.big_label.charAt(0).toUpperCase()+s.big_label.slice(1))} (${s.big} kg)</option>`;sel.value=def||keep||'moy';if(!sel.value)sel.value='moy'}
+fillInd(ia,'ours_brun','moy');fillInd(ib,'tigre','moy');
+const plural=(id,n,big)=>(n>1?`${n} ${SP[IX[id]].pl}`:nm(id))+(big?` (${SP[IX[id]].big_label})`:'');
+function duel(){const a=ca.value,b=cb.value,A=Math.max(1,Math.min(200,+na.value||1)),B=Math.max(1,Math.min(200,+nb.value||1));fillInd(ia,a);fillInd(ib,b);const gA=ia.value==='big',gB=ib.value==='big';const r=summary(a,A,b,B,0,0,gA,gB);
   document.getElementById('pa').textContent=pct(r.p[0]);document.getElementById('pd').textContent=pct(r.p[1]);document.getElementById('pb').textContent=pct(r.p[2]);
-  document.getElementById('la').textContent=plural(a,A)+' gagne';document.getElementById('lb').textContent=plural(b,B)+' gagne';
+  document.getElementById('la').textContent=plural(a,A,gA)+' gagne';document.getElementById('lb').textContent=plural(b,B,gB)+' gagne';
   document.getElementById('ba').style.flexBasis=r.p[0]*100+'%';document.getElementById('bd').style.flexBasis=r.p[1]*100+'%';document.getElementById('bb').style.flexBasis=r.p[2]*100+'%';
   const thin=[a,b].filter(id=>SP[IX[id]].n_tot<=10).map(nm);
   document.getElementById('range').innerHTML=`Fourchette pour le camp A : <b class="mono">${pct(r.lo)} à ${pct(r.hi)}</b> (90 % des cas, selon ce qu'on ignore encore de chaque espèce). Combat neutre : pas d'embuscade, pas de petits à défendre, terrain neutre${a==='humain'||b==='humain'?', humain à mains nues':''}.${thin.length?` <span class="warn">Peu de rencontres documentées pour ${thin.join(' et ')} : estimation surtout fondée sur la masse et les armes.</span>`:''}`;
@@ -137,21 +148,21 @@ function encLine(e){const w=e.na>1?`${e.na} × ${nm(e.a)}`:nm(e.a),l=e.nb>1?`${e
 function why(el,id,col){const s=SP[IX[id]];const rows=(s.why||[]).map(x=>{const e=D.encounters[x.e];return `<li><span class="mono" style="color:${x.v>=0?'var(--s3)':'var(--a)'};font-weight:700">${x.v>=0?'+':''}${x.v.toFixed(2)}</span><span>${encLine(e)}${e.count>1?` <span class="pill">× ${e.count}</span>`:''}<br><span class="note">${esc(e.note)}</span></span></li>`}).join('');
   document.getElementById(el).innerHTML=`<h3 style="font:800 17px var(--f-display);margin:0 0 6px;color:${col}">Pourquoi : ${esc(s.name)}</h3><p class="note" style="margin:0 0 8px">${s.n_enc} sources (${s.n_tot} rencontres). Point de départ d'après la masse (${s.mass} kg) et les armes (${esc(s.weapons.join(', '))}) : ${s.prior.toFixed(1)} ; après les rencontres : ${s.s.toFixed(1)}. Ce qui l'a le plus déplacée :</p><ul class="fl" style="gap:8px">${rows||'<li class="note">Aucune rencontre déterminante : estimation fondée sur la masse et les armes.</li>'}</ul>`;
   document.querySelectorAll('#'+el+' ul.fl li').forEach(li=>li.style.gridTemplateColumns='56px 1fr')}
-[ca,cb,na,nb].forEach(e=>e.addEventListener('input',duel));
+[ca,cb,na,nb,ia,ib].forEach(e=>e.addEventListener('input',duel));
 
 // combien il en faut
-const hx=document.getElementById('hx'),hy=document.getElementById('hy');fill(hx,'humain');fill(hy,'ours_brun');[hx,hy].forEach(e=>e.addEventListener('input',howMany));
+const hx=document.getElementById('hx'),hy=document.getElementById('hy'),hiS=document.getElementById('hi');fill(hx,'humain');fill(hy,'gorille');[hx,hy,hiS].forEach(e=>e.addEventListener('input',howMany));
 function svgEl(W,H){return `<svg viewBox="0 0 ${W} ${H}" role="img" style="width:100%;height:auto;min-width:520px">`}
-function howMany(){const a=hx.value,b=hy.value,NMAX=60;const curve=[];const nstar=[];
-  for(let n=1;n<=NMAX;n++){const ps=TH.map(th=>probs(th,a,n,b,1));const m=ps.reduce((s,p)=>s+p[0],0)/ND;const sorted=ps.map(p=>p[0]).sort((x,y)=>x-y);curve.push({n,m,lo:sorted[Math.floor(.1*ND)],hi:sorted[Math.floor(.9*ND)],d:ps.reduce((s,p)=>s+p[1],0)/ND})}
-  TH.forEach(th=>{let k=null;for(let n=1;n<=200;n++){if(probs(th,a,n,b,1)[0]>=.5){k=n;break}}nstar.push(k??999)});nstar.sort((x,y)=>x-y);
+function howMany(){const a=hx.value,b=hy.value,NMAX=60;fillInd(hiS,b);const gB=hiS.value==='big';const tgt=gB?`${SP[IX[b]].sg} (${SP[IX[b]].big_label})`:SP[IX[b]].sg;const curve=[];const nstar=[];
+  for(let n=1;n<=NMAX;n++){const ps=TH.map(th=>probs(th,a,n,b,1,0,0,false,gB));const m=ps.reduce((s,p)=>s+p[0],0)/ND;const sorted=ps.map(p=>p[0]).sort((x,y)=>x-y);curve.push({n,m,lo:sorted[Math.floor(.1*ND)],hi:sorted[Math.floor(.9*ND)],d:ps.reduce((s,p)=>s+p[1],0)/ND})}
+  TH.forEach(th=>{let k=null;for(let n=1;n<=200;n++){if(probs(th,a,n,b,1,0,0,false,gB)[0]>=.5){k=n;break}}nstar.push(k??999)});nstar.sort((x,y)=>x-y);
   const q=f=>nstar[Math.floor(f*ND)];const med=q(.5);const fmtN=v=>v>=999?'plus de 200':v;
-  document.getElementById('hans').innerHTML=med>=999?`Même 200 ${esc(SP[IX[a]].pl)} ne suffisent pas contre un ${esc(SP[IX[b]].sg)}`:`Il faut environ <span class="mono" style="color:var(--a)">${med}</span> ${esc(med>1?SP[IX[a]].pl:SP[IX[a]].sg)} contre un ${esc(SP[IX[b]].sg)}`;
-  document.getElementById('hsub').innerHTML=`Pour dépasser une chance sur deux de victoire. Fourchette (80 % des cas, selon ce qu'on ignore encore) : <b>${fmtN(q(.1))} à ${fmtN(q(.9))}</b>. Un seul ${esc(SP[IX[a]].sg)} gagne ${pct(curve[0].m)} des combats ; trois, ${pct(curve[2].m)} ; dix, ${pct(curve[9].m)}.`;
+  document.getElementById('hans').innerHTML=med>=999?`Même 200 ${esc(SP[IX[a]].pl)} ne suffisent pas contre un ${esc(tgt)}`:`Il faut environ <span class="mono" style="color:var(--a)">${med}</span> ${esc(med>1?SP[IX[a]].pl:SP[IX[a]].sg)} contre un ${esc(tgt)}`;
+  document.getElementById('hsub').innerHTML=`Pour dépasser une chance sur deux de victoire. Fourchette (80 % des cas, selon ce qu'on ignore encore) : <b>${fmtN(q(.1))} à ${fmtN(q(.9))}</b>. Chance de victoire à 1 contre 1 : ${pct(curve[0].m)} ; à 3 : ${pct(curve[2].m)} ; à 10 : ${pct(curve[9].m)}.`;
   const W=900,H=340,L=52,Rr=20,T=20,B=40,xs=n=>L+(n-1)*(W-L-Rr)/(NMAX-1),ys=p=>T+(1-p)*(H-T-B);let s=svgEl(W,H);
   [0,.25,.5,.75,1].forEach(p=>s+=`<line x1="${L}" x2="${W-Rr}" y1="${ys(p)}" y2="${ys(p)}" stroke="${p===.5?'var(--ink3)':'var(--grid)'}" ${p===.5?'stroke-dasharray="4 4"':''}/><text x="${L-8}" y="${ys(p)+4}" text-anchor="end" font-size="12" fill="var(--ink3)" font-family="var(--f-mono)">${p*100} %</text>`);
   [1,10,20,30,40,50,60].forEach(n=>s+=`<text x="${xs(n)}" y="${H-B+18}" text-anchor="middle" font-size="12" fill="var(--ink3)" font-family="var(--f-mono)">${n}</text>`);
-  s+=`<text x="${W-Rr}" y="${H-6}" text-anchor="end" font-size="12" fill="var(--ink3)">nombre de ${esc(SP[IX[a]].pl)} contre un ${esc(SP[IX[b]].sg)}</text>`;
+  s+=`<text x="${W-Rr}" y="${H-6}" text-anchor="end" font-size="12" fill="var(--ink3)">nombre de ${esc(SP[IX[a]].pl)} contre un ${esc(tgt)}</text>`;
   s+=`<path d="M${curve.map(c=>xs(c.n)+','+ys(c.hi)).join('L')}L${curve.slice().reverse().map(c=>xs(c.n)+','+ys(c.lo)).join('L')}Z" fill="var(--a)" fill-opacity=".16"/>`;
   s+=`<path d="M${curve.map(c=>xs(c.n)+','+ys(c.m)).join('L')}" fill="none" stroke="var(--a)" stroke-width="2.5"/>`;
   if(med<=NMAX)s+=`<circle cx="${xs(med)}" cy="${ys(curve[med-1].m)}" r="6" fill="var(--a)" stroke="var(--panel)" stroke-width="2"/>`;
@@ -175,6 +186,7 @@ function table(){const t=q.value.trim().toLowerCase();let es=D.encounters.map((e
 [q,fsort].forEach(e=>e.addEventListener('input',table));
 // méthode
 document.getElementById('corr').innerHTML=D.corrections.filter(c=>c.n).map(c=>`<li>${esc(c.rule)} (${c.n} ligne${c.n>1?'s':''})</li>`).join('');
+document.getElementById('expl').innerHTML=(D.experts||[]).map(x=>`<li><b>${x.na>1?x.na+' ':''}${esc(x.na>1?SP[IX[x.a]].pl:SP[IX[x.a]].sg)} contre ${x.nb>1?x.nb+' ':'un '}${esc(x.nb>1?SP[IX[x.b]].pl:SP[IX[x.b]].sg)}</b> : « ${esc(x.quote)} » (${esc(x.qui)}${/^https?:/.test(x.src)?`, <a href="${esc(x.src)}" target="_blank" rel="noopener">source</a>`:''})</li>`).join('');
 document.getElementById('tagt').innerHTML=Object.entries(D.tags).filter(([k])=>k!=='carcasse').map(([k,v])=>`<tr><td>${esc(TAGN[k]||k)}</td><td class="mono">${v.beta>=0?'+':''}${v.beta.toFixed(2)}</td><td class="mono note">${(v.beta-1.64*v.sd).toFixed(1)} à ${(v.beta+1.64*v.sd).toFixed(1)}</td></tr>`).join('');
 document.getElementById('metaline').textContent=`${D.meta.n_rows} sources, ${D.meta.n_enc} rencontres, ${NSP} espèces. Bonus de groupe estimé (par doublement des attaquants efficaces) : meute ${(D.gamma[0]*Math.LN2).toFixed(2)}, groupe ${(D.gamma[1]*Math.LN2).toFixed(2)}, solitaire ${(D.gamma[2]*Math.LN2).toFixed(2)} ; seuil de gêne κ = ${D.kappa.toFixed(1)}.`;
 duel();table();route();

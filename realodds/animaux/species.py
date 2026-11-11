@@ -33,10 +33,26 @@ SPECIES = {
     "buffle": ("Buffle d'Afrique", "Grands herbivores", 650, 450, 900, ["cornes", "coups"], "groupe"),
     "bison": ("Bison d'Amérique", "Grands herbivores", 650, 400, 900, ["cornes", "coups"], "groupe"),
     "orignal": ("Orignal (élan)", "Grands herbivores", 450, 300, 650, ["coups"], "solitaire"),
-    "gorille": ("Gorille des plaines", "Primates", 140, 75, 200, ["crocs", "mains"], "groupe"),
+    "gorille": ("Gorille des plaines", "Primates", 115, 70, 210, ["crocs", "mains"], "groupe"),
     "chimpanze": ("Chimpanzé", "Primates", 50, 35, 65, ["crocs", "mains"], "groupe"),
     "babouin": ("Babouin chacma", "Primates", 25, 15, 35, ["crocs", "mains"], "groupe"),
     "humain": ("Humain adulte (à mains nues)", "Primates", 78, 60, 105, ["mains"], "groupe"),
     "ratel": ("Ratel (blaireau du miel)", "Mustélidés", 10, 7, 14, ["griffes", "crocs"], "solitaire"),
     "kangourou": ("Kangourou roux", "Marsupiaux", 55, 25, 85, ["coups", "griffes"], "groupe"),
+}
+
+# Masse d'un grand adulte (le sexe le plus gros : mâle, sauf la hyène tachetée où la femelle domine), pour l'option
+# « grand adulte » de l'explorateur. Sources : moyennes sauvages usuelles (gorille : Smith & Jungers 1997, 169 kg pour
+# les mâles adultes sauvages ; femelles 68-113 kg).
+BIG = {
+    "lion": (190, "mâle adulte"), "tigre": (220, "mâle adulte"), "jaguar": (95, "mâle adulte"), "leopard": (60, "mâle adulte"),
+    "guepard": (50, "mâle adulte"), "puma": (62, "mâle adulte"), "ours_brun": (300, "grand mâle"), "ours_noir": (140, "grand mâle"),
+    "ours_polaire": (480, "grand mâle"), "loup": (46, "mâle adulte"), "coyote": (15, "mâle adulte"), "lycaon": (27, "mâle adulte"),
+    "chien": (42, "gros mâle"), "hyene": (66, "femelle adulte"), "crocodile_nil": (400, "grand mâle"),
+    "alligator": (300, "grand mâle"), "caiman": (55, "grand mâle"), "anaconda": (85, "grande femelle"),
+    "orque": (5800, "mâle adulte"), "requin_blanc": (1100, "grande femelle"), "morse": (1300, "mâle adulte"),
+    "elephant": (6000, "mâle adulte"), "hippopotame": (1800, "mâle adulte"), "rhinoceros": (2300, "mâle adulte"),
+    "buffle": (750, "mâle adulte"), "bison": (800, "mâle adulte"), "orignal": (550, "mâle adulte"),
+    "gorille": (169, "dos argenté"), "chimpanze": (55, "mâle adulte"), "babouin": (31, "mâle adulte"),
+    "humain": (85, "homme adulte costaud"), "ratel": (12, "mâle adulte"), "kangourou": (80, "grand mâle"),
 }
