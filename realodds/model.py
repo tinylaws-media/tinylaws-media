@@ -237,7 +237,11 @@ tga, tgb = jnp.array(tga), jnp.array(tgb)
 eqf = jnp.array(eqf)
 tag_mu = jnp.array([TAG_PRIOR[t][0] for t in TAGS]); tag_sd = jnp.array([TAG_PRIOR[t][1] for t in TAGS])
 NT = len(TAGS)
-P = N + NT + 3 + 3 + 2 * NS   # strengths, tag effects, 3 cutpoints, databook curve, numeric-set lines
+P = N + NT + 3 + 3 + 2 * NS + 1   # strengths, tag effects, 3 cutpoints, databook curve, numeric-set lines, log(eta)
+# Combats de groupe : eta = poids des alliés. Force d'équipe = eta * log(somme exp(s_i / eta)).
+# eta -> 0 : seul le plus fort compte ; eta = 1 : un allié de même force ajoute log 2 ; eta grand : les alliés pèsent lourd.
+# Prior sur log(eta) réglable (ETA_MU, ETA_SD) pour la mise en commun entre œuvres (groups.py).
+ETA_MU = float(os.environ.get("ETA_MU", 0.0)); ETA_SD = float(os.environ.get("ETA_SD", 0.5))
 
 
 def unpack(th):
@@ -246,17 +250,18 @@ def unpack(th):
     return s, beta, jnp.array([-c3, -c2, -c1, c1, c2, c3]), db
 
 
-def team(s, idx, mask):
-    """Team strength: dominated by the strongest member (log-sum-exp), or, for fights flagged "e"
-    (partners who carried the fight together), the members' average plus log(team size)."""
-    lse = jax.scipy.special.logsumexp(jnp.where(mask > 0, s[idx], -1e9), axis=1)
+def team(s, idx, mask, eta):
+    """Team strength (generalised power mean): eta * logsumexp(s / eta). The strongest member dominates and a
+    much weaker ally adds almost nothing; an ally of equal strength adds eta * log 2. Fights flagged "e"
+    (partners who carried the fight together): the members' average plus eta * log(team size)."""
+    lse = eta * jax.scipy.special.logsumexp(jnp.where(mask > 0, s[idx] / eta, -1e9), axis=1)
     n = jnp.sum(mask, axis=1)
-    avg = jnp.sum(jnp.where(mask > 0, s[idx], 0.0), axis=1) / n + jnp.log(n)
+    avg = jnp.sum(jnp.where(mask > 0, s[idx], 0.0), axis=1) / n + eta * jnp.log(n)
     return jnp.where(eqf > 0, avg, lse)
 
 
-def diff(s, beta):
-    return team(s, fa_idx, fa_mask) - team(s, fb_idx, fb_mask) + tga @ beta - tgb @ beta
+def diff(s, beta, eta):
+    return team(s, fa_idx, fa_mask, eta) - team(s, fb_idx, fb_mask, eta) + tga @ beta - tgb @ beta
 
 
 def cat_logp(d, cuts):
@@ -276,7 +281,7 @@ def rob_logp(d, cuts):
 
 def fight_ll(th):
     s, beta, cuts, _ = unpack(th)
-    return wts * jnp.take_along_axis(rob_logp(diff(s, beta), cuts), ya[:, None], axis=1)[:, 0]
+    return wts * jnp.take_along_axis(rob_logp(diff(s, beta, jnp.exp(th[-1])), cuts), ya[:, None], axis=1)[:, 0]
 
 
 def db_ll(th):
@@ -285,7 +290,7 @@ def db_ll(th):
 
 
 def nums(th):
-    return th[N + NT + 6:].reshape((NS, 2)) if NS else jnp.zeros((0, 2))
+    return th[N + NT + 6:P - 1].reshape((NS, 2)) if NS else jnp.zeros((0, 2))
 
 
 def st_ll(th):
@@ -312,6 +317,7 @@ def neg_logpost(th):
     a = th[N + NT:N + NT + 3]
     lp += -0.5 * jnp.sum(((a - jnp.array([math.log(0.4), math.log(1.0), math.log(1.2)])) / 0.5) ** 2)
     lp += -0.5 * (((db[0] - 5.0 * TIER) / (2.0 * TIER)) ** 2 + ((db[1] - TIER) / (0.7 * TIER)) ** 2 + ((db[2] - 0.5 * TIER) / (0.5 * TIER)) ** 2)
+    lp += -0.5 * ((th[-1] - ETA_MU) / ETA_SD) ** 2
     lp += jnp.sum(fight_ll(th)) + jnp.sum(db_ll(th))
     if len(st_obs):
         lp += jnp.sum(st_ll(th))
@@ -332,7 +338,8 @@ x0[N:N + NT] = [TAG_PRIOR[t][0] for t in TAGS]
 x0[N + NT:N + NT + 3] = [math.log(0.4), 0.0, math.log(1.2)]
 x0[N + NT + 3:N + NT + 6] = [5.0 * TIER, TIER, 0.5 * TIER]
 if NS:
-    x0[N + NT + 6:] = np.tile([4.0 * TIER, TIER], NS)
+    x0[N + NT + 6:P - 1] = np.tile([4.0 * TIER, TIER], NS)
+x0[-1] = ETA_MU
 opt = dict(maxiter=50000, maxfun=100000, ftol=1e-13, gtol=1e-7)
 res = minimize(lambda x: float(f_val(x)), x0, jac=lambda x: np.asarray(f_grad(x)), method="L-BFGS-B", options=opt)
 for _ in range(4):
@@ -372,7 +379,8 @@ src_lab = ([("Statut officiel", x[4]) for x in st_obs] + [("Hiérarchie", x[6]) 
 Esrc = np.vstack([Es, Eo, En]) if len(src_lab) else np.zeros((0, len(qnodes)))
 qpos = {n: i for i, n in enumerate(qnodes)}
 
-d_map = np.asarray(diff(jnp.array(s_map), jnp.array(beta_map)))
+ETA = float(np.exp(th[-1])); ETA_LSD = float(sd[-1])
+d_map = np.asarray(diff(jnp.array(s_map), jnp.array(beta_map), ETA))
 probs = np.exp(np.asarray(rob_logp(jnp.array(d_map), jnp.array(cuts_map))))
 
 # ---- surdispersion : quand les combats d'un personnage se contredisent plus que le modèle ne l'attend,
@@ -391,7 +399,7 @@ for j, f in enumerate(F):
         if not m.any():
             continue
         sv = s_map[idx[m]]
-        sh = np.full(m.sum(), 1.0 / m.sum()) if eqn[j] > 0 else np.exp(sv - sv.max()) / np.exp(sv - sv.max()).sum()
+        sh = np.full(m.sum(), 1.0 / m.sum()) if eqn[j] > 0 else np.exp((sv - sv.max()) / ETA) / np.exp((sv - sv.max()) / ETA).sum()
         for c, w_ in zip([node_char[i] for i in idx[m]], sh):
             part.setdefault(c, []).append((j, AIDX.get(f["arc"], 0), float(w_)))
 PHI_K0 = 4.0
@@ -440,9 +448,13 @@ out = dict(
     databook=dict(intercept=round(float(db_map[0]), 3), slope_per5=round(float(db_map[1]), 3), curve=round(float(db_map[2]), 3), n=len(db_obs)),
     jumps=[dict(c=c, t=t, label=l) for c, t, m, s, l in JUMPS],
     meta=dict(tier=TIER, n_status=len(st_obs), n_order=len(or_obs), n_numeric=len(num_obs), n_fights=len(F), n_chars=len([c for c in out_chars if not out_chars[c]["generic"]]), q=Q, prior_sd=PRIOR_SD,
-              converged=gmax < 1e-2),
+              converged=gmax < 1e-2,
+              eta=round(ETA, 4), eta_log_sd=round(ETA_LSD, 4), eta_prior=[ETA_MU, ETA_SD],
+              n_group=int(sum(1 for f in F if len(f["a"]) > 1 or len(f["b"]) > 1)),
+              max_team=int(max(max(len(f["a"]), len(f["b"])) for f in F)),
+              log_evidence=round(float(-res.fun - 0.5 * np.linalg.slogdet(H)[1] + 0.5 * P * math.log(2 * math.pi)), 3)),
 )
-json.dump(out, open(os.path.join(VDIR, "model_out.json"), "w"), ensure_ascii=False)
+json.dump(out, open(os.environ.get("OUT") or os.path.join(VDIR, "model_out.json"), "w"), ensure_ascii=False)
 
 
 def P_win(a, ka, b, kb):

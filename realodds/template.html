@@ -101,7 +101,7 @@ input[type=range]{width:100%;accent-color:var(--s1)}
   <p>Chaque combat du manga, de l'ère de Kaguya à Two Blue Vortex, place les deux combattants sur une même échelle de force. Choisis deux personnages et deux moments de l'histoire : le modèle donne la cote, avec sa fourchette.</p>
 </header>
 <nav aria-label="Sections">
-  <a href="#duel">Duel</a><a href="#evolution">Évolution</a><a href="#classement">Classement par arc</a><a href="#combats">Tous les combats</a><a href="#graphe">Qui a battu qui</a><a href="#methode">Méthode</a>
+  <a href="#duel">Duel</a><a href="#evolution">Évolution</a><a href="#classement">Classement par arc</a><a href="#combats">Tous les combats</a><a href="#graphe">Qui a battu qui</a><a href="#equipes">Équipes</a><a href="#methode">Méthode</a>
 </nav>
 
 <section id="v-duel">
@@ -190,6 +190,37 @@ input[type=range]{width:100%;accent-color:var(--s1)}
   </div>
 </section>
 
+<section id="v-equipes" hidden>
+  <div class="panel">
+    <h2 style="font:800 22px var(--f-display);margin:0 0 4px">Combats d'équipe</h2>
+    <p class="note" style="margin:0 0 12px">Jusqu'à 4 personnages par camp, chacun à son moment de l'histoire. La force d'une équipe n'est pas la somme : le plus fort compte le plus, et un allié pèse d'autant moins qu'il est faible. Ce « poids des alliés » est appris sur tous les combats de groupe de l'œuvre.</p>
+    <div class="row" style="align-items:flex-start">
+      <div class="fighter fa"><span class="tag">ÉQUIPE A</span><div id="teamA"></div><button type="button" id="addA">+ Ajouter</button></div>
+      <div class="vs" aria-hidden="true">vs</div>
+      <div class="fighter fb"><span class="tag">ÉQUIPE B</span><div id="teamB"></div><button type="button" id="addB">+ Ajouter</button></div>
+    </div>
+    <div class="odds" aria-live="polite">
+      <div class="oddsnum">
+        <div class="big" style="color:var(--a)"><span id="tpa">–</span><small>équipe A</small></div>
+        <div class="big" style="text-align:center;color:var(--ink3);font-size:clamp(24px,4vw,36px)"><span id="tpd">–</span><small>match nul</small></div>
+        <div class="big" style="text-align:right;color:var(--b)"><span id="tpb">–</span><small>équipe B</small></div>
+      </div>
+      <div class="bar" role="img" id="tbar"><div id="tba" style="background:var(--a)"></div><div id="tbd" style="background:var(--draw)"></div><div id="tbb" style="background:var(--b)"></div></div>
+      <p class="note" id="tnote"></p>
+    </div>
+  </div>
+  <div class="panel" style="margin-top:16px">
+    <h3 style="font:800 17px var(--f-display);margin:0 0 6px">Combien il en faut ?</h3>
+    <p class="note" style="margin:0 0 10px">Combien de copies de A (même force, comme des clones) pour battre B ?</p>
+    <div class="row">
+      <div><label for="hca">A</label><select id="hca"></select> <select id="haa"></select></div>
+      <div><label for="hcb">B</label><select id="hcb"></select> <select id="hab"></select></div>
+    </div>
+    <div class="tw" style="margin-top:10px"><table><thead><tr><th>Nombre de A</th><th>A gagne</th><th>Nul</th><th>B gagne</th><th></th></tr></thead><tbody id="howt"></tbody></table></div>
+    <p class="note" id="hownote"></p>
+  </div>
+</section>
+
 <section id="v-methode" hidden class="method">
   <h2>Comment la cote est calculée</h2>
   <div class="panel">
@@ -199,6 +230,7 @@ input[type=range]{width:100%;accent-color:var(--s1)}
     <p><b>Les preuves officielles comptent.</b> Rangs et titres (Kage, Empereur, amiral, Pilier, grade spécial…), primes et niveaux de puissance officiels, et déclarations de l'œuvre qui classent les personnages entrent dans le calcul, datés au moment où ils s'appliquent. Une déclaration « A est plus fort que B » pèse jusqu'à ce que les combats la contredisent nettement. Le panneau « Pourquoi cette cote » les affiche avec les combats.</p>
     <p><b>Les databooks officiels comptent aussi.</b> Les notes sur 40 des trois databooks de Kishimoto sont reliées à la force par une courbe que le modèle apprend lui-même (les écarts comptent plus en haut de l'échelle, où les notes plafonnent). Elles pèsent moins qu'un combat.</p>
     <p><b>Le statut ne sert qu'à combler les trous.</b> Chaque personnage part d'un a priori large selon son rang au premier combat (genin, jounin, kage, légende…). Plus il a combattu, moins cet a priori compte : la page Duel affiche la part de la cote qui vient des combats.</p>
+    <p><b>Les combats d'équipe.</b> La force d'une équipe est une moyenne « douce » tirée vers le plus fort : η · log(Σ exp(force / η)). Avec η petit, seul le plus fort compte ; avec η grand, chaque allié pèse lourd. Un allié de même force ajoute η · log 2 ; un allié bien plus faible que le meneur de son équipe n'ajoute presque rien, et le nombre ne rapporte que lentement (η · log n) : une foule de seconds couteaux ne bat pas un monstre. Le poids η est appris sur les combats de groupe : chaque œuvre a le sien, rapproché d'une valeur commune estimée sur les dix œuvres (méta-analyse à effets aléatoires), parce qu'une seule œuvre en contient trop peu pour le fixer seule. Un modèle où seul le plus fort compte est nettement moins bien soutenu par les données. <span id="etaline"></span></p>
     <p><b>Calcul.</b> Logit ordinal dynamique (famille Bradley–Terry), maximum a posteriori et approximation de Laplace. La cote d'un duel tire 4 000 combats au hasard dans les deux fourchettes. Comme le modèle lit toute l'œuvre, un combat tardif peut aussi éclairer la force d'un personnage plus tôt.</p>
     <div class="tw"><table><thead><tr><th>Condition</th><th>Effet estimé (échelons)</th><th>Fourchette</th></tr></thead><tbody id="tagt"></tbody></table></div>
     <p class="note" id="metaline" style="margin-top:12px"></p>
@@ -222,10 +254,11 @@ const pct = x => Math.round(x*100)+' %';
 const esc = s => String(s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
 
 // ---------- routing
-const VIEWS=['duel','evolution','classement','combats','graphe','methode'];
+const VIEWS=['duel','evolution','classement','combats','graphe','equipes','methode'];
 function route(){const h=(location.hash||'#duel').slice(1);const v=VIEWS.includes(h)?h:'duel';
   VIEWS.forEach(x=>document.getElementById('v-'+x).hidden=x!==v);
   document.querySelectorAll('nav a').forEach(a=>a.setAttribute('aria-current',a.getAttribute('href')==='#'+v?'page':'false'));
+  if(v==='equipes')teams();
   if(v==='evolution')drawEvo(); if(v==='classement')drawRank(); if(v==='graphe')drawGraph();}
 addEventListener('hashchange',route);
 
@@ -463,6 +496,44 @@ function drawGraph(){const box=document.getElementById('graph'),pert=glinks.valu
 // ---------- method
 document.getElementById('tagt').innerHTML=Object.entries(D.tags).map(([k,v])=>`<tr><td>${esc(TAGN[k]||k)}</td><td class="mono">${v.beta>=0?'+':''}${(v.beta/TIERK).toFixed(2)}</td><td class="mono note">${((v.beta-1.64*v.sd)/TIERK).toFixed(1)} à ${((v.beta+1.64*v.sd)/TIERK).toFixed(1)}</td></tr>`).join('');
 document.getElementById('metaline').textContent=`${D.meta.n_fights} combats codés, ${D.meta.n_chars} personnages, ${ARCS.length} périodes de l'histoire.`;
+
+// ---------- équipes : force d'équipe = eta * logsumexp(force / eta), eta appris (log-normal), en logits
+const ETA=(D.meta&&D.meta.eta)||1, ETA_LSD=(D.meta&&D.meta.eta_log_sd)||0.4, MAXTEAM=(D.meta&&D.meta.max_team)||4;
+document.getElementById('etaline').textContent=`Ici : η = ${ETA.toFixed(2)} (fourchette à 90 % : ${(ETA*Math.exp(-1.645*ETA_LSD)).toFixed(2)} à ${(ETA*Math.exp(1.645*ETA_LSD)).toFixed(2)}), appris sur ${(D.meta&&D.meta.n_group)||'les'} combats de groupe ; le plus grand groupe observé compte ${MAXTEAM} personnages.`;
+function lse(xs){const m=Math.max(...xs);return m+Math.log(xs.reduce((a,x)=>a+Math.exp(x-m),0))}
+function teamOdds(A,B,n=4000){let qa=0,qb=0;const sh=new Array(A.length).fill(0);
+  for(let i=0;i<n;i++){const eta=ETA*Math.exp(ETA_LSD*rnorm());
+    const dr={},g=m=>{const k=m.c+'|'+m.s.arc;return dr[k]!==undefined?dr[k]:(dr[k]=(m.s.mean+m.s.sd*rnorm())*TIERK)};const sa=A.map(g),sb=B.map(g);
+    const ta=eta*lse(sa.map(x=>x/eta))+(A.copies?eta*Math.log(A.copies):0),tb=eta*lse(sb.map(x=>x/eta));
+    const d=ta-tb;qa+=1-sig(C1-d);qb+=sig(-C1-d);
+    const mx=Math.max(...sa),w=sa.map(x=>Math.exp((x-mx)/eta)),W=w.reduce((a,b)=>a+b,0);w.forEach((x,k)=>sh[k]+=x/W)}
+  return {pa:qa/n,pb:qb/n,pd:1-(qa+qb)/n,share:sh.map(x=>x/n)}}
+const TEAM={A:[],B:[]};
+function memberRow(side,k){return `<div style="display:grid;grid-template-columns:${TEAM[side].length>1?'minmax(0,1.2fr) minmax(0,1fr) 40px':'minmax(0,1.2fr) minmax(0,1fr)'};gap:6px;margin:4px 0"><select data-s="${side}" data-k="${k}" data-f="c" aria-label="Personnage"></select><select data-s="${side}" data-k="${k}" data-f="a" aria-label="Moment de l'histoire"></select>${TEAM[side].length>1?`<button type="button" data-s="${side}" data-k="${k}" data-f="x" aria-label="Retirer" style="flex:0 0 40px;width:40px;padding:0">×</button>`:''}</div>`}
+function drawTeams(){['A','B'].forEach(side=>{const el=document.getElementById('team'+side);el.innerHTML=TEAM[side].map((_,k)=>memberRow(side,k)).join('');
+  el.querySelectorAll('select[data-f="c"]').forEach(sel=>{fillChars(sel,TEAM[side][+sel.dataset.k].c)});
+  el.querySelectorAll('select[data-f="a"]').forEach(sel=>{const m=TEAM[side][+sel.dataset.k];fillArcs(sel,m.c,m.a);m.a=sel.value});
+  document.getElementById('add'+side).disabled=TEAM[side].length>=4});teamCalc()}
+function teamCalc(){const A=TEAM.A.map(m=>({c:m.c,s:ser(m.c,m.a)})),B=TEAM.B.map(m=>({c:m.c,s:ser(m.c,m.a)}));const o=teamOdds(A,B);
+  document.getElementById('tpa').textContent=pct(o.pa);document.getElementById('tpb').textContent=pct(o.pb);document.getElementById('tpd').textContent=pct(o.pd);
+  document.getElementById('tba').style.flexBasis=(o.pa*100)+'%';document.getElementById('tbd').style.flexBasis=(o.pd*100)+'%';document.getElementById('tbb').style.flexBasis=(o.pb*100)+'%';
+  document.getElementById('tbar').setAttribute('aria-label',`Équipe A ${pct(o.pa)}, nul ${pct(o.pd)}, équipe B ${pct(o.pb)}`);
+  const big=Math.max(A.length,B.length)>MAXTEAM;
+  document.getElementById('tnote').innerHTML=(A.length>1?'Part de chaque membre dans la force de l\'équipe A : '+A.map((m,k)=>`<b>${esc(nm(m.c))}</b> ${pct(o.share[k])}`).join(', ')+'. ':'')+
+    'Chaque tirage prend une force au hasard dans la fourchette de chacun, et un poids des alliés au hasard dans la sienne.'+(big?' <b style="color:var(--a)">Équipe plus grande que tout groupe vu dans l\'œuvre : extrapolation.</b>':'')}
+const hca=document.getElementById('hca'),hcb=document.getElementById('hcb'),haa=document.getElementById('haa'),hab=document.getElementById('hab');
+function teams(){if(!TEAM.A.length){TEAM.A=[{c:ca.value,a:aa.value}];TEAM.B=[{c:cb.value,a:ab.value}];fillChars(hca,ca.value);fillChars(hcb,cb.value);fillArcs(haa,ca.value,aa.value);fillArcs(hab,cb.value,ab.value)}drawTeams();howMany()}
+['A','B'].forEach(side=>{const el=document.getElementById('team'+side);
+  el.addEventListener('change',e=>{const t=e.target,m=TEAM[side][+t.dataset.k];if(t.dataset.f==='c'){m.c=t.value;m.a=null;drawTeams()}else{m.a=t.value;teamCalc()}});
+  el.addEventListener('click',e=>{const t=e.target;if(t.dataset.f==='x'){TEAM[side].splice(+t.dataset.k,1);drawTeams()}});
+  document.getElementById('add'+side).addEventListener('click',()=>{if(TEAM[side].length<4){const l=TEAM[side][TEAM[side].length-1];TEAM[side].push({c:l.c,a:l.a});drawTeams()}})});
+function howMany(){const A=ser(hca.value,haa.value),B=ser(hcb.value,hab.value);const rows=[];let first=null;const NMAX=Math.max(10,MAXTEAM);
+  for(let n=1;n<=NMAX;n++){const T=[{c:hca.value,s:A}];T.copies=n;const o=teamOdds(T,[{c:hcb.value,s:B}],2500);if(first===null&&o.pa>=o.pb)first=n;
+    const out=n>MAXTEAM;rows.push(`<tr${out?' style="opacity:.55"':''}><td class="mono">${n}</td><td class="mono">${pct(o.pa)}</td><td class="mono">${pct(o.pd)}</td><td class="mono">${pct(o.pb)}</td><td class="note">${out?'au-delà des données':''}</td></tr>`)}
+  document.getElementById('howt').innerHTML=rows.join('');
+  document.getElementById('hownote').innerHTML=first===null?`Même à ${NMAX}, ${esc(nm(hca.value))} reste derrière : l'écart de force est trop grand, et le nombre ne rapporte que lentement (η · log n).`:
+    `Il faut <b>${first} × ${esc(nm(hca.value))}</b> pour passer devant ${esc(nm(hcb.value))}${first>MAXTEAM?" (au-delà des groupes vus dans l'œuvre : à prendre avec des pincettes)":''}. Les copies partagent la même force : chacune ajoute de moins en moins (η · log n).`}
+[hca,hcb].forEach((sel,i)=>sel.addEventListener('change',()=>{fillArcs(i?hab:haa,sel.value,(i?hab:haa).value);howMany()}));[haa,hab].forEach(sel=>sel.addEventListener('change',howMany));
 
 duel();table();route();addEventListener('resize',()=>{clearSim()});
 </script>
