@@ -51,13 +51,36 @@ def drone(d, f=55):
 def brush(d=1.4):
     n = int(SR * d); t = np.arange(n) / SR; return bp(rng.standard_normal(n), 800, 3500) * np.sin(np.pi * t / d) * .25
 
+def slam(big=True):
+    # arrivée d'une image : souffle court qui accélère, puis claque de papier + coup sourd
+    pre = int(SR * .16); n = int(SR * .45); y = np.zeros(pre + n)
+    t = np.arange(pre) / SR; y[:pre] = bp(rng.standard_normal(pre), 700, 6000) * (t / .16) ** 2 * .45
+    tt = np.arange(n) / SR
+    thump = np.sin(2 * np.pi * ((70 if big else 120) + 120 * np.exp(-tt * 40)) * tt) * env(n, .001, .09 if big else .05)
+    slap = bp(rng.standard_normal(n), 900, 5000) * env(n, .0005, .025)
+    y[pre:] += (.9 if big else .5) * thump + .6 * slap
+    return y
+def land(t, big=True, g=1.0): add(t - .16, slam(big), g)
+def flick():
+    n = int(SR * .14); t = np.arange(n) / SR; return bp(rng.standard_normal(n), 2000, 8000) * np.sin(np.pi * t / .14) ** 2 * .35
+
+# ---- arrivées d'images (chaque case ou image qui entre a son bruitage)
+land(.4); land(1.85, False); land(2.45, False); land(3.95); land(4.75, False); land(55.2); land(59.25, False, .8); land(63.0)
+for t0, nf in [(11.7, 1), (14.7, 1), (17.7, 1), (21.1, 1), (25.1, 2), (28.7, 1), (32.5, 2)]:
+    land(t0 + .3); land(t0 + .45, False)
+    for i in range(nf): add(t0 + .55 + i * .12, flick(), .9)
+import json, math
+WEBN = json.load(open('../v4/web.json'))['nodes']
+PORTS = ['kakashi','obito','a4','killer_b','madara','naruto','sasuke','jiraiya','orochimaru','nagato','kisame','hashirama','gai','tsunade']
+land(36.3, True, .8)
+for n in PORTS:
+    if n in WEBN: px, py = WEBN[n][:2]; add(36.4 + math.hypot(px - 540, py - 930) / 700 * 1.6 + .12, pop(), .6)
+
 # ---- accroche
 add(0.05, boom(1.6, 55), .8); add(0.1, drone(3.3, 41), 1)
 add(1.0, stamp(), 1); add(1.0, boom(.8, 90), .5)
-for s in (1.7, 2.3): add(s - .05, whoosh(.25), .7); add(s, pop(), 1)
 for i in range(3): add(1.9 + i * .35, tick(1200 + 300 * i), 1)
 add(3.5, shing(), .9); add(3.6, boom(1.0, 80), .6)
-add(4.55, whoosh(.25), .6); add(4.6, pop(), 1)
 for s in (5.0, 5.25, 5.5): add(s, whoosh(.15), .5)
 add(5.4, stamp(), 1.1)
 # ---- méthode
@@ -66,7 +89,7 @@ for k in range(60): add(7.1 + k * .048, tick(2200 + 400 * (k % 3)), .5)
 for s in (9.4, 10.2, 10.9): add(s, stamp(), .8)
 # ---- dossiers
 for t0, loss in [(11.7, 0), (14.7, 0), (17.7, 0), (21.1, 1), (25.1, 0), (28.7, 0), (32.5, 1)]:
-    add(t0 - .02, whoosh(.3), .8); add(t0 + .13, whoosh(.3), .6); add(t0 + .55, slash(), .8)
+    add(t0 + .55, slash(), .8)
     add(t0 + .8, stamp(), 1.0); add(t0 + .8, boom(.9, 45 if loss else 85), .45 if loss else .4)
     add(t0 + 1.0, tick(900 if loss else 1600), .8)
 # ---- toile
