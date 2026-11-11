@@ -178,8 +178,8 @@ ORDER = [
     ("hanzo", -32.0, "tsunade", -32.0, 1.0, 0.7, "Hanzō bat et épargne les trois futurs Sannin, puis les nomme (ch. 372)"),
     ("hanzo", -32.0, "orochimaru", -32.0, 1.0, 0.7, "Hanzō bat et épargne les trois futurs Sannin, puis les nomme (ch. 372)"),
     ("nagato", 9.0, "hanzo", 9.0, 0.3, 0.8, "Pain renverse et tue Hanzō, le « demi-dieu » d'Ame (ch. ~372-375)"),
-    ("jiraiya", 12.65, "kisame", 12.65, 0.3, 0.8, "Itachi : même à deux contre Jiraiya, nous y laisserions la vie (ch. ~147)"),
-    ("jiraiya", 12.65, "itachi", 12.65, 0.0, 0.6, "Itachi : même à deux contre Jiraiya, nous y laisserions la vie (ch. ~147) ; rapport proche de l'égalité"),
+    ("jiraiya", 12.65, "kisame", 12.65, 0.3, 1.5, "Itachi : même à deux contre Jiraiya, nous y laisserions la vie (ch. ~147) ; propos peu fiable : Itachi, agent double, évite tout combat contre Konoha"),
+    ("jiraiya", 12.65, "itachi", 12.65, 0.0, 1.5, "Itachi : même à deux contre Jiraiya, nous y laisserions la vie (ch. ~147) ; propos peu fiable : Itachi, agent double, évite tout combat contre Konoha, donc incertitude large"),
     # ---- Itachi / Kakashi / Gai
     ("itachi", 12.65, "kakashi", 12.65, 0.6, 0.7, "Itachi neutralise Kakashi (Tsukuyomi) et juge qu'un combat contre lui « prendrait trop de temps » (ch. 142-144)"),
     ("gai", 17.03, "kakashi", 17.03, 0.5, 0.7, "Kakashi reconnaît que Gai l'a surpassé quand il ouvre la 8e porte (ch. 667-669)"),
