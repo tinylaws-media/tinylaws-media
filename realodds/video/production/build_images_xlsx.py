@@ -140,6 +140,56 @@ FX = [
  ("op_den_den_mushi.png","One Piece","Den Den Mushi",O,"Seul, détouré",3),
  ("op_log_pose.png","One Piece","Log Pose",O,"Seul, détouré",3),
 ]
+
+# ---- vidéos de combats de groupe (fichier, œuvre, groupe, catégorie, pose / composition, priorité)
+GRP = [
+ ("grp_akatsuki.png","Naruto","Akatsuki au complet (10 membres)",P,"Groupe en ligne ou en V, manteaux, de face",1),
+ ("grp_sannin.png","Naruto","Les trois Sannin (Jiraiya, Tsunade, Orochimaru)",P,"Trio de face, idéalement jeunes",1),
+ ("grp_cinq_kage.png","Naruto","Les cinq Kage (sommet / guerre)",P,"Groupe de face, chapeaux ou tenues de Kage",1),
+ ("grp_naruto_sasuke.png","Naruto","Naruto et Sasuke côte à côte (fin de guerre)",P,"Dos à dos ou côte à côte",1),
+ ("grp_hokage_edo.png","Naruto","Les quatre premiers Hokage ressuscités",P,"En ligne, de face",2),
+ ("grp_equipe7.png","Naruto","Équipe 7 (Naruto, Sasuke, Sakura, Kakashi)",P,"Pose d'équipe",2),
+ ("grp_mugiwara.png","One Piece","Équipage du Chapeau de paille (après l'ellipse)",P,"Équipage complet de face",1),
+ ("grp_amiraux.png","One Piece","Les trois amiraux (Aokiji, Kizaru, Akainu) à Marineford",P,"Trio assis ou debout",1),
+ ("grp_gorosei.png","One Piece","Les cinq doyens (Gorosei), formes humaines",P,"Groupe",1),
+ ("grp_supernovas.png","One Piece","Les Supernovas (pire génération)",P,"Groupe",2),
+ ("grp_empereurs.png","One Piece","Les quatre Empereurs de l'ère Barbe Blanche",P,"Chacun détouré ou en groupe",2),
+ ("grp_z_team.png","Dragon Ball","Les Z (Goku, Vegeta, Gohan, Piccolo, Krillin…)",P,"Groupe",2),
+ ("grp_exorcistes.png","Jujutsu Kaisen","Élèves de Tokyo (Yuji, Megumi, Nobara, Maki, Yuta…)",P,"Groupe",2),
+]
+# ---- vidéos inter-œuvres (persos d'autres œuvres + objets d'échelle)
+XV = [
+ ("jjk_sukuna_heian.png","Jujutsu Kaisen","Sukuna, vraie forme (4 bras, Shinjuku)",P,"Pose de combat, face",1),
+ ("jjk_sukuna_yuji.png","Jujutsu Kaisen","Sukuna dans le corps de Yuji (Shibuya)",P,"Pose menaçante",1),
+ ("jjk_gojo.png","Jujutsu Kaisen","Gojo sans bandeau (yeux visibles)",P,"Pose de combat, main levée",1),
+ ("jjk_yuji.png","Jujutsu Kaisen","Yuji Itadori (fin du manga)",P,"Pose de combat",2),
+ ("jjk_toji.png","Jujutsu Kaisen","Toji Fushiguro",P,"Pose de combat, arme",2),
+ ("db_goku_ui.png","Dragon Ball","Goku Ultra Instinct (Super)",P,"Pose de combat",1),
+ ("db_goku_ssj.png","Dragon Ball","Goku Super Saiyan (Namek)",P,"Pose de combat",1),
+ ("db_goku_enfant.png","Dragon Ball","Goku enfant avec le bâton magique",P,"Debout",2),
+ ("db_vegeta.png","Dragon Ball","Vegeta (Super, Ultra Ego si possible)",P,"Pose de combat",2),
+ ("db_freezer.png","Dragon Ball","Freezer forme finale",P,"Debout, doigt levé",1),
+ ("db_kid_buu.png","Dragon Ball","Kid Buu",P,"Pose de combat",2),
+ ("db_roshi.png","Dragon Ball","Tortue géniale en pleine puissance (MAX)",P,"Kamehameha",2),
+ ("db_gohan_beast.png","Dragon Ball","Gohan Beast",P,"Pose de combat",2),
+ ("echelle_humain.png","Réel","Silhouette d'humain adulte normal",O,"De face, sans visage reconnaissable, détourée",1),
+ ("echelle_lune.png","Réel","La Lune",O,"Image de la NASA ou libre de droits, détourée",1),
+ ("echelle_terre.png","Réel","La Terre vue de l'espace",O,"Libre de droits, détourée",1),
+ ("echelle_champignon.png","Réel","Champignon d'explosion nucléaire (archive)",O,"Archive publique, fond conservé",1),
+ ("echelle_ville.png","Réel","Ville vue du ciel",D,"Photo libre de droits",2),
+ ("echelle_montagne.png","Réel","Montagne",D,"Photo libre de droits",2),
+ ("echelle_meteorite.png","Réel","Météorite ou cratère (Meteor Crater, Arizona)",D,"Photo libre de droits",2),
+ ("echelle_ours.png","Réel","Ours brun",O,"Debout, détouré, libre de droits",3),
+ ("echelle_soldat.png","Réel","Soldat avec fusil (silhouette)",O,"Silhouette détourée",2),
+]
+# ---- edits sur la musique (à affiner ensemble)
+ED = [
+ ("edit_<perso>_case_01.png … _10.png","Toutes","10 cases de manga emblématiques par perso, en haute définition",R,"Scans nets, une case par fichier, sans texte de traduction si possible",2),
+ ("edit_<perso>_regard.png","Toutes","Gros plan des yeux du perso (Sharingan, Six Yeux…)",R,"Recadré serré, haute définition",2),
+ ("edit_<perso>_aura.png","Toutes","Perso avec aura ou transformation, détouré",P,"Aura incluse dans le détourage",2),
+ ("edit_impact_*.png","Toutes","Cases d'impact (coup qui touche, onde de choc)",R,"Plein cadre, très contrasté",3),
+ ("edit_onomatopees_*.png","Toutes","Onomatopées dessinées extraites des pages (ドン, ゴゴゴ…)",O,"Détourées, fond transparent",3),
+]
 VID = [
  (1,"Naruto","Itachi vs Minato",["itachi_combat.png","itachi_face.png","minato_combat.png","minato_droite.png"],"Faite (v3)"),
  (2,"Naruto","Itachi vs Madara",["itachi_combat.png","itachi_face.png","madara_edo.png","madara_jubi.png"],""),
@@ -229,7 +279,8 @@ lines = [
  ("1. Cherche chaque image des onglets « Naruto », « One Piece », « Décors », « Portraits » et « Effets & objets ».", False),
  ("2. Enregistre-la sous le nom exact de la colonne « Fichier » (minuscules, sans espaces), dans le dossier indiqué ci-dessous.", False),
  ("3. Mets à jour la colonne « Statut » (liste déroulante : À chercher / Trouvé / Reçu / Introuvable). Seule cette colonne et « Remarque » sont à modifier.", False),
- ("Nouveaux : l'onglet « Portraits » couvre maintenant tous les persos importants de la toile des combats, et l'onglet « Effets & objets » liste les yeux, symboles, objets et avis de recherche pour les plans les plus stylés.", False),
+ ("Nouveaux onglets : « Combats de groupe », « Inter-œuvres » (persos de Dragon Ball et Jujutsu Kaisen + objets d'échelle réels) et « Edits » (cases et effets pour les montages sur la musique).", False),
+ ("Avant : l'onglet « Portraits » couvre maintenant tous les persos importants de la toile des combats, et l'onglet « Effets & objets » liste les yeux, symboles, objets et avis de recherche pour les plans les plus stylés.", False),
  ("4. L'onglet « Vidéos » se met à jour tout seul : il indique, pour chaque vidéo, combien d'images sont reçues et si elle est prête.", False),
  ("", False),
  ("Rangement du dossier", True),
@@ -280,6 +331,12 @@ rows += [(f"p_{n}.webp", "Naruto", n.title(), R, 3, "Reçu", "déjà fourni") fo
 table(ws, ["Fichier", "Œuvre", "Personnage", "Catégorie", "Priorité", "Statut", "Remarque"], rows, [22, 12, 24, 20, 9, 13, 40], status_col=6)
 ws.cell(ws.max_row + 2, 1, "Ces visages remplissent les cercles de la toile des combats. Idéal : PNG détouré (tête + haut des épaules, fond transparent, 600 px mini). Une capture avec fond reste acceptée : je la découpe en cercle.").font = Font(name=F, italic=True, size=10)
 
+for title, rows_, note in [("Combats de groupe", GRP, "Pour les vidéos 2 contre 1, 3 contre 1, équipe contre équipe : des groupes déjà composés font gagner beaucoup de temps."),
+                           ("Inter-œuvres", XV, "Pour les vidéos inter-œuvres (2 min) : persos des autres œuvres, et objets d'échelle (humain, ville, montagne, Lune, Terre) pour montrer « tant de fois un humain ». Les photos réelles doivent être libres de droits (NASA, Wikimedia Commons)."),
+                           ("Edits", ED, "Pour les edits sur la musique : liste de départ, à affiner ensemble. Remplace <perso> par l'identifiant du perso (itachi, luffy…).")]:
+    ws = wb.create_sheet(title)
+    table(ws, ["Fichier", "Œuvre", "Quoi", "Catégorie", "Pose / composition", "Priorité", "Statut", "Remarque"], [(f, o, q, c, d, pr, "À chercher", "") for f, o, q, c, d, pr in rows_], [30, 14, 46, 18, 44, 9, 13, 30], status_col=7)
+    ws.cell(ws.max_row + 2, 1, note).font = Font(name=F, italic=True, size=10)
 ws = wb.create_sheet("Effets & objets")
 table(ws, ["Fichier", "Œuvre", "Quoi", "Catégorie", "Détails", "Priorité", "Statut", "Remarque"], [(f, o, q, c, d, pr, "À chercher", "") for f, o, q, c, d, pr in FX], [28, 12, 46, 18, 50, 9, 13, 30], status_col=7)
 ws.cell(ws.max_row + 2, 1, "Ces éléments servent aux transitions, tampons et plans « fancy » (yeux en gros plan, symboles, avis de recherche…). Aucun n'est bloquant pour une vidéo.").font = Font(name=F, italic=True, size=10)

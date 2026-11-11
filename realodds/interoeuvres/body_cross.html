@@ -1,0 +1,148 @@
+<div class="wrap">
+<header>
+  <div class="kicker">The Real Odds · Inter-œuvres · expérimental</div>
+  <h1>Qui gagne entre deux œuvres ?</h1>
+  <p>Aucun combat n'oppose jamais deux œuvres. Pour les comparer, chaque échelle de force est reliée à une échelle physique commune : un humain normal vaut 1, et chaque personnage vaut « tant de fois un humain ». Le pont passe par des exploits canon chiffrés et par de simples humains armés présents dans les œuvres.</p>
+</header>
+<nav aria-label="Sections"><a href="#duel">Duel</a><a href="#echelle">Échelle</a><a href="#exploits">Exploits</a><a href="#methode">Méthode</a></nav>
+
+<section id="v-duel">
+  <div class="panel">
+    <div class="row" style="align-items:stretch">
+      <div class="fighter fa"><span class="tag">COMBATTANT A</span>
+        <div><label for="va">Œuvre</label><select id="va"></select></div>
+        <div><label for="ca">Personnage</label><select id="ca"></select></div>
+        <div><label for="aa">Moment de l'histoire</label><select id="aa"></select></div></div>
+      <div class="vs" aria-hidden="true">vs</div>
+      <div class="fighter fb"><span class="tag">COMBATTANT B</span>
+        <div><label for="vb">Œuvre</label><select id="vb"></select></div>
+        <div><label for="cb">Personnage</label><select id="cb"></select></div>
+        <div><label for="ab">Moment de l'histoire</label><select id="ab"></select></div></div>
+    </div>
+    <div class="odds" aria-live="polite">
+      <div class="oddsnum">
+        <div class="big" style="color:var(--a)"><span id="pa">–</span><small id="na"></small></div>
+        <div class="big" style="text-align:center;color:var(--ink3);font-size:clamp(24px,4vw,36px)"><span id="pd">–</span><small>match nul</small></div>
+        <div class="big" style="text-align:right;color:var(--b)"><span id="pb">–</span><small id="nb"></small></div>
+      </div>
+      <div class="bar" role="img" id="bar"><div id="ba" style="background:var(--a)"></div><div id="bd" style="background:var(--draw)"></div><div id="bb" style="background:var(--b)"></div></div>
+      <p class="note" id="proj"></p>
+    </div>
+  </div>
+  <div class="ev">
+    <div class="panel"><h3 id="ha">A</h3><p class="note" id="xa"></p><div id="fa"></div><h3 style="font:800 15px var(--f-display);margin:14px 0 6px">Ceux qu'il a battus</h3><div id="ka"></div></div>
+    <div class="panel"><h3 id="hb">B</h3><p class="note" id="xb"></p><div id="fb"></div><h3 style="font:800 15px var(--f-display);margin:14px 0 6px">Ceux qu'il a battus</h3><div id="kb"></div></div>
+  </div>
+</section>
+
+<section id="v-echelle" hidden>
+  <h2>L'échelle commune</h2>
+  <p class="lead">Chaque point est un personnage à son apogée, placé selon « combien de fois un humain normal » (échelle logarithmique : chaque graduation multiplie par 1 000). Survole un point pour son nom et sa fourchette à 80 %. Tout en haut de Dragon Ball (anges, Gas…), on dépasse le plus gros exploit chiffré : c'est une extrapolation.</p>
+  <div class="panel ladder"><div class="chart" id="lad"></div></div>
+</section>
+
+<section id="v-exploits" hidden>
+  <h2>Les exploits utilisés</h2>
+  <p class="lead">Chaque exploit est un ordre de grandeur calculé à partir du manga, avec ses hypothèses. L'écart dit si l'exploit colle au reste de l'œuvre : au-delà de ±2, il est « hors norme » et le modèle lui accorde moins de poids (vraisemblance robuste).</p>
+  <div class="panel tw"><table><thead><tr><th>Œuvre</th><th>Personnage</th><th>Exploit</th><th>Valeur</th><th>Écart</th></tr></thead><tbody id="ft"></tbody></table></div>
+</section>
+
+<section id="v-methode" hidden class="method">
+  <h2>Comment ça marche</h2>
+  <div class="panel">
+    <p><b>Une échelle physique commune.</b> L'unité est un humain adulte normal (un coup de poing d'environ 125 joules). Un personnage « à 10<sup>12</sup> » frappe avec l'énergie de mille milliards d'humains. Dans chaque œuvre, la force estimée par le modèle de l'œuvre est reliée à cette échelle par une droite : un point de départ et une pente (combien de fois plus fort à chaque échelon). Ces deux nombres sont estimés pour chaque œuvre, avec leur incertitude.</p>
+    <p><b>Trois sortes de preuves, toutes canon.</b> Les exploits chiffrés (une ville rasée, la Lune détruite, un lancer de poids) ; les simples humains armés qui se battent dans l'œuvre (soldats du Ruban rouge, Marines ordinaires, bandits) ; et les rencontres avec des êtres réels. Les niveaux de puissance officiels ne servent pas : ce ne sont pas des grandeurs physiques.</p>
+    <p><b>Les exploits contradictoires sont amortis.</b> La fiction n'est pas cohérente (Roshi qui détruit la Lune au début de Dragon Ball). Le modèle suppose qu'un exploit peut s'écarter fortement de la tendance (loi de Student) et estime lui-même l'ampleur de ces écarts. Soulever, courir et encaisser ont leur propre pente, estimée sur les données : dans la fiction, soulever une montagne grandit bien moins vite que la puissance des attaques.</p>
+    <p><b>La cote : chacun dans les règles de l'autre.</b> Pour A contre B, on place B dans l'échelle de l'œuvre de A et on applique le modèle de cette œuvre, puis l'inverse ; la cote affichée est la moyenne des deux. Entre deux personnages de la même œuvre, on retrouve exactement la cote de l'œuvre. Quand les deux projections divergent, c'est que les deux œuvres n'ont pas la même « physique ».</p>
+    <p><b>Limites.</b> Version expérimentale : 7 à 10 exploits par œuvre, ce qui laisse une incertitude d'environ un facteur 20 sur le point de départ de chaque œuvre. Les pouvoirs à effet spécial (genjutsu, domaines, fruits du démon logia, immortalité) ne se convertissent pas en énergie : la cote compare la puissance de combat brute, pas les « hax ». Chaque nouvel exploit sourcé resserre la fourchette.</p>
+    <p class="note" id="meta"></p>
+  </div>
+</section>
+</div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+const D=JSON.parse(document.getElementById('data').textContent);
+const NV=D.verses.length,TH=D.theta,LL=D.L,P=TH.length;
+const esc=s=>String(s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const pct=x=>Math.round(x*100)+' %';
+function rnorm(){let u=0,v=0;while(!u)u=Math.random();while(!v)v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)}
+const VI=Object.fromEntries(D.verses.map((v,i)=>[v.id,i]));
+const ser=(v,c,a)=>D.verses[v].chars[c].s.find(x=>x[0]===a);
+const ANAME=D.verses.map(v=>Object.fromEntries(v.arcs));
+const AIDX=D.verses.map(v=>Object.fromEntries(v.arcs.map((a,i)=>[a[0],i])));
+// u moyen et écart-type par la méthode delta (a, log b corrélés)
+function uStat(v,m,sd){const a=TH[v],lb=TH[NV+v],b=Math.exp(lb);const C=k=>LL[k].slice(0,k+1);
+  const cov=(i,j)=>{let s=0;for(let k=0;k<=Math.min(i,j);k++)s+=LL[i][k]*LL[j][k];return s};
+  const va=cov(v,v),vb=cov(NV+v,NV+v),cab=cov(v,NV+v);const gu=[1,b*m];
+  const vu=va+gu[1]*gu[1]*vb+2*gu[1]*cab+b*b*sd*sd;return [a+b*m,Math.sqrt(vu)]}
+function words(u){if(u<0.5)return 'à peu près un humain';const x=Math.pow(10,u);
+  const S=[[1e18,'trillions'],[1e15,'billiards'],[1e12,'billions'],[1e9,'milliards'],[1e6,'millions'],[1e3,'mille']];
+  if(u>=21)return `10<sup>${u.toFixed(0)}</sup> fois un humain`;
+  for(const [k,n] of S)if(x>=k){const r=x/k;return `${r>=100?Math.round(r):r>=10?Math.round(r):r.toFixed(1).replace('.',',')} ${n==='mille'?'mille':n} de fois un humain`.replace('mille de','mille')}
+  return `${x>=10?Math.round(x):x.toFixed(1).replace('.',',')} fois un humain`}
+function energy(u){const J=Math.pow(10,D.humain.energie[0]+u);const H=6.3e13;
+  if(J<4.184e9)return `${J<1e6?Math.round(J).toLocaleString('fr-FR')+' J':(J/1e6).toFixed(0)+' MJ'}`;
+  if(J<H/10)return `${(J/4.184e9).toPrecision(2).replace('.',',')} t de TNT`;
+  const n=J/H;return n<1e6?`${n<10?n.toFixed(1).replace('.',','):Math.round(n).toLocaleString('fr-FR')} bombe${n>=2?'s':''} d'Hiroshima`:`10<sup>${Math.log10(n).toFixed(0)}</sup> bombes d'Hiroshima`}
+// cote : chacun projeté dans l'échelle de l'autre
+function odds(va,ma,sa,vb,mb,sb,n=6000){const acc=[[0,0],[0,0]];
+  for(let i=0;i<n;i++){const z=Array.from({length:P},rnorm),t=TH.map((m,k)=>{let s=m;for(let j=0;j<=k;j++)s+=LL[k][j]*z[j];return s});
+    const a=k=>t[k],b=k=>Math.exp(t[NV+k]);const xa=ma+sa*rnorm(),xb=mb+sb*rnorm();const ua=a(va)+b(va)*xa,ub=a(vb)+b(vb)*xb;
+    [va,vb].forEach((w,j)=>{const d=D.verses[w].tier*((ua-a(w))/b(w)-(ub-a(w))/b(w)),c1=D.verses[w].c1;acc[j][0]+=1-1/(1+Math.exp(-(c1-d)));acc[j][1]+=1/(1+Math.exp(c1+d))})}
+  const p=acc.map(x=>[x[0]/n,x[1]/n]);return {pa:(p[0][0]+p[1][0])/2,pb:(p[0][1]+p[1][1])/2,p}}
+// ---- sélecteurs
+const sel=id=>document.getElementById(id);
+function fillV(s,def){s.innerHTML=D.verses.map(v=>`<option value="${v.id}">${esc(v.label)}</option>`).join('');s.value=def}
+function fillC(s,v,def){const ch=D.verses[VI[v]].chars;const ks=Object.keys(ch).filter(c=>!ch[c].g).sort((x,y)=>ch[x].n.localeCompare(ch[y].n,'fr'));
+  s.innerHTML=ks.map(c=>`<option value="${c}">${esc(ch[c].n)}</option>`).join('');s.value=ks.includes(def)?def:ks[0]}
+function fillA(s,v,c,def){const se=D.verses[VI[v]].chars[c].s;s.innerHTML=se.map(x=>`<option value="${x[0]}">${esc(ANAME[VI[v]][x[0]])}</option>`).join('');
+  s.value=se.some(x=>x[0]===def)?def:se[se.length-1][0]}
+fillV(sel('va'),'jujutsukaisen');fillC(sel('ca'),'jujutsukaisen','sukuna');fillA(sel('aa'),'jujutsukaisen','sukuna','shinjuku2');
+fillV(sel('vb'),'onepiece');fillC(sel('cb'),'onepiece','luffy');fillA(sel('ab'),'onepiece','luffy','wano5');
+['a','b'].forEach(k=>{sel('v'+k).addEventListener('change',()=>{fillC(sel('c'+k),sel('v'+k).value,'');fillA(sel('a'+k),sel('v'+k).value,sel('c'+k).value,'');duel()});
+  sel('c'+k).addEventListener('change',()=>{fillA(sel('a'+k),sel('v'+k).value,sel('c'+k).value,'');duel()});sel('a'+k).addEventListener('change',duel)});
+function featsOf(v,c){return D.feats.filter(f=>f.verse===D.verses[v].id&&f.c===c)}
+function featHTML(f){const unit={energie:'J',resistance:'J encaissés',force:'kg',vitesse:'m/s'}[f.kind];
+  return `<div class="feat"><span>${esc(f.label)} <span class="note">(${esc(f.ref)})</span></span><span class="q">10<sup>${f.y}</sup> ${unit}</span><span class="c">${esc(f.calc)}${Math.abs(f.z)>2?' · <span class="warn">hors norme</span>':''}</span></div>`}
+function beaten(v,c,arc){const V=D.verses[v],ai=AIDX[v][arc],out=new Map();
+  V.fights.forEach(([fa,A,B,res])=>{if(res!=='A'||!A.includes(c)||AIDX[v][fa]>ai)return;B.forEach(o=>{const ch=V.chars[o];if(!ch||ch.g)return;const s=ch.s.find(x=>x[0]===fa)||ch.s[ch.s.length-1];
+    const [u]=uStat(v,s[1],s[2]);if(!out.has(o)||out.get(o).u<u)out.set(o,{o,u,arc:fa,solo:A.length===1})})});
+  return [...out.values()].sort((x,y)=>y.u-x.u).slice(0,5)}
+function side(k){const v=VI[sel('v'+k).value],c=sel('c'+k).value,arc=sel('a'+k).value,s=ser(v,c,arc),[u,us]=uStat(v,s[1],s[2]);const V=D.verses[v];
+  sel('h'+k).textContent=`${V.chars[c].n} · ${ANAME[v][arc]}`;
+  sel('x'+k).innerHTML=`Environ <b>${words(u)}</b> (fourchette à 80 % : 10<sup>${(u-1.28*us).toFixed(1)}</sup> à 10<sup>${(u+1.28*us).toFixed(1)}</sup>). Son coup type : <b>${energy(u)}</b>.`;
+  const fs=featsOf(v,c);sel('f'+k).innerHTML=fs.length?fs.map(featHTML).join(''):'<p class="note">Pas d\'exploit chiffré pour ce personnage : sa place vient de ses combats et des exploits des autres.</p>';
+  const bs=beaten(v,c,arc);sel('k'+k).innerHTML=bs.length?bs.map(b=>{const fo=featsOf(v,b.o);return `<div class="feat"><span><b>${esc(V.chars[b.o].n)}</b> <span class="note">(${esc(ANAME[v][b.arc])}${b.solo?'':', en équipe'})</span></span><span class="q">${words(b.u).replace(' de fois un humain','').replace(' fois un humain','')}</span>${fo.length?`<span class="c">qui a lui-même : ${fo.map(f=>esc(f.label)).join(' ; ')}</span>`:''}</div>`}).join(''):'<p class="note">Aucune victoire enregistrée jusqu\'à ce moment.</p>';
+  return {v,m:s[1],sd:s[2],u,us,name:V.chars[c].n}}
+function duel(){const A=side('a'),B=side('b');const o=odds(A.v,A.m,A.sd,B.v,B.m,B.sd);
+  sel('pa').textContent=pct(o.pa);sel('pb').textContent=pct(o.pb);sel('pd').textContent=pct(1-o.pa-o.pb);sel('na').textContent=A.name;sel('nb').textContent=B.name;
+  sel('ba').style.flexBasis=(o.pa*100)+'%';sel('bd').style.flexBasis=((1-o.pa-o.pb)*100)+'%';sel('bb').style.flexBasis=(o.pb*100)+'%';
+  sel('bar').setAttribute('aria-label',`${A.name} ${pct(o.pa)}, nul ${pct(1-o.pa-o.pb)}, ${B.name} ${pct(o.pb)}`);
+  const L=D.verses;sel('proj').innerHTML=A.v===B.v?'Même œuvre : c\'est la cote du modèle de l\'œuvre.':
+    `Dans les règles de ${esc(L[A.v].label)} : ${esc(A.name)} ${pct(o.p[0][0])} ; dans les règles de ${esc(L[B.v].label)} : ${pct(o.p[1][0])}. Moyenne des deux. ${Math.abs(o.p[0][0]-o.p[1][0])>.1?'<span class="warn">Les deux œuvres ne racontent pas la même chose : à prendre avec prudence.</span>':''}`}
+// ---- échelle
+const COLS=['#eb6834','#2a78d6','#1baf7a','#eda100'];
+function short(n){return n.replace(/\s*\(.*\)\s*/,'').replace(/^Monkey D\. /,'').replace(/^Edward /,'').replace(/^Gol D\. /,'').replace(/^Ryomen /,'').replace(/^Satoru /,'').replace(/^Charlotte /,'')}
+function ladder(){const rows=[];D.verses.forEach((V,v)=>{Object.entries(V.chars).forEach(([c,ch])=>{if(ch.g)return;const best=ch.s.reduce((p,q)=>q[1]>p[1]?q:p);const [u,us]=uStat(v,best[1],best[2]);rows.push({v,c,n:ch.n,u,us,arc:best[0]})})});
+  const umax=Math.ceil((Math.max(...rows.map(r=>r.u))+2)/3)*3,umin=-3;const W=980,BH=130,Hh=50+D.verses.length*BH,x=u=>70+(u-umin)/(umax-umin)*(W-90);
+  const h=k=>{let n=0;for(const ch of k)n=(n*31+ch.charCodeAt(0))%9973;return n/9973};
+  let s=`<svg viewBox="0 0 ${W} ${Hh}" role="img" aria-label="Échelle commune des personnages">`;
+  for(let g=0;g<=umax;g+=3){s+=`<line x1="${x(g)}" x2="${x(g)}" y1="30" y2="${Hh-10}" stroke="var(--grid)"/><text x="${x(g)}" y="22" text-anchor="middle">10^${g}</text>`}
+  D.verses.forEach((V,v)=>{const y0=40+v*BH,yc=y0+70;s+=`<text x="4" y="${y0+16}" style="font-weight:600;fill:var(--ink)">${esc(V.label)}</text>`;
+    const fmax=Math.max(...D.feats.filter(f=>f.verse===V.id).map(f=>f.pred));
+    const top=rows.filter(r=>r.v===v).sort((a,b)=>b.u-a.u);
+    top.forEach(r=>{const y=yc+(h(r.c)-.5)*30;s+=`<g class="dot"><title>${esc(r.n)} · 10^${r.u.toFixed(1)} (fourchette 10^${(r.u-1.28*r.us).toFixed(1)} à 10^${(r.u+1.28*r.us).toFixed(1)})</title><circle cx="${x(r.u)}" cy="${y}" r="4" fill="${COLS[v]}" fill-opacity=".8"/></g>`});
+    top.slice(0,6).forEach((r,k)=>{const y=yc+(h(r.c)-.5)*30,ly=k%2?yc+30+Math.floor(k/2)*12:yc-26-Math.floor(k/2)*12;
+      s+=`<g class="hl"><line x1="${x(r.u)}" x2="${x(r.u)}" y1="${y}" y2="${ly+(k%2?-9:3)}" stroke="var(--ink3)" stroke-width=".7"/><text x="${x(r.u)}" y="${ly}" text-anchor="${x(r.u)>W-80?'end':'middle'}">${esc(short(r.n))}</text></g>`})});
+  s+=`<line x1="${x(0)}" x2="${x(0)}" y1="30" y2="${Hh-10}" stroke="var(--ink3)" stroke-dasharray="3 3"/><text x="${x(0)+4}" y="${Hh-14}">humain normal</text></svg>`;sel('lad').innerHTML=s}
+// ---- exploits
+function feats(){const L=Object.fromEntries(D.verses.map(v=>[v.id,v]));const unit={energie:'J',resistance:'J',force:'kg',vitesse:'m/s'};
+  sel('ft').innerHTML=D.feats.map(f=>`<tr><td>${esc(L[f.verse].label)}</td><td>${esc(L[f.verse].chars[f.c].n)}<br><span class="note">${esc(ANAME[VI[f.verse]][f.arc])}</span></td><td>${esc(f.label)}<br><span class="note">${esc(f.ref)} · ${esc(f.calc)}</span></td><td class="mono">10^${f.y} ${unit[f.kind]}</td><td class="mono${Math.abs(f.z)>2?' warn':''}">${f.z>0?'+':''}${f.z.toFixed(1)}</td></tr>`).join('');
+  sel('meta').textContent=`${D.feats.length} exploits chiffrés, ${D.verses.length} œuvres. Écart typique d'un exploit à la tendance : ${D.sigma.toFixed(1)} décade (un facteur ${Math.round(Math.pow(10,D.sigma))}).`}
+// ---- navigation
+const VIEWS=['duel','echelle','exploits','methode'];
+function route(){const h=(location.hash||'#duel').slice(1),v=VIEWS.includes(h)?h:'duel';VIEWS.forEach(x=>sel('v-'+x).hidden=x!==v);
+  document.querySelectorAll('nav a').forEach(a=>a.setAttribute('aria-current',a.getAttribute('href')==='#'+v?'page':'false'));if(v==='echelle')ladder();if(v==='exploits')feats()}
+addEventListener('hashchange',route);duel();route();feats();
+</script>
