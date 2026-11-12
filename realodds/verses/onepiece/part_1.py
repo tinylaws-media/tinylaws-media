@@ -331,7 +331,7 @@ fight(0.716, "water7", "lucci", ["luffy", "zoro"], "A", 3, note="Galley-La, Tekk
 fight(0.72, "water7", "sanji", "wanze", "A", 2, note="Sea Train (ch. 368-369)")
 fight(0.721, "water7", "franky", "nero", "A", 3, note="Sea Train, Nero projeté à travers un wagon (ch. 370-373)")
 fight(0.722, "water7", "zoro", "t_bone", "A", 3, note="Rocket Man, T-Bone abattu d'un coup (Gyuki Yuzume) (ch. 371)")
-fight(0.73, "water7", "luffy", "blueno", "A", 2, ta=["eveil"], note="Première utilisation du Gear 2 (ch. 387-388)")
+fight(0.73, "water7", "luffy", "blueno", "A", 2, note="Première utilisation du Gear 2 (ch. 387-388) ; tag « eveil » retiré (audit vidéo) : le Gear 2 est déjà le saut daté 0.7299")
 fight(0.731, "water7", "kalifa", "sanji", "A", 2, tb=["retenue"], note="Sanji refuse de frapper une femme (ch. 402-403)")
 fight(0.732, "water7", "kumadori", "chopper", "A", 2, note="Rumble Ball prématurée, Chopper d'abord battu (ch. 406-407)")
 fight(0.733, "water7", "franky", "fukurou", "A", 2, note="Coup de Vent (ch. 404-406)")
@@ -339,7 +339,7 @@ fight(0.734, "water7", "chopper", "kumadori", "A", 2, ta=["eveil"], note="Monste
 fight(0.735, "water7", "nami", "kalifa", "A", 1, note="Thunder Lance Tempo (ch. 411)")
 fight(0.736, "water7", "sanji", "jabra", "A", 2, note="Première Diable Jambe (ch. 413-415)")
 fight(0.737, "water7", "zoro", "kaku", "A", 2, note="Asura Ichibugin (ch. 416-417)")
-fight(0.74, "water7", "luffy", "lucci", "A", 1, ta=["eveil"], note="Gear 2 et Gear 3, Jet Gatling final (ch. 419-427)")
+fight(0.74, "water7", "luffy", "lucci", "A", 1, note="Gear 2 et Gear 3, Jet Gatling final (ch. 419-427) ; tag « eveil » retiré (audit vidéo) : Gear 2/3 déjà dans le saut daté 0.7299")
 fight(0.741, "water7", "robin", "spandam", "A", 3, note="Robin se venge de Spandam (ch. 428-429)")
 fight(0.775, "water7", "shanks", "whitebeard", "D", ta=[], tb=[],
       note="Shanks rend visite à Barbe Blanche, choc de Haki (ch. 434)", flags="i")
@@ -434,5 +434,8 @@ fight(0.9525, "marineford", "shanks", "akainu", "D", note="Shanks bloque le poin
 # ================================================================ après-guerre
 fight(0.96, "marineford", "blackbeard_pirates", "magellan", "A", 2,
       note="Pendant l'évasion du niveau 6, Magellan battu à mort par l'équipage de Teach, puis rétrogradé (hors champ ; arrivée de Teach avec ses recrues ch. 575, chapitre de la révélation non trouvé)", flags="?")
+fight(1.9, "fishman", ["blackbeard", "blackbeard_pirates"], ["marco", "vista"], "A", 2,
+      note="Guerre de représailles, environ un an après Marineford : les restes de l'équipage de Barbe Blanche menés par Marco subissent une lourde défaite (ch. 820, récit) ; "
+           "présence de Teach en personne non montrée, d'où « ? » ; ajouté à l'audit vidéo", flags="?")
 fight(1.5, "marineford", "akainu", "aokiji", "A", 1,
       note="Dix jours de combat à Punk Hazard pour le poste d'amiral en chef (ellipse, révélé par Jinbe ch. 650)")

@@ -181,7 +181,12 @@ ORDER = [
     ("jiraiya", 12.65, "kisame", 12.65, 0.3, 1.5, "Itachi : même à deux contre Jiraiya, nous y laisserions la vie (ch. ~147) ; propos peu fiable : Itachi, agent double, évite tout combat contre Konoha"),
     ("jiraiya", 12.65, "itachi", 12.65, 0.0, 1.5, "Itachi : même à deux contre Jiraiya, nous y laisserions la vie (ch. ~147) ; propos peu fiable : Itachi, agent double, évite tout combat contre Konoha, donc incertitude large"),
     # ---- Itachi / Kakashi / Gai
-    ("itachi", 12.65, "kakashi", 12.65, 0.6, 0.7, "Itachi neutralise Kakashi (Tsukuyomi) et juge qu'un combat contre lui « prendrait trop de temps » (ch. 142-144)"),
+    # corrigé (audit des 25 duels) : la phrase du ch. 142 porte sur Kisame contre Kakashi, pas sur Itachi ; Itachi > Kakashi vient du combat lui-même
+    ("kisame", 12.55, "kakashi", 12.55, -0.3, 0.8, "Itachi retient Kisame : contre Kakashi, forces trop proches, le combat coûterait temps et peine (ch. 142)"),
+    ("kakashi", 12.55, "kisame", 12.55, -0.3, 0.8, "Itachi retient Kisame : contre Kakashi, forces trop proches, le combat coûterait temps et peine (ch. 142)"),
+    ("itachi", 12.5, "orochimaru", 12.5, 0.3, 0.8, "Orochimaru reconnaît qu'Itachi est plus fort que lui (ch. 140 p. 5)"),
+    ("shisui", 7.9, "itachi", 7.9, -0.3, 0.8, "La maîtrise du Sharingan de Shisui rivalisait avec celle d'Itachi (ch. 222 p. 7)"),
+    ("itachi", 7.9, "shisui", 7.9, -0.3, 0.8, "La maîtrise du Sharingan de Shisui rivalisait avec celle d'Itachi (ch. 222 p. 7)"),
     ("gai", 17.03, "kakashi", 17.03, 0.5, 0.7, "Kakashi reconnaît que Gai l'a surpassé quand il ouvre la 8e porte (ch. 667-669)"),
     # ---- Suna
     ("kazekage3", -25.0, "rasa", 12.0, 0.5, 0.7, "3e Kazekage, Kage le plus puissant de l'histoire de Suna (ch. 266 p. 11, 268 p. 9)"),

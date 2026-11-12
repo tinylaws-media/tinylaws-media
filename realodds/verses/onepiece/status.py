@@ -10,7 +10,7 @@ Egghead 2.5-2.55, Elbaf 2.6+. God Valley -38, exécution de Roger -22.
 """
 
 STATUS = [
-    ("loki", 2.6, 6.8, 0.6, "Prince d'Elbaf, fruit mythique, prime 2,6 Mds ; Luffy ne le bat qu'enchaîné (ch. 1130-1143)"),
+    ("loki", 2.6, 6.8, 0.8, "Prince d'Elbaf, fruit mythique, prime « spéciale » de 2,6 Mds fixée par le Gouvernement (ch. 1131) : prime à part, sd élargi à l'audit vidéo ; Luffy ne le bat qu'à l'agonie et menotté (ch. 1143)"),
     ("gaban", 2.6, 6.8, 0.6, "Bras gauche de Roger, toujours de premier plan à Elbaf (ch. 1159-1190)"),
     # ---------------- Légendes et God Valley ----------------
     ("rocks", -38.0, 8.5, 0.6, "Capitaine des pirates de Rocks, chef de Whitebeard, Big Mom, Kaido ; il faut l'alliance Roger + Garp pour l'abattre (ch. 957, 1096, 1165-1166)"),
@@ -302,8 +302,10 @@ ORDER = [
     ("rocks", -38.0, "whitebeard", 0.9, 0.8, 0.8, "Rocks, que seule l'alliance Roger + Garp a pu vaincre, au-dessus de Whitebeard vieilli (ch. 957, 1166)"),
     ("rocks", -38.0, "kaido", 2.4, 0.8, 0.8, "Rocks, ancien capitaine de Kaido, abattu seulement par Roger + Garp (ch. 957, 1001, 1166)"),
     ("rocks", -38.0, "big_mom", 2.35, 1.0, 0.8, "Rocks, ancien capitaine de Big Mom, abattu seulement par Roger + Garp (ch. 957, 1166)"),
-    ("rocks", -38.0, "roger", -38.0, 0.5, 0.5, "Ni Roger ni Garp ne pouvaient abattre Rocks seuls : il faut leur alliance à God Valley (ch. 957, 1165-1166)"),
-    ("rocks", -38.0, "garp", -38.0, 0.5, 0.5, "Ni Roger ni Garp ne pouvaient abattre Rocks seuls : il faut leur alliance à God Valley (ch. 957, 1165-1166)"),
+    # audit vidéo : « ni Roger ni Garp ne pouvaient l'abattre seuls » vaut pour Rocks démonisé par le Domi Reversi d'Imu (ch. 1163-1165),
+    # déjà compté par le tag « possede » du combat ; pour Rocks lui-même il ne reste que la réputation (ch. 957) : écart réduit, incertitude large
+    ("rocks", -38.0, "roger", -38.0, 0.2, 0.8, "Rocks, capitaine de Whitebeard, Big Mom et Kaido, réputé au-dessus de son rival Roger (ch. 957) ; l'alliance Roger + Garp visait Rocks sous Domi Reversi (ch. 1163-1165)"),
+    ("rocks", -38.0, "garp", -38.0, 0.2, 0.8, "Rocks réputé au-dessus de Garp (ch. 957) ; l'alliance Roger + Garp visait Rocks sous Domi Reversi (ch. 1163-1165)"),
     ("rocks", -38.0, "garling", -38.0, 2.0, 0.8, "Rocks écrase sans peine Garling et ses hommes à God Valley (ch. 1160-1161)"),
     ("imu", -38.0, "rocks", -38.0, 0.5, 0.8, "Imu encaisse l'attaque combinée de six Haki des rois et prend le contrôle de Rocks par Domi Reversi (ch. 1163)"),
     ("imu", 2.5, "saturn", 2.5, 2.0, 0.8, "Les Doyens s'agenouillent devant Imu, souverain absolu du Gouvernement mondial (ch. 906, 1086)"),
@@ -318,6 +320,7 @@ ORDER = [
     ("roger", -24.0, "gaban", -24.0, 0.4, 0.6, "Capitaine et son bras gauche (ch. 966, 1096)"),
     ("rayleigh", -24.0, "gaban", -24.0, -0.3, 0.4, "Bras droit et bras gauche du Roi des pirates, présentés d'égal à égal (ch. 966, 1096)"),
     ("gaban", -24.0, "rayleigh", -24.0, -0.3, 0.4, "Bras droit et bras gauche du Roi des pirates, présentés d'égal à égal (ch. 966, 1096)"),
+    ("gaban", -24.0, "rayleigh", -24.0, 0.1, 1.0, "Gaban, à peine conscient, se dit « n°2 » de l'équipage de Roger (ch. 1151) : déclaration intéressée, incertitude très large (audit vidéo)"),
     ("roger", -24.0, "oden", -24.0, 0.7, 0.7, "Oden rejoint l'équipage de Roger comme membre (ch. 966-968)"),
     ("whitebeard", -24.0, "kaido", -20.0, 1.0, 0.8, "Whitebeard au sommet, « homme le plus fort du monde », quand Kaido monte en puissance (ch. 552, 966)"),
     # ---------- Whitebeard ----------
@@ -354,6 +357,7 @@ ORDER = [
     ("blackbeard", 2.45, "burgess", 2.45, 1.2, 0.6, "Empereur et son 1er capitaine titanesque (ch. 925)"),
     ("blackbeard", 2.45, "pizarro", 2.45, 1.2, 0.6, "Empereur et son capitaine titanesque (ch. 925)"),
     ("blackbeard", 2.45, "aokiji", 2.45, 0.3, 0.9, "L'ancien amiral Kuzan sert désormais Barbe Noire (ch. 925, 1059)"),
+    ("blackbeard", 2.46, "rayleigh", 2.46, 0.3, 0.8, "Amazon Lily : Rayleigh admet qu'à son âge il ne battrait pas le Barbe Noire actuel, mais Teach se retire devant lui (ch. 1059) ; aveu prudent, incertitude large (audit vidéo)"),
     ("shanks", 2.5, "ryokugyu", 2.45, 0.8, 0.7, "Ryokugyu renonce face au seul Haki des rois de Shanks (ch. 1055, 1079)"),
     ("shanks", -15.0, "mihawk", -15.0, -0.3, 0.4, "Rivaux dont les duels « ébranlaient Grand Line » (ch. 434)"),
     ("mihawk", -15.0, "shanks", -15.0, -0.3, 0.4, "Rivaux dont les duels « ébranlaient Grand Line » (ch. 434)"),

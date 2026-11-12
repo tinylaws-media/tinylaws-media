@@ -155,7 +155,7 @@ JUMPS_PART = [
     # Wano
     ("luffy", 2.4165, 0.5, 0.5, "Ryuo / Haki émis appris à Udon (ch. 939-948)"),
     ("zoro", 2.42, 0.3, 0.4, "Obtient Enma (ch. 955)"),
-    ("luffy", 2.4435, 0.5, 0.5, "Haki des rois imprégné maîtrisé (ch. 1010-1043)"),
+    ("luffy", 2.4399, 0.5, 0.5, "Haki des rois imprégné, découvert pendant le duel du toit contre Kaido (ch. 1010-1015) ; daté 2.4435 avant l'audit vidéo, le combat portait un tag haki_roi à la place"),
     ("robin", 2.4439, 0.4, 0.4, "Demonio Fleur (ch. 1021-1022)"),
     ("sanji", 2.4459, 0.8, 0.6, "Éveil du corps modifié Germa (ch. 1031-1034)"),
     ("zoro", 2.4461, 0.8, 0.6, "Haki des rois éveillé et imprégné (ch. 1033-1035)"),
@@ -238,6 +238,10 @@ fight(2.232, "punkhazard", "bartolomeo", "elizabello", "A", 2, note="Bloc B : la
 fight(2.233, "punkhazard", "luffy", "hajrudin", "A", 3, note="Bloc C, un seul coup de poing au visage (ch. 714)")
 fight(2.234, "punkhazard", "luffy", "chinjao", "A", 3, note="Bloc C, Thor Elephant Gun (ch. 718-719)")
 fight(2.237, "punkhazard", "doflamingo", "law", "A", 2, note="Green Bit puis le pont : Law capturé et blessé par balles (ch. 722-730)")
+fight(2.2368, "punkhazard", "fujitora", "law", "A", 2,
+      note="Green Bit : Fujitora plaque Law au sol par la gravité, Law s'échappe avec Caesar avant l'arrivée de Doflamingo (ch. 722-723) ; ajouté à l'audit vidéo", flags="i")
+fight(2.2378, "punkhazard", "fujitora", "zoro", "A", 2,
+      note="Zoro vise Doflamingo, Fujitora s'interpose, l'enfonce dans le sol et repousse son tranchant volant (ch. 729-730) ; ajouté à l'audit vidéo", flags="i")
 fight(2.2375, "punkhazard", "doflamingo", "sanji", "A", 2, note="Sanji immobilisé, Law le téléporte (ch. 723-724)", flags="i")
 fight(2.24, "punkhazard", "cavendish", "suleiman", "A", 3, ta=["surprise"],
       note="Bloc D : Hakuba, réveillé, fauche tous les combattants sauf Rebecca (ch. 734)")
@@ -327,6 +331,8 @@ fight(2.4161, "wano", "big_mom", ["luffy", "hyogoro"], "A", 2, note="Sumo Infern
 fight(2.417, "wano", "luffy", "babanuki", "A", 2, note="Luffy noue la trompe, l'Excite Shell explose dans Babanuki (ch. 949)")
 fight(2.4199, "wano", "hawkins", "law", "A", 2, tb=["protege"],
       note="Hawkins lie Bepo, Shachi et Penguin à sa paille ; Law se rend (ch. 945-951)")
+fight(2.4195, "wano", "big_mom", "kaido", "D",
+      note="Onigashima : à peine démenottée, Big Mom attaque Kaido, Napoleon contre Hassaikai, le ciel se fend ; pas de vainqueur montré, puis alliance (ch. 951-954) ; ajouté à l'audit vidéo", flags="i")
 fight(2.42, "wano", "zoro", "gyukimaru", "D", note="Second duel, Kawamatsu intervient (ch. 951-952)", flags="i")
 fight(2.421, "wano", "inuarashi", "ashura_doji", "D", note="Combat à égalité, Kin'emon arrête (chapitre non retrouvé)", flags="i?")
 
@@ -347,7 +353,7 @@ fight(2.4393, "wano", "perospero", ["carrot", "wanda"], "A", 2, tb=["epuise"],
 fight(2.4395, "wano", "chopper", "queen", "A", 1, ta=["surprise"],
       note="Le Chopperphage guérit l'Ice Oni, les Pleasures se retournent contre Queen ; Marco le saisit au cou et Chopper, en Monster Point, "
            "le gifle en sang (ch. 1007)", flags="i")
-fight(2.44, "wano", "kaido", "luffy", "A", 2, tb=["haki_roi"], note="Luffy découvre le Haki des rois imprégné mais tombe (ch. 1010-1015)")
+fight(2.44, "wano", "kaido", "luffy", "A", 2, note="Luffy découvre le Haki des rois imprégné mais tombe (ch. 1010-1015)")
 fight(2.4401, "wano", "big_mom", "ulti", "A", 3, note="Napoleon, Prometheus et Hera combinés ; Ulti assommée en voulant tuer Nami (ch. 1013)")
 fight(2.4405, "wano", "kinemon", "kanjuro", "A", 2, tb=["surprise"],
       note="Kanjuro, déguisé en Oden, transperce Kiku ; Kin'emon lui porte le coup fatal (ch. 1014)")
@@ -363,13 +369,13 @@ fight(2.4447, "wano", "nekomamushi", "perospero", "A", 2, ta=["boost"],
       note="Sulong, d'abord dominé quand la lune se cache, puis Oden Ittoryu: Neko Niko Ban (ch. 1023-1026)")
 fight(2.4455, "wano", "killer", "hawkins", "A", 2,
       note="Blessures d'abord renvoyées sur la poupée de Kid (ch. 1022) ; Killer lui coupe le bras et décapite l'homme de paille (ch. 1029)")
-fight(2.446, "wano", "sanji", "queen", "A", 2, ta=["boost"], note="Sanji éveille son corps modifié (ch. 1031-1034)")
-fight(2.4462, "wano", "zoro", "king", "A", 1, ta=["haki_roi"], note="Haki des rois imprégné et Enma, Kokujo O Tatsumaki ; King chute (ch. 1033-1035)")
+fight(2.446, "wano", "sanji", "queen", "A", 2, note="Sanji éveille son corps modifié (ch. 1031-1034) ; tag « boost » retiré (audit vidéo) : déjà le saut daté 2.4459")
+fight(2.4462, "wano", "zoro", "king", "A", 1, note="Haki des rois imprégné et Enma, Kokujo O Tatsumaki ; King chute (ch. 1033-1035) ; tag « haki_roi » retiré (audit vidéo) : déjà le saut daté 2.4461")
 fight(2.447, "wano", "izo", "maha", "D", 1, note="Izo et Maha (CP0) s'entretuent (ch. 1038-1041)")
-fight(2.4472, "wano", ["law", "kid"], "big_mom", "A", 1, ta=["eveil"], tb=["epuise"],
+fight(2.4472, "wano", ["law", "kid"], "big_mom", "A", 1, tb=["epuise"],   # tag « eveil » retiré (audit vidéo) : éveils déjà dans les sauts datés 2.4471
       note="Éveils de Law et Kid, Big Mom jetée par la cheminée jusqu'au dépôt d'armes (ch. 1039-1040)", flags="e")
 fight(2.4474, "wano", "raizo", "fukurokuju", "A", 1, note="Impasse de paralysie, puis Raizo tient plus longtemps dans la pièce en feu (ch. 1040-1046)")
-fight(2.4485, "wano", "kaido", "luffy", "A", 1, ta=["surprise"], tb=["haki_roi", "epuise"],
+fight(2.4485, "wano", "kaido", "luffy", "A", 1, ta=["surprise"], tb=["epuise"],   # tag « haki_roi » retiré (audit vidéo) : déjà le saut daté 2.4399
       note="Le CP0 immobilise Luffy et Kaido le frappe (ch. 1042-1043)")
 fight(2.4486, "wano", "kaido", "guernica", "A", 3, note="Kaido punit le CP0 qui s'est mêlé du duel (ch. 1043)")
 fight(2.4497, "wano5", "luffy", "kaido", "A", 2,

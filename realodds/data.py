@@ -71,7 +71,7 @@ CHARS = {
     "orochimaru": ("Orochimaru", "Oto", 3.0, None, None),
     "sasori": ("Sasori", "Akatsuki", 4.0, 15.52, 15.52),
     "kazekage3": ("3e Kazekage", "Suna", 5.0, -4.0, None),   # disparu ~20 ans avant la 2e partie (Sasori a quitté Suna « il y a 20 ans », ch. 266-268), mort fixée au début de l'arc de la 3e guerre
-    "minato": ("Minato Namikaze", "Konoha", 5.5, 0.02, 0.02),
+    "minato": ("Minato Namikaze", "Konoha", 2.5, 0.02, 0.02),   # 1er nœud = sauvetage de Kushina enfant (-12, ch. 498) : a priori genin + saut daté à l'âge adulte
     "kushina": ("Kushina Uzumaki", "Konoha", 4.0, 0.02, 0.02),
     "a4": ("A (4e Raikage)", "Kumo", 5.0, None, None),
     "killer_b": ("Killer B", "Kumo", 5.0, None, None),
@@ -82,7 +82,7 @@ CHARS = {
     "kurama": ("Kurama (Kyūbi)", "Bijū", 7.0, 33.12, None),
     "nagato": ("Nagato (Pain)", "Akatsuki", 5.0, 16.45, 16.45),
     "konan": ("Konan", "Akatsuki", 3.0, 16.75, None),
-    "itachi": ("Itachi Uchiha", "Akatsuki", 5.5, 16.1, 12.6),   # Edo Tensei : corps sans la maladie -> force d'Itachi en bonne santé (Partie 1)
+    "itachi": ("Itachi Uchiha", "Akatsuki", 3.0, 16.1, 12.6),   # 1er nœud = statut chūnin à 10 ans (t=5) : a priori 5,5 d'adulte remplacé par 3,0 (audit des 25 duels)   # Edo Tensei : corps sans la maladie -> force d'Itachi en bonne santé (Partie 1)
     "kisame": ("Kisame Hoshigaki", "Akatsuki", 5.0, 16.88, None),
     "gozu": ("Gōzu", "Kiri", 2.0, None, None),
     "meizu": ("Meizu", "Kiri", 2.0, None, None),
@@ -192,7 +192,7 @@ EXTRA_TAGS = {"possede": (1.5, 0.8), "renfort": (1.0, 0.7)}
 # renfort : invocations contrôlées d'un tiers (Edo Hashirama et Tobirama d'Orochimaru à l'invasion)
 # La 8e porte de Gai n'est plus un tag : c'est un saut daté (JUMPS), comme toute technique.
 SLOW = {"hiruzen", "onoki", "chiyo"}   # vétérans : le déclin passe par des sauts datés / statuts
-BOOK_TIMES = {1: 12.3, 2: 12.9, 3: 16.5}
+BOOK_TIMES = {1: 12.3, 2: 12.9, 3: 16.3}   # 3e databook (Sha no Sho) paru le 4 sept. 2008, avant l'arc Pain (vol. 45, fév. 2009) : notes d'avant le mode Ermite
 DB_TIME_OVERRIDE = {("obito", 2): -4.0}   # Obito noté enfant (Kakashi Gaiden)
 CHECKS = [("itachi", "guerre4a", "minato", "guerre4b"), ("jiraiya", "tsunade", "orochimaru", "tsunade"),
           ("hashirama", "guerre4b", "madara", "guerre4b"), ("madara", "final", "hashirama", "guerre4b"),
@@ -217,6 +217,8 @@ JUMPS = [
     ("konohamaru", 30.0, 2.5, 1.0, "Jōnin adulte"),
     ("kawaki", 35.0, 1.5, 1.0, "Ellipse de Two Blue Vortex"),
     ("sarada", 35.0, 1.5, 1.0, "Ellipse de Two Blue Vortex"),
+    ("obito", -3.0, 1.0, 0.7, "Mangekyō Sharingan (Kamui) à la mort de Rin (ch. 606)"),
+    ("minato", -8.0, 3.0, 1.0, "Adulte : jōnin, Hiraishin, futur « Éclair jaune » (ch. 240, 498)"),
     ("obito", 16.999, 2.5, 1.0, "Jinchūriki de Jūbi"),
     ("obito", 17.011, -2.5, 0.8, "Bijū arrachés par Naruto, Sasuke et l'Alliance : Obito n'est plus jinchūriki (ch. 652-655)"),
     ("madara", 17.011, 1.0, 1.0, "Retour à la vie, Rinnegan"),
@@ -305,7 +307,7 @@ fight(12.45, "chunin", "naruto", "neji", "A", 1, ta=["possede"], note="Finale : 
 fight(12.451, "chunin", "temari", "shikamaru", "D", note="Shikamaru abandonne alors qu'il la tient")
 fight(12.452, "chunin", "sasuke", "gaara", "A", 2, note="Finale interrompue par l'invasion", flags="i")
 # ---------------------------------------------------------------- invasion
-fight(12.5, "invasion", "orochimaru", "hiruzen", "A", 1, ta=["prepa", "renfort"], tb=["age"],
+fight(12.5, "invasion", "orochimaru", "hiruzen", "A", 1, ta=["prepa", "renfort"],
       note="Hiruzen meurt mais scelle les bras d'Orochimaru ; Edo Hashirama et Tobirama affaiblis")
 fight(12.501, "invasion", "gaara", "sasuke", "A", 2, ta=["possede"], tb=["epuise"], note="Gaara à demi transformé par Shukaku")
 fight(12.502, "invasion", "naruto", "gaara", "A", 2, ta=["boost", "possede"], tb=["possede"], note="Gamabunta contre Shukaku ; Gaara endormi, Shukaku aux commandes ; Naruto puise dans Kurama pour invoquer Gamabunta (ch. 132-138)")
@@ -356,7 +358,7 @@ fight(16.3, "hachibi", "killer_b", ["sasuke", "karin", "suigetsu", "jugo"], "A",
 # ---------------------------------------------------------------- Pain
 fight(16.4, "pain", "nagato", "kakashi", "A", 2, ta=["prepa"])
 fight(16.42, "pain", "nagato", "hinata", "A", 3)
-fight(16.43, "pain", "naruto", "nagato", "A", 2, note="Mode Ermite")
+fight(16.43, "pain", "naruto", "nagato", "A", 2, tb=["epuise"], note="Mode Ermite ; Nagato à bout de chakra après le Shinra Tensei sur Konoha et le Chibaku Tensei (ch. 440-444)")
 # ---------------------------------------------------------------- Sommet des Kage
 fight(16.6, "sommet", "a4", "sasuke", "A", 2, flags="i")
 fight(16.61, "sommet", "mei", "sasuke", "A", 2, tb=["epuise"], flags="i")
@@ -385,7 +387,7 @@ fight(16.997, "guerre4b", "kakashi", "obito", "D", note="Dans la dimension de Ka
 fight(16.996, "guerre4b", ["naruto", "kakashi"], "obito", "A", 1, note="Rasengan et Kamui, masque d'Obito brisé")
 fight(17.008, "guerre4b", "madara", "hashirama", "D", ta=["edo"], tb=["edo"], flags="i")
 fight(17.005, "guerre4b", "obito", ["hashirama", "tobirama", "hiruzen", "minato"], "A", 2, tb=["edo"], note="Obito jinchūriki de Jūbi brise la Barrière rouge et transperce les Hokage (ch. 638-643)")
-fight(17.03, "guerre4c", "madara", "gai", "A", 2, note="Gai ouvre la 8e porte (saut daté) ; Madara, jinchūriki de Jūbi, se régénère et reste debout, Gai s'effondre (ch. 669-671)")
+fight(17.03, "guerre4c", "madara", "gai", "A", 1, note="Gai ouvre la 8e porte (saut daté) ; Sekizō puis Yagai arrachent la moitié gauche du torse de Madara, qui ne survit que par la régénération de jinchūriki ; Gai s'effondre (ch. 669-672) ; marge 2 → 1 (audit des 25 duels)")
 fight(17.035, "guerre4c", ["naruto", "sasuke"], "madara", "A", 1, note="Pouvoir des Six Chemins ; Madara s'échappe et lance le Tsukuyomi infini (ch. 673-674)", flags="i")
 # ---------------------------------------------------------------- Kaguya et Vallée de la Fin
 fight(17.06, "final", ["naruto", "sasuke"], "kaguya", "A", 2, note="Kaguya scellée par Naruto et Sasuke réunis, seuls capables de le faire ; Kakashi, Sakura et Obito en soutien (ch. 678-691)", flags="e")
@@ -430,8 +432,8 @@ fight(36.31, "tbv", "jura", "boruto", "A", 1, note="1re phase du même combat (c
 # ---------------------------------------------------------------- recherche du 8 nov. (Narutopedia, chapitres)
 fight(-12.0, "guerre3", "minato", "kumo_ninja", "A", 3, note="Minato libère Kushina enlevée par Kumo (ch. 498)", flags="?")
 fight(-4.005, "guerre3", ["obito", "kakashi"], "taiseki", "A", 1, tb=["surprise"], note="Taiseki crève l'œil de Kakashi ; Obito éveille son Sharingan et le tue (ch. 242)")
-fight(-3.7, "guerre3", "hanzo", ["yahiko", "nagato", "konan"], "A", 2, ta=["prepa"], note="Piège de Hanzō allié à Danzō, mort de Yahiko (ch. 446)", flags="?")
-fight(-3.699, "guerre3", "nagato", "hanzo", "A", 1, ta=["boost"], note="Statue démoniaque ; Hanzō s'enfuit, Nagato a les jambes détruites (ch. 447)", flags="i")
+# retiré (audit des 25 duels) : Hanzō contre Yahiko, Nagato et Konan (-3,7) — prise d'otage (Konan), Yahiko se jette sur le kunai de Nagato : pas un combat (ch. 446)
+fight(-3.7, "guerre3", "nagato", "hanzo", "A", 1, ta=["boost"], note="Statue démoniaque ; Hanzō s'enfuit, Nagato a les jambes détruites (ch. 447)", flags="i")
 fight(3.3, "hyuga", "hiashi", "kumo_chef", "A", 3, tb=["surprise"], note="Affaire Hyūga (ch. 102)")
 fight(7.98, "akatsuki", "danzo", "shisui", "A", 1, ta=["surprise"], note="Danzō vole l'œil droit de Shisui (ch. 590)", flags="?")
 fight(8.0, "akatsuki", "itachi", "uchiha_police", "A", 3, note="Yashiro, Inabi et Tekka (ch. 222)")
@@ -443,7 +445,7 @@ fight(12.8555, "sasuke", "kimimaro", "naruto", "A", 2, note="Jusqu'à l'arrivée
 fight(15.92, "itachi", ["sasuke", "suigetsu"], "jugo", "A", 2, ta=["retenue"], note="Recrutement de Jūgo (ch. 350-351)")
 # retiré : Konohamaru contre le seul chemin des Enfers (16.402) — un corps sur six, pas Nagato (ch. 426-428)
 fight(16.403, "pain", "nagato", "shizune", "A", 3, note="Le chemin des Humains (ch. 428-429)")
-fight(16.41, "pain", "naruto", "nagato", "A", 2, ta=["prepa"], note="Mode Ermite : cinq chemins détruits (ch. 430-433)")
+fight(16.41, "pain", "naruto", "nagato", "A", 2, ta=["prepa"], tb=["epuise"], note="Mode Ermite : cinq chemins détruits (ch. 430-433) ; Nagato vidé par le Shinra Tensei qui a rasé Konoha (ch. 427-429)")
 fight(16.415, "pain", "nagato", "naruto", "A", 2, tb=["epuise"], note="Hors du Mode Ermite, Tendō cloue Naruto (ch. 433-436)")
 fight(16.425, "pain", "naruto", "nagato", "D", ta=["possede"], note="Naruto à six puis huit queues contre Tendō (ch. 438-440)", flags="i")
 fight(16.598, "sommet", "a4", "jugo", "A", 3, tb=["boost"], note="(ch. 461-462)")
@@ -451,6 +453,7 @@ fight(16.599, "sommet", "darui", "suigetsu", "A", 2, note="(ch. 462-464 env.)", 
 fight(16.615, "sommet", "obito", ["fu_root", "torune"], "A", 3, note="Kamui (ch. 474-475)")
 fight(16.922, "guerre4a", ["gaara", "onoki"], "gengetsu", "A", 2, ta=["epuise"], tb=["edo"], note="(ch. 556-557)")
 fight(16.975, "guerre4a", "madara", ["gaara", "onoki", "alliance"], "A", 2, ta=["edo"], note="Météores sur la 4e division (ch. 560-562)")
+fight(17.0115, "guerre4b", "madara", "hashirama", "A", 2, ta=["surprise"], tb=["edo"], note="Madara ressuscité cloue Edo Hashirama avec ses récepteurs de chakra et lui prend son chakra d'ermite ; Hashirama reste immobilisé (ch. 659-661) (ajout, audit des 25 duels)", flags="?")
 fight(17.012, "guerre4b", "madara", ["naruto", "gaara", "kurama"], "A", 2, note="Madara ressuscité scelle à nouveau les bijū (ch. 658-661)")
 fight(17.013, "guerre4b", "madara", ["tobirama", "sasuke"], "A", 2, tb=["edo"], note="(ch. 661)")
 fight(32.29, "kara", "ao", "konohamaru", "A", 2, note="(ch. 19-20)", flags="?")

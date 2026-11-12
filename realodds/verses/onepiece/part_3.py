@@ -188,7 +188,8 @@ fight(2.62, "elbaf", "gaban", "luffy", "A", 1, ta=["retenue"], tb=["retenue"],
 fight(2.625, "elbaf", ["gunko", "shamrock"], "loki", "A", 2, tb=["epuise"],
       note="Loki, à peine libéré de ses chaînes et blessé, s'effondre sous leurs coups (ch. 1137, 1143)")
 fight(2.626, "elbaf", "luffy", "loki", "A", 1, tb=["epuise"],
-      note="Luffy abat Loki affaibli d'un coup mou ; Zoro le soupçonne de bluffer (ch. 1143)")
+      note="Luffy abat d'un coup mou (Arm Balloon) un Loki à l'agonie, encore menotté au granit marin ; Zoro le soupçonne de bluffer (ch. 1143) ; "
+           "poids réduit (« ? », audit vidéo) : pas un vrai duel", flags="?")
 fight(2.63, "elbaf", "sommers", "saul", "A", 2, note="Épines invisibles puis Saul inconscient (ch. 1143, 1146)")
 fight(2.631, "elbaf", "gunko", ["nami", "jinbe", "brook", "usopp"], "A", 2,
       note="Gunko renvoie Zeus, monte Jinbe contre Brook (Aloe), capture Colon ; Usopp la coupe en deux, elle se régénère (ch. 1146-1147)")
@@ -217,9 +218,9 @@ fight(2.672, "elbaf", "imu", "gaban", "A", 2, tb=["protege"],
       note="Gaban interrompt le coup de grâce (ch. 1189), tient longtemps puis perd un bras au coude (ch. 1190)")
 fight(2.675, "elbaf", ["luffy", "loki", "hajrudin"], "imu", "D", ta=["epuise"],
       note="Gokoku Sovereignty (ch. 1191) ; Imu encaisse et continue (ch. 1192) ; Dawn Thor Bullet perce sa barrière, puis le Gear 5 de Luffy s'épuise (ch. 1193)", flags="i")
-fight(2.68, "elbaf", "zoro", "sommers", "A", 3, ta=["haki_roi"],
+fight(2.68, "elbaf", "zoro", "sommers", "A", 3,   # tag « haki_roi » retiré (audit vidéo) : déjà le saut daté 2.68
       note="Zoro le transperce en manquant le cœur (ch. 1193), s'exerce au Haki des rois sur lui (ch. 1194) ; Sommers fuit en pleurant, Zoro le rattrape (ch. 1195)")
-fight(2.69, "elbaf", "sanji", "killingham", "A", 2, ta=["haki_roi"], tb=["boost"],
+fight(2.69, "elbaf", "sanji", "killingham", "A", 2, tb=["boost"],   # tag « haki_roi » retiré (audit vidéo) : déjà le saut daté 2.69
       note="Killingham relancé par Imu et armé de Longinus (ch. 1187-1189) ; Sanji éveille le Haki des rois (ch. 1197), brise son armure d'Omen, Killingham fuit terrifié (ch. 1198)")
 fight(2.695, "elbaf", "imu", "loki", "A", 3, note="Loki en forme hybride complète tient d'abord, puis Imu dans une nouvelle forme le terrasse d'un seul coup, en grande partie hors champ (ch. 1198)")
 
