@@ -1,0 +1,1666 @@
+[
+{
+"k": 1,
+"title": "Itachi vs Minato",
+"win": "B",
+"pa": 0.366,
+"pb": 0.492,
+"take": "Minato devant au calcul, mais avec un Tsukuyomi bien placé, Itachi peut tout retourner. Le respect est mutuel."
+},
+{
+"k": 2,
+"title": "Itachi vs Madara",
+"win": "B",
+"pa": 0.122,
+"pb": 0.785,
+"take": "Madara l'écrase, et pourtant c'est Itachi que tout le monde cite en premier. L'aura, ça ne se calcule pas."
+},
+{
+"k": 3,
+"title": "Madara vs Hashirama",
+"win": "B",
+"pa": 0.34,
+"pb": 0.502,
+"take": "Hashirama devant… mais Madara a passé sa vie à préparer la revanche. Et la revanche, il l'a eue."
+},
+{
+"k": 4,
+"title": "Itachi en bonne santé vs Pain",
+"win": "B",
+"pa": 0.373,
+"pb": 0.469,
+"take": "Pain devant. Mais Itachi l'a déjà battu en Edo Tensei : tout le monde va me tomber dessus."
+},
+{
+"k": 5,
+"title": "Jiraiya vs Itachi",
+"win": "B",
+"pa": 0.24,
+"pb": 0.625,
+"take": "Itachi devant. Sa phrase sur Jiraiya, c'était de la politesse pour Konoha."
+},
+{
+"k": 6,
+"title": "Kakashi double Mangekyō vs Obito",
+"win": "A",
+"pa": 0.585,
+"pb": 0.285,
+"take": "Kakashi devant, mais avec des yeux prêtés. Obito, lui, c'est tout seul."
+},
+{
+"k": 7,
+"title": "Gai 8e Porte vs Madara Six Chemins",
+"win": "B",
+"pa": 0.124,
+"pb": 0.802,
+"take": "Madara gagne, mais personne n'a jamais été aussi proche que Gai. Le plus grand moment de Naruto."
+},
+{
+"k": 8,
+"title": "Naruto vs Sasuke (la fin)",
+"win": "A",
+"pa": 0.496,
+"pb": 0.368,
+"take": "Naruto devant, de peu. Et ceux qui disent que Sasuke s'est retenu… ils n'ont pas tort."
+},
+{
+"k": 9,
+"title": "Minato vs le 4e Raikage",
+"win": "A",
+"pa": 0.574,
+"pb": 0.293,
+"take": "Minato devant. Le Raikage le dit lui-même, mais à la vitesse pure, c'est serré."
+},
+{
+"k": 10,
+"title": "Jiraiya vs Orochimaru",
+"win": "A",
+"pa": 0.558,
+"pb": 0.296,
+"take": "Jiraiya devant. Mais Orochimaru avec ses préparatifs, c'est un autre film."
+},
+{
+"k": 11,
+"title": "Le plus fort des Sannin : Tsunade vs Jiraiya",
+"win": "B",
+"pa": 0.346,
+"pb": 0.505,
+"take": "Jiraiya devant. Tsunade cogne plus fort, mais un combat, ce n'est pas qu'un coup de poing."
+},
+{
+"k": 12,
+"title": "Minato vs Tobirama",
+"win": "A",
+"pa": 0.59,
+"pb": 0.292,
+"take": "Minato devant. L'élève a dépassé le maître, et Tobirama le reconnaît."
+},
+{
+"k": 13,
+"title": "Sasuke vs Itachi : le vrai combat",
+"win": "B",
+"pa": 0.126,
+"pb": 0.792,
+"take": "Itachi largement devant. Sasuke a gagné un combat qu'Itachi voulait perdre."
+},
+{
+"k": 14,
+"title": "Kisame vs Gai",
+"win": "B",
+"pa": 0.299,
+"pb": 0.578,
+"take": "Gai devant. Kisame mérite bien plus de respect que ce que la fanbase lui donne."
+},
+{
+"k": 15,
+"title": "Shisui vs Itachi",
+"win": "B",
+"pa": 0.143,
+"pb": 0.767,
+"take": "Itachi devant au calcul. Mais Kotoamatsukami, c'est la technique la plus cassée de Naruto."
+},
+{
+"k": 16,
+"title": "Hiruzen à son apogée vs Itachi",
+"win": "=",
+"pa": 0.417,
+"pb": 0.432,
+"take": "Pile poil à égalité. Le débat le plus serré de la chaîne."
+},
+{
+"k": 17,
+"title": "Rock Lee vs Gaara",
+"win": "B",
+"pa": 0.219,
+"pb": 0.661,
+"take": "Gaara devant. Mais tout le monde a pleuré quand Lee a ouvert la 5e porte."
+},
+{
+"k": 18,
+"title": "Deidara vs Sasori",
+"win": "B",
+"pa": 0.262,
+"pb": 0.599,
+"take": "Sasori devant. Deidara répondrait que l'art, c'est une explosion, et que ça ne se calcule pas."
+},
+{
+"k": 19,
+"title": "Naruto mode Ermite vs Pain",
+"win": "B",
+"pa": 0.3,
+"pb": 0.551,
+"take": "Pain devant au calcul. Naruto a gagné avec Kyûbi et Minato derrière lui."
+},
+{
+"k": 20,
+"title": "Kakashi vs Itachi",
+"win": "B",
+"pa": 0.086,
+"pb": 0.842,
+"take": "Itachi largement. Mais Kakashi est resté debout trois jours dans le Tsukuyomi."
+},
+{
+"k": 21,
+"title": "Danzō vs Itachi",
+"win": "B",
+"pa": 0.139,
+"pb": 0.768,
+"take": "Itachi devant. Danzō a tout préparé contre Sasuke, et il est tombé quand même."
+},
+{
+"k": 22,
+"title": "Kaguya vs Madara réceptacle de Jûbi",
+"win": "A",
+"pa": 0.559,
+"pb": 0.317,
+"take": "Kaguya devant. Madara n'a été qu'un pion, et c'est le plot twist le plus détesté de Naruto."
+},
+{
+"k": 23,
+"title": "Isshiki vs Naruto mode Baryon",
+"win": "B",
+"pa": 0.394,
+"pb": 0.459,
+"take": "Naruto devant, de peu. Mais le prix à payer, personne ne l'a digéré."
+},
+{
+"k": 24,
+"title": "Boruto vs Kawaki (Two Blue Vortex)",
+"win": "A",
+"pa": 0.814,
+"pb": 0.116,
+"take": "Boruto largement. Kawaki, c'est le nouveau Sasuke… sans le talent."
+},
+{
+"k": 25,
+"title": "Obito masqué vs Minato (nuit de Kyûbi)",
+"win": "B",
+"pa": 0.133,
+"pb": 0.79,
+"take": "Minato écrasant. Obito avait 14 ans de moins d'expérience, et ça se voit."
+},
+{
+"k": 26,
+"title": "Itachi vs Obito",
+"win": "A",
+"pa": 0.659,
+"pb": 0.246,
+"take": "Itachi nettement devant. Obito tirait les ficelles, mais Itachi savait tout."
+},
+{
+"k": 27,
+"title": "Madara Edo vs Hashirama Edo (la guerre)",
+"win": "A",
+"pa": 0.465,
+"pb": 0.411,
+"take": "Madara devant cette fois. Hashirama a perdu son titre de dieu des shinobis."
+},
+{
+"k": 28,
+"title": "Tobirama vs Itachi",
+"win": "B",
+"pa": 0.334,
+"pb": 0.535,
+"take": "Itachi devant. Mais Tobirama a tout inventé : sans lui, pas de Naruto."
+},
+{
+"k": 29,
+"title": "Kisame vs Killer B",
+"win": "B",
+"pa": 0.237,
+"pb": 0.65,
+"take": "Killer B devant. Kisame a perdu son épée… à cause d'un rappeur."
+},
+{
+"k": 30,
+"title": "Neji vs Sasuke (examen chûnin)",
+"win": "A",
+"pa": 0.504,
+"pb": 0.341,
+"take": "Neji devant ! À l'examen chûnin, Sasuke ne l'aurait pas battu. Neji, c'est le génie qu'on a sacrifié."
+},
+{
+"k": 31,
+"title": "Gaara vs Sasuke (fin de la partie 1)",
+"win": "A",
+"pa": 0.545,
+"pb": 0.306,
+"take": "Gaara devant. Ceux qui disent que Sasuke aurait perdu sans Naruto ont raison."
+},
+{
+"k": 32,
+"title": "Orochimaru vs Kabuto mode Ermite",
+"win": "B",
+"pa": 0.274,
+"pb": 0.623,
+"take": "Kabuto devant. L'élève a absorbé le maître, littéralement."
+},
+{
+"k": 33,
+"title": "Boruto (TBV) vs Code",
+"win": "A",
+"pa": 0.789,
+"pb": 0.13,
+"take": "Boruto devant. Code, c'est la preuve que Boruto a grandi."
+},
+{
+"k": 34,
+"title": "Naruto Hokage vs Jigen",
+"win": "A",
+"pa": 0.454,
+"pb": 0.397,
+"take": "Naruto devant de peu au calcul, alors que Jigen l'a plié dans le manga. Le débat le plus brûlant de Boruto."
+},
+{
+"k": 35,
+"title": "Obito Jûbi vs Madara Jûbi",
+"win": "B",
+"pa": 0.333,
+"pb": 0.556,
+"take": "Madara devant. Obito avait le pouvoir, Madara avait le plan."
+},
+{
+"k": 36,
+"title": "Sasuke Rinnegan vs Madara Six Chemins",
+"win": "=",
+"pa": 0.441,
+"pb": 0.433,
+"take": "Égalité parfaite. Sasuke a tranché Madara une fois, et une fois, ça suffit peut-être."
+},
+{
+"k": 37,
+"title": "Naruto Kyûbi (guerre) vs Pain",
+"win": "A",
+"pa": 0.586,
+"pb": 0.277,
+"take": "Naruto devant. Un an d'écart, et Pain devient une formalité."
+},
+{
+"k": 38,
+"title": "Gaara Kazekage vs Deidara",
+"win": "A",
+"pa": 0.495,
+"pb": 0.352,
+"take": "Gaara devant. Mais Deidara l'a battu une fois, et ça, on ne l'oublie pas."
+},
+{
+"k": 39,
+"title": "Tsunade vs Itachi",
+"win": "B",
+"pa": 0.213,
+"pb": 0.677,
+"take": "Itachi devant. Tsunade gagne au corps à corps… si elle arrive jusque-là."
+},
+{
+"k": 40,
+"title": "Le Raikage vs Sasuke (sommet des Kage)",
+"win": "A",
+"pa": 0.621,
+"pb": 0.242,
+"take": "Le Raikage largement. Sasuke a survécu grâce à Gaara, pas grâce au Susanoo."
+},
+{
+"k": 41,
+"title": "Mihawk vs Shanks",
+"win": "B",
+"pa": 0.286,
+"pb": 0.562,
+"take": "Shanks devant. Mais Mihawk a arrêté de se battre quand Shanks a perdu son bras : le respect, ça vaut une victoire."
+},
+{
+"k": 42,
+"title": "Akainu vs Aokiji (Punk Hazard)",
+"win": "A",
+"pa": 0.618,
+"pb": 0.241,
+"take": "Akainu devant, et il a gagné. Mais Aokiji a quitté la Marine debout."
+},
+{
+"k": 43,
+"title": "Garp vs Akainu",
+"win": "B",
+"pa": 0.393,
+"pb": 0.448,
+"take": "Akainu devant de peu. Si Sengoku ne l'avait pas retenu, Garp l'aurait tenté quand même."
+},
+{
+"k": 44,
+"title": "Barbe Blanche à son apogée vs Kaido",
+"win": "A",
+"pa": 0.64,
+"pb": 0.221,
+"take": "Barbe Blanche largement. Kaido, c'était le titre, Barbe Blanche, c'était la vérité."
+},
+{
+"k": 45,
+"title": "Luffy Gear 5 vs Kaido",
+"win": "B",
+"pa": 0.395,
+"pb": 0.435,
+"take": "Kaido légèrement devant au calcul. Luffy a gagné sur un Kaido déjà entamé par toute une nuit de guerre."
+},
+{
+"k": 46,
+"title": "Zoro vs Sanji",
+"win": "A",
+"pa": 0.485,
+"pb": 0.348,
+"take": "Zoro devant. Sanji va dire que c'est faux, et c'est pour ça qu'on l'aime."
+},
+{
+"k": 47,
+"title": "Zoro vs Mihawk aujourd'hui",
+"win": "B",
+"pa": 0.341,
+"pb": 0.505,
+"take": "Mihawk encore devant. Mais l'écart se resserre à chaque arc."
+},
+{
+"k": 48,
+"title": "Shanks vs Kaido",
+"win": "A",
+"pa": 0.435,
+"pb": 0.401,
+"take": "Shanks devant de peu. Shanks a arrêté Kaido à Marineford, sans combat."
+},
+{
+"k": 49,
+"title": "Roger vs Barbe Blanche",
+"win": "A",
+"pa": 0.443,
+"pb": 0.391,
+"take": "Quasi égalité. Le seul vrai 50/50 de One Piece."
+},
+{
+"k": 50,
+"title": "Rayleigh vs Gaban",
+"win": "B",
+"pa": 0.366,
+"pb": 0.483,
+"take": "Gaban devant. Rayleigh était le second, Gaban était peut-être le plus fort."
+},
+{
+"k": 51,
+"title": "Kizaru vs Marco",
+"win": "A",
+"pa": 0.714,
+"pb": 0.166,
+"take": "Kizaru largement. Marco l'a tenu à distance, mais tenir n'est pas gagner."
+},
+{
+"k": 52,
+"title": "Big Mom vs Kaido",
+"win": "B",
+"pa": 0.38,
+"pb": 0.452,
+"take": "Kaido devant de peu. Big Mom a la puissance brute, Kaido l'endurance."
+},
+{
+"k": 53,
+"title": "Luffy vs Katakuri",
+"win": "A",
+"pa": 0.46,
+"pb": 0.381,
+"take": "Luffy devant. Katakuri a perdu le combat, mais il a gagné le respect."
+},
+{
+"k": 54,
+"title": "Barbe Noire vs Shanks",
+"win": "B",
+"pa": 0.294,
+"pb": 0.551,
+"take": "Shanks devant. Mais Barbe Noire a deux fruits et un plan : méfiance."
+},
+{
+"k": 55,
+"title": "Law vs Kid",
+"win": "A",
+"pa": 0.494,
+"pb": 0.351,
+"take": "Law devant de peu. Kid frappe plus fort, Law réfléchit plus vite."
+},
+{
+"k": 56,
+"title": "Sabo vs Fujitora",
+"win": "=",
+"pa": 0.41,
+"pb": 0.438,
+"take": "Quasi égalité. Fujitora s'est retenu, et Sabo le savait."
+},
+{
+"k": 57,
+"title": "Yamato vs Zoro",
+"win": "=",
+"pa": 0.438,
+"pb": 0.428,
+"take": "Égalité parfaite. Le débat le plus équilibré de Wano."
+},
+{
+"k": 58,
+"title": "Loki vs Luffy",
+"win": "B",
+"pa": 0.297,
+"pb": 0.558,
+"take": "Luffy devant. Mais le vrai Loki, sans chaînes, on ne l'a pas encore vu."
+},
+{
+"k": 59,
+"title": "Rocks vs Roger (God Valley)",
+"win": "A",
+"pa": 0.494,
+"pb": 0.349,
+"take": "Rocks devant ! Il a fallu Roger ET Garp, et ça dit tout."
+},
+{
+"k": 60,
+"title": "Garp vs Aokiji (Egghead)",
+"win": "A",
+"pa": 0.458,
+"pb": 0.384,
+"take": "Garp devant au calcul. Mais Kuzan a gagné, et Garp le savait déjà."
+},
+{
+"k": 61,
+"title": "Kizaru vs Luffy Gear 5",
+"win": "B",
+"pa": 0.272,
+"pb": 0.572,
+"take": "Luffy devant. Kizaru s'est retenu, et tout le monde l'a vu."
+},
+{
+"k": 62,
+"title": "Doflamingo vs Crocodile",
+"win": "B",
+"pa": 0.383,
+"pb": 0.461,
+"take": "Crocodile devant, surprise. Doflamingo a le prestige, Crocodile a les résultats."
+},
+{
+"k": 63,
+"title": "King vs Zoro",
+"win": "B",
+"pa": 0.357,
+"pb": 0.48,
+"take": "Zoro devant. King méritait mieux, mais Enma a choisi son maître."
+},
+{
+"k": 64,
+"title": "Ace vs Sabo",
+"win": "B",
+"pa": 0.313,
+"pb": 0.555,
+"take": "Sabo devant. Ace est mort trop tôt pour qu'on sache vraiment."
+},
+{
+"k": 65,
+"title": "Luffy vs Shanks aujourd'hui",
+"win": "B",
+"pa": 0.383,
+"pb": 0.454,
+"take": "Shanks encore devant. Mais le jour où Luffy rendra le chapeau, ce sera pour une raison."
+},
+{
+"k": 66,
+"title": "Akainu vs Kaido",
+"win": "B",
+"pa": 0.358,
+"pb": 0.478,
+"take": "Kaido devant. Akainu a la conviction, Kaido a le corps."
+},
+{
+"k": 67,
+"title": "Roger vs Kaido",
+"win": "A",
+"pa": 0.778,
+"pb": 0.142,
+"take": "Roger largement. Kaido de l'époque n'aurait pas tenu un round."
+},
+{
+"k": 68,
+"title": "Marco vs King",
+"win": "B",
+"pa": 0.339,
+"pb": 0.505,
+"take": "King devant de peu. Marco a tenu deux All-Stars en même temps."
+},
+{
+"k": 69,
+"title": "Doflamingo vs Katakuri",
+"win": "B",
+"pa": 0.306,
+"pb": 0.542,
+"take": "Katakuri devant. Doflamingo a le cerveau, Katakuri a l'avenir."
+},
+{
+"k": 70,
+"title": "Enel vs Kizaru",
+"win": "B",
+"pa": 0.038,
+"pb": 0.925,
+"take": "Kizaru largement. Enel, c'est un dieu… sur un nuage."
+},
+{
+"k": 71,
+"title": "Big Mom vs Barbe Blanche",
+"win": "A",
+"pa": 0.463,
+"pb": 0.37,
+"take": "Big Mom devant face au Barbe Blanche malade de Marineford. À son apogée, ce serait l'inverse."
+},
+{
+"k": 72,
+"title": "Garp vs Barbe Blanche (apogée)",
+"win": "A",
+"pa": 0.489,
+"pb": 0.35,
+"take": "Garp devant ! Il n'a jamais eu besoin de fruit, et c'est ça le plus fou."
+},
+{
+"k": 73,
+"title": "Yamato vs Katakuri",
+"win": "A",
+"pa": 0.566,
+"pb": 0.311,
+"take": "Yamato devant. Les deux ont tenu face à des Empereurs, mais Yamato a tenu face à son père."
+},
+{
+"k": 74,
+"title": "Fujitora vs Ryokugyu",
+"win": "A",
+"pa": 0.458,
+"pb": 0.392,
+"take": "Fujitora devant. Ryokugyu a fui Wano, et ça compte."
+},
+{
+"k": 75,
+"title": "Kizaru vs Aokiji",
+"win": "A",
+"pa": 0.502,
+"pb": 0.338,
+"take": "Kizaru devant. Aokiji a quitté la Marine pour Barbe Noire, pas pour la force."
+},
+{
+"k": 76,
+"title": "Zoro vs Lucci (Egghead)",
+"win": "A",
+"pa": 0.754,
+"pb": 0.14,
+"take": "Zoro largement. Lucci s'est réveillé, mais trop tard."
+},
+{
+"k": 77,
+"title": "Sanji vs Katakuri",
+"win": "B",
+"pa": 0.192,
+"pb": 0.683,
+"take": "Katakuri devant. Sanji n'avait pas encore son Raid Suit, et ça change tout."
+},
+{
+"k": 78,
+"title": "Crocodile vs Enel",
+"win": "A",
+"pa": 0.509,
+"pb": 0.34,
+"take": "Crocodile devant ! Logia contre logia, l'expérience de Crocodile paie."
+},
+{
+"k": 79,
+"title": "Jinbe vs Marco",
+"win": "B",
+"pa": 0.228,
+"pb": 0.634,
+"take": "Marco devant. Jinbe a choisi Luffy, Marco a choisi l'héritage."
+},
+{
+"k": 80,
+"title": "Shanks vs Akainu",
+"win": "A",
+"pa": 0.519,
+"pb": 0.32,
+"take": "Shanks devant. Akainu a reculé à Marineford, pas par politesse."
+},
+{
+"k": 81,
+"title": "Goku vs Vegeta aujourd'hui",
+"win": "=",
+"pa": 0.471,
+"pb": 0.442,
+"take": "Égalité presque parfaite. Vegeta n'a jamais été aussi proche, et Ultra Ego le prouve."
+},
+{
+"k": 82,
+"title": "Gohan Beast vs Goku",
+"win": "A",
+"pa": 0.545,
+"pb": 0.378,
+"take": "Gohan devant. Toriyama l'a dit : Gohan avait le potentiel depuis le début."
+},
+{
+"k": 83,
+"title": "Jiren vs Goku (Tournoi du Pouvoir)",
+"win": "A",
+"pa": 0.662,
+"pb": 0.262,
+"take": "Jiren devant. Goku a eu besoin de Freezer et de 17 pour finir le travail."
+},
+{
+"k": 84,
+"title": "Beerus vs Goku",
+"win": "A",
+"pa": 0.535,
+"pb": 0.377,
+"take": "Beerus devant. Il ne s'est jamais battu sérieusement, et c'est le vrai problème."
+},
+{
+"k": 85,
+"title": "Whis vs Beerus",
+"win": "A",
+"pa": 0.869,
+"pb": 0.092,
+"take": "Whis largement. Beerus le sait, et c'est pour ça qu'il dort."
+},
+{
+"k": 86,
+"title": "Freezer Noir vs Gohan Beast",
+"win": "A",
+"pa": 0.734,
+"pb": 0.208,
+"take": "Freezer Noir devant. Dix ans d'entraînement en salle du Temps, ça paie."
+},
+{
+"k": 87,
+"title": "Cell vs Freezer",
+"win": "A",
+"pa": 0.864,
+"pb": 0.098,
+"take": "Cell largement. Il a les cellules de Freezer, et bien plus."
+},
+{
+"k": 88,
+"title": "Vegito vs Kid Buu",
+"win": "A",
+"pa": 0.793,
+"pb": 0.162,
+"take": "Vegito largement. La fusion la plus forte de Dragon Ball Z, et c'est pas un débat."
+},
+{
+"k": 89,
+"title": "Gotenks vs Super Buu",
+"win": "B",
+"pa": 0.239,
+"pb": 0.702,
+"take": "Super Buu devant. Gotenks avait le talent, pas le sérieux."
+},
+{
+"k": 90,
+"title": "C-17 vs C-18",
+"win": "A",
+"pa": 0.616,
+"pb": 0.319,
+"take": "C-17 devant. Il a survécu au Tournoi du Pouvoir, ça suffit."
+},
+{
+"k": 91,
+"title": "Hit vs Goku",
+"win": "B",
+"pa": 0.395,
+"pb": 0.52,
+"take": "Goku devant. Mais le saut temporel de Hit, c'est la technique la plus sous-cotée."
+},
+{
+"k": 92,
+"title": "Moro vs Vegeta",
+"win": "A",
+"pa": 0.744,
+"pb": 0.195,
+"take": "Moro devant. Vegeta lui a quand même rendu toute l'énergie qu'il avait volée."
+},
+{
+"k": 93,
+"title": "Gas vs Freezer Noir",
+"win": "B",
+"pa": 0.4,
+"pb": 0.522,
+"take": "Freezer Noir devant. Gas s'est vu le plus fort jusqu'à ce que Freezer revienne."
+},
+{
+"k": 94,
+"title": "Cell Max vs Gohan Beast",
+"win": "B",
+"pa": 0.348,
+"pb": 0.586,
+"take": "Gohan devant. Cell Max était énorme, pas intelligent."
+},
+{
+"k": 95,
+"title": "Zamasu fusionné vs Vegito Blue",
+"win": "B",
+"pa": 0.174,
+"pb": 0.782,
+"take": "Vegito devant au calcul. Mais Zamasu est immortel, et ça, le calcul ne le compte pas."
+},
+{
+"k": 96,
+"title": "Gojo vs Sukuna",
+"win": "B",
+"pa": 0.405,
+"pb": 0.441,
+"take": "Sukuna devant. Gojo est mort… mais il est mort en étant le plus fort."
+},
+{
+"k": 97,
+"title": "Gojo vs Toji",
+"win": "A",
+"pa": 0.829,
+"pb": 0.103,
+"take": "Gojo devant. Toji a gagné le premier round, Gojo a gagné la vie."
+},
+{
+"k": 98,
+"title": "Yuta vs Sukuna",
+"win": "B",
+"pa": 0.014,
+"pb": 0.972,
+"take": "Sukuna largement. Yuta avait le corps de Gojo, pas son Infini."
+},
+{
+"k": 99,
+"title": "Maki vs Toji",
+"win": "B",
+"pa": 0.25,
+"pb": 0.635,
+"take": "Toji devant. Maki a tout perdu pour devenir comme lui, et ce n'est pas assez."
+},
+{
+"k": 100,
+"title": "Yuji (fin) vs Sukuna (Shibuya)",
+"win": "B",
+"pa": 0.196,
+"pb": 0.7,
+"take": "Sukuna devant, même celui de Shibuya. Yuji a gagné à la fin, mais avec toute l'école derrière lui."
+},
+{
+"k": 101,
+"title": "Mahoraga vs Gojo",
+"win": "B",
+"pa": 0.087,
+"pb": 0.851,
+"take": "Gojo largement. Mais l'adaptation est une bombe à retardement."
+},
+{
+"k": 102,
+"title": "Hakari vs Kashimo",
+"win": "B",
+"pa": 0.361,
+"pb": 0.513,
+"take": "Kashimo devant au calcul. Mais quatre minutes d'immortalité, c'est déjà de la triche."
+},
+{
+"k": 103,
+"title": "Yuta vs Gojo",
+"win": "B",
+"pa": 0.02,
+"pb": 0.961,
+"take": "Gojo largement. Yuta est fort, Gojo est une autre catégorie."
+},
+{
+"k": 104,
+"title": "Kenjaku vs Yuki",
+"win": "A",
+"pa": 0.626,
+"pb": 0.27,
+"take": "Kenjaku devant. Yuki a failli tout faire exploser, littéralement."
+},
+{
+"k": 105,
+"title": "Geto vs Gojo",
+"win": "B",
+"pa": 0.009,
+"pb": 0.982,
+"take": "Gojo largement. Geto le savait, et il est mort en souriant."
+},
+{
+"k": 106,
+"title": "Naoya vs Maki",
+"win": "B",
+"pa": 0.062,
+"pb": 0.888,
+"take": "Maki largement. Naoya a sous-estimé une femme, la dernière erreur de sa vie."
+},
+{
+"k": 107,
+"title": "Higuruma vs Yuji",
+"win": "B",
+"pa": 0.268,
+"pb": 0.63,
+"take": "Yuji devant. Et il a gagné le procès."
+},
+{
+"k": 108,
+"title": "Choso vs Yuji",
+"win": "A",
+"pa": 0.572,
+"pb": 0.298,
+"take": "Choso devant. Mais il s'est arrêté en voyant son petit frère."
+},
+{
+"k": 109,
+"title": "Mahito vs Yuji",
+"win": "A",
+"pa": 0.58,
+"pb": 0.296,
+"take": "Mahito devant à Shibuya. Mais Yuji a fini par gagner, et Nanami est vengé."
+},
+{
+"k": 110,
+"title": "Jogo vs Sukuna",
+"win": "B",
+"pa": 0.017,
+"pb": 0.966,
+"take": "Sukuna largement. Mais ce compliment, Jogo l'a emporté avec lui."
+},
+{
+"k": 111,
+"title": "Yhwach vs Aizen",
+"win": "A",
+"pa": 0.791,
+"pb": 0.157,
+"take": "Yhwach devant. Mais Aizen n'a jamais été vraiment vaincu, il s'est laissé sceller."
+},
+{
+"k": 112,
+"title": "Ichigo vs Aizen",
+"win": "A",
+"pa": 0.609,
+"pb": 0.317,
+"take": "Ichigo devant au calcul. Mais il a tout donné pour un seul coup."
+},
+{
+"k": 113,
+"title": "Kenpachi vs Yamamoto",
+"win": "B",
+"pa": 0.327,
+"pb": 0.599,
+"take": "Yamamoto devant. Kenpachi, c'est le chaos ; Yamamoto, c'est le soleil."
+},
+{
+"k": 114,
+"title": "Unohana vs Kenpachi",
+"win": "B",
+"pa": 0.256,
+"pb": 0.677,
+"take": "Kenpachi devant. Il a tué la seule personne qui l'avait jamais battu."
+},
+{
+"k": 115,
+"title": "Ulquiorra vs Grimmjow",
+"win": "A",
+"pa": 0.629,
+"pb": 0.298,
+"take": "Ulquiorra largement. Grimmjow a le cœur, Ulquiorra a la deuxième forme."
+},
+{
+"k": 116,
+"title": "Hitsugaya vs Byakuya",
+"win": "A",
+"pa": 0.662,
+"pb": 0.268,
+"take": "Hitsugaya devant. Et Hitsugaya adulte, c'est encore pire pour Byakuya."
+},
+{
+"k": 117,
+"title": "Urahara vs Aizen",
+"win": "B",
+"pa": 0.051,
+"pb": 0.929,
+"take": "Aizen devant. Mais Urahara a scellé Aizen, et ça compte."
+},
+{
+"k": 118,
+"title": "Yamamoto vs Yhwach",
+"win": "B",
+"pa": 0.079,
+"pb": 0.89,
+"take": "Yhwach devant. Yamamoto a battu un faux Yhwach, et c'est la plus grande arnaque de Bleach."
+},
+{
+"k": 119,
+"title": "Ichibe vs Yhwach",
+"win": "B",
+"pa": 0.063,
+"pb": 0.912,
+"take": "Yhwach devant. Ichibe a perdu son nom, littéralement."
+},
+{
+"k": 120,
+"title": "Mayuri vs Urahara",
+"win": "B",
+"pa": 0.297,
+"pb": 0.633,
+"take": "Urahara devant. Mayuri détesterait ce résultat."
+},
+{
+"k": 121,
+"title": "Yoruichi vs Soi Fon",
+"win": "A",
+"pa": 0.68,
+"pb": 0.252,
+"take": "Yoruichi largement. Soi Fon ne l'a jamais dépassée."
+},
+{
+"k": 122,
+"title": "Isshin vs Aizen",
+"win": "B",
+"pa": 0.038,
+"pb": 0.946,
+"take": "Aizen devant. Isshin a encaissé, mais n'a jamais gagné."
+},
+{
+"k": 123,
+"title": "Stark vs Kyoraku",
+"win": "A",
+"pa": 0.501,
+"pb": 0.41,
+"take": "Stark devant ! Kyoraku a gagné en trichant, et il l'assume."
+},
+{
+"k": 124,
+"title": "Ichigo vs Ulquiorra",
+"win": "B",
+"pa": 0.318,
+"pb": 0.598,
+"take": "Ulquiorra devant au Hueco Mundo. Sans le Hollow, Ichigo mourait, et il est d'ailleurs mort."
+},
+{
+"k": 125,
+"title": "Haschwalth vs Kenpachi",
+"win": "B",
+"pa": 0.278,
+"pb": 0.651,
+"take": "Kenpachi devant. Haschwalth équilibre tout, sauf la sauvagerie."
+},
+{
+"k": 126,
+"title": "Netero vs Meruem",
+"win": "B",
+"pa": 0.062,
+"pb": 0.886,
+"take": "Meruem devant. Netero a perdu le combat et gagné la guerre."
+},
+{
+"k": 127,
+"title": "Gon adulte vs Pitou",
+"win": "A",
+"pa": 0.795,
+"pb": 0.128,
+"take": "Gon devant. Mais Gon l'a payé de tout son avenir."
+},
+{
+"k": 128,
+"title": "Hisoka vs Chrollo",
+"win": "=",
+"pa": 0.442,
+"pb": 0.415,
+"take": "Égalité parfaite. Hisoka est revenu d'entre les morts, et il a faim."
+},
+{
+"k": 129,
+"title": "Zeno vs Silva",
+"win": "A",
+"pa": 0.488,
+"pb": 0.372,
+"take": "Zeno devant de peu. Les Zoldyck ne se battent pas entre eux, sauf pour de l'argent."
+},
+{
+"k": 130,
+"title": "Illumi vs Hisoka",
+"win": "B",
+"pa": 0.339,
+"pb": 0.522,
+"take": "Hisoka devant. Illumi le sait, et c'est pour ça qu'ils travaillent ensemble."
+},
+{
+"k": 131,
+"title": "Kurapika vs Uvogin",
+"win": "A",
+"pa": 0.468,
+"pb": 0.406,
+"take": "Kurapika devant, avec son Emperor Time. Sans lui, Uvogin gagnait."
+},
+{
+"k": 132,
+"title": "Killua vs Youpi",
+"win": "B",
+"pa": 0.203,
+"pb": 0.681,
+"take": "Youpi devant. Killua a la vitesse, Youpi a la masse."
+},
+{
+"k": 133,
+"title": "Silva vs Chrollo",
+"win": "B",
+"pa": 0.409,
+"pb": 0.451,
+"take": "Chrollo devant de peu. Zeno est arrivé à temps… mais pour qui ?"
+},
+{
+"k": 134,
+"title": "Netero vs Zeno",
+"win": "A",
+"pa": 0.601,
+"pb": 0.263,
+"take": "Netero devant. Zeno a eu un frisson rien qu'à le regarder."
+},
+{
+"k": 135,
+"title": "Ging vs Hisoka",
+"win": "=",
+"pa": 0.416,
+"pb": 0.446,
+"take": "Égalité. On n'a presque jamais vu Ging se battre, et c'est tout le problème."
+},
+{
+"k": 136,
+"title": "Biscuit vs Razor",
+"win": "=",
+"pa": 0.426,
+"pb": 0.432,
+"take": "Égalité parfaite. Biscuit a caché sa vraie force pendant tout Greed Island."
+},
+{
+"k": 137,
+"title": "Pouf vs Youpi",
+"win": "B",
+"pa": 0.395,
+"pb": 0.458,
+"take": "Youpi devant. Pouf a les ailes, Youpi a les poings."
+},
+{
+"k": 138,
+"title": "Yoriichi vs Muzan",
+"win": "A",
+"pa": 0.781,
+"pb": 0.133,
+"take": "Yoriichi écrasant. Muzan en a fait des cauchemars pendant 400 ans."
+},
+{
+"k": 139,
+"title": "Kokushibo vs Gyomei",
+"win": "A",
+"pa": 0.634,
+"pb": 0.268,
+"take": "Kokushibo devant. Mais Gyomei a tenu sans marque au début, respect."
+},
+{
+"k": 140,
+"title": "Akaza vs Rengoku",
+"win": "A",
+"pa": 0.864,
+"pb": 0.077,
+"take": "Akaza devant. Rengoku a perdu, mais Akaza a fui le soleil."
+},
+{
+"k": 141,
+"title": "Giyu vs Akaza",
+"win": "B",
+"pa": 0.204,
+"pb": 0.685,
+"take": "Akaza devant au calcul. Giyu ne l'a jamais battu seul."
+},
+{
+"k": 142,
+"title": "Sanemi vs Giyu",
+"win": "=",
+"pa": 0.443,
+"pb": 0.428,
+"take": "Serré. Ils se détestent, et ils sont presque égaux."
+},
+{
+"k": 143,
+"title": "Doma vs Akaza",
+"win": "A",
+"pa": 0.462,
+"pb": 0.388,
+"take": "Doma devant. Akaza le déteste, mais il ne l'a jamais dépassé."
+},
+{
+"k": 144,
+"title": "Muichiro vs Gyokko",
+"win": "A",
+"pa": 0.518,
+"pb": 0.355,
+"take": "Muichiro devant. La marque, à 14 ans, c'est injuste."
+},
+{
+"k": 145,
+"title": "Tengen vs Gyutaro",
+"win": "B",
+"pa": 0.312,
+"pb": 0.556,
+"take": "Gyutaro devant au calcul. Tengen a gagné avec trois gamins, pas seul."
+},
+{
+"k": 146,
+"title": "Kokushibo vs Yoriichi",
+"win": "B",
+"pa": 0.073,
+"pb": 0.882,
+"take": "Yoriichi écrasant. Kokushibo a tout vendu pour rattraper un frère inatteignable."
+},
+{
+"k": 147,
+"title": "Tanjiro vs Akaza",
+"win": "B",
+"pa": 0.18,
+"pb": 0.724,
+"take": "Akaza devant au calcul. Tanjiro l'a battu avec Giyu, pas seul : Rengoku est vengé quand même."
+},
+{
+"k": 148,
+"title": "Deku vs Shigaraki",
+"win": "A",
+"pa": 0.519,
+"pb": 0.382,
+"take": "Deku devant. Mais Shigaraki a été plus héroïque dans sa mort qu'on ne le dit."
+},
+{
+"k": 149,
+"title": "All Might vs All For One",
+"win": "A",
+"pa": 0.555,
+"pb": 0.34,
+"take": "All Might devant. Il a gagné à 1 % de sa forme, c'est ça un symbole."
+},
+{
+"k": 150,
+"title": "Bakugo vs Todoroki",
+"win": "A",
+"pa": 0.664,
+"pb": 0.253,
+"take": "Bakugo devant. Todoroki a le potentiel, Bakugo a l'instinct."
+},
+{
+"k": 151,
+"title": "Endeavor vs Dabi",
+"win": "A",
+"pa": 0.51,
+"pb": 0.382,
+"take": "Endeavor devant. Le père reste plus fort, mais le fils a gagné la guerre des images."
+},
+{
+"k": 152,
+"title": "Hawks vs Dabi",
+"win": "B",
+"pa": 0.403,
+"pb": 0.488,
+"take": "Dabi devant. Hawks a perdu ses ailes, pas sa dignité."
+},
+{
+"k": 153,
+"title": "Star and Stripe vs Shigaraki",
+"win": "B",
+"pa": 0.156,
+"pb": 0.772,
+"take": "Shigaraki devant. Star lui a laissé un cadeau empoisonné."
+},
+{
+"k": 154,
+"title": "Deku vs All Might à son apogée",
+"win": "A",
+"pa": 0.553,
+"pb": 0.344,
+"take": "Deku devant. Et All Might en serait le plus heureux."
+},
+{
+"k": 155,
+"title": "Mirio vs Overhaul",
+"win": "A",
+"pa": 0.645,
+"pb": 0.272,
+"take": "Mirio devant. Le héros qui a tenu Overhaul… avant de perdre son alter."
+},
+{
+"k": 156,
+"title": "Lady Nagant vs Deku",
+"win": "B",
+"pa": 0.019,
+"pb": 0.97,
+"take": "Deku devant. Lady Nagant méritait sa propre série."
+},
+{
+"k": 157,
+"title": "Best Jeanist vs Hawks",
+"win": "B",
+"pa": 0.31,
+"pb": 0.577,
+"take": "Hawks devant. Best Jeanist a joué le mort, Hawks a joué le traître."
+},
+{
+"k": 158,
+"title": "Levi vs Kenny",
+"win": "A",
+"pa": 0.736,
+"pb": 0.162,
+"take": "Levi devant. Kenny lui a tout appris, sauf à perdre."
+},
+{
+"k": 159,
+"title": "Eren vs Reiner",
+"win": "B",
+"pa": 0.399,
+"pb": 0.466,
+"take": "Reiner devant de peu à Shiganshina. Ils sont les mêmes, et c'est ça le drame."
+},
+{
+"k": 160,
+"title": "Levi vs Mikasa",
+"win": "A",
+"pa": 0.622,
+"pb": 0.265,
+"take": "Levi devant. Mikasa a le cœur, Levi a la lame."
+},
+{
+"k": 161,
+"title": "Zeke vs Levi",
+"win": "B",
+"pa": 0.235,
+"pb": 0.644,
+"take": "Levi devant. Zeke l'a appris à ses dépens… deux fois."
+},
+{
+"k": 162,
+"title": "Annie vs Mikasa",
+"win": "B",
+"pa": 0.285,
+"pb": 0.6,
+"take": "Mikasa devant. Annie a le titan, Mikasa a le sang Ackerman."
+},
+{
+"k": 163,
+"title": "Eren vs Zeke",
+"win": "B",
+"pa": 0.332,
+"pb": 0.54,
+"take": "Zeke devant à l'époque de Paradis. Après la Coordonnée, ce n'est plus un débat."
+},
+{
+"k": 164,
+"title": "Denji vs Makima",
+"win": "A",
+"pa": 0.525,
+"pb": 0.374,
+"take": "Denji devant. Il a gagné en la mangeant. Littéralement."
+},
+{
+"k": 165,
+"title": "Reze vs Denji",
+"win": "B",
+"pa": 0.021,
+"pb": 0.966,
+"take": "Denji devant. Reze avait l'arme, Denji avait le cœur."
+},
+{
+"k": 166,
+"title": "Quanxi vs Kishibe",
+"win": "A",
+"pa": 0.575,
+"pb": 0.325,
+"take": "Quanxi devant. Kishibe l'a dit lui-même."
+},
+{
+"k": 167,
+"title": "Yoru vs Denji",
+"win": "A",
+"pa": 0.599,
+"pb": 0.313,
+"take": "Yoru devant. Mais Denji n'a pas dit son dernier mot."
+},
+{
+"k": 168,
+"title": "Aki vs Power",
+"win": "A",
+"pa": 0.648,
+"pb": 0.287,
+"take": "Aki devant. Power trichera, et elle dira qu'elle a gagné."
+},
+{
+"k": 169,
+"title": "Famine vs Guerre",
+"win": "B",
+"pa": 0.016,
+"pb": 0.975,
+"take": "Guerre devant, largement. Famine tire les ficelles, pas les coups."
+},
+{
+"k": 170,
+"title": "Les 3 Sannin vs Itachi et Kisame",
+"win": "B",
+"pa": 0.318,
+"pb": 0.524,
+"take": "Le calcul dit une chose, mais les Sannin ensemble, ça n'arrive jamais : ils se détestent."
+},
+{
+"k": 171,
+"title": "Naruto et Sasuke vs Kaguya",
+"win": "A",
+"pa": 0.464,
+"pb": 0.385,
+"take": "Le duo gagne. Seul, aucun des deux ne l'aurait fait."
+},
+{
+"k": 172,
+"title": "Les 5 Kage vs Madara",
+"win": "B",
+"pa": 0.176,
+"pb": 0.706,
+"take": "Madara gagne. Les cinq Kage n'ont jamais été une équipe, juste cinq ego."
+},
+{
+"k": 173,
+"title": "Akatsuki vs les Kage",
+"win": "B",
+"pa": 0.346,
+"pb": 0.5,
+"take": "Les Kage devant. Mais avec Pain, l'Akatsuki gagne."
+},
+{
+"k": 174,
+"title": "Les 3 amiraux vs Barbe Blanche",
+"win": "A",
+"pa": 0.476,
+"pb": 0.356,
+"take": "Les amiraux gagnent. Barbe Blanche malade a quand même fendu la mer."
+},
+{
+"k": 175,
+"title": "Le trio monstre vs Kaido",
+"win": "=",
+"pa": 0.415,
+"pb": 0.414,
+"take": "Égalité parfaite : il a fallu tout Wano pour faire tomber Kaido."
+},
+{
+"k": 176,
+"title": "Roger et Garp vs Rocks",
+"win": "A",
+"pa": 0.477,
+"pb": 0.359,
+"take": "Roger et Garp gagnent. Mais il a fallu les deux, et c'est le plus grand compliment pour Rocks."
+},
+{
+"k": 177,
+"title": "Goku et Vegeta vs Jiren",
+"win": "B",
+"pa": 0.305,
+"pb": 0.611,
+"take": "Jiren devant, même contre les deux. Il a fallu Freezer et 17 en plus."
+},
+{
+"k": 178,
+"title": "Sukuna et Mahoraga vs Gojo",
+"win": "A",
+"pa": 0.455,
+"pb": 0.391,
+"take": "Sukuna gagne. Mais sans Mahoraga, c'était peut-être Gojo."
+},
+{
+"k": 179,
+"title": "Yuji et Todo vs Hanami",
+"win": "B",
+"pa": 0.272,
+"pb": 0.597,
+"take": "Hanami devant au calcul, alors qu'ils l'ont fait fuir. Brother… ça pique."
+},
+{
+"k": 180,
+"title": "Trois piliers vs Kokushibo",
+"win": "A",
+"pa": 0.461,
+"pb": 0.429,
+"take": "Les piliers gagnent, de peu, et à quel prix."
+},
+{
+"k": 181,
+"title": "Ichigo et Aizen vs Yhwach",
+"win": "B",
+"pa": 0.204,
+"pb": 0.734,
+"take": "Yhwach devant, même contre les deux. Il a fallu la flèche d'Uryû en plus."
+},
+{
+"k": 182,
+"title": "La garde royale vs Netero",
+"win": "A",
+"pa": 0.582,
+"pb": 0.272,
+"take": "La garde gagne. Netero aurait choisi le Roi quand même."
+},
+{
+"k": 183,
+"title": "Le Big 3 de la 1-A vs Shigaraki",
+"win": "A",
+"pa": 0.541,
+"pb": 0.36,
+"take": "Le trio gagne. La relève est là."
+},
+{
+"k": 184,
+"title": "Combien de Kakashi pour battre Madara ?",
+"win": "B",
+"pa": 0.245,
+"pb": 0.637,
+"take": "Le nombre ne fait pas tout : un génie ne se multiplie pas."
+},
+{
+"k": 185,
+"title": "Combien de Zoro pour battre Kaido ?",
+"win": "=",
+"pa": 0.423,
+"pb": 0.422,
+"take": "Zoro dirait qu'il en faut un seul. Il aurait tort."
+},
+{
+"k": 186,
+"title": "Sukuna vs Luffy Gear 5",
+"win": "B",
+"pa": 0.388,
+"pb": 0.494,
+"take": "En puissance brute, c'est serré. Mais avec son domaine, Sukuna découpe Luffy avant qu'il rigole."
+},
+{
+"k": 187,
+"title": "Gojo vs Naruto",
+"win": "B",
+"pa": 0.037,
+"pb": 0.938,
+"take": "Naruto plus fort en puissance brute. Mais mon gars Gojo avec son Infini, je suis désolé : il baisse votre Naruto."
+},
+{
+"k": 188,
+"title": "Goku vs Naruto",
+"win": "A",
+"pa": 0.995,
+"pb": 0.003,
+"take": "Goku écrase. Mais Naruto a le Tsukuyomi infini dans son camp, et Goku n'a pas de Sharingan."
+},
+{
+"k": 189,
+"title": "Itachi vs Gojo",
+"win": "A",
+"pa": 0.499,
+"pb": 0.381,
+"take": "Itachi plus fort en puissance brute. Mais l'Infini rend le Tsukuyomi inutile… ou pas ?"
+},
+{
+"k": 190,
+"title": "Zoro vs Sukuna",
+"win": "B",
+"pa": 0.37,
+"pb": 0.505,
+"take": "Sukuna devant. Zoro a le Haki des rois, Sukuna a le Sanctuaire : celui qui touche en premier gagne."
+},
+{
+"k": 191,
+"title": "Madara vs Shanks",
+"win": "A",
+"pa": 0.857,
+"pb": 0.087,
+"take": "Madara en puissance brute. Mais le Haki de l'observation contre le Limbo, c'est un vrai débat."
+},
+{
+"k": 192,
+"title": "Kaido vs Kid Buu",
+"win": "B",
+"pa": 0.0,
+"pb": 1.0,
+"take": "Kid Buu écrase. Kaido voulait mourir, Kid Buu l'aurait exaucé."
+},
+{
+"k": 193,
+"title": "Vegeta (Namek) vs Luffy Gear 5",
+"win": "A",
+"pa": 0.96,
+"pb": 0.027,
+"take": "Le calcul est sans pitié pour One Piece. Mais Luffy rigolerait quand même."
+},
+{
+"k": 194,
+"title": "Toji vs Gai 8e Porte",
+"win": "B",
+"pa": 0.065,
+"pb": 0.893,
+"take": "Gai devant. Deux monstres de travail, un seul a failli tuer un dieu."
+},
+{
+"k": 195,
+"title": "Yuji (fin) vs Sasuke (arc Pain)",
+"win": "A",
+"pa": 0.553,
+"pb": 0.362,
+"take": "Le calcul tranche. Mais le Black Flash contre le Susanoo, c'est un vrai combat."
+},
+{
+"k": 196,
+"title": "Barbe Blanche vs Pain",
+"win": "B",
+"pa": 0.399,
+"pb": 0.456,
+"take": "Pain devant de peu. Le Shinra Tensei repousse même les séismes."
+},
+{
+"k": 197,
+"title": "Garp vs Hashirama",
+"win": "B",
+"pa": 0.311,
+"pb": 0.558,
+"take": "Hashirama en puissance brute. Garp a cassé une météorite à mains nues, Hashirama a planté une forêt."
+},
+{
+"k": 198,
+"title": "Mihawk vs Yuta",
+"win": "A",
+"pa": 0.944,
+"pb": 0.03,
+"take": "Mihawk devant. Yuta copierait tout, sauf le Haki."
+},
+{
+"k": 199,
+"title": "Goku Super Saiyan (Namek) vs Kaido",
+"win": "A",
+"pa": 0.975,
+"pb": 0.017,
+"take": "Goku écrase. One Piece a d'autres qualités que la puissance brute."
+},
+{
+"k": 200,
+"title": "Akainu vs Jogo",
+"win": "A",
+"pa": 0.966,
+"pb": 0.018,
+"take": "Akainu devant. Deux volcans, un seul a de la conviction."
+},
+{
+"k": 201,
+"title": "Naruto et Sasuke vs Goku et Vegeta",
+"win": "B",
+"pa": 0.004,
+"pb": 0.994,
+"take": "Le calcul est sans appel. Mais Naruto et Sasuke ont scellé une déesse, les Saiyans ont juste tapé fort."
+},
+{
+"k": 202,
+"title": "Le trio monstre vs l'équipe 7",
+"win": "B",
+"pa": 0.024,
+"pb": 0.953,
+"take": "Le résultat va énerver une des deux fanbases, forcément."
+},
+{
+"k": 203,
+"title": "Sukuna et Mahoraga vs Kaido et Big Mom",
+"win": "B",
+"pa": 0.255,
+"pb": 0.638,
+"take": "En puissance brute, c'est le calcul qui parle. Avec le Sanctuaire et l'adaptation, Sukuna triche."
+},
+{
+"k": 204,
+"title": "Les Empereurs vs les Uchiha",
+"win": "B",
+"pa": 0.082,
+"pb": 0.858,
+"take": "Le Tsukuyomi contre le Haki de l'observation : le calcul ne tranche pas ce débat-là."
+},
+{
+"k": 205,
+"title": "Gojo vs les 3 Sannin",
+"win": "A",
+"pa": 0.46,
+"pb": 0.416,
+"take": "Gojo devant de peu au calcul, en puissance brute seulement. Avec l'Infini, ce n'est même pas un débat."
+},
+{
+"k": 206,
+"title": "Freezer (Namek) vs le trio monstre",
+"win": "A",
+"pa": 0.992,
+"pb": 0.006,
+"take": "Le calcul écrase One Piece. Mais Freezer a perdu contre un seul Saiyan énervé."
+},
+{
+"k": 207,
+"title": "Itachi et Kisame vs Zoro et Sanji",
+"win": "A",
+"pa": 0.592,
+"pb": 0.27,
+"take": "Itachi et Kisame devant. Le Tsukuyomi sur Sanji, ce serait le meilleur passage de la vidéo."
+},
+{
+"k": 208,
+"title": "Les élèves de Gojo vs l'Akatsuki",
+"win": "B",
+"pa": 0.371,
+"pb": 0.538,
+"take": "Le calcul a parlé. Mais Yuta qui copie le Tsukuyomi, ça, personne ne l'a calculé."
+}
+]

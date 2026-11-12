@@ -1,0 +1,3914 @@
+{
+"statements": [
+{
+"verse": "naruto",
+"a": "Kaguya Ōtsutsuki",
+"b": "Hagoromo (Sage des Six Chemins)",
+"kind": "plus fort",
+"p": 0.439,
+"gap_combats": -0.18,
+"label": "Kaguya n'a pu être scellée que par Hagoromo ET Hamura réunis (ch. 670-671)"
+},
+{
+"verse": "naruto",
+"a": "Kaguya Ōtsutsuki",
+"b": "Hamura Ōtsutsuki",
+"kind": "plus fort",
+"p": 0.605,
+"gap_combats": 0.31,
+"label": "Kaguya n'a pu être scellée que par Hagoromo ET Hamura réunis (ch. 670-671)"
+},
+{
+"verse": "naruto",
+"a": "Kaguya Ōtsutsuki",
+"b": "Naruto Uzumaki",
+"kind": "plus fort",
+"p": 0.431,
+"gap_combats": -0.15,
+"label": "Hagoromo : seuls Naruto et Sasuke ensemble peuvent sceller Kaguya (ch. ~672-674)"
+},
+{
+"verse": "naruto",
+"a": "Kaguya Ōtsutsuki",
+"b": "Sasuke Uchiha",
+"kind": "plus fort",
+"p": 0.565,
+"gap_combats": 0.16,
+"label": "Hagoromo : seuls Naruto et Sasuke ensemble peuvent sceller Kaguya (ch. ~672-674)"
+},
+{
+"verse": "naruto",
+"a": "Hagoromo (Sage des Six Chemins)",
+"b": "Hashirama Senju",
+"kind": "plus fort",
+"p": 0.87,
+"gap_combats": 1.32,
+"label": "Kabuto : la puissance de Hashirama était comparable à celle du Sage des Six Chemins (ch. 575 p. 4-5)"
+},
+{
+"verse": "naruto",
+"a": "Hashirama Senju",
+"b": "Madara Uchiha",
+"kind": "plus fort",
+"p": 0.628,
+"gap_combats": 0.2,
+"label": "Madara reconnaît toute sa vie la supériorité de Hashirama, même avec l'EMS et Kyūbi (ch. 620-626)"
+},
+{
+"verse": "naruto",
+"a": "Hashirama Senju",
+"b": "Tobirama Senju",
+"kind": "plus fort",
+"p": 0.943,
+"gap_combats": 1.82,
+"label": "Tobirama ne pouvait pas égaler Madara, seul Hashirama le pouvait (ch. 620-627)"
+},
+{
+"verse": "naruto",
+"a": "Madara Uchiha",
+"b": "Tobirama Senju",
+"kind": "plus fort",
+"p": 0.922,
+"gap_combats": 1.62,
+"label": "Seul Hashirama pouvait arrêter Madara ; Tobirama en était incapable (ch. 620-627)"
+},
+{
+"verse": "naruto",
+"a": "Madara Uchiha",
+"b": "Ōnoki (3e Tsuchikage)",
+"kind": "plus fort",
+"p": 0.993,
+"gap_combats": 1.55,
+"label": "Ōnoki : Madara, que seul Hashirama pouvait affronter (ch. ~560-562)"
+},
+{
+"verse": "naruto",
+"a": "Madara Uchiha",
+"b": "Mei Terumī (5e Mizukage)",
+"kind": "plus fort",
+"p": 0.997,
+"gap_combats": 1.92,
+"label": "Madara Edo face aux cinq Kage ; seul Hashirama l'égalait (ch. ~560-562)"
+},
+{
+"verse": "naruto",
+"a": "Madara Uchiha",
+"b": "Hiruzen Sarutobi",
+"kind": "plus fort",
+"p": 0.98,
+"gap_combats": 1.34,
+"label": "Kabuto : depuis Hashirama, personne ne s'en est approché à part Madara (ch. 575 p. 4-5)"
+},
+{
+"verse": "naruto",
+"a": "Hashirama Senju",
+"b": "Hiruzen Sarutobi",
+"kind": "plus fort",
+"p": 0.989,
+"gap_combats": 1.54,
+"label": "Kabuto : depuis Hashirama, personne ne s'en est approché à part Madara (ch. 575 p. 4-5)"
+},
+{
+"verse": "naruto",
+"a": "Hiruzen Sarutobi",
+"b": "Orochimaru",
+"kind": "plus fort",
+"p": 0.936,
+"gap_combats": 1.01,
+"label": "Orochimaru : si Hiruzen avait eu dix ans de moins, il m'aurait tué (ch. 126 p. 10)"
+},
+{
+"verse": "naruto",
+"a": "Hiruzen Sarutobi",
+"b": "Danzō Shimura",
+"kind": "plus fort",
+"p": 0.785,
+"gap_combats": 0.81,
+"label": "Tobirama désigne Hiruzen plutôt que Danzō ; Danzō toujours un pas derrière son rival (ch. ~480)"
+},
+{
+"verse": "naruto",
+"a": "Minato Namikaze",
+"b": "A (4e Raikage)",
+"kind": "plus fort",
+"p": 0.579,
+"gap_combats": 0.15,
+"label": "A (4e Raikage) et Jiraiya : Minato inégalé, le plus rapide de son temps (ch. 367 p. 11, 541 p. 7-8)"
+},
+{
+"verse": "naruto",
+"a": "Minato Namikaze",
+"b": "Tobirama Senju",
+"kind": "plus fort",
+"p": 0.597,
+"gap_combats": 0.31,
+"label": "Tobirama reconnaît que Minato le surpasse au Hiraishin (ch. ~642)"
+},
+{
+"verse": "naruto",
+"a": "Hanzō",
+"b": "Jiraiya",
+"kind": "plus fort",
+"p": 0.999,
+"gap_combats": 2.38,
+"label": "Hanzō bat et épargne les trois futurs Sannin, puis les nomme (ch. 372)"
+},
+{
+"verse": "naruto",
+"a": "Hanzō",
+"b": "Tsunade",
+"kind": "plus fort",
+"p": 0.999,
+"gap_combats": 2.39,
+"label": "Hanzō bat et épargne les trois futurs Sannin, puis les nomme (ch. 372)"
+},
+{
+"verse": "naruto",
+"a": "Hanzō",
+"b": "Orochimaru",
+"kind": "plus fort",
+"p": 0.999,
+"gap_combats": 2.37,
+"label": "Hanzō bat et épargne les trois futurs Sannin, puis les nomme (ch. 372)"
+},
+{
+"verse": "naruto",
+"a": "Nagato (Pain)",
+"b": "Hanzō",
+"kind": "plus fort",
+"p": 0.954,
+"gap_combats": 2.45,
+"label": "Pain renverse et tue Hanzō, le « demi-dieu » d'Ame (ch. ~372-375)"
+},
+{
+"verse": "naruto",
+"a": "Jiraiya",
+"b": "Kisame Hoshigaki",
+"kind": "plus fort",
+"p": 0.691,
+"gap_combats": 0.34,
+"label": "Itachi : même à deux contre Jiraiya, nous y laisserions la vie (ch. ~147) ; propos peu fiable : Itachi, agent double, évite tout combat contre Konoha"
+},
+{
+"verse": "naruto",
+"a": "Jiraiya",
+"b": "Itachi Uchiha",
+"kind": "égalité",
+"p": 0.341,
+"gap_combats": -0.71,
+"label": "Itachi : même à deux contre Jiraiya, nous y laisserions la vie (ch. ~147) ; propos peu fiable : Itachi, agent double, évite tout combat contre Konoha, donc incertitude large"
+},
+{
+"verse": "naruto",
+"a": "Kisame Hoshigaki",
+"b": "Kakashi Hatake",
+"kind": "égalité",
+"p": 0.464,
+"gap_combats": 0.42,
+"label": "Itachi retient Kisame : contre Kakashi, forces trop proches, le combat coûterait temps et peine (ch. 142)"
+},
+{
+"verse": "naruto",
+"a": "Kakashi Hatake",
+"b": "Kisame Hoshigaki",
+"kind": "égalité",
+"p": 0.464,
+"gap_combats": -0.42,
+"label": "Itachi retient Kisame : contre Kakashi, forces trop proches, le combat coûterait temps et peine (ch. 142)"
+},
+{
+"verse": "naruto",
+"a": "Itachi Uchiha",
+"b": "Orochimaru",
+"kind": "plus fort",
+"p": 0.969,
+"gap_combats": 1.08,
+"label": "Orochimaru reconnaît qu'Itachi est plus fort que lui (ch. 140 p. 5)"
+},
+{
+"verse": "naruto",
+"a": "Shisui Uchiha",
+"b": "Itachi Uchiha",
+"kind": "égalité",
+"p": 0.231,
+"gap_combats": -1.04,
+"label": "La maîtrise du Sharingan de Shisui rivalisait avec celle d'Itachi (ch. 222 p. 7)"
+},
+{
+"verse": "naruto",
+"a": "Itachi Uchiha",
+"b": "Shisui Uchiha",
+"kind": "égalité",
+"p": 0.231,
+"gap_combats": 1.04,
+"label": "La maîtrise du Sharingan de Shisui rivalisait avec celle d'Itachi (ch. 222 p. 7)"
+},
+{
+"verse": "naruto",
+"a": "Might Gai",
+"b": "Kakashi Hatake",
+"kind": "plus fort",
+"p": 0.958,
+"gap_combats": 1.37,
+"label": "Kakashi reconnaît que Gai l'a surpassé quand il ouvre la 8e porte (ch. 667-669)"
+},
+{
+"verse": "naruto",
+"a": "3e Kazekage",
+"b": "Rasa (4e Kazekage)",
+"kind": "plus fort",
+"p": 0.501,
+"gap_combats": 0.0,
+"label": "3e Kazekage, Kage le plus puissant de l'histoire de Suna (ch. 266 p. 11, 268 p. 9)"
+},
+{
+"verse": "naruto",
+"a": "Sasori",
+"b": "3e Kazekage",
+"kind": "plus fort",
+"p": 0.497,
+"gap_combats": -0.01,
+"label": "Sasori a enlevé et tué le 3e Kazekage pour en faire une marionnette (ch. 266-268)"
+},
+{
+"verse": "naruto",
+"a": "Naruto Uzumaki",
+"b": "Sasuke Uchiha",
+"kind": "égalité",
+"p": 0.354,
+"gap_combats": 0.31,
+"label": "Rivaux de puissance égale à la Vallée de la Fin (ch. 695-698 ; 4e databook)"
+},
+{
+"verse": "naruto",
+"a": "Naruto Uzumaki",
+"b": "Sasuke Uchiha",
+"kind": "égalité",
+"p": 0.602,
+"gap_combats": 0.18,
+"label": "Sasuke a une puissance égale à celle de Naruto ; même avec un bras il suit Naruto au combat (Boruto ; databook)"
+},
+{
+"verse": "naruto",
+"a": "Isshiki Ōtsutsuki (vraie forme)",
+"b": "Momoshiki Ōtsutsuki",
+"kind": "plus fort",
+"p": 0.878,
+"gap_combats": 0.74,
+"label": "Isshiki, de rang supérieur même à Kaguya (Boruto ch. 51 p. 11), au-dessus de Momoshiki"
+},
+{
+"verse": "naruto",
+"a": "Momoshiki Ōtsutsuki",
+"b": "Kinshiki Ōtsutsuki",
+"kind": "plus fort",
+"p": 0.73,
+"gap_combats": 0.5,
+"label": "Kinshiki, serviteur de Momoshiki, se laisse absorber par lui (Boruto ch. 8-10)"
+},
+{
+"verse": "naruto",
+"a": "Jigen (Isshiki dans un corps)",
+"b": "Naruto Uzumaki",
+"kind": "plus fort",
+"p": 0.557,
+"gap_combats": 0.11,
+"label": "Jigen tient tête à Naruto et Sasuke réunis (Boruto ch. 38)"
+},
+{
+"verse": "naruto",
+"a": "Code",
+"b": "Jigen (Isshiki dans un corps)",
+"kind": "plus fort",
+"p": 0.041,
+"gap_combats": -1.56,
+"label": "Amado : au sommet de ses capacités (limiteurs retirés), Code dépasse de loin Jigen (Boruto ch. 56 p. 31-34 ; Narutopedia)"
+},
+{
+"verse": "naruto",
+"a": "Code",
+"b": "Kashin Koji",
+"kind": "plus fort",
+"p": 0.098,
+"gap_combats": -1.24,
+"label": "Code, le plus fort des Inners après Isshiki ressuscité (Boruto ch. 56) ; statut absolu remplacé par cet ordre"
+},
+{
+"verse": "naruto",
+"a": "Code",
+"b": "Boro",
+"kind": "plus fort",
+"p": 0.381,
+"gap_combats": -0.27,
+"label": "Code, même bridé, jugé plus fort que Delta et Boro (Boruto ch. 56 p. 35)"
+},
+{
+"verse": "naruto",
+"a": "Code",
+"b": "Delta",
+"kind": "plus fort",
+"p": 0.244,
+"gap_combats": -0.58,
+"label": "Code, même bridé, jugé plus fort que Delta et Boro (Boruto ch. 56 p. 35)"
+},
+{
+"verse": "naruto",
+"a": "Code",
+"b": "Naruto Uzumaki",
+"kind": "plus fort",
+"p": 0.247,
+"gap_combats": -0.9,
+"label": "Code bridé pourrait battre le 7e Hokage (sans Kurama) en duel (Boruto ch. 59 p. 9)"
+},
+{
+"verse": "naruto",
+"a": "Jura",
+"b": "Code",
+"kind": "plus fort",
+"p": 0.992,
+"gap_combats": 2.06,
+"label": "Jura, puissance bien au-dessus de son créateur Code (TBV ch. 4 p. 37, ch. 6 p. 9)"
+},
+{
+"verse": "naruto",
+"a": "Jura",
+"b": "Himawari Uzumaki",
+"kind": "plus fort",
+"p": 0.996,
+"gap_combats": 3.69,
+"label": "Jura n'utilise qu'une infime part de sa puissance pour dominer Himawari, jinchūriki de Kurama (TBV ch. 11 p. 22)"
+},
+{
+"verse": "naruto",
+"a": "Jura",
+"b": "Kawaki",
+"kind": "plus fort",
+"p": 0.992,
+"gap_combats": 2.58,
+"label": "Jura met Kawaki hors combat d'une seule attaque (TBV ch. 13 p. 27)"
+},
+{
+"verse": "onepiece",
+"a": "Rocks D. Xebec",
+"b": "Edward Newgate (Barbe Blanche)",
+"kind": "plus fort",
+"p": 0.581,
+"gap_combats": 0.13,
+"label": "Rocks commande Whitebeard dans son équipage ; il faut Roger et Garp réunis pour l'abattre (ch. 957, 1165-1166)"
+},
+{
+"verse": "onepiece",
+"a": "Rocks D. Xebec",
+"b": "Charlotte Linlin (Big Mom)",
+"kind": "plus fort",
+"p": 0.999,
+"gap_combats": 2.12,
+"label": "Big Mom est une subordonnée de Rocks à God Valley (ch. 957)"
+},
+{
+"verse": "onepiece",
+"a": "Rocks D. Xebec",
+"b": "Kaido",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 3.16,
+"label": "Kaido n'est qu'un mousse des pirates de Rocks (ch. 957)"
+},
+{
+"verse": "onepiece",
+"a": "Rocks D. Xebec",
+"b": "Edward Newgate (Barbe Blanche)",
+"kind": "plus fort",
+"p": 0.956,
+"gap_combats": 1.01,
+"label": "Rocks, que seule l'alliance Roger + Garp a pu vaincre, au-dessus de Whitebeard vieilli (ch. 957, 1166)"
+},
+{
+"verse": "onepiece",
+"a": "Rocks D. Xebec",
+"b": "Kaido",
+"kind": "plus fort",
+"p": 0.915,
+"gap_combats": 0.76,
+"label": "Rocks, ancien capitaine de Kaido, abattu seulement par Roger + Garp (ch. 957, 1001, 1166)"
+},
+{
+"verse": "onepiece",
+"a": "Rocks D. Xebec",
+"b": "Charlotte Linlin (Big Mom)",
+"kind": "plus fort",
+"p": 0.955,
+"gap_combats": 0.87,
+"label": "Rocks, ancien capitaine de Big Mom, abattu seulement par Roger + Garp (ch. 957, 1166)"
+},
+{
+"verse": "onepiece",
+"a": "Rocks D. Xebec",
+"b": "Gol D. Roger",
+"kind": "plus fort",
+"p": 0.527,
+"gap_combats": 0.04,
+"label": "Rocks, capitaine de Whitebeard, Big Mom et Kaido, réputé au-dessus de son rival Roger (ch. 957) ; l'alliance Roger + Garp visait Rocks sous Domi Reversi (ch. 1163-1165)"
+},
+{
+"verse": "onepiece",
+"a": "Rocks D. Xebec",
+"b": "Monkey D. Garp",
+"kind": "plus fort",
+"p": 0.406,
+"gap_combats": -0.14,
+"label": "Rocks réputé au-dessus de Garp (ch. 957) ; l'alliance Roger + Garp visait Rocks sous Domi Reversi (ch. 1163-1165)"
+},
+{
+"verse": "onepiece",
+"a": "Rocks D. Xebec",
+"b": "Saint Figarland Garling",
+"kind": "plus fort",
+"p": 0.994,
+"gap_combats": 2.02,
+"label": "Rocks écrase sans peine Garling et ses hommes à God Valley (ch. 1160-1161)"
+},
+{
+"verse": "onepiece",
+"a": "Imu",
+"b": "Rocks D. Xebec",
+"kind": "plus fort",
+"p": 0.799,
+"gap_combats": 0.67,
+"label": "Imu encaisse l'attaque combinée de six Haki des rois et prend le contrôle de Rocks par Domi Reversi (ch. 1163)"
+},
+{
+"verse": "onepiece",
+"a": "Imu",
+"b": "Saint Jaygarcia Saturn",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 2.21,
+"label": "Les Doyens s'agenouillent devant Imu, souverain absolu du Gouvernement mondial (ch. 906, 1086)"
+},
+{
+"verse": "onepiece",
+"a": "Imu",
+"b": "Saint Marcus Mars",
+"kind": "plus fort",
+"p": 0.999,
+"gap_combats": 2.27,
+"label": "Les Doyens s'agenouillent devant Imu (ch. 906, 1086)"
+},
+{
+"verse": "onepiece",
+"a": "Imu",
+"b": "Saint Topman Warcury",
+"kind": "plus fort",
+"p": 0.999,
+"gap_combats": 2.07,
+"label": "Les Doyens s'agenouillent devant Imu (ch. 906, 1086)"
+},
+{
+"verse": "onepiece",
+"a": "Imu",
+"b": "Saint Ethanbaron V. Nusjuro",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 2.3,
+"label": "Les Doyens s'agenouillent devant Imu (ch. 906, 1086)"
+},
+{
+"verse": "onepiece",
+"a": "Imu",
+"b": "Saint Shepherd Ju Peter",
+"kind": "plus fort",
+"p": 0.999,
+"gap_combats": 2.38,
+"label": "Les Doyens s'agenouillent devant Imu (ch. 906, 1086)"
+},
+{
+"verse": "onepiece",
+"a": "Imu",
+"b": "Saint Figarland Shamrock",
+"kind": "plus fort",
+"p": 0.985,
+"gap_combats": 1.73,
+"label": "Les Chevaliers divins servent Imu (ch. 1086, 1138)"
+},
+{
+"verse": "onepiece",
+"a": "Gol D. Roger",
+"b": "Edward Newgate (Barbe Blanche)",
+"kind": "plus fort",
+"p": 0.412,
+"gap_combats": -0.12,
+"label": "Roi des pirates, prime 5,564 Mds contre 5,046 ; Whitebeard reconnaît qu'il n'atteindra pas le One Piece (ch. 957, 966)"
+},
+{
+"verse": "onepiece",
+"a": "Gol D. Roger",
+"b": "Silvers Rayleigh",
+"kind": "plus fort",
+"p": 0.84,
+"gap_combats": 0.61,
+"label": "Capitaine et son second (ch. 506, 966)"
+},
+{
+"verse": "onepiece",
+"a": "Gol D. Roger",
+"b": "Scopper Gaban",
+"kind": "plus fort",
+"p": 0.755,
+"gap_combats": 0.42,
+"label": "Capitaine et son bras gauche (ch. 966, 1096)"
+},
+{
+"verse": "onepiece",
+"a": "Silvers Rayleigh",
+"b": "Scopper Gaban",
+"kind": "égalité",
+"p": 0.526,
+"gap_combats": -0.19,
+"label": "Bras droit et bras gauche du Roi des pirates, présentés d'égal à égal (ch. 966, 1096)"
+},
+{
+"verse": "onepiece",
+"a": "Scopper Gaban",
+"b": "Silvers Rayleigh",
+"kind": "égalité",
+"p": 0.526,
+"gap_combats": 0.19,
+"label": "Bras droit et bras gauche du Roi des pirates, présentés d'égal à égal (ch. 966, 1096)"
+},
+{
+"verse": "onepiece",
+"a": "Scopper Gaban",
+"b": "Silvers Rayleigh",
+"kind": "plus fort",
+"p": 0.611,
+"gap_combats": 0.19,
+"label": "Gaban, à peine conscient, se dit « n°2 » de l'équipage de Roger (ch. 1151) : déclaration intéressée, incertitude très large (audit vidéo)"
+},
+{
+"verse": "onepiece",
+"a": "Gol D. Roger",
+"b": "Kozuki Oden",
+"kind": "plus fort",
+"p": 0.917,
+"gap_combats": 1.07,
+"label": "Oden rejoint l'équipage de Roger comme membre (ch. 966-968)"
+},
+{
+"verse": "onepiece",
+"a": "Edward Newgate (Barbe Blanche)",
+"b": "Kaido",
+"kind": "plus fort",
+"p": 0.977,
+"gap_combats": 1.58,
+"label": "Whitebeard au sommet, « homme le plus fort du monde », quand Kaido monte en puissance (ch. 552, 966)"
+},
+{
+"verse": "onepiece",
+"a": "Edward Newgate (Barbe Blanche)",
+"b": "Marco",
+"kind": "plus fort",
+"p": 0.975,
+"gap_combats": 1.1,
+"label": "Empereur et son 1er commandant (ch. 552)"
+},
+{
+"verse": "onepiece",
+"a": "Edward Newgate (Barbe Blanche)",
+"b": "Joz (Jozu)",
+"kind": "plus fort",
+"p": 0.996,
+"gap_combats": 1.77,
+"label": "Empereur et son 3e commandant (ch. 552)"
+},
+{
+"verse": "onepiece",
+"a": "Edward Newgate (Barbe Blanche)",
+"b": "Vista",
+"kind": "plus fort",
+"p": 0.984,
+"gap_combats": 1.59,
+"label": "Empereur et son 5e commandant (ch. 552)"
+},
+{
+"verse": "onepiece",
+"a": "Edward Newgate (Barbe Blanche)",
+"b": "Portgas D. Ace",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 2.08,
+"label": "Ace a tenté plus de 100 fois d'assassiner Whitebeard sans succès (ch. 552)"
+},
+{
+"verse": "onepiece",
+"a": "Marco",
+"b": "Portgas D. Ace",
+"kind": "plus fort",
+"p": 0.953,
+"gap_combats": 0.96,
+"label": "1er commandant contre 2e commandant (ch. 552)"
+},
+{
+"verse": "onepiece",
+"a": "Sakazuki (Akainu)",
+"b": "Kuzan (Aokiji)",
+"kind": "plus fort",
+"p": 0.824,
+"gap_combats": 0.52,
+"label": "Akainu remporte le duel de 10 jours à Punk Hazard pour le poste d'amiral en chef (ch. 594, 699)"
+},
+{
+"verse": "onepiece",
+"a": "Kuzan (Aokiji)",
+"b": "Sakazuki (Akainu)",
+"kind": "égalité",
+"p": 0.454,
+"gap_combats": -0.52,
+"label": "Duel de 10 jours qui change le climat de Punk Hazard, gagné de justesse par Akainu : les deux sont presque égaux (ch. 699)"
+},
+{
+"verse": "onepiece",
+"a": "Sakazuki (Akainu)",
+"b": "Borsalino (Kizaru)",
+"kind": "plus fort",
+"p": 0.632,
+"gap_combats": 0.18,
+"label": "L'amiral en chef commande les amiraux ; Kizaru est un pair d'Aokiji, vaincu par Akainu (ch. 594, 907, 1080)"
+},
+{
+"verse": "onepiece",
+"a": "Sakazuki (Akainu)",
+"b": "Issho (Fujitora)",
+"kind": "plus fort",
+"p": 0.887,
+"gap_combats": 0.71,
+"label": "Amiral en chef au-dessus des amiraux recrutés après l'ellipse (ch. 700, 907)"
+},
+{
+"verse": "onepiece",
+"a": "Sakazuki (Akainu)",
+"b": "Aramaki (Ryokugyu)",
+"kind": "plus fort",
+"p": 0.902,
+"gap_combats": 0.82,
+"label": "Amiral en chef au-dessus des amiraux recrutés après l'ellipse (ch. 907, 1054)"
+},
+{
+"verse": "onepiece",
+"a": "Kuzan (Aokiji)",
+"b": "Borsalino (Kizaru)",
+"kind": "égalité",
+"p": 0.548,
+"gap_combats": -0.36,
+"label": "Les trois amiraux de Marineford, même grade, présentés en pairs (ch. 553, 594)"
+},
+{
+"verse": "onepiece",
+"a": "Borsalino (Kizaru)",
+"b": "Kuzan (Aokiji)",
+"kind": "égalité",
+"p": 0.548,
+"gap_combats": 0.36,
+"label": "Les trois amiraux de Marineford, même grade, présentés en pairs (ch. 553, 594)"
+},
+{
+"verse": "onepiece",
+"a": "Sengoku",
+"b": "Sakazuki (Akainu)",
+"kind": "plus fort",
+"p": 0.41,
+"gap_combats": -0.14,
+"label": "Amiral en chef au-dessus des amiraux à Marineford (ch. 552)"
+},
+{
+"verse": "onepiece",
+"a": "Sengoku",
+"b": "Borsalino (Kizaru)",
+"kind": "plus fort",
+"p": 0.512,
+"gap_combats": 0.02,
+"label": "Amiral en chef au-dessus des amiraux à Marineford (ch. 552)"
+},
+{
+"verse": "onepiece",
+"a": "Kaido",
+"b": "King",
+"kind": "plus fort",
+"p": 0.983,
+"gap_combats": 1.19,
+"label": "Empereur et son bras droit Calamité (ch. 920, 1022)"
+},
+{
+"verse": "onepiece",
+"a": "Kaido",
+"b": "Queen",
+"kind": "plus fort",
+"p": 0.997,
+"gap_combats": 1.48,
+"label": "Empereur et sa Calamité (ch. 920)"
+},
+{
+"verse": "onepiece",
+"a": "Kaido",
+"b": "Jack",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 1.92,
+"label": "Empereur et sa plus jeune Calamité (ch. 920)"
+},
+{
+"verse": "onepiece",
+"a": "King",
+"b": "Queen",
+"kind": "plus fort",
+"p": 0.679,
+"gap_combats": 0.28,
+"label": "King, bras droit et n°2 de Kaido, au-dessus de Queen (ch. 1022)"
+},
+{
+"verse": "onepiece",
+"a": "Queen",
+"b": "Jack",
+"kind": "plus fort",
+"p": 0.766,
+"gap_combats": 0.44,
+"label": "Jack, la plus jeune Calamité, en dessous des deux autres (ch. 920, 980)"
+},
+{
+"verse": "onepiece",
+"a": "King",
+"b": "Who's-Who",
+"kind": "plus fort",
+"p": 0.983,
+"gap_combats": 1.35,
+"label": "Calamités au-dessus des Tobi Roppo dans la hiérarchie des Cent Bêtes (ch. 978)"
+},
+{
+"verse": "onepiece",
+"a": "King",
+"b": "Black Maria",
+"kind": "plus fort",
+"p": 0.986,
+"gap_combats": 1.38,
+"label": "Calamités au-dessus des Tobi Roppo (ch. 978)"
+},
+{
+"verse": "onepiece",
+"a": "King",
+"b": "Sasaki",
+"kind": "plus fort",
+"p": 0.988,
+"gap_combats": 1.45,
+"label": "Calamités au-dessus des Tobi Roppo (ch. 978)"
+},
+{
+"verse": "onepiece",
+"a": "King",
+"b": "Ulti",
+"kind": "plus fort",
+"p": 0.984,
+"gap_combats": 1.42,
+"label": "Calamités au-dessus des Tobi Roppo (ch. 978)"
+},
+{
+"verse": "onepiece",
+"a": "King",
+"b": "Page One",
+"kind": "plus fort",
+"p": 0.928,
+"gap_combats": 1.06,
+"label": "Calamités au-dessus des Tobi Roppo (ch. 978)"
+},
+{
+"verse": "onepiece",
+"a": "Charlotte Linlin (Big Mom)",
+"b": "Charlotte Katakuri",
+"kind": "plus fort",
+"p": 0.996,
+"gap_combats": 1.36,
+"label": "Empereur et son meilleur Sweet Commander (ch. 832)"
+},
+{
+"verse": "onepiece",
+"a": "Charlotte Linlin (Big Mom)",
+"b": "Charlotte Cracker",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 1.87,
+"label": "Empereur et son Sweet Commander (ch. 832)"
+},
+{
+"verse": "onepiece",
+"a": "Charlotte Linlin (Big Mom)",
+"b": "Charlotte Perospero",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 2.22,
+"label": "Empereur et son fils aîné (ch. 832)"
+},
+{
+"verse": "onepiece",
+"a": "Charlotte Katakuri",
+"b": "Charlotte Cracker",
+"kind": "plus fort",
+"p": 0.793,
+"gap_combats": 0.51,
+"label": "Katakuri, le plus fort des Sweet Commanders, « n'a jamais touché terre » (ch. 832, 871)"
+},
+{
+"verse": "onepiece",
+"a": "Marshall D. Teach (Barbe Noire)",
+"b": "Jesus Burgess",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 2.2,
+"label": "Empereur et son 1er capitaine titanesque (ch. 925)"
+},
+{
+"verse": "onepiece",
+"a": "Marshall D. Teach (Barbe Noire)",
+"b": "Avalo Pizarro",
+"kind": "plus fort",
+"p": 0.997,
+"gap_combats": 1.77,
+"label": "Empereur et son capitaine titanesque (ch. 925)"
+},
+{
+"verse": "onepiece",
+"a": "Marshall D. Teach (Barbe Noire)",
+"b": "Kuzan (Aokiji)",
+"kind": "plus fort",
+"p": 0.8,
+"gap_combats": 0.44,
+"label": "L'ancien amiral Kuzan sert désormais Barbe Noire (ch. 925, 1059)"
+},
+{
+"verse": "onepiece",
+"a": "Marshall D. Teach (Barbe Noire)",
+"b": "Silvers Rayleigh",
+"kind": "plus fort",
+"p": 0.78,
+"gap_combats": 0.5,
+"label": "Amazon Lily : Rayleigh admet qu'à son âge il ne battrait pas le Barbe Noire actuel, mais Teach se retire devant lui (ch. 1059) ; aveu prudent, incertitude large (audit vidéo)"
+},
+{
+"verse": "onepiece",
+"a": "Shanks le Roux",
+"b": "Aramaki (Ryokugyu)",
+"kind": "plus fort",
+"p": 0.963,
+"gap_combats": 1.12,
+"label": "Ryokugyu renonce face au seul Haki des rois de Shanks (ch. 1055, 1079)"
+},
+{
+"verse": "onepiece",
+"a": "Shanks le Roux",
+"b": "Dracule Mihawk",
+"kind": "égalité",
+"p": 0.253,
+"gap_combats": -0.23,
+"label": "Rivaux dont les duels « ébranlaient Grand Line » (ch. 434)"
+},
+{
+"verse": "onepiece",
+"a": "Dracule Mihawk",
+"b": "Shanks le Roux",
+"kind": "égalité",
+"p": 0.253,
+"gap_combats": 0.23,
+"label": "Rivaux dont les duels « ébranlaient Grand Line » (ch. 434)"
+},
+{
+"verse": "onepiece",
+"a": "Monkey D. Luffy",
+"b": "Roronoa Zoro",
+"kind": "plus fort",
+"p": 0.981,
+"gap_combats": 0.93,
+"label": "Empereur et son « aile » : Luffy vainc Kaido, Zoro vainc King (ch. 1035, 1049, 1053)"
+},
+{
+"verse": "onepiece",
+"a": "Monkey D. Luffy",
+"b": "Sanji",
+"kind": "plus fort",
+"p": 0.996,
+"gap_combats": 1.15,
+"label": "Empereur et son « aile » : Luffy vainc Kaido, Sanji vainc Queen (ch. 1031-1053)"
+},
+{
+"verse": "onepiece",
+"a": "Monkey D. Luffy",
+"b": "Trafalgar Law",
+"kind": "plus fort",
+"p": 0.988,
+"gap_combats": 1.12,
+"label": "Luffy seul est promu Empereur ; Law et Kid ont dû s'unir contre Big Mom (ch. 1038-1053)"
+},
+{
+"verse": "onepiece",
+"a": "Monkey D. Luffy",
+"b": "Eustass Kid",
+"kind": "plus fort",
+"p": 0.994,
+"gap_combats": 1.34,
+"label": "Luffy seul est promu Empereur ; Law et Kid ont dû s'unir contre Big Mom (ch. 1038-1053)"
+},
+{
+"verse": "onepiece",
+"a": "Monkey D. Luffy",
+"b": "Jinbe",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 2.02,
+"label": "Empereur et son timonier (ch. 976, 1053)"
+},
+{
+"verse": "onepiece",
+"a": "Roronoa Zoro",
+"b": "Sanji",
+"kind": "plus fort",
+"p": 0.681,
+"gap_combats": 0.23,
+"label": "Zoro, vice-capitaine de fait, prime 1,111 Md contre 1,032 (ch. 1053)"
+},
+{
+"verse": "onepiece",
+"a": "Sanji",
+"b": "Roronoa Zoro",
+"kind": "égalité",
+"p": 0.648,
+"gap_combats": -0.23,
+"label": "Les deux « ailes » du Roi des pirates, chacun vainqueur d'une Calamité : presque égaux (ch. 1034-1035, 1053)"
+},
+{
+"verse": "onepiece",
+"a": "Roronoa Zoro",
+"b": "Jinbe",
+"kind": "plus fort",
+"p": 0.987,
+"gap_combats": 1.1,
+"label": "Zoro bat King (Calamité), Jinbe bat Who's-Who (Tobi Roppo) (ch. 1018, 1035)"
+},
+{
+"verse": "onepiece",
+"a": "Sanji",
+"b": "Jinbe",
+"kind": "plus fort",
+"p": 0.961,
+"gap_combats": 0.87,
+"label": "Sanji bat Queen (Calamité), Jinbe bat Who's-Who (Tobi Roppo) (ch. 1018, 1034)"
+},
+{
+"verse": "onepiece",
+"a": "Jinbe",
+"b": "Nico Robin",
+"kind": "plus fort",
+"p": 0.553,
+"gap_combats": 0.08,
+"label": "Jinbe, ancien Shichibukai et timonier, 4e combattant de l'équipage après le trio de tête (ch. 976, 1018, 1022)"
+},
+{
+"verse": "onepiece",
+"a": "Jinbe",
+"b": "Franky",
+"kind": "plus fort",
+"p": 0.814,
+"gap_combats": 0.54,
+"label": "Jinbe, ancien Shichibukai, au-dessus de Franky, vainqueur d'un Tobi Roppo de justesse (ch. 1018-1019)"
+},
+{
+"verse": "onepiece",
+"a": "Jinbe",
+"b": "Brook",
+"kind": "plus fort",
+"p": 0.941,
+"gap_combats": 1.09,
+"label": "Jinbe, ancien Shichibukai, au-dessus de Brook (ch. 976, 1018)"
+},
+{
+"verse": "onepiece",
+"a": "Tony Tony Chopper",
+"b": "Usopp",
+"kind": "plus fort",
+"p": 0.217,
+"gap_combats": -0.71,
+"label": "Au corps à corps, Chopper en Monster Point maîtrisé frappe une Calamité (Queen, ch. 1007) ; Usopp combat de loin et par la ruse, roué par Ulti (ch. 995-996)"
+},
+{
+"verse": "onepiece",
+"a": "Tony Tony Chopper",
+"b": "Nami",
+"kind": "plus fort",
+"p": 0.233,
+"gap_combats": -0.69,
+"label": "Au corps à corps, Chopper en Monster Point frappe Queen (ch. 1007) ; Nami ne bat Ulti, déjà épuisée, qu'avec Zeus (ch. 995-996, 1016)"
+},
+{
+"verse": "onepiece",
+"a": "Benn Beckman",
+"b": "Yasopp",
+"kind": "plus fort",
+"p": 0.519,
+"gap_combats": 0.04,
+"label": "Second des pirates du Roux au-dessus de son tireur d'élite (ch. 434, 580, 1079)"
+},
+{
+"verse": "onepiece",
+"a": "Dracule Mihawk",
+"b": "Roronoa Zoro",
+"kind": "plus fort",
+"p": 0.578,
+"gap_combats": 0.14,
+"label": "Mihawk reste le plus grand sabreur du monde que Zoro cherche à dépasser, prime 3,59 Mds (ch. 51, 597, 1058)"
+},
+{
+"verse": "onepiece",
+"a": "Dracule Mihawk",
+"b": "Sir Crocodile",
+"kind": "plus fort",
+"p": 0.995,
+"gap_combats": 1.64,
+"label": "Cross Guild : Mihawk 3,59 Mds contre Crocodile 1,965 Md, Buggy simple façade (ch. 1058)"
+},
+{
+"verse": "onepiece",
+"a": "Dracule Mihawk",
+"b": "Baggy le Clown",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 4.12,
+"label": "Buggy est le chef de façade de Cross Guild, Mihawk et Crocodile le dominent (ch. 1058)"
+},
+{
+"verse": "onepiece",
+"a": "Sir Crocodile",
+"b": "Baggy le Clown",
+"kind": "plus fort",
+"p": 0.999,
+"gap_combats": 2.48,
+"label": "Buggy est le chef de façade de Cross Guild (ch. 1058)"
+},
+{
+"verse": "onepiece",
+"a": "Donquixote Doflamingo",
+"b": "Trebol",
+"kind": "plus fort",
+"p": 0.958,
+"gap_combats": 1.13,
+"label": "Capitaine et ses hauts cadres (ch. 728)"
+},
+{
+"verse": "onepiece",
+"a": "Donquixote Doflamingo",
+"b": "Diamante",
+"kind": "plus fort",
+"p": 0.926,
+"gap_combats": 1.01,
+"label": "Capitaine et ses hauts cadres (ch. 728)"
+},
+{
+"verse": "onepiece",
+"a": "Donquixote Doflamingo",
+"b": "Pica",
+"kind": "plus fort",
+"p": 0.958,
+"gap_combats": 1.15,
+"label": "Capitaine et ses hauts cadres (ch. 728)"
+},
+{
+"verse": "onepiece",
+"a": "Sir Crocodile",
+"b": "Mr. 1 (Daz Bonez)",
+"kind": "plus fort",
+"p": 0.998,
+"gap_combats": 1.81,
+"label": "Chef de Baroque Works et son meilleur agent (ch. 156)"
+},
+{
+"verse": "onepiece",
+"a": "Gecko Moria",
+"b": "Absalom",
+"kind": "plus fort",
+"p": 0.977,
+"gap_combats": 1.49,
+"label": "Shichibukai et un de ses Quatre Mystérieux (ch. 449)"
+},
+{
+"verse": "onepiece",
+"a": "Rob Lucci",
+"b": "Kaku",
+"kind": "plus fort",
+"p": 0.908,
+"gap_combats": 0.85,
+"label": "Lucci, le plus fort de l'histoire du CP9 (ch. 377, 390)"
+},
+{
+"verse": "onepiece",
+"a": "Rob Lucci",
+"b": "Jabra",
+"kind": "plus fort",
+"p": 0.964,
+"gap_combats": 1.23,
+"label": "Lucci, le plus fort de l'histoire du CP9 (ch. 390)"
+},
+{
+"verse": "onepiece",
+"a": "Saint Figarland Shamrock",
+"b": "Sainte Gunko",
+"kind": "plus fort",
+"p": 0.814,
+"gap_combats": 0.76,
+"label": "Commandant des Chevaliers divins et ses chevaliers (ch. 1138)"
+},
+{
+"verse": "onepiece",
+"a": "Saint Figarland Shamrock",
+"b": "Saint Killingham",
+"kind": "plus fort",
+"p": 0.955,
+"gap_combats": 1.45,
+"label": "Commandant des Chevaliers divins et ses chevaliers (ch. 1138)"
+},
+{
+"verse": "onepiece",
+"a": "Saint Figarland Shamrock",
+"b": "Saint Shepherd Sommers",
+"kind": "plus fort",
+"p": 0.938,
+"gap_combats": 1.3,
+"label": "Commandant des Chevaliers divins et ses chevaliers (ch. 1138)"
+},
+{
+"verse": "onepiece",
+"a": "Monkey D. Dragon",
+"b": "Sabo",
+"kind": "plus fort",
+"p": 0.856,
+"gap_combats": 0.97,
+"label": "Commandant en chef et son chef d'état-major (ch. 744)"
+},
+{
+"verse": "dragonball",
+"a": "Raditz",
+"b": "Son Goku",
+"kind": "plus fort",
+"p": 0.617,
+"gap_combats": 0.19,
+"label": "Goku (416) et Piccolo (408) très loin des 1 500 de Raditz, qui les juge sans chance (ch. 196-199)"
+},
+{
+"verse": "dragonball",
+"a": "Nappa",
+"b": "Raditz",
+"kind": "plus fort",
+"p": 0.768,
+"gap_combats": 0.35,
+"label": "Vegeta et Nappa : Raditz était « un faible » par rapport à eux (ch. 204, 214)"
+},
+{
+"verse": "dragonball",
+"a": "Vegeta",
+"b": "Nappa",
+"kind": "plus fort",
+"p": 0.79,
+"gap_combats": 0.33,
+"label": "Nappa terrifié par Vegeta, qui l'achève d'un geste ; 18 000 contre 4 000 (ch. 227 ; Daizenshuu 7)"
+},
+{
+"verse": "dragonball",
+"a": "Capitaine Ginyu",
+"b": "Recoome",
+"kind": "plus fort",
+"p": 0.564,
+"gap_combats": 0.09,
+"label": "Ginyu, capitaine, le plus fort du Commando, au-dessus de Recoome (ch. 271-283)"
+},
+{
+"verse": "dragonball",
+"a": "Freezer",
+"b": "Capitaine Ginyu",
+"kind": "plus fort",
+"p": 0.904,
+"gap_combats": 0.67,
+"label": "Freezer, 530 000 en 1re forme, loin au-dessus de Ginyu (120 000) (ch. 283-286, vol. 24)"
+},
+{
+"verse": "dragonball",
+"a": "C-18",
+"b": "Trunks (du futur)",
+"kind": "plus fort",
+"p": 0.522,
+"gap_combats": 0.05,
+"label": "Trunks, qui vient de trancher Freezer : « Ils sont trop forts… » ; il ne peut que fuir les cyborgs de son futur (ch. 335, vérifié 2e revue)"
+},
+{
+"verse": "dragonball",
+"a": "C-17",
+"b": "C-18",
+"kind": "égalité",
+"p": 0.27,
+"gap_combats": -0.82,
+"label": "C-17 et C-18, cyborgs jumeaux du Dr Gero, de force voisine (ch. 350-354)"
+},
+{
+"verse": "dragonball",
+"a": "C-18",
+"b": "C-17",
+"kind": "égalité",
+"p": 0.27,
+"gap_combats": 0.82,
+"label": "C-17 et C-18, cyborgs jumeaux du Dr Gero, de force voisine (ch. 350-354)"
+},
+{
+"verse": "dragonball",
+"a": "C-16",
+"b": "C-17",
+"kind": "égalité",
+"p": 0.352,
+"gap_combats": -0.27,
+"label": "C-16 calcule que sa puissance est à peu près égale à celle de Cell (ch. 371, vérifié 2e revue), Cell que C-17 ne pouvait pas battre (ch. 369-370)"
+},
+{
+"verse": "dragonball",
+"a": "Son Goku",
+"b": "Freezer",
+"kind": "plus fort",
+"p": 0.641,
+"gap_combats": 0.21,
+"label": "Freezer à 100 % comprend qu'il ne peut plus rivaliser avec Goku Super Saiyan (ch. 320-324)"
+},
+{
+"verse": "dragonball",
+"a": "Son Gohan",
+"b": "Son Goku",
+"kind": "plus fort",
+"p": 0.896,
+"gap_combats": 0.9,
+"label": "Goku : la puissance de Gohan a déjà dépassé la sienne (ch. 402-404)"
+},
+{
+"verse": "dragonball",
+"a": "Son Gohan",
+"b": "Cell",
+"kind": "plus fort",
+"p": 0.892,
+"gap_combats": 0.56,
+"label": "Gohan Super Saiyan 2 surclasse Cell parfait, dit Goku et constate Cell (ch. 408-409)"
+},
+{
+"verse": "dragonball",
+"a": "Son Goku",
+"b": "Vegeta",
+"kind": "plus fort",
+"p": 0.929,
+"gap_combats": 0.96,
+"label": "Goku révèle qu'il retenait le Super Saiyan 3 pendant le duel contre Majin Vegeta, qui en reste abasourdi (ch. 474)"
+},
+{
+"verse": "dragonball",
+"a": "Son Goku",
+"b": "Vegeta",
+"kind": "plus fort",
+"p": 0.93,
+"gap_combats": 0.98,
+"label": "Vegeta reconnaît que Goku SSJ3 le surpasse : « Tu es le numéro un, Kakarot » (ch. 509)"
+},
+{
+"verse": "dragonball",
+"a": "Son Gohan",
+"b": "Son Goku",
+"kind": "égalité",
+"p": 0.383,
+"gap_combats": -0.59,
+"label": "Gohan Ultime au niveau de Goku SSJ3 (encart V Jump cité par Kanzenshuu ; aucune hiérarchie explicite dans le manga, ch. 496-502)"
+},
+{
+"verse": "dragonball",
+"a": "Son Goku",
+"b": "Son Gohan",
+"kind": "égalité",
+"p": 0.383,
+"gap_combats": 0.59,
+"label": "Gohan Ultime au niveau de Goku SSJ3 (encart V Jump cité par Kanzenshuu ; aucune hiérarchie explicite dans le manga, ch. 496-502)"
+},
+{
+"verse": "dragonball",
+"a": "Super Buu (Buu maléfique)",
+"b": "Son Goku",
+"kind": "plus fort",
+"p": 0.696,
+"gap_combats": 0.38,
+"label": "Face à Super Buu (Gotenks et Piccolo absorbés), Goku SSJ3 juge que la fusion avec Gohan est la seule issue (ch. 501-502)"
+},
+{
+"verse": "dragonball",
+"a": "Majin Buu (gros)",
+"b": "Shin (Kaiōshin de l'Est)",
+"kind": "plus fort",
+"p": 0.997,
+"gap_combats": 2.17,
+"label": "Kaiōshin : Majin Buu a autrefois tué ou absorbé les Kaiōshin, impossible pour lui de le vaincre (ch. 449, 460)"
+},
+{
+"verse": "dragonball",
+"a": "Whis",
+"b": "Beerus",
+"kind": "plus fort",
+"p": 0.987,
+"gap_combats": 1.29,
+"label": "Whis est le maître de Beerus et plus fort que lui, dit Beerus (DBS manga ch. 1-5)"
+},
+{
+"verse": "dragonball",
+"a": "Beerus",
+"b": "Son Goku",
+"kind": "plus fort",
+"p": 0.966,
+"gap_combats": 1.14,
+"label": "Beerus face à Goku SSG : jamais à pleine puissance, il reste au-dessus (DBS manga ch. 4)"
+},
+{
+"verse": "dragonball",
+"a": "Beerus",
+"b": "Vegeta",
+"kind": "plus fort",
+"p": 0.972,
+"gap_combats": 1.19,
+"label": "Beerus et Whis jugent Goku et Vegeta encore loin d'un dieu de la destruction (DBS manga ch. 27-28)"
+},
+{
+"verse": "dragonball",
+"a": "Jiren",
+"b": "Beerus",
+"kind": "plus fort",
+"p": 0.347,
+"gap_combats": -0.22,
+"label": "Jiren plus fort que Belmod, dieu de la destruction de l'Univers 11 (DBS manga ch. 29, narration ; Toppo pendant l'exhibition) ; Beerus sert de référence de dieu de la destruction (2e revue : énoncé du manga, pas seulement de l'anime ép. 110)"
+},
+{
+"verse": "dragonball",
+"a": "Jiren",
+"b": "Toppo",
+"kind": "plus fort",
+"p": 0.964,
+"gap_combats": 1.09,
+"label": "Toppo, candidat dieu de la destruction, reconnaît Jiren comme le plus fort de l'Univers 11 (DBS manga ch. 29-35)"
+},
+{
+"verse": "dragonball",
+"a": "Whis",
+"b": "Jiren",
+"kind": "plus fort",
+"p": 0.993,
+"gap_combats": 1.5,
+"label": "Corollaire : Whis, maître de Beerus et nettement plus fort que lui (DBS manga ch. 1-5), au-dessus de Jiren, de niveau dieu de la destruction (ch. 29) ; 2e revue : pas de réplique « les anges dépassent tous les mortels » trouvée dans le manga"
+},
+{
+"verse": "dragonball",
+"a": "Merus",
+"b": "Son Goku",
+"kind": "plus fort",
+"p": 0.652,
+"gap_combats": 0.27,
+"label": "Merus, apprenti ange, entraîne Goku à l'Ultra Instinct en le surclassant (DBS manga ch. 52-53)"
+},
+{
+"verse": "dragonball",
+"a": "Son Goku",
+"b": "Vegeta",
+"kind": "plus fort",
+"p": 0.589,
+"gap_combats": 0.18,
+"label": "Après la salle de l'Esprit et du Temps, Trunks : Goku et Gohan nous ont largement dépassés (ch. 392-394)"
+},
+{
+"verse": "dragonball",
+"a": "Gamma 1",
+"b": "Gamma 2",
+"kind": "égalité",
+"p": 0.273,
+"gap_combats": 0.66,
+"label": "Gamma 1 et Gamma 2, deux modèles jumeaux du Dr Hedo (ch. 91-95)"
+},
+{
+"verse": "dragonball",
+"a": "Gamma 2",
+"b": "Gamma 1",
+"kind": "égalité",
+"p": 0.273,
+"gap_combats": -0.66,
+"label": "Gamma 1 et Gamma 2, deux modèles jumeaux du Dr Hedo (ch. 91-95)"
+},
+{
+"verse": "dragonball",
+"a": "Kefla",
+"b": "Kale",
+"kind": "plus fort",
+"p": 0.192,
+"gap_combats": -0.9,
+"label": "Kefla, fusion Potara de Kale et Caulifla, dépasse de loin chacune des deux (DBS manga ch. 38)"
+},
+{
+"verse": "dragonball",
+"a": "Whis",
+"b": "Freezer",
+"kind": "plus fort",
+"p": 0.556,
+"gap_combats": 0.13,
+"label": "Corollaire de Whis > Beerus (DBS manga ch. 1-5) : aucun mortel n'est montré au-dessus d'un ange ; Black Freezer contre Beerus reste non tranché (ch. 87, aucune comparaison canon)"
+},
+{
+"verse": "dragonball",
+"a": "Son Gohan",
+"b": "Son Goku",
+"kind": "égalité",
+"p": 0.384,
+"gap_combats": 0.29,
+"label": "Gohan Beast mis au niveau de Goku et Vegeta, voire au-delà (DBS manga ch. 99-101 ; Toriyama, interview Super Hero 2022)"
+},
+{
+"verse": "dragonball",
+"a": "Granolah",
+"b": "Vegeta",
+"kind": "plus fort",
+"p": 0.374,
+"gap_combats": -0.23,
+"label": "Granolah, devenu par vœu « le guerrier le plus fort de l'univers », bat deux fois Vegeta Ultra Ego (DBS manga ch. 70, 75-76)"
+},
+{
+"verse": "dragonball",
+"a": "Granolah",
+"b": "Son Goku",
+"kind": "égalité",
+"p": 0.518,
+"gap_combats": -0.2,
+"label": "Granolah, « le plus fort de l'univers » par vœu ; Goku, en défense, admet ne pas pouvoir gagner ainsi (DBS manga ch. 70, 76)"
+},
+{
+"verse": "hunterxhunter",
+"a": "Meruem",
+"b": "Isaac Netero",
+"kind": "plus fort",
+"p": 0.994,
+"gap_combats": 1.81,
+"label": "Netero reconnaît que Meruem le dépasse de loin et recourt à la Rose du pauvre (ch. 316-317)"
+},
+{
+"verse": "hunterxhunter",
+"a": "Meruem",
+"b": "Neferpitou",
+"kind": "plus fort",
+"p": 0.987,
+"gap_combats": 1.4,
+"label": "Les Gardes royaux se soumettent à l'aura du roi qui dépasse la leur (ch. 213-215)"
+},
+{
+"verse": "hunterxhunter",
+"a": "Neferpitou",
+"b": "Kite",
+"kind": "plus fort",
+"p": 0.981,
+"gap_combats": 1.68,
+"label": "Kite juge Pitou hors de sa portée et ordonne à Gon et Killua de fuir (ch. 186)"
+},
+{
+"verse": "hunterxhunter",
+"a": "Neferpitou",
+"b": "Knov",
+"kind": "plus fort",
+"p": 0.98,
+"gap_combats": 1.6,
+"label": "Knov s'effondre en percevant l'aura des Gardes royaux : impossible de gagner (ch. 222)"
+},
+{
+"verse": "hunterxhunter",
+"a": "Isaac Netero",
+"b": "Morel Mackernasey",
+"kind": "plus fort",
+"p": 0.998,
+"gap_combats": 1.73,
+"label": "Netero seul est désigné pour le roi, Morel et Knov pour les Gardes (ch. 257)"
+},
+{
+"verse": "hunterxhunter",
+"a": "Isaac Netero",
+"b": "Neferpitou",
+"kind": "plus fort",
+"p": 0.668,
+"gap_combats": 0.25,
+"label": "Netero seul réservé au roi, les Gardes laissés à Morel et Knov ; il écarte Pitou d'un coup (ch. 257, 263-265)"
+},
+{
+"verse": "hunterxhunter",
+"a": "Chrollo Lucilfer",
+"b": "Hisoka Morow",
+"kind": "plus fort",
+"p": 0.538,
+"gap_combats": 0.06,
+"label": "Machi : le chef est nettement au-dessus d'Hisoka (ch. 170)"
+},
+{
+"verse": "hunterxhunter",
+"a": "Illumi Zoldyck (Gittarackur)",
+"b": "Killua Zoldyck",
+"kind": "plus fort",
+"p": 0.998,
+"gap_combats": 2.29,
+"label": "Killua n'ose pas affronter Illumi et abandonne l'examen (ch. 35-36)"
+},
+{
+"verse": "hunterxhunter",
+"a": "Isaac Netero",
+"b": "Gon Freecss",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 5.26,
+"label": "Gon et Killua ne parviennent pas à prendre la balle de Netero (ch. 31-32)"
+},
+{
+"verse": "hunterxhunter",
+"a": "Morel Mackernasey",
+"b": "Knuckle Bine",
+"kind": "plus fort",
+"p": 0.408,
+"gap_combats": -0.16,
+"label": "Morel, maître de Knuckle et Shoot, choisi avec Knov pour les Gardes royaux (ch. 201, 257)"
+},
+{
+"verse": "hunterxhunter",
+"a": "Illumi Zoldyck (Gittarackur)",
+"b": "Killua Zoldyck",
+"kind": "plus fort",
+"p": 0.285,
+"gap_combats": -0.52,
+"label": "Killua fuit en Godspeed plutôt que d'affronter Illumi, qui garde l'ascendant sur son frère (ch. 326)"
+},
+{
+"verse": "hunterxhunter",
+"a": "Ging Freecss",
+"b": "Leorio Paladiknight",
+"kind": "plus fort",
+"p": 0.997,
+"gap_combats": 2.9,
+"label": "Ging, l'un des cinq meilleurs utilisateurs de Nen selon Netero ; Leorio débutant en Nen (ch. 320-345)"
+},
+{
+"verse": "jujutsukaisen",
+"a": "Satoru Gojo",
+"b": "Kinji Hakari",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 2.92,
+"label": "Gojo : « Hakari et Okkotsu… ils seront aussi forts que moi un jour » (monologue de Gojo ; récap : ch. 114)"
+},
+{
+"verse": "jujutsukaisen",
+"a": "Satoru Gojo",
+"b": "Yuta Okkotsu",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 3.54,
+"label": "Gojo : Okkotsu et Hakari atteindront un jour son niveau (monologue de Gojo ; récap : ch. 114)"
+},
+{
+"verse": "jujutsukaisen",
+"a": "Kinji Hakari",
+"b": "Yuta Okkotsu",
+"kind": "plus fort",
+"p": 0.26,
+"gap_combats": -0.53,
+"label": "Yuta : quand il est lancé, Hakari est plus fort que moi (jeu d'abattage, ch. 146 selon récap)"
+},
+{
+"verse": "jujutsukaisen",
+"a": "Satoru Gojo",
+"b": "Suguru Geto",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 3.66,
+"label": "Geto constate que Gojo est devenu « le plus fort », seul (ch. 76-77)"
+},
+{
+"verse": "jujutsukaisen",
+"a": "Satoru Gojo",
+"b": "Jogo",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 2.72,
+"label": "Geto (Kenjaku) prévient Jogo qu'il ne peut pas battre Gojo (ch. 14-15)"
+},
+{
+"verse": "jujutsukaisen",
+"a": "Ryomen Sukuna",
+"b": "Jogo",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 2.51,
+"label": "Sukuna (15 doigts) : « Tu es fort, Jogo », après l'avoir surclassé (ch. 116-117)"
+},
+{
+"verse": "jujutsukaisen",
+"a": "Satoru Gojo",
+"b": "Megumi Fushiguro",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 4.68,
+"label": "Gojo, le plus fort, est le professeur de Megumi, grade 2 (ch. 2-3)"
+},
+{
+"verse": "jujutsukaisen",
+"a": "Satoru Gojo",
+"b": "Ryomen Sukuna",
+"kind": "égalité",
+"p": 0.635,
+"gap_combats": 0.01,
+"label": "Gojo vs Sukuna (corps de Megumi, 20 doigts) : duel des plus forts, au fil du rasoir ; « Je gagnerais » (ch. 221) mais Sukuna l'emporte (ch. 236)"
+},
+{
+"verse": "jujutsukaisen",
+"a": "Ryomen Sukuna",
+"b": "Satoru Gojo",
+"kind": "égalité",
+"p": 0.635,
+"gap_combats": -0.01,
+"label": "Gojo vs Sukuna : quasi-égalité au sommet, Sukuna ne gagne que grâce à l'adaptation de Mahoraga (ch. 223-236)"
+},
+{
+"verse": "jujutsukaisen",
+"a": "Ryomen Sukuna",
+"b": "Ryomen Sukuna",
+"kind": "plus fort",
+"p": 0.616,
+"gap_combats": 0.2,
+"label": "Sukuna à 20 doigts et Dix Ombres au-dessus du Sukuna à 15 doigts dans le corps de Yuji, qui n'était pas à pleine puissance (ch. 116-117, ch. 212-221)"
+},
+{
+"verse": "demonslayer",
+"a": "Muzan Kibutsuji",
+"b": "Kokushibo (Lune supérieure 1)",
+"kind": "plus fort",
+"p": 0.929,
+"gap_combats": 0.76,
+"label": "Muzan, maître absolu des Lunes supérieures ; même empoisonné, il tient seul les Piliers que Kokushibo n'a pu affronter qu'à quatre (ch. 98, ch. 139, ch. 184-191)"
+},
+{
+"verse": "demonslayer",
+"a": "Kokushibo (Lune supérieure 1)",
+"b": "Doma (Lune supérieure 2)",
+"kind": "plus fort",
+"p": 0.86,
+"gap_combats": 0.6,
+"label": "Lune supérieure 1 au-dessus de la Lune supérieure 2 (classement de Muzan, ch. 98)"
+},
+{
+"verse": "demonslayer",
+"a": "Doma (Lune supérieure 2)",
+"b": "Akaza (Lune supérieure 3)",
+"kind": "plus fort",
+"p": 0.518,
+"gap_combats": 0.02,
+"label": "Doma, entré après Akaza, l'a dépassé au classement (ch. 98, ch. 154-155)"
+},
+{
+"verse": "demonslayer",
+"a": "Akaza (Lune supérieure 3)",
+"b": "Hantengu (Lune supérieure 4)",
+"kind": "plus fort",
+"p": 0.916,
+"gap_combats": 0.75,
+"label": "Lune supérieure 3 au-dessus de la Lune supérieure 4 (classement de Muzan, ch. 98)"
+},
+{
+"verse": "demonslayer",
+"a": "Hantengu (Lune supérieure 4)",
+"b": "Gyokko (Lune supérieure 5)",
+"kind": "plus fort",
+"p": 0.837,
+"gap_combats": 0.77,
+"label": "Lune supérieure 4 au-dessus de la Lune supérieure 5 (classement de Muzan, ch. 98)"
+},
+{
+"verse": "demonslayer",
+"a": "Gyokko (Lune supérieure 5)",
+"b": "Gyutaro (Lune supérieure 6)",
+"kind": "plus fort",
+"p": 0.263,
+"gap_combats": -0.51,
+"label": "Lune supérieure 5 au-dessus de la Lune supérieure 6 (classement de Muzan, ch. 98)"
+},
+{
+"verse": "demonslayer",
+"a": "Akaza (Lune supérieure 3)",
+"b": "Kyojuro Rengoku (Pilier de la Flamme)",
+"kind": "plus fort",
+"p": 0.998,
+"gap_combats": 1.58,
+"label": "Les Lunes supérieures sont restées invaincues un siècle et ont tué de nombreux Piliers (ch. 63-66, ch. 98)"
+},
+{
+"verse": "demonslayer",
+"a": "Yoriichi Tsugikuni",
+"b": "Kokushibo (Lune supérieure 1)",
+"kind": "plus fort",
+"p": 0.888,
+"gap_combats": 1.52,
+"label": "Kokushibo n'a jamais pu égaler son frère Yoriichi, même âgé de plus de 80 ans (ch. 177-178)"
+},
+{
+"verse": "demonslayer",
+"a": "Yoriichi Tsugikuni",
+"b": "Muzan Kibutsuji",
+"kind": "plus fort",
+"p": 0.993,
+"gap_combats": 1.53,
+"label": "Muzan terrifié par Yoriichi, le seul à l'avoir mis au bord de la mort (ch. 186-187)"
+},
+{
+"verse": "demonslayer",
+"a": "Yoriichi Tsugikuni",
+"b": "Muzan Kibutsuji",
+"kind": "plus fort",
+"p": 0.991,
+"gap_combats": 1.37,
+"label": "Quatre siècles plus tard, Muzan n'a toujours pas surmonté la peur de Yoriichi ; Kokushibo le dit sans égal (ch. 175-178, ch. 187)"
+},
+{
+"verse": "demonslayer",
+"a": "Gyomei Himejima (Pilier du Rocher)",
+"b": "Sanemi Shinazugawa (Pilier du Vent)",
+"kind": "plus fort",
+"p": 0.743,
+"gap_combats": 0.42,
+"label": "Gyomei, le plus fort des Piliers (Tanjiro et Inosuke, ch. 134-135 ; Kokushibo, ch. 168-172)"
+},
+{
+"verse": "demonslayer",
+"a": "Gyomei Himejima (Pilier du Rocher)",
+"b": "Giyu Tomioka (Pilier de l'Eau)",
+"kind": "plus fort",
+"p": 0.801,
+"gap_combats": 0.51,
+"label": "Gyomei, le plus fort des Piliers (entraînement des Piliers, ch. 134-135)"
+},
+{
+"verse": "demonslayer",
+"a": "Gyomei Himejima (Pilier du Rocher)",
+"b": "Obanai Iguro (Pilier du Serpent)",
+"kind": "plus fort",
+"p": 0.958,
+"gap_combats": 1.04,
+"label": "Gyomei, le plus fort des Piliers (entraînement des Piliers, ch. 134-135)"
+},
+{
+"verse": "demonslayer",
+"a": "Gyomei Himejima (Pilier du Rocher)",
+"b": "Muichiro Tokito (Pilier de la Brume)",
+"kind": "plus fort",
+"p": 0.501,
+"gap_combats": 0.0,
+"label": "Gyomei, le plus fort des Piliers, au-dessus du prodige Muichiro (ch. 134-135, ch. 168-172)"
+},
+{
+"verse": "demonslayer",
+"a": "Gyomei Himejima (Pilier du Rocher)",
+"b": "Mitsuri Kanroji (Pilier de l'Amour)",
+"kind": "plus fort",
+"p": 0.78,
+"gap_combats": 0.5,
+"label": "Gyomei, le plus fort des Piliers (entraînement des Piliers, ch. 134-135)"
+},
+{
+"verse": "demonslayer",
+"a": "Giyu Tomioka (Pilier de l'Eau)",
+"b": "Shinobu Kocho (Pilier de l'Insecte)",
+"kind": "plus fort",
+"p": 0.802,
+"gap_combats": 0.65,
+"label": "Shinobu, la seule Pilier incapable de trancher la tête d'un démon (ch. 141-143)"
+},
+{
+"verse": "bleach",
+"a": "Coyote Stark (Espada 1)",
+"b": "Baraggan Louisenbairn (Espada 2)",
+"kind": "plus fort",
+"p": 0.63,
+"gap_combats": 0.17,
+"label": "Primera au-dessus de Segunda Espada (classement officiel)"
+},
+{
+"verse": "bleach",
+"a": "Baraggan Louisenbairn (Espada 2)",
+"b": "Tia Harribel (Espada 3)",
+"kind": "plus fort",
+"p": 0.649,
+"gap_combats": 0.19,
+"label": "Segunda au-dessus de Tercera Espada (classement officiel)"
+},
+{
+"verse": "bleach",
+"a": "Tia Harribel (Espada 3)",
+"b": "Ulquiorra Cifer (Espada 4)",
+"kind": "égalité",
+"p": 0.499,
+"gap_combats": -0.46,
+"label": "Tercera au-dessus de Cuarta Espada (classement officiel, Segunda Etapa cachée à Aizen même)"
+},
+{
+"verse": "bleach",
+"a": "Ulquiorra Cifer (Espada 4)",
+"b": "Nnoitra Gilga (Espada 5)",
+"kind": "plus fort",
+"p": 0.911,
+"gap_combats": 0.65,
+"label": "Cuarta au-dessus de Quinta Espada (classement officiel)"
+},
+{
+"verse": "bleach",
+"a": "Nnoitra Gilga (Espada 5)",
+"b": "Grimmjow Jaegerjaquez (Espada 6)",
+"kind": "plus fort",
+"p": 0.545,
+"gap_combats": 0.05,
+"label": "Quinta au-dessus de Sexta Espada (classement officiel)"
+},
+{
+"verse": "bleach",
+"a": "Grimmjow Jaegerjaquez (Espada 6)",
+"b": "Zommari Rureaux (Espada 7)",
+"kind": "plus fort",
+"p": 0.847,
+"gap_combats": 0.55,
+"label": "Sexta au-dessus de Séptima Espada (classement officiel)"
+},
+{
+"verse": "bleach",
+"a": "Zommari Rureaux (Espada 7)",
+"b": "Szayelaporro Granz (Espada 8)",
+"kind": "plus fort",
+"p": 0.625,
+"gap_combats": 0.2,
+"label": "Séptima au-dessus d'Octava Espada (classement officiel)"
+},
+{
+"verse": "bleach",
+"a": "Szayelaporro Granz (Espada 8)",
+"b": "Aaroniero Arruruerie (Espada 9)",
+"kind": "plus fort",
+"p": 0.617,
+"gap_combats": 0.21,
+"label": "Octava au-dessus de Noveno Espada (classement officiel)"
+},
+{
+"verse": "bleach",
+"a": "Grimmjow Jaegerjaquez (Espada 6)",
+"b": "Luppi Antenor (Espada 6 intérimaire)",
+"kind": "plus fort",
+"p": 0.952,
+"gap_combats": 0.94,
+"label": "Grimmjow reprend sa place de Sexta en tuant Luppi (ch. 240-241)"
+},
+{
+"verse": "bleach",
+"a": "Yhwach (roi des Quincy)",
+"b": "Genryūsai Shigekuni Yamamoto (1re division)",
+"kind": "plus fort",
+"p": 0.697,
+"gap_combats": 0.29,
+"label": "Yhwach : le Yamamoto d'aujourd'hui n'est plus celui qui l'a vaincu, et il le tue (ch. 510-511)"
+},
+{
+"verse": "bleach",
+"a": "Genryūsai Shigekuni Yamamoto (1re division)",
+"b": "Shunsui Kyōraku (8e division)",
+"kind": "plus fort",
+"p": 0.998,
+"gap_combats": 1.49,
+"label": "Yamamoto, le plus fort shinigami depuis mille ans ; Kyōraku ne lui succède qu'à sa mort (ch. 506-508, ch. 543)"
+},
+{
+"verse": "bleach",
+"a": "Genryūsai Shigekuni Yamamoto (1re division)",
+"b": "Shunsui Kyōraku (8e division)",
+"kind": "plus fort",
+"p": 0.998,
+"gap_combats": 1.47,
+"label": "Yamamoto, maître de Kyōraku et Ukitake, le plus fort des capitaines (ch. 153-157, ch. 392-395)"
+},
+{
+"verse": "bleach",
+"a": "Ichibē Hyōsube (Division zéro)",
+"b": "Ōetsu Nimaiya (Division zéro)",
+"kind": "plus fort",
+"p": 0.796,
+"gap_combats": 0.6,
+"label": "Ichibē, chef de la Division zéro (ch. 516-517, ch. 606)"
+},
+{
+"verse": "bleach",
+"a": "Ōetsu Nimaiya (Division zéro)",
+"b": "Shunsui Kyōraku (8e division)",
+"kind": "plus fort",
+"p": 0.939,
+"gap_combats": 0.9,
+"label": "Chaque membre de la Division zéro surpasse à lui seul le Gotei 13 entier (ch. 516-517)"
+},
+{
+"verse": "bleach",
+"a": "Yhwach (roi des Quincy)",
+"b": "Sōsuke Aizen",
+"kind": "plus fort",
+"p": 0.951,
+"gap_combats": 1.94,
+"label": "Aizen lui-même ne peut que gagner du temps contre Yhwach (ch. 678-683)"
+},
+{
+"verse": "bleach",
+"a": "Yhwach (roi des Quincy)",
+"b": "Ichigo Kurosaki",
+"kind": "plus fort",
+"p": 0.974,
+"gap_combats": 1.62,
+"label": "Ichigo ne l'emporte qu'une fois The Almighty suspendu par la pointe d'argent (ch. 676-685)"
+},
+{
+"verse": "bleach",
+"a": "Jugram Haschwalth (« B », grand maître)",
+"b": "Uryū Ishida",
+"kind": "plus fort",
+"p": 0.945,
+"gap_combats": 1.03,
+"label": "Haschwalth, grand maître, bat Uryū (ch. 662-675)"
+},
+{
+"verse": "bleach",
+"a": "Sōsuke Aizen",
+"b": "Genryūsai Shigekuni Yamamoto (1re division)",
+"kind": "plus fort",
+"p": 0.852,
+"gap_combats": 0.82,
+"label": "Aizen fusionné au Hōgyoku survit à l'Ittō Kasō et dépasse les capitaines (ch. 392-397)"
+},
+{
+"verse": "bleach",
+"a": "Ichigo Kurosaki",
+"b": "Sōsuke Aizen",
+"kind": "plus fort",
+"p": 0.624,
+"gap_combats": 0.29,
+"label": "Aizen ne perçoit plus la force d'Ichigo revenu du Dangai, le Mugetsu le surpasse (ch. 416-419)"
+},
+{
+"verse": "bleach",
+"a": "Ichigo Kurosaki",
+"b": "Byakuya Kuchiki (6e division)",
+"kind": "plus fort",
+"p": 0.244,
+"gap_combats": -0.32,
+"label": "Byakuya s'avoue vaincu par Ichigo au terme de leurs Bankai (ch. 166)"
+},
+{
+"verse": "bleach",
+"a": "Kenpachi Zaraki (11e division)",
+"b": "Retsu Unohana (4e division, premier Kenpachi)",
+"kind": "plus fort",
+"p": 0.722,
+"gap_combats": 0.4,
+"label": "Unohana meurt en reconnaissant que Kenpachi l'a dépassée (ch. 527-528)"
+},
+{
+"verse": "bleach",
+"a": "Kisuke Urahara",
+"b": "Yammy Llargo (Espada 10 / 0)",
+"kind": "plus fort",
+"p": 0.931,
+"gap_combats": 1.15,
+"label": "Urahara et Yoruichi jouent avec Yammy (ch. 193-195)"
+},
+{
+"verse": "mha",
+"a": "All Might (Toshinori Yagi)",
+"b": "Endeavor (Enji Todoroki)",
+"kind": "plus fort",
+"p": 0.987,
+"gap_combats": 1.26,
+"label": "Endeavor reconnaît qu'il n'a jamais pu rattraper All Might, même déclinant (ch. 31, 47, 95)"
+},
+{
+"verse": "mha",
+"a": "All Might (Toshinori Yagi)",
+"b": "All For One",
+"kind": "plus fort",
+"p": 0.712,
+"gap_combats": 0.38,
+"label": "All Might à son apogée l'emporte de justesse sur All For One, au prix d'une blessure mortelle (ch. 59, 89)"
+},
+{
+"verse": "mha",
+"a": "Tomura Shigaraki",
+"b": "All For One",
+"kind": "plus fort",
+"p": 0.888,
+"gap_combats": 1.0,
+"label": "All For One : Tomura, fusionné à lui, est destiné à le surpasser comme seigneur des démons (ch. 306-308, 340-343)"
+},
+{
+"verse": "mha",
+"a": "Gigantomachia",
+"b": "Dabi (Toya Todoroki)",
+"kind": "plus fort",
+"p": 0.622,
+"gap_combats": 0.3,
+"label": "La Ligue entière ne vient pas à bout de Gigantomachia en plusieurs semaines (ch. 220-223)"
+},
+{
+"verse": "mha",
+"a": "Endeavor (Enji Todoroki)",
+"b": "Hawks (Keigo Takami)",
+"kind": "plus fort",
+"p": 0.666,
+"gap_combats": 0.25,
+"label": "Hawks reconnaît Endeavor comme n°1 et n'aurait pu abattre seul le Nomu encapuchonné (ch. 186-191)"
+},
+{
+"verse": "aot",
+"a": "Livaï Ackerman",
+"b": "Mike Zacharias",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 2.29,
+"label": "Livaï, le plus fort de l'humanité, Mike seulement deuxième (ch. 19-20, ch. 35)"
+},
+{
+"verse": "aot",
+"a": "Livaï Ackerman",
+"b": "Mikasa Ackerman",
+"kind": "plus fort",
+"p": 0.999,
+"gap_combats": 1.82,
+"label": "Livaï au-dessus de Mikasa, qu'il doit protéger face au Titan Féminin (ch. 30-31)"
+},
+{
+"verse": "aot",
+"a": "Livaï Ackerman",
+"b": "Mikasa Ackerman",
+"kind": "plus fort",
+"p": 0.996,
+"gap_combats": 1.67,
+"label": "Livaï, le plus fort de l'humanité (ch. 72-82)"
+},
+{
+"verse": "aot",
+"a": "Mikasa Ackerman",
+"b": "Livaï Ackerman",
+"kind": "égalité",
+"p": 0.032,
+"gap_combats": -1.67,
+"label": "Mikasa, Ackerman éveillée comme Livaï : Kenny explique leur force commune (ch. 68-69) ; elle suit Livaï contre le Cuirassé et le Bestial (ch. 75-82)"
+},
+{
+"verse": "aot",
+"a": "Mikasa Ackerman",
+"b": "Livaï Ackerman",
+"kind": "égalité",
+"p": 0.283,
+"gap_combats": -0.85,
+"label": "Mikasa et Livaï, les deux Ackerman, fer de lance de l'Alliance jusqu'à la nuque d'Eren (ch. 103-104, ch. 134-138)"
+},
+{
+"verse": "aot",
+"a": "Uri Reiss (Titan Originel)",
+"b": "Kenny Ackerman (l'Éventreur)",
+"kind": "plus fort",
+"p": 0.984,
+"gap_combats": 1.67,
+"label": "Uri maîtrise Kenny sans effort et l'épargne (ch. 69)"
+},
+{
+"verse": "aot",
+"a": "Eren Jäger",
+"b": "Zeke Jäger (Titan Bestial)",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 3.06,
+"label": "Le Titan Originel commande à tous les Eldiens, Zeke compris (ch. 120-123)"
+},
+{
+"verse": "aot",
+"a": "Eren Jäger",
+"b": "Livaï Ackerman",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 2.53,
+"label": "Le Grondement : aucun soldat ne peut l'arrêter ; il écrase le monde à 80 % (ch. 123-139)"
+},
+{
+"verse": "aot",
+"a": "Eren Jäger",
+"b": "Livaï Ackerman",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 2.5,
+"label": "L'Alliance ne l'arrête qu'avec l'aide des anciens détenteurs libérés et parce qu'Eren voulait être arrêté (ch. 137-139)"
+},
+{
+"verse": "aot",
+"a": "Eren Jäger",
+"b": "Gabi Braun",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 3.25,
+"label": "Gabi ne tue Eren que d'un tir surprise ; une enfant soldate sans pouvoir de Titan (ch. 119-120)"
+},
+{
+"verse": "aot",
+"a": "Sasha Braus",
+"b": "Gabi Braun",
+"kind": "plus fort",
+"p": 0.684,
+"gap_combats": 0.55,
+"label": "Sasha, vétérane du Bataillon, abattue par surprise par une enfant (ch. 105)"
+},
+{
+"verse": "aot",
+"a": "Zeke Jäger (Titan Bestial)",
+"b": "Reiner Braun (Titan Cuirassé)",
+"kind": "plus fort",
+"p": 0.852,
+"gap_combats": 0.66,
+"label": "Zeke, chef des guerriers, Titan Bestial au-dessus du Cuirassé (ch. 76-80, 92)"
+},
+{
+"verse": "aot",
+"a": "Mikasa Ackerman",
+"b": "Eren Jäger",
+"kind": "plus fort",
+"p": 0.99,
+"gap_combats": 2.26,
+"label": "Mikasa 1re, Eren 5e de la 104e brigade (ch. 3-4)"
+},
+{
+"verse": "aot",
+"a": "Eren Jäger",
+"b": "Jean Kirschtein",
+"kind": "plus fort",
+"p": 0.577,
+"gap_combats": 0.2,
+"label": "Eren 5e, Jean 6e de la 104e brigade (ch. 3-4)"
+},
+{
+"verse": "aot",
+"a": "Jean Kirschtein",
+"b": "Connie Springer",
+"kind": "plus fort",
+"p": 0.595,
+"gap_combats": 0.21,
+"label": "Jean 6e, Connie 8e de la 104e brigade (ch. 3-4)"
+},
+{
+"verse": "aot",
+"a": "Connie Springer",
+"b": "Sasha Braus",
+"kind": "plus fort",
+"p": 0.42,
+"gap_combats": -0.16,
+"label": "Connie 8e, Sasha 9e de la 104e brigade (ch. 3-4)"
+},
+{
+"verse": "aot",
+"a": "Sasha Braus",
+"b": "Historia Reiss (Christa Lenz)",
+"kind": "plus fort",
+"p": 0.691,
+"gap_combats": 0.39,
+"label": "Sasha 9e, Historia 10e de la 104e brigade (ch. 3-4)"
+},
+{
+"verse": "chainsawman",
+"a": "Makima (Démon du Contrôle)",
+"b": "Kishibe",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 1.98,
+"label": "Kishibe sait qu'il ne peut pas tuer Makima ; seul Chainsaw Man en est capable (ch. ~83-85)"
+},
+{
+"verse": "chainsawman",
+"a": "Pochita (vrai Chainsaw Man)",
+"b": "Denji (Chainsaw Man)",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 2.42,
+"label": "Le vrai Chainsaw Man, sans commune mesure avec Denji, décapite sans blessure les hybrides de Makima (ch. 84-87)"
+},
+{
+"verse": "chainsawman",
+"a": "Pochita (vrai Chainsaw Man)",
+"b": "Yoru et Asa Mitaka (Démon de la Guerre)",
+"kind": "plus fort",
+"p": 1.0,
+"gap_combats": 2.84,
+"label": "Chainsaw Man a mangé une part de la Guerre ; Yoru, affaiblie, veut le vaincre pour se reprendre (ch. 98-99)"
+},
+{
+"verse": "chainsawman",
+"a": "Quanxi (hybride de l'Arbalète)",
+"b": "Denji (Chainsaw Man)",
+"kind": "plus fort",
+"p": 0.813,
+"gap_combats": 0.6,
+"label": "Quanxi : Chainsaw Man (Denji) est plus faible qu'elle, mais bien plus effrayant (ch. 162)"
+},
+{
+"verse": "chainsawman",
+"a": "Démon des Ténèbres",
+"b": "Santa Claus (Démon de la Poupée)",
+"kind": "plus fort",
+"p": 0.998,
+"gap_combats": 2.23,
+"label": "Santa Claus doit sacrifier des poupées en Enfer pour obtenir le pouvoir des Ténèbres (ch. 63-66)"
+},
+{
+"verse": "chainsawman",
+"a": "Démon de la Mort (Li'l D)",
+"b": "Fami (Démon de la Famine)",
+"kind": "plus fort",
+"p": 0.973,
+"gap_combats": 1.67,
+"label": "La Mort, aînée des Cavaliers, asservit Famine (ch. 198-199)"
+},
+{
+"verse": "chainsawman",
+"a": "Kishibe",
+"b": "Denji (Chainsaw Man)",
+"kind": "plus fort",
+"p": 0.815,
+"gap_combats": 0.55,
+"label": "Denji et Power ne parviennent jamais à toucher Kishibe à l'entraînement ; il les tue à volonté (ch. 30-34)"
+},
+{
+"verse": "chainsawman",
+"a": "Makima (Démon du Contrôle)",
+"b": "Pochita (vrai Chainsaw Man)",
+"kind": "égalité",
+"p": 0.583,
+"gap_combats": -0.25,
+"label": "Makima vient à bout du vrai Chainsaw Man et s'en empare ; elle prévoyait de le contrôler (ch. 89-90)"
+},
+{
+"verse": "chainsawman",
+"a": "Makima (Démon du Contrôle)",
+"b": "Démon du Fusil",
+"kind": "plus fort",
+"p": 0.923,
+"gap_combats": 0.92,
+"label": "Makima abat le Démon du Fusil réuni presque entier (ch. 75-77)"
+}
+],
+"surprises": [
+{
+"verse": "naruto",
+"winner": "Naruto Uzumaki + Sakura Haruno",
+"loser": "Kakashi Hatake",
+"p": 0.092,
+"note": "Test des clochettes",
+"flags": ""
+},
+{
+"verse": "naruto",
+"winner": "Naruto Uzumaki + Sasuke Uchiha + Minato Namikaze + Armée de l'Alliance (groupe)",
+"loser": "Obito Uchiha",
+"p": 0.149,
+"note": "Obito jinchūriki de Jūbi tombe",
+"flags": ""
+},
+{
+"verse": "naruto",
+"winner": "Naruto Uzumaki",
+"loser": "Kabuto Yakushi",
+"p": 0.158,
+"note": "Premier Rasengan en combat, inconnu de Kabuto (ch. 168-169)",
+"flags": ""
+},
+{
+"verse": "naruto",
+"winner": "Naruto Uzumaki",
+"loser": "Gaara",
+"p": 0.215,
+"note": "Gamabunta contre Shukaku ; Gaara endormi, Shukaku aux commandes ; Naruto puise dans Kurama pour invoquer Gamabunta (ch. 132-138)",
+"flags": ""
+},
+{
+"verse": "naruto",
+"winner": "Kankurō",
+"loser": "Sasori",
+"p": 0.217,
+"note": "",
+"flags": ""
+},
+{
+"verse": "naruto",
+"winner": "Dosu Kinuta",
+"loser": "Rock Lee",
+"p": 0.225,
+"note": "Forêt de la Mort",
+"flags": "?"
+},
+{
+"verse": "naruto",
+"winner": "Kabuto Yakushi",
+"loser": "Tsunade",
+"p": 0.288,
+"note": "Peur du sang de Tsunade",
+"flags": ""
+},
+{
+"verse": "naruto",
+"winner": "Kakashi Hatake",
+"loser": "Zabuza Momochi",
+"p": 0.294,
+"note": "Prison d'eau puis Kakashi l'emporte, Haku emporte Zabuza",
+"flags": ""
+},
+{
+"verse": "naruto",
+"winner": "Jigen (Isshiki dans un corps)",
+"loser": "Naruto Uzumaki + Sasuke Uchiha",
+"p": 0.297,
+"note": "Naruto scellé dans une autre dimension",
+"flags": ""
+},
+{
+"verse": "naruto",
+"winner": "Toneri Ōtsutsuki",
+"loser": "Naruto Uzumaki",
+"p": 0.308,
+"note": "",
+"flags": "?"
+},
+{
+"verse": "naruto",
+"winner": "Kakkō (Iwa)",
+"loser": "Kakashi Hatake + Obito Uchiha",
+"p": 0.344,
+"note": "Obito écrasé par le rocher",
+"flags": ""
+},
+{
+"verse": "naruto",
+"winner": "Sasuke Uchiha",
+"loser": "Danzō Shimura",
+"p": 0.362,
+"note": "Sasuke déjà épuisé par le Raikage, Gaara et Mei (ch. 477-481)",
+"flags": ""
+},
+{
+"verse": "onepiece",
+"winner": "Monkey D. Luffy",
+"loser": "Monkey D. Garp",
+"p": 0.07,
+"note": "Garp se laisse frapper (ch. 571)",
+"flags": ""
+},
+{
+"verse": "onepiece",
+"winner": "Gol D. Roger + Monkey D. Garp",
+"loser": "Rocks D. Xebec",
+"p": 0.18,
+"note": "Attaque combinée de Roger et Garp, Rocks (Domi Reversi) vaincu, les trois s'effondrent d'épuisement (ch. 1165-1166) ; victoire à deux partenaires égaux (aucun des deux n'aurait suffi seul, ch. 957)",
+"flags": "e"
+},
+{
+"verse": "onepiece",
+"winner": "Pirates de Barbe Noire (équipage)",
+"loser": "Edward Newgate (Barbe Blanche)",
+"p": 0.225,
+"note": "Barbe Blanche étrangle Teach, puis meurt sous les balles de son équipage (ch. 576)",
+"flags": ""
+},
+{
+"verse": "onepiece",
+"winner": "Squard",
+"loser": "Edward Newgate (Barbe Blanche)",
+"p": 0.246,
+"note": "Squard poignarde Barbe Blanche, qui le pardonne (ch. 562-563)",
+"flags": ""
+},
+{
+"verse": "onepiece",
+"winner": "Tony Tony Chopper",
+"loser": "Kumadori",
+"p": 0.283,
+"note": "Monster Point, trois Rumble Balls (ch. 407-408)",
+"flags": ""
+},
+{
+"verse": "onepiece",
+"winner": "Caesar Clown",
+"loser": "Monkey D. Luffy",
+"p": 0.297,
+"note": "Luffy le touche au Haki mais s'effondre, privé d'oxygène ; capturé (ch. 670-672)",
+"flags": ""
+},
+{
+"verse": "onepiece",
+"winner": "Roronoa Zoro",
+"loser": "Ohm",
+"p": 0.302,
+"note": "Épreuve de fer, Hyakuhachi Pound Ho (ch. 268-271)",
+"flags": ""
+},
+{
+"verse": "onepiece",
+"winner": "Trafalgar Law",
+"loser": "Trebol",
+"p": 0.31,
+"note": "Sterben ; Trebol tente de l'emporter dans une explosion (ch. 782)",
+"flags": ""
+},
+{
+"verse": "onepiece",
+"winner": "Monkey D. Luffy",
+"loser": "Sir Crocodile",
+"p": 0.332,
+"note": "Troisième duel, dans le tombeau (ch. 207-211)",
+"flags": ""
+},
+{
+"verse": "onepiece",
+"winner": "Scotch (frères Yéti Cool) + Rock (frères Yéti Cool)",
+"loser": "Roronoa Zoro + Sanji + Brook",
+"p": 0.345,
+"note": "Les frères Yéti Cool les abattent aux balles de gaz KYP (ch. 665, montré en flash-back ch. 669) ; Sanji dans le corps de Nami",
+"flags": ""
+},
+{
+"verse": "onepiece",
+"winner": "Nami",
+"loser": "Kalifa",
+"p": 0.351,
+"note": "Thunder Lance Tempo (ch. 411)",
+"flags": ""
+},
+{
+"verse": "onepiece",
+"winner": "Pirates de Barbe Noire (équipage)",
+"loser": "Magellan",
+"p": 0.359,
+"note": "Pendant l'évasion du niveau 6, Magellan battu à mort par l'équipage de Teach, puis rétrogradé (hors champ ; arrivée de Teach avec ses recrues ch. 575, chapitre de la révélation non trouvé)",
+"flags": "?"
+},
+{
+"verse": "dragonball",
+"winner": "Spopovich + Yamu",
+"loser": "Son Gohan",
+"p": 0.111,
+"note": "Énergie de Gohan volée (ch. 443-444)",
+"flags": "?"
+},
+{
+"verse": "dragonball",
+"winner": "Freezer + Son Goku",
+"loser": "Jiren",
+"p": 0.116,
+"note": "Freezer charge et sort Jiren avec Goku et lui-même ; 17 caché fait gagner l'Univers 7 (ch. 42)",
+"flags": ""
+},
+{
+"verse": "dragonball",
+"winner": "Son Goku + Granolah",
+"loser": "Gas",
+"p": 0.162,
+"note": "Goku « Sign » puis UI maîtrisé et avatar géant, rayon chargé de Granolah (ch. 85-86)",
+"flags": ""
+},
+{
+"verse": "dragonball",
+"winner": "Son Gohan",
+"loser": "Cell",
+"p": 0.224,
+"note": "Kamehameha père-fils, Vegeta distrait Cell (ch. 415-417)",
+"flags": ""
+},
+{
+"verse": "dragonball",
+"winner": "Son Goku + Son Gohan + Krilin + Yajirobe",
+"loser": "Vegeta",
+"p": 0.237,
+"note": "Yajirobe coupe la queue, Genki Dama renvoyé par Gohan, Gohan en Oozaru écrase Vegeta qui fuit (ch. 236-241)",
+"flags": ""
+},
+{
+"verse": "dragonball",
+"winner": "Son Gohan",
+"loser": "Gamma 1",
+"p": 0.251,
+"note": "Gohan Ultime contre Gamma 1, interrompu par la révélation de Gamma 2 (ch. 95-96)",
+"flags": "?"
+},
+{
+"verse": "dragonball",
+"winner": "Cell",
+"loser": "C-17",
+"p": 0.275,
+"note": "C-17 absorbé par surprise pendant que C-16 est à terre, pas un vrai duel (ch. 372-373)",
+"flags": "?"
+},
+{
+"verse": "dragonball",
+"winner": "C-19",
+"loser": "Son Goku",
+"p": 0.286,
+"note": "La maladie du cœur se déclare, Goku absorbé en partie (ch. 340-341)",
+"flags": ""
+},
+{
+"verse": "dragonball",
+"winner": "Recoome",
+"loser": "Vegeta",
+"p": 0.288,
+"note": "(ch. 275-277)",
+"flags": ""
+},
+{
+"verse": "dragonball",
+"winner": "Zabon (Zarbon)",
+"loser": "Vegeta",
+"p": 0.291,
+"note": "Zabon transformé (ch. 262-263)",
+"flags": ""
+},
+{
+"verse": "dragonball",
+"winner": "Piccolo Daimaō",
+"loser": "Tortue Géniale (Jackie Chun)",
+"p": 0.311,
+"note": "Mafūba : le sceau rate l'autocuiseur, Roshi meurt d'épuisement (ressuscité ch. 165) (ch. 146)",
+"flags": "?"
+},
+{
+"verse": "dragonball",
+"winner": "Son Goku + Vegeta",
+"loser": "Freezer",
+"p": 0.314,
+"note": "Golden Freezer battu : seulement évoqué, le manga n'adapte pas La Résurrection de F (ch. 5)",
+"flags": "?e"
+},
+{
+"verse": "hunterxhunter",
+"winner": "Shoot McMahon",
+"loser": "Killua Zoldyck",
+"p": 0.337,
+"note": "Killua fuit, inhibé par l'aiguille d'Illumi (ch. ~211-212)",
+"flags": ""
+},
+{
+"verse": "hunterxhunter",
+"winner": "Gon Freecss",
+"loser": "Genthru (Bomber)",
+"p": 0.377,
+"note": "Gon sacrifie sa main gauche, essence et Jajanken (ch. 176-181)",
+"flags": ""
+},
+{
+"verse": "hunterxhunter",
+"winner": "Ponzu",
+"loser": "Barbon (Bourbon)",
+"p": 0.43,
+"note": "Barbon meurt, Ponzu reste coincée par ses serpents (ch. 30)",
+"flags": ""
+},
+{
+"verse": "hunterxhunter",
+"winner": "Knuckle Bine",
+"loser": "Gon Freecss",
+"p": 0.564,
+"note": "Duel aux plaquettes : Gon en faillite d'aura (ch. ~210)",
+"flags": ""
+},
+{
+"verse": "hunterxhunter",
+"winner": "Camilla Hui Guo Rou",
+"loser": "Musse",
+"p": 0.595,
+"note": "Abattue, Camilla ressuscite par Cat's Name et Musse meurt (ch. ~374-376)",
+"flags": ""
+},
+{
+"verse": "hunterxhunter",
+"winner": "Gon Freecss + Killua Zoldyck + Hisoka Morow + Biscuit Krueger + Goreinu + Tsezguerra",
+"loser": "Razor",
+"p": 0.614,
+"note": "Balle au prisonnier : Gon frappe avec la balle relancée par Killua et Hisoka (ch. 161-168)",
+"flags": ""
+},
+{
+"verse": "hunterxhunter",
+"winner": "Gon Freecss",
+"loser": "Ponzu",
+"p": 0.624,
+"note": "Gaz soporifique dans la grotte (ch. 31)",
+"flags": ""
+},
+{
+"verse": "hunterxhunter",
+"winner": "Shizuku Murasaki",
+"loser": "Nobunaga Hazama",
+"p": 0.664,
+"note": "Shizuku assomme Nobunaga pour faire respecter la règle (ch. 115)",
+"flags": ""
+},
+{
+"verse": "hunterxhunter",
+"winner": "Kurapika",
+"loser": "Uvogin",
+"p": 0.667,
+"note": "Duel en tête-à-tête, Uvogin guéri et consentant : Chain Jail (vœu anti-Brigade) puis Judgment Chain, Uvogin meurt (ch. 80-81)",
+"flags": ""
+},
+{
+"verse": "hunterxhunter",
+"winner": "Machi Komacine + Nobunaga Hazama",
+"loser": "Gon Freecss + Killua Zoldyck",
+"p": 0.687,
+"note": "Évasion manquée pendant la panne (ch. 113)",
+"flags": ""
+},
+{
+"verse": "hunterxhunter",
+"winner": "Feitan Portor",
+"loser": "Zazan",
+"p": 0.69,
+"note": "Pain Packer : Rising Sun (ch. ~224-229)",
+"flags": ""
+},
+{
+"verse": "hunterxhunter",
+"winner": "Gon Freecss",
+"loser": "Riehlvelt",
+"p": 0.707,
+"note": "Fouets enroulés autour du cou, Riehlvelt abandonne (ch. 59)",
+"flags": ""
+},
+{
+"verse": "jujutsukaisen",
+"winner": "Yuji Itadori + Aoi Todo",
+"loser": "Hanami",
+"p": 0.128,
+"note": "Yuji découvre l'Éclair noir, Boogie Woogie de Todo ; Hanami fissuré (ch. 48-52) ; audit : « e » retiré, Todo mène et guide Yuji",
+"flags": ""
+},
+{
+"verse": "jujutsukaisen",
+"winner": "Kenjaku (corps de Geto) + Mahito + Choso",
+"loser": "Satoru Gojo",
+"p": 0.201,
+"note": "Gojo, troublé par le corps de Geto, est scellé dans le Royaume de la prison par Kenjaku (ch. 89-91 ; rôle de Mahito et Choso secondaire)",
+"flags": "?"
+},
+{
+"verse": "jujutsukaisen",
+"winner": "Yuji Itadori + Kento Nanami",
+"loser": "Mahito",
+"p": 0.209,
+"note": "Yuji frappe l'âme de Mahito ; il ouvre son domaine sur Nanami, Yuji y entre et Mahito fuit (ch. 26-30) ; audit : « e » retiré, Nanami mène",
+"flags": ""
+},
+{
+"verse": "jujutsukaisen",
+"winner": "Megumi Fushiguro",
+"loser": "Fléau du pont Yasohachi (porteur de doigt)",
+"p": 0.268,
+"note": "Domaine incomplet de Megumi, il surgit de l'ombre du fléau et l'achève (ch. 57-58)",
+"flags": ""
+},
+{
+"verse": "jujutsukaisen",
+"winner": "Yuji Itadori + Aoi Todo",
+"loser": "Mahito",
+"p": 0.272,
+"note": "Éclairs noirs en série et Boogie Woogie ; Todo perd sa main (ch. 126-131)",
+"flags": "e"
+},
+{
+"verse": "jujutsukaisen",
+"winner": "Kenjaku (corps de Geto)",
+"loser": "Yuki Tsukumo + Choso",
+"p": 0.314,
+"note": "Tombeau des étoiles : Yuki se change en trou noir, Kenjaku survit de justesse et prend Tengen (ch. 203-208) ; audit : marge 2→1",
+"flags": ""
+},
+{
+"verse": "jujutsukaisen",
+"winner": "Panda",
+"loser": "Mechamaru (Kokichi Muta)",
+"p": 0.359,
+"note": "Mode Gorille et Battement imparable contre Mechamaru ultime (ch. 38-39)",
+"flags": ""
+},
+{
+"verse": "jujutsukaisen",
+"winner": "Kinji Hakari",
+"loser": "Uraume",
+"p": 0.378,
+"note": "Duel en marge de Shinjuku ; Uraume cède à la mort de Sukuna (ch. 244-268)",
+"flags": "?"
+},
+{
+"verse": "jujutsukaisen",
+"winner": "Yuji Itadori + Nobara Kugisaki",
+"loser": "Eso + Kechizu",
+"p": 0.445,
+"note": "Résonance de Nobara et poings de Yuji ; Eso et Kechizu exorcisés (ch. 59-62)",
+"flags": "e"
+},
+{
+"verse": "jujutsukaisen",
+"winner": "Ogi Zen'in",
+"loser": "Maki Zen'in + Mai Zen'in",
+"p": 0.461,
+"note": "Ogi bat ses filles ; Mai meurt en léguant son pouvoir à Maki (ch. 148-149)",
+"flags": ""
+},
+{
+"verse": "jujutsukaisen",
+"winner": "Yuji Itadori + Nobara Kugisaki",
+"loser": "Ryomen Sukuna",
+"p": 0.574,
+"note": "Domaine de Yuji, Résonance de Nobara sur le dernier doigt, Éclair noir final ; Megumi libéré (ch. 264-268) ; audit : marge 2→1 (dernier debout au bout du relais, coup décisif de Nobara) ; + « malade », Sukuna privé de domaine et rejeté par le corps de Megumi",
+"flags": ""
+},
+{
+"verse": "jujutsukaisen",
+"winner": "Choso",
+"loser": "Yuji Itadori",
+"p": 0.585,
+"note": "Choso bat Yuji dans les toilettes de la station, puis le faux souvenir l'arrête (ch. 102-104)",
+"flags": ""
+},
+{
+"verse": "demonslayer",
+"winner": "Kanao Tsuyuri + Inosuke Hashibira",
+"loser": "Doma (Lune supérieure 2)",
+"p": 0.115,
+"note": "Le poison du corps de Shinobu (cent fois la dose mortelle, circonstance extérieure) défait Doma ; Œil du jardin d'équinoxe de Kanao, Inosuke lance ses lames (ch. 158-163)",
+"flags": "e"
+},
+{
+"verse": "demonslayer",
+"winner": "Tanjiro Kamado + Giyu Tomioka (Pilier de l'Eau)",
+"loser": "Akaza (Lune supérieure 3)",
+"p": 0.253,
+"note": "Marque de Giyu, Monde transparent de Tanjiro qui décapite Akaza ; Akaza régénéré renonce et se détruit (ch. 147-156)",
+"flags": "e"
+},
+{
+"verse": "demonslayer",
+"winner": "Tanjiro Kamado",
+"loser": "Sabito",
+"p": 0.27,
+"note": "Six mois plus tard, Tanjiro frappe le premier et fend le masque de Sabito (ch. 5)",
+"flags": ""
+},
+{
+"verse": "demonslayer",
+"winner": "Tanjiro Kamado",
+"loser": "Kyogai (ancienne Lune inférieure 6)",
+"p": 0.281,
+"note": "Tanjiro, côtes et jambes blessées depuis Asakusa, décapite Kyogai (ch. 24-25)",
+"flags": ""
+},
+{
+"verse": "demonslayer",
+"winner": "Tanjiro Kamado + Inosuke Hashibira",
+"loser": "Enmu (Lune inférieure 1)",
+"p": 0.294,
+"note": "Enmu endort tout le train ; Zenitsu, Nezuko et Rengoku protègent les voitures, Tanjiro et Inosuke tranchent l'os du cou (ch. 55-63)",
+"flags": "e"
+},
+{
+"verse": "demonslayer",
+"winner": "Tanjiro Kamado",
+"loser": "Kanao Tsuyuri",
+"p": 0.361,
+"note": "Après la concentration totale permanente, Tanjiro gagne la poursuite et les réflexes (ch. 50) ; jeu de réflexes, pas un combat",
+"flags": "?"
+},
+{
+"verse": "demonslayer",
+"winner": "Tanjiro Kamado + Nezuko Kamado + Genya Shinazugawa + Mitsuri Kanroji (Pilier de l'Amour)",
+"loser": "Hantengu (Lune supérieure 4)",
+"p": 0.361,
+"note": "Lame embrasée par le sang de Nezuko ; Tanjiro décapite le vrai corps, Nezuko surmonte le soleil (ch. 124-127)",
+"flags": ""
+},
+{
+"verse": "demonslayer",
+"winner": "Gyomei Himejima (Pilier du Rocher) + Sanemi Shinazugawa (Pilier du Vent) + Muichiro Tokito (Pilier de la Brume) + Genya Shinazugawa",
+"loser": "Kokushibo (Lune supérieure 1)",
+"p": 0.395,
+"note": "Lame rouge de Muichiro, balles et arbre démoniaques de Genya ; décapité, Kokushibo voit son reflet et se défait (ch. 173-177)",
+"flags": ""
+},
+{
+"verse": "demonslayer",
+"winner": "Zenitsu Agatsuma",
+"loser": "Frère araignée",
+"p": 0.449,
+"note": "Zenitsu empoisonné, foudre en six éclairs, il décapite le frère (ch. 33-35)",
+"flags": ""
+},
+{
+"verse": "demonslayer",
+"winner": "Zenitsu Agatsuma",
+"loser": "Kaigaku (nouvelle Lune supérieure 6)",
+"p": 0.473,
+"note": "Septième mouvement, Honoikazuchi no Kami : Zenitsu, blessé, décapite Kaigaku d'un seul coup que celui-ci ne voit pas (ch. 143-146 ; 2e revue : marge 1 → 2, victoire nette en un éclair)",
+"flags": ""
+},
+{
+"verse": "demonslayer",
+"winner": "Tengen Uzui (Pilier du Son) + Tanjiro Kamado + Zenitsu Agatsuma + Inosuke Hashibira",
+"loser": "Gyutaro (Lune supérieure 6) + Daki (Lune supérieure 6)",
+"p": 0.474,
+"note": "Partition de Tengen et kunai à la glycine de Hinatsuru ; Tengen et Tanjiro décapitent Gyutaro, Zenitsu et Inosuke Daki (ch. 86-95)",
+"flags": "e"
+},
+{
+"verse": "demonslayer",
+"winner": "Muichiro Tokito (Pilier de la Brume)",
+"loser": "Gyokko (Lune supérieure 5)",
+"p": 0.475,
+"note": "Mémoire retrouvée et Marque : Muichiro décapite Gyokko (ch. 118-122)",
+"flags": ""
+},
+{
+"verse": "bleach",
+"winner": "Ichigo Kurosaki",
+"loser": "Kisuke Urahara",
+"p": 0.085,
+"note": "Ichigo libère Zangetsu et fend le chapeau d'Urahara, fin du test (ch. 66-67)",
+"flags": "?"
+},
+{
+"verse": "bleach",
+"winner": "Nanao Ise (lieutenant, 8e) + Shunsui Kyōraku (8e division)",
+"loser": "Lille Barro (« X », Schutzstaffel)",
+"p": 0.125,
+"note": "Shinken Hakkyōken de Nanao renvoie le coup de Lille, Kira l'attaque (ch. 653-654)",
+"flags": "e"
+},
+{
+"verse": "bleach",
+"winner": "Rukia Kuchiki",
+"loser": "Aaroniero Arruruerie (Espada 9)",
+"p": 0.152,
+"note": "Rukia, transpercée, plante son sabre dans la tête d'Aaroniero, qui meurt ; elle s'effondre (ch. 264-269)",
+"flags": ""
+},
+{
+"verse": "bleach",
+"winner": "Uryū Ishida",
+"loser": "Mayuri Kurotsuchi (12e division)",
+"p": 0.175,
+"note": "Letzt Stil de Quincy : Uryū force Mayuri à se liquéfier pour fuir (ch. 121-126)",
+"flags": ""
+},
+{
+"verse": "bleach",
+"winner": "Ichigo Kurosaki",
+"loser": "Kenpachi Zaraki (11e division)",
+"p": 0.205,
+"note": "Ichigo, Zangetsu à pleine puissance, tranche Kenpachi ; les deux s'effondrent, Kenpachi se reconnaît vaincu (ch. 111-114)",
+"flags": ""
+},
+{
+"verse": "bleach",
+"winner": "Ganju Shiba",
+"loser": "Yumichika Ayasegawa (5e siège, 11e)",
+"p": 0.229,
+"note": "Ganju vainc Yumichika avec ses feux d'artifice ; Yumichika cachait le vrai pouvoir de Fuji Kujaku (ch. 89-92)",
+"flags": "?"
+},
+{
+"verse": "bleach",
+"winner": "Hachigen Ushōda + Suì-Fēng (2e division)",
+"loser": "Baraggan Louisenbairn (Espada 2)",
+"p": 0.244,
+"note": "Hachi renvoie le Respira dans le corps de Baraggan, Suì-Fēng l'achève (ch. 368-370)",
+"flags": ""
+},
+{
+"verse": "bleach",
+"winner": "Ichigo Kurosaki",
+"loser": "Sōsuke Aizen",
+"p": 0.296,
+"note": "Ichigo revenu du Dangai, Aizen ne perçoit plus sa force (ch. 416-417)",
+"flags": ""
+},
+{
+"verse": "bleach",
+"winner": "Rukia Kuchiki",
+"loser": "Äs Nödt (« F »)",
+"p": 0.34,
+"note": "Hakka no Togame : Rukia gèle Äs Nödt, avec l'aide de Byakuya à la fin (ch. 566-570)",
+"flags": ""
+},
+{
+"verse": "bleach",
+"winner": "Fishbone D",
+"loser": "Rukia Kuchiki",
+"p": 0.358,
+"note": "Rukia blessée en protégeant Ichigo (ch. 1)",
+"flags": ""
+},
+{
+"verse": "bleach",
+"winner": "Pernida Parnkgjas (« C », Schutzstaffel)",
+"loser": "Kenpachi Zaraki (11e division)",
+"p": 0.363,
+"note": "Pernida, bras gauche du Roi des âmes, mutile Kenpachi (ch. 636-639)",
+"flags": ""
+},
+{
+"verse": "bleach",
+"winner": "Gerard Valkyrie (« M », Schutzstaffel) + Lille Barro (« X », Schutzstaffel) + Pernida Parnkgjas (« C », Schutzstaffel) + Askin Nakk Le Vaar (« D », Schutzstaffel)",
+"loser": "Ōetsu Nimaiya (Division zéro) + Tenjirō Kirinji (Division zéro) + Kirio Hikifune (Division zéro) + Senjumaru Shutara (Division zéro)",
+"p": 0.383,
+"note": "Ressuscités par l'Auswählen, les Schutzstaffel terrassent la Division zéro (ch. 603-606)",
+"flags": "?"
+},
+{
+"verse": "mha",
+"winner": "Izuku Midoriya (Deku) + Katsuki Bakugo (Dynamight)",
+"loser": "All Might (Toshinori Yagi)",
+"p": 0.053,
+"note": "All Might lesté de poids ; Deku frappe All Might et porte Bakugo inconscient jusqu'à la sortie (ch. 64-68)",
+"flags": "e?"
+},
+{
+"verse": "mha",
+"winner": "Mezo Shoji (Tentacole) + Toru Hagakure (Invisible Girl)",
+"loser": "Snipe",
+"p": 0.097,
+"note": "Ils passent (ch. 62)",
+"flags": "e?"
+},
+{
+"verse": "mha",
+"winner": "Izuku Midoriya (Deku) + Shoto Todoroki + Tenya Iida (Ingenium)",
+"loser": "Stain (le Tueur de héros)",
+"p": 0.203,
+"note": "Glace et flammes de Todoroki, coups de Deku et d'Iida ; Stain blessé est assommé (ch. 53-55)",
+"flags": "e"
+},
+{
+"verse": "mha",
+"winner": "Minoru Mineta (Grape Juice) + Hanta Sero (Cellophane)",
+"loser": "Midnight",
+"p": 0.213,
+"note": "Mineta porte Sero endormi jusqu'à la sortie (ch. 62)",
+"flags": "?"
+},
+{
+"verse": "mha",
+"winner": "Ochaco Uraraka (Uravity) + Yuga Aoyama (Can't Stop Twinkling)",
+"loser": "Thirteen",
+"p": 0.366,
+"note": "Uraraka et Aoyama passent (ch. 62)",
+"flags": "e?"
+},
+{
+"verse": "mha",
+"winner": "Yuga Aoyama (Can't Stop Twinkling) + Toru Hagakure (Invisible Girl)",
+"loser": "Kunieda",
+"p": 0.392,
+"note": "Lasers d'Aoyama réfractés par Hagakure contre Kunieda (ch. ~377-380)",
+"flags": "e"
+},
+{
+"verse": "mha",
+"winner": "Katsuki Bakugo (Dynamight) + Hawks (Keigo Takami) + All Might (Toshinori Yagi)",
+"loser": "All For One",
+"p": 0.395,
+"note": "Bakugo revient, épaulé par Hawks ; All For One, usé par Rewind, régresse en fœtus et disparaît (ch. 403-410)",
+"flags": ""
+},
+{
+"verse": "mha",
+"winner": "Dabi (Toya Todoroki)",
+"loser": "Hawks (Keigo Takami)",
+"p": 0.397,
+"note": "Dabi brûle Hawks (ch. ~266-267)",
+"flags": ""
+},
+{
+"verse": "mha",
+"winner": "Shoto Todoroki + Tenya Iida (Ingenium) + Momo Yaoyorozu (Creati) + Denki Kaminari (Chargebolt)",
+"loser": "Izuku Midoriya (Deku) + Ochaco Uraraka (Uravity) + Fumikage Tokoyami (Tsukuyomi) + Mei Hatsume",
+"p": 0.408,
+"note": "Bataille de cavaliers : Iida reprend à Deku le bandeau à 10 millions ; l'équipe de Deku finit 4e (ch. 28-31)",
+"flags": "e"
+},
+{
+"verse": "mha",
+"winner": "Itsuka Kendo (Battle Fist) + Élèves de la classe 1-B (groupe)",
+"loser": "Momo Yaoyorozu (Creati) + Fumikage Tokoyami (Tsukuyomi) + Toru Hagakure (Invisible Girl) + Yuga Aoyama (Can't Stop Twinkling)",
+"p": 0.46,
+"note": "Deuxième match : 1-B gagne 4-0, Kendo bat Yaoyorozu (ch. 198-201)",
+"flags": "e"
+},
+{
+"verse": "mha",
+"winner": "Kyoka Jiro (Earphone Jack) + Koji Koda (Anima)",
+"loser": "Present Mic",
+"p": 0.466,
+"note": "Les insectes de Koda, Jiro passe la porte (ch. 62)",
+"flags": "e?"
+},
+{
+"verse": "mha",
+"winner": "Katsuki Bakugo (Dynamight)",
+"loser": "Izuku Midoriya (Deku)",
+"p": 0.497,
+"note": "Deuxième duel de nuit au terrain Beta, Bakugo gagne de justesse (ch. 118-119)",
+"flags": ""
+},
+{
+"verse": "aot",
+"winner": "Gabi Braun",
+"loser": "Eren Jäger",
+"p": 0.041,
+"note": "Tir de Gabi avec le fusil de Colt : Eren décapité alors qu'il court vers Zeke (ch. 119-120) ; un tir surprise, pas un duel",
+"flags": "?"
+},
+{
+"verse": "aot",
+"winner": "Armin Arlelt + Titans des anciens détenteurs, invoqués par l'Originel (groupe)",
+"loser": "Eren Jäger",
+"p": 0.075,
+"note": "Aidé par les anciens détenteurs libérés, Armin détruit le corps de l'Originel par l'explosion du Colossal (ch. 137)",
+"flags": "?"
+},
+{
+"verse": "aot",
+"winner": "Armin Arlelt",
+"loser": "Escouade anti-personnel de Kenny (groupe)",
+"p": 0.142,
+"note": "Armin abat la soldate qui allait tuer Jean (ch. 58-59)",
+"flags": "?"
+},
+{
+"verse": "aot",
+"winner": "Mikasa Ackerman + Livaï Ackerman + Reiner Braun (Titan Cuirassé) + Annie Leonhart (Titan Féminin) + Armin Arlelt + Jean Kirschtein + Connie Springer + Pieck Finger (Titan Charrette) + Falco Grice + Gabi Braun",
+"loser": "Eren Jäger",
+"p": 0.239,
+"note": "Reiner retient le Titan d'Eren, Livaï lui ouvre la bouche à la lance foudroyante, Mikasa le décapite ; Eren voulait être arrêté par ses amis (ch. 138-139)",
+"flags": "?"
+},
+{
+"verse": "aot",
+"winner": "Eren Jäger + Armin Arlelt",
+"loser": "Bertolt Hoover (Titan Colossal)",
+"p": 0.262,
+"note": "Armin s'accroche à la nuque brûlante en appât ; Eren, caché, arrache Bertolt (ch. 81-83)",
+"flags": ""
+},
+{
+"verse": "aot",
+"winner": "Eren Jäger + Mikasa Ackerman",
+"loser": "Annie Leonhart (Titan Féminin)",
+"p": 0.294,
+"note": "Eren domine le Titan Féminin ; Mikasa tranche ses doigts sur le mur, Annie se cristallise (ch. 33-34)",
+"flags": ""
+},
+{
+"verse": "aot",
+"winner": "Eren Jäger",
+"loser": "Reiner Braun (Titan Cuirassé) + Bertolt Hoover (Titan Colossal)",
+"p": 0.307,
+"note": "Les Titans se jettent sur le Cuirassé, qui fuit en abandonnant Eren (ch. 50)",
+"flags": ""
+},
+{
+"verse": "aot",
+"winner": "Erwin Smith + Mikasa Ackerman + Soldats du Bataillon d'exploration (groupe)",
+"loser": "Reiner Braun (Titan Cuirassé) + Bertolt Hoover (Titan Colossal) + Ymir (Titan Mâchoire)",
+"p": 0.361,
+"note": "Charge d'Erwin avec une horde de Titans pure attirée sur le Cuirassé ; Eren repris, Erwin perd un bras (ch. 48-50)",
+"flags": ""
+},
+{
+"verse": "aot",
+"winner": "Jean Kirschtein + Connie Springer + Sasha Braus + Soldats du Bataillon d'exploration (groupe)",
+"loser": "Pieck Finger (Titan Charrette)",
+"p": 0.388,
+"note": "Les lances foudroyantes abattent le Titan Charrette et son armement (ch. 102-103)",
+"flags": ""
+},
+{
+"verse": "aot",
+"winner": "Grisha Jäger (Titan Assaillant)",
+"loser": "Frieda Reiss (Titan Originel)",
+"p": 0.428,
+"note": "Grisha, Titan Assaillant, contre le Titan Originel de Frieda Reiss, inexpérimentée : d'abord dominé, il l'arrache de sa nuque et la dévore (ch. 121)",
+"flags": ""
+},
+{
+"verse": "aot",
+"winner": "Reiner Braun (Titan Cuirassé)",
+"loser": "Mikasa Ackerman",
+"p": 0.507,
+"note": "Les lames de Mikasa se brisent sur l'armure du Cuirassé (ch. 43)",
+"flags": ""
+},
+{
+"verse": "aot",
+"winner": "Eren Jäger",
+"loser": "Jean Kirschtein",
+"p": 0.515,
+"note": "Eren met Jean au sol avec la technique d'Annie (ch. ~18) ; exercice, pas un vrai combat",
+"flags": "?"
+},
+{
+"verse": "chainsawman",
+"winner": "Denji (Chainsaw Man)",
+"loser": "Makima (Démon du Contrôle)",
+"p": 0.103,
+"note": "Makima ne perçoit que Chainsaw Man : Denji l'attaque en tant que Denji, avec la tronçonneuse de sang de Power, et la tranche ; il la mange pour qu'elle ne revienne pas (ch. 95-96)",
+"flags": ""
+},
+{
+"verse": "chainsawman",
+"winner": "Yuko (hybride de la Justice)",
+"loser": "Yoru et Asa Mitaka (Démon de la Guerre)",
+"p": 0.157,
+"note": "Yoru ne parvient pas à arrêter Yuko devenue hybride de la Justice (ch. 108-109)",
+"flags": ""
+},
+{
+"verse": "chainsawman",
+"winner": "Aki Hayakawa",
+"loser": "Denji (Chainsaw Man)",
+"p": 0.223,
+"note": "Aki rosse Denji dans une ruelle pour qu'il quitte la Sécurité publique ; Denji lui rend un coup bas (ch. 3)",
+"flags": "?"
+},
+{
+"verse": "chainsawman",
+"winner": "Hirofumi Yoshida (Démon Pieuvre) + Yoru et Asa Mitaka (Démon de la Guerre) + Denji (Chainsaw Man)",
+"loser": "Démon du Vieillissement",
+"p": 0.335,
+"note": "Yoshida piège le Vieillissement dans un contrat et renvoie chacun dans son monde (ch. 189-190)",
+"flags": "e"
+},
+{
+"verse": "chainsawman",
+"winner": "Denji (Chainsaw Man) + Beam (Démon Requin)",
+"loser": "Reze (hybride de la Bombe) + Démon du Typhon",
+"p": 0.388,
+"note": "Denji chevauche Beam contre Reze et le Démon du Typhon ; Reze est entravée et noyée dans la mer (ch. 45-50)",
+"flags": ""
+},
+{
+"verse": "chainsawman",
+"winner": "Denji (Chainsaw Man)",
+"loser": "Santa Claus (Démon de la Poupée)",
+"p": 0.449,
+"note": "Denji en flammes déchire Santa Claus, armée du pouvoir des Ténèbres et de ses poupées (ch. 67-69)",
+"flags": ""
+},
+{
+"verse": "chainsawman",
+"winner": "Kobeni Higashiyama",
+"loser": "Denji (Chainsaw Man)",
+"p": 0.483,
+"note": "Kobeni, paniquée, poignarde Denji pour le livrer à l'Éternité ; Aki l'arrête (ch. 17)",
+"flags": "?"
+},
+{
+"verse": "chainsawman",
+"winner": "Denji (Chainsaw Man)",
+"loser": "Barem Bridge (hybride du Lance-flammes)",
+"p": 0.498,
+"note": "Denji décapite Barem ; Pochita prend alors le contrôle, Chainsaw Man noir (ch. ~170-171)",
+"flags": "?"
+},
+{
+"verse": "chainsawman",
+"winner": "Aki Hayakawa",
+"loser": "Akane Sawatari (Démon Serpent)",
+"p": 0.564,
+"note": "Aki, avec le Démon du Futur, résiste au Fantôme et au Serpent d'Akane, qui se fait dévorer par son Serpent (ch. 36-38)",
+"flags": "?"
+},
+{
+"verse": "chainsawman",
+"winner": "Denji (Chainsaw Man)",
+"loser": "Quanxi (hybride de l'Arbalète) + Katana Man (hybride du Sabre) + Reze (hybride de la Bombe) + Barem Bridge (hybride du Lance-flammes) + Hybrides d'armes de Makima (Miri Sugo, Fouet, Lance, groupe)",
+"p": 0.571,
+"note": "Au cimetière, Denji tranche Katana Man, Miri, Reze, les hybrides et Barem, décapite Quanxi, puis s'effondre (ch. ~93-94)",
+"flags": ""
+},
+{
+"verse": "chainsawman",
+"winner": "Quanxi (hybride de l'Arbalète)",
+"loser": "Denji (Chainsaw Man) + Agents et chasseurs de la Sécurité publique (groupe)",
+"p": 0.596,
+"note": "Quanxi met Denji, Tamaoki et Kusakabe hors d'état en quelques coups de pied (ch. 61)",
+"flags": ""
+},
+{
+"verse": "chainsawman",
+"winner": "Divisions spéciales de la Sécurité publique (groupe)",
+"loser": "Denji (Chainsaw Man)",
+"p": 0.601,
+"note": "Les hybrides restants piègent Chainsaw Man ; Denji est capturé et démembré (ch. 153-154)",
+"flags": ""
+}
+],
+"armor": [
+{
+"verse": "naruto",
+"c": "Naruto Uzumaki",
+"score": 1.61,
+"wins": 25,
+"unlikely": 4
+},
+{
+"verse": "naruto",
+"c": "Sasuke Uchiha",
+"score": 1.22,
+"wins": 19,
+"unlikely": 3
+},
+{
+"verse": "naruto",
+"c": "Sakura Haruno",
+"score": 0.41,
+"wins": 2,
+"unlikely": 1
+},
+{
+"verse": "naruto",
+"c": "Dosu Kinuta",
+"score": 0.37,
+"wins": 2,
+"unlikely": 1
+},
+{
+"verse": "naruto",
+"c": "Minato Namikaze",
+"score": 0.35,
+"wins": 4,
+"unlikely": 1
+},
+{
+"verse": "naruto",
+"c": "Kisame Hoshigaki",
+"score": 0.31,
+"wins": 1,
+"unlikely": 1
+},
+{
+"verse": "naruto",
+"c": "Kankurō",
+"score": 0.28,
+"wins": 3,
+"unlikely": 1
+},
+{
+"verse": "naruto",
+"c": "Kakashi Hatake",
+"score": 0.24,
+"wins": 11,
+"unlikely": 1
+},
+{
+"verse": "onepiece",
+"c": "Monkey D. Luffy",
+"score": 1.21,
+"wins": 58,
+"unlikely": 3
+},
+{
+"verse": "onepiece",
+"c": "Dorry",
+"score": 0.81,
+"wins": 2,
+"unlikely": 2
+},
+{
+"verse": "onepiece",
+"c": "Brogy",
+"score": 0.81,
+"wins": 2,
+"unlikely": 2
+},
+{
+"verse": "onepiece",
+"c": "Mr. 3 (Galdino)",
+"score": 0.55,
+"wins": 3,
+"unlikely": 1
+},
+{
+"verse": "onepiece",
+"c": "Bartholomew Kuma",
+"score": 0.44,
+"wins": 4,
+"unlikely": 1
+},
+{
+"verse": "onepiece",
+"c": "Tony Tony Chopper",
+"score": 0.39,
+"wins": 10,
+"unlikely": 2
+},
+{
+"verse": "onepiece",
+"c": "Monkey D. Garp",
+"score": 0.32,
+"wins": 5,
+"unlikely": 1
+},
+{
+"verse": "onepiece",
+"c": "Gol D. Roger",
+"score": 0.32,
+"wins": 1,
+"unlikely": 1
+},
+{
+"verse": "dragonball",
+"c": "Son Goku",
+"score": 1.37,
+"wins": 47,
+"unlikely": 4
+},
+{
+"verse": "dragonball",
+"c": "Son Gohan",
+"score": 0.98,
+"wins": 15,
+"unlikely": 3
+},
+{
+"verse": "dragonball",
+"c": "Piccolo (Ma Junior)",
+"score": 0.49,
+"wins": 11,
+"unlikely": 2
+},
+{
+"verse": "dragonball",
+"c": "Granolah",
+"score": 0.4,
+"wins": 6,
+"unlikely": 1
+},
+{
+"verse": "dragonball",
+"c": "Spopovich",
+"score": 0.39,
+"wins": 2,
+"unlikely": 1
+},
+{
+"verse": "dragonball",
+"c": "Yamu",
+"score": 0.39,
+"wins": 1,
+"unlikely": 1
+},
+{
+"verse": "dragonball",
+"c": "Vegeta",
+"score": 0.38,
+"wins": 24,
+"unlikely": 1
+},
+{
+"verse": "dragonball",
+"c": "Freezer",
+"score": 0.38,
+"wins": 17,
+"unlikely": 1
+},
+{
+"verse": "hunterxhunter",
+"c": "Leorio Paladiknight",
+"score": 0.46,
+"wins": 2,
+"unlikely": 1
+},
+{
+"verse": "hunterxhunter",
+"c": "Killua Zoldyck",
+"score": 0.31,
+"wins": 22,
+"unlikely": 1
+},
+{
+"verse": "hunterxhunter",
+"c": "Knuckle Bine",
+"score": 0.31,
+"wins": 4,
+"unlikely": 1
+},
+{
+"verse": "hunterxhunter",
+"c": "Owl (Bêtes de l'ombre)",
+"score": 0.18,
+"wins": 1,
+"unlikely": 1
+},
+{
+"verse": "hunterxhunter",
+"c": "Shoot McMahon",
+"score": 0.16,
+"wins": 1,
+"unlikely": 1
+},
+{
+"verse": "hunterxhunter",
+"c": "Gon Freecss",
+"score": 0.12,
+"wins": 13,
+"unlikely": 0
+},
+{
+"verse": "hunterxhunter",
+"c": "Ikalgo",
+"score": 0.08,
+"wins": 2,
+"unlikely": 0
+},
+{
+"verse": "hunterxhunter",
+"c": "Ponzu",
+"score": 0.07,
+"wins": 1,
+"unlikely": 0
+},
+{
+"verse": "jujutsukaisen",
+"c": "Yuji Itadori",
+"score": 0.95,
+"wins": 9,
+"unlikely": 3
+},
+{
+"verse": "jujutsukaisen",
+"c": "Aoi Todo",
+"score": 0.6,
+"wins": 3,
+"unlikely": 2
+},
+{
+"verse": "jujutsukaisen",
+"c": "Kenjaku (corps de Geto)",
+"score": 0.48,
+"wins": 3,
+"unlikely": 2
+},
+{
+"verse": "jujutsukaisen",
+"c": "Masaki Takeda",
+"score": 0.4,
+"wins": 1,
+"unlikely": 1
+},
+{
+"verse": "jujutsukaisen",
+"c": "Mahito",
+"score": 0.3,
+"wins": 4,
+"unlikely": 1
+},
+{
+"verse": "jujutsukaisen",
+"c": "Choso",
+"score": 0.3,
+"wins": 2,
+"unlikely": 1
+},
+{
+"verse": "jujutsukaisen",
+"c": "Kento Nanami",
+"score": 0.29,
+"wins": 2,
+"unlikely": 1
+},
+{
+"verse": "jujutsukaisen",
+"c": "Megumi Fushiguro",
+"score": 0.23,
+"wins": 3,
+"unlikely": 1
+},
+{
+"verse": "demonslayer",
+"c": "Tanjiro Kamado",
+"score": 1.23,
+"wins": 18,
+"unlikely": 4
+},
+{
+"verse": "demonslayer",
+"c": "Inosuke Hashibira",
+"score": 0.64,
+"wins": 7,
+"unlikely": 2
+},
+{
+"verse": "demonslayer",
+"c": "Kanao Tsuyuri",
+"score": 0.42,
+"wins": 4,
+"unlikely": 1
+},
+{
+"verse": "demonslayer",
+"c": "Giyu Tomioka (Pilier de l'Eau)",
+"score": 0.27,
+"wins": 6,
+"unlikely": 1
+},
+{
+"verse": "demonslayer",
+"c": "Rui (Lune inférieure 5)",
+"score": 0.26,
+"wins": 1,
+"unlikely": 1
+},
+{
+"verse": "demonslayer",
+"c": "Genya Shinazugawa",
+"score": 0.24,
+"wins": 2,
+"unlikely": 0
+},
+{
+"verse": "demonslayer",
+"c": "Nezuko Kamado",
+"score": 0.19,
+"wins": 6,
+"unlikely": 0
+},
+{
+"verse": "demonslayer",
+"c": "Père araignée",
+"score": 0.15,
+"wins": 2,
+"unlikely": 1
+},
+{
+"verse": "bleach",
+"c": "Ichigo Kurosaki",
+"score": 1.29,
+"wins": 24,
+"unlikely": 4
+},
+{
+"verse": "bleach",
+"c": "Shunsui Kyōraku (8e division)",
+"score": 0.66,
+"wins": 4,
+"unlikely": 2
+},
+{
+"verse": "bleach",
+"c": "Suì-Fēng (2e division)",
+"score": 0.56,
+"wins": 3,
+"unlikely": 2
+},
+{
+"verse": "bleach",
+"c": "Rukia Kuchiki",
+"score": 0.53,
+"wins": 6,
+"unlikely": 2
+},
+{
+"verse": "bleach",
+"c": "Nanao Ise (lieutenant, 8e)",
+"score": 0.38,
+"wins": 1,
+"unlikely": 1
+},
+{
+"verse": "bleach",
+"c": "Gerard Valkyrie (« M », Schutzstaffel)",
+"score": 0.36,
+"wins": 3,
+"unlikely": 1
+},
+{
+"verse": "bleach",
+"c": "Uryū Ishida",
+"score": 0.33,
+"wins": 5,
+"unlikely": 1
+},
+{
+"verse": "bleach",
+"c": "Marechiyo Ōmaeda (lieutenant, 2e)",
+"score": 0.3,
+"wins": 2,
+"unlikely": 1
+},
+{
+"verse": "mha",
+"c": "Tenya Iida (Ingenium)",
+"score": 1.12,
+"wins": 8,
+"unlikely": 3
+},
+{
+"verse": "mha",
+"c": "Ochaco Uraraka (Uravity)",
+"score": 0.93,
+"wins": 7,
+"unlikely": 2
+},
+{
+"verse": "mha",
+"c": "Katsuki Bakugo (Dynamight)",
+"score": 0.88,
+"wins": 15,
+"unlikely": 2
+},
+{
+"verse": "mha",
+"c": "Mezo Shoji (Tentacole)",
+"score": 0.81,
+"wins": 3,
+"unlikely": 2
+},
+{
+"verse": "mha",
+"c": "Izuku Midoriya (Deku)",
+"score": 0.74,
+"wins": 16,
+"unlikely": 2
+},
+{
+"verse": "mha",
+"c": "Shoto Todoroki",
+"score": 0.71,
+"wins": 14,
+"unlikely": 2
+},
+{
+"verse": "mha",
+"c": "Eijiro Kirishima (Red Riot)",
+"score": 0.66,
+"wins": 9,
+"unlikely": 2
+},
+{
+"verse": "mha",
+"c": "Toru Hagakure (Invisible Girl)",
+"score": 0.51,
+"wins": 2,
+"unlikely": 1
+},
+{
+"verse": "aot",
+"c": "Armin Arlelt",
+"score": 1.28,
+"wins": 7,
+"unlikely": 4
+},
+{
+"verse": "aot",
+"c": "Eren Jäger",
+"score": 0.92,
+"wins": 17,
+"unlikely": 4
+},
+{
+"verse": "aot",
+"c": "Gabi Braun",
+"score": 0.72,
+"wins": 4,
+"unlikely": 2
+},
+{
+"verse": "aot",
+"c": "Mikasa Ackerman",
+"score": 0.61,
+"wins": 19,
+"unlikely": 2
+},
+{
+"verse": "aot",
+"c": "Eld Jinn",
+"score": 0.43,
+"wins": 1,
+"unlikely": 1
+},
+{
+"verse": "aot",
+"c": "Petra Ral",
+"score": 0.43,
+"wins": 1,
+"unlikely": 1
+},
+{
+"verse": "aot",
+"c": "Oruo Bozado",
+"score": 0.43,
+"wins": 1,
+"unlikely": 1
+},
+{
+"verse": "aot",
+"c": "Jean Kirschtein",
+"score": 0.37,
+"wins": 6,
+"unlikely": 1
+},
+{
+"verse": "chainsawman",
+"c": "Denji (Chainsaw Man)",
+"score": 0.73,
+"wins": 21,
+"unlikely": 2
+},
+{
+"verse": "chainsawman",
+"c": "Yoru et Asa Mitaka (Démon de la Guerre)",
+"score": 0.57,
+"wins": 8,
+"unlikely": 2
+},
+{
+"verse": "chainsawman",
+"c": "Démon de la Sauterelle",
+"score": 0.41,
+"wins": 1,
+"unlikely": 1
+},
+{
+"verse": "chainsawman",
+"c": "Hirofumi Yoshida (Démon Pieuvre)",
+"score": 0.38,
+"wins": 2,
+"unlikely": 2
+},
+{
+"verse": "chainsawman",
+"c": "Yuko (hybride de la Justice)",
+"score": 0.34,
+"wins": 1,
+"unlikely": 1
+},
+{
+"verse": "chainsawman",
+"c": "Aki Hayakawa",
+"score": 0.28,
+"wins": 3,
+"unlikely": 1
+},
+{
+"verse": "chainsawman",
+"c": "Pochita (vrai Chainsaw Man)",
+"score": 0.22,
+"wins": 8,
+"unlikely": 1
+},
+{
+"verse": "chainsawman",
+"c": "Démon de la Chauve-souris",
+"score": 0.17,
+"wins": 1,
+"unlikely": 1
+}
+],
+"coherence": [
+{
+"verse": "naruto",
+"label": "Naruto",
+"mean_surprise": 1.283,
+"n": 193,
+"shock": 8,
+"eta": 0.5213
+},
+{
+"verse": "onepiece",
+"label": "One Piece",
+"mean_surprise": 1.156,
+"n": 403,
+"shock": 9,
+"eta": 0.4477
+},
+{
+"verse": "dragonball",
+"label": "Dragon Ball",
+"mean_surprise": 1.217,
+"n": 307,
+"shock": 9,
+"eta": 0.4231
+},
+{
+"verse": "hunterxhunter",
+"label": "Hunter x Hunter",
+"mean_surprise": 0.812,
+"n": 132,
+"shock": 2,
+"eta": 0.6464
+},
+{
+"verse": "jujutsukaisen",
+"label": "Jujutsu Kaisen",
+"mean_surprise": 1.12,
+"n": 98,
+"shock": 4,
+"eta": 0.5975
+},
+{
+"verse": "demonslayer",
+"label": "Demon Slayer",
+"mean_surprise": 1.397,
+"n": 76,
+"shock": 2,
+"eta": 1.5502
+},
+{
+"verse": "bleach",
+"label": "Bleach",
+"mean_surprise": 1.358,
+"n": 208,
+"shock": 10,
+"eta": 0.5648
+},
+{
+"verse": "mha",
+"label": "My Hero Academia",
+"mean_surprise": 1.169,
+"n": 142,
+"shock": 8,
+"eta": 0.7441
+},
+{
+"verse": "aot",
+"label": "L'Attaque des Titans",
+"mean_surprise": 1.334,
+"n": 99,
+"shock": 7,
+"eta": 0.6124
+},
+{
+"verse": "chainsawman",
+"label": "Chainsaw Man",
+"mean_surprise": 1.056,
+"n": 84,
+"shock": 5,
+"eta": 0.6506
+}
+]
+}

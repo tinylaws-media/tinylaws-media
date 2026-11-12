@@ -42,6 +42,8 @@ DB_TIME_OVERRIDE = getattr(D, "DB_TIME_OVERRIDE", {})
 STM = load("status")   # official ranks/titles, explicit canon statements, numeric ratings (bounties, power levels)
 STATUS = getattr(STM, "STATUS", []) if STM else []
 ORDER = getattr(STM, "ORDER", []) if STM else []
+if os.environ.get("NO_ORDER"):   # analyse « les persos disent-ils vrai ? » : refit sans aucune déclaration de hiérarchie
+    ORDER = []
 NUMERIC = getattr(STM, "NUMERIC", {}) if STM else {}
 NUMERIC_TRANSFORM = getattr(STM, "NUMERIC_TRANSFORM", {}) if STM else {}
 
