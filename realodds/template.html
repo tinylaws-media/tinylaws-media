@@ -531,8 +531,10 @@ function howMany(){const A=ser(hca.value,haa.value),B=ser(hcb.value,hab.value);c
   for(let n=1;n<=NMAX;n++){const T=[{c:hca.value,s:A}];T.copies=n;const o=teamOdds(T,[{c:hcb.value,s:B}],2500);if(first===null&&o.pa>=o.pb)first=n;
     const out=n>MAXTEAM;rows.push(`<tr${out?' style="opacity:.55"':''}><td class="mono">${n}</td><td class="mono">${pct(o.pa)}</td><td class="mono">${pct(o.pd)}</td><td class="mono">${pct(o.pb)}</td><td class="note">${out?'au-delà des données':''}</td></tr>`)}
   document.getElementById('howt').innerHTML=rows.join('');
+  const gap=(B.mean-A.mean)*TIERK,rng_=gap>0?[1.28,-1.28].map(z=>Math.ceil(Math.exp(gap/(ETA*Math.exp(z*ETA_LSD))))):null;
+  const rtxt=rng_?` Selon le poids des alliés, encore incertain, il en faudrait entre ${rng_[0].toLocaleString('fr-FR')} et ${rng_[1].toLocaleString('fr-FR')} : l'œuvre ne permet pas de trancher plus finement.`:'';
   document.getElementById('hownote').innerHTML=first===null?`Même à ${NMAX}, ${esc(nm(hca.value))} reste derrière : l'écart de force est trop grand, et le nombre ne rapporte que lentement (η · log n).`:
-    `Il faut <b>${first} × ${esc(nm(hca.value))}</b> pour passer devant ${esc(nm(hcb.value))}${first>MAXTEAM?" (au-delà des groupes vus dans l'œuvre : à prendre avec des pincettes)":''}. Les copies partagent la même force : chacune ajoute de moins en moins (η · log n).`}
+    `Il faut <b>${first} × ${esc(nm(hca.value))}</b> pour passer devant ${esc(nm(hcb.value))}${first>MAXTEAM?" (au-delà des groupes vus dans l'œuvre : à prendre avec des pincettes)":''}. Les copies partagent la même force : chacune ajoute de moins en moins (η · log n).`+rtxt}
 [hca,hcb].forEach((sel,i)=>sel.addEventListener('change',()=>{fillArcs(i?hab:haa,sel.value,(i?hab:haa).value);howMany()}));[haa,hab].forEach(sel=>sel.addEventListener('change',howMany));
 
 duel();table();route();addEventListener('resize',()=>{clearSim()});

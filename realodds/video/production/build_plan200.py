@@ -113,6 +113,10 @@ for k, (fmt, sa, sb, title, hook, take) in enumerate(PLAN, 1):
             pa, pb = team([A], [B], 8000, copies=first or 30)
             ev = f"Il faut {first} {A['name']} pour passer devant" if first else f"Même 30 {A['name']} ne suffisent pas"
             if first and first > mo(A['v'])['meta']['max_team']: ev += f" (au-delà des groupes vus dans l'œuvre : extrapolation)"
+            M = mo(A["v"])["meta"]; gap = (B["m"] - A["m"]) * M["tier"]
+            if gap > 0:
+                qs = [math.ceil(math.exp(gap / (M["eta"] * math.exp(z * M["eta_log_sd"])))) for z in (1.28, -1.28)]
+                ev += f". Selon le poids des alliés (fourchette à 80 %), il en faudrait entre {qs[0]} et {qs[1]} : le manga ne permet pas de trancher plus finement"
         lab_a, lab_b = f"{A['name']} ({A['arcname']})", f"{B['name']} ({B['arcname']})"
     else:
         As = [parse(x) for x in sa.split("+")]; Bs = [parse(x) for x in sb.split("+")]
