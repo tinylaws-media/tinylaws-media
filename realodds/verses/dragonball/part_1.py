@@ -399,7 +399,8 @@ fight(767.60, "ssj2", "trunks", ["android_17_futur", "android_18_futur"], "A", 3
 fight(767.61, "ssj2", "trunks", "cell_futur", "A", 3, note="(ch. 419-420)")
 
 # ============================================================== Majin Buu (774)
-fight(774.29, "buu", "videl", "criminels", "A", 3, note="(ch. 421)")
+# retiré (vérification 2026-11) : au ch. 421, Videl arrive après le combat ; c'est Gohan qui arrête les braqueurs
+# fight(774.29, "buu", "videl", "criminels", "A", 3, note="(ch. 421)")
 fight(774.291, "buu", "gohan", "criminels", "A", 3, ta=["retenue"], note="Great Saiyaman (ch. 423-425)")
 fight(774.301, "buu", "trunks_kid", "goten", "A", 1, note="Finale junior (ch. 433-435)")
 fight(774.302, "buu", "trunks_kid", "mr_satan", "A", 3, ta=["retenue"], note="Exhibition (ch. 436)")
@@ -424,7 +425,7 @@ fight(774.325, "buu", "majin_buu", "vegeta", "A", 2,
       note="Autodestruction de Vegeta, Buu se régénère (Vegeta ressuscité) (ch. 464-467)")
 fight(774.330, "buu", "goku", "majin_buu", "D", note="Super Saiyan 3, Goku s'arrête (ch. 474-476)", flags="i")
 fight(774.331, "buu", "majin_buu", "babidi", "A", 3, note="(ch. 475)")
-fight(774.335, "buu", "majin_buu", "criminels", "A", 3, note="Les tireurs qui ont blessé Bee (ch. ~482)", flags="?")
+fight(774.335, "buu", "mr_satan", "criminels", "A", 3, note="Mr. Satan assomme le complice puis bat le tireur qui a blessé Bee (ch. 484) ; corrigé : ce n'est pas Buu")
 fight(774.34, "superbuu", "super_buu", "majin_buu", "A", 2, note="Le Buu maléfique absorbe le gros Buu (ch. 485-486)")
 fight(774.345, "superbuu", "super_buu", "gotenks", "A", 2, tb=["retenue"], note="Salle de l'Esprit et du Temps, Gotenks normal puis SSJ (ch. ~489-491)")
 fight(774.347, "superbuu", "gotenks", "super_buu", "A", 1, note="Gotenks SSJ3 domine jusqu'à la défusion (ch. 494-496)", flags="i")

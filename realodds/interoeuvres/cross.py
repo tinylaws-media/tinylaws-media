@@ -50,7 +50,7 @@ def species_u():
         return {}
     out = {}
     for k, v in sp.SPECIES.items():
-        mass = v[1] if isinstance(v, (tuple, list)) else v.get("mass")
+        mass = v[2] if isinstance(v, (tuple, list)) else v.get("mass")
         if isinstance(mass, (int, float)):
             out[k] = (math.log10(mass / 78.0), 0.5)
     return out
@@ -73,11 +73,17 @@ def node(v, c, arc):
 
 
 # ---- observations, mises à plat
-KINDS = ["force", "vitesse", "resistance"]           # types dont la pente est estimée
-F = []   # feats : (verse, y, c, beta, fsd, m, sd, kind index ou -1 pour énergie)
+KINDS = ["force", "vitesse"]           # types dont la pente est estimée (la résistance garde β = 1 : ses exploits sont des bornes basses)
+# Bornes basses : un coup encaissé sans être mis K.-O., ou un exploit fait d'un geste désinvolte, dit seulement « au moins
+# autant ». Vraisemblance censurée : seul un modèle qui place le perso EN DESSOUS de l'exploit est pénalisé.
+LB_WORDS = ("borne basse", "désinvolte", "décontract", "sans effort", "indemne")
+F = []   # feats : (verse, y, c, beta, fsd, m, sd, kind index ou -1 pour énergie, borne basse 0/1)
 for i, v in enumerate(V):
     for (c, arc, kind, y, fsd, *_rest) in v["feats"]:
-        m, sd = node(v, c, arc); c0, be = HUMAIN[kind]; F.append((i, y, c0, be, fsd, m, sd, KINDS.index(kind) if kind in KINDS else -1))
+        m, sd = node(v, c, arc); c0, be = HUMAIN[kind]
+        txt = " ".join(str(x) for x in _rest).lower()
+        lb = 1.0 if (kind == "resistance" or any(w in txt for w in LB_WORDS)) else 0.0
+        F.append((i, y, c0, be, fsd, m, sd, KINDS.index(kind) if kind in KINDS else -1, lb))
 E = []   # entités-ancres : (verse, u, usd, m, sd)
 for i, v in enumerate(V):
     for e, (u, usd) in v["ents"].items():
@@ -89,7 +95,7 @@ for i, v in enumerate(V):
         name, n = (ent.split("*") + ["1"])[:2]; u, usd = REEL[name]; m, sd = node(v, c, arc)
         A.append((i, u, usd, int(n), m, sd, {"A": 1.0, "B": 0.0, "D": 0.5}[res]))
 NV = len(V)
-Fa = {k: jnp.array([f[j] for f in F]) for j, k in enumerate(["v", "y", "c", "be", "fsd", "m", "sd", "k"])}
+Fa = {k: jnp.array([f[j] for f in F]) for j, k in enumerate(["v", "y", "c", "be", "fsd", "m", "sd", "k", "lb"])}
 Fa["v"] = Fa["v"].astype(int); Fa["k"] = Fa["k"].astype(int)
 NK = len(KINDS); BE0 = jnp.array([HUMAIN[k][1] for k in KINDS])
 TIER = jnp.array([v["tier"] for v in V]); ETA = jnp.array([v["eta"] for v in V]); C1 = jnp.array([v["c1"] for v in V])
@@ -116,7 +122,10 @@ def neg_logpost(th):
         v = Fa["v"]; be = betas(th); u = a[v] + b[v] * Fa["m"]; mu = Fa["c"] + be * u
         scale = jnp.sqrt(sig ** 2 + Fa["fsd"] ** 2 + (be * b[v] * Fa["sd"]) ** 2)
         lp += -0.5 * jnp.sum((th[2 * NV + 1:2 * NV + 1 + NK] / 0.7) ** 2)
-        lp += jnp.sum(tlog(Fa["y"] - mu, scale))
+        z = (Fa["y"] - mu) / scale
+        half = 0.5 * jax.scipy.special.betainc(NU / 2, 0.5, NU / (NU + z ** 2))
+        tcdf_up = jnp.log(jnp.clip(jnp.where(z > 0, half, 1 - half), 1e-12, 1))       # P(capacité >= exploit), loi de Student
+        lp += jnp.sum(jnp.where(Fa["lb"] > 0, tcdf_up, tlog(Fa["y"] - mu, scale)))
     for (i, u, usd, m, sd) in E:
         lp += -0.5 * ((u - (a[i] + b[i] * m)) ** 2 / (usd ** 2 + (b[i] * sd) ** 2))
     for (i, u, usd, n, m, sd, r) in A:
@@ -143,10 +152,10 @@ for i, v in enumerate(V):
 
 # résidus standardisés des exploits
 resid = []
-for (i, y, c0, be, fsd, m, sd, k), raw in zip(F, [x for v in V for x in v["feats"]]):
+for (i, y, c0, be, fsd, m, sd, k, lbf), raw in zip(F, [x for v in V for x in v["feats"]]):
     be = BK[k] if k >= 0 else 1.0
     mu = c0 + be * (a[i] + b[i] * m); sc = math.sqrt(sig ** 2 + fsd ** 2 + (be * b[i] * sd) ** 2)
-    resid.append(dict(verse=V[i]["id"], c=raw[0], arc=raw[1], kind=raw[2], y=y, pred=round(mu, 2), z=round((y - mu) / sc, 2), label=raw[5], ref=raw[6], calc=raw[7]))
+    resid.append(dict(verse=V[i]["id"], c=raw[0], arc=raw[1], kind=raw[2], y=y, pred=round(mu, 2), z=round((y - mu) / sc, 2) if (not lbf or y > mu) else 0.0, lb=bool(lbf), label=raw[5], ref=raw[6], calc=raw[7]))
 print("exploits hors norme (|z| > 2) :", [(r["verse"], r["c"], r["z"]) for r in resid if abs(r["z"]) > 2])
 
 out = dict(verses=[dict(id=v["id"], label=v["label"], tier=v["tier"], eta=v["eta"], cuts=v["mo"]["cuts"]) for v in V],

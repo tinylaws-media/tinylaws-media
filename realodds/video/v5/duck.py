@@ -5,7 +5,7 @@ from scipy.ndimage import maximum_filter1d, uniform_filter1d
 def rd(f):
     w = wave.open(f); a = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(float) / 32768
     return a.reshape(-1, w.getnchannels()).mean(1), w.getframerate()
-s, sr = rd('sfx.wav'); v, _ = rd('../audio/voix_propre.wav'); G = float(sys.argv[1]) if len(sys.argv) > 1 else 1.6
+s, sr = rd('sfx.wav'); v, _ = rd(__import__('os').environ.get('VOICE', '../audio/voix_propre.wav')); G = float(sys.argv[1]) if len(sys.argv) > 1 else 1.6
 s = s * G; n = len(s); v = np.pad(v, (0, max(0, n - len(v))))[:n]
 win = int(sr * .05)
 rms = lambda x: np.sqrt(uniform_filter1d(x ** 2, win) + 1e-12)

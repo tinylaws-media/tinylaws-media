@@ -13,6 +13,11 @@ for v in X["verses"]:
     fights = [[f["arc"], f["a"], f["b"], f["res"]] for f in mo["fights"]]
     data["verses"].append(dict(id=v["id"], label=v["label"], tier=v["tier"], c1=v["cuts"][3], arcs=[[a["id"], a["name"]] for a in mo["arcs"]],
                                chars=chars, fights=fights))
+import importlib.util
+_sp = importlib.util.spec_from_file_location("hax", os.path.join(HERE, "hax.py")); _hx = importlib.util.module_from_spec(_sp); _sp.loader.exec_module(_hx)
+data["hax"] = {v["id"]: {c: h for c, h in _hx.HAX.get(v["id"], {}).items() if c in v["chars"]} for v in data["verses"]}
+missing = [(v, c) for v, d in _hx.HAX.items() for c in d if c not in next(x for x in data["verses"] if x["id"] == v)["chars"]]
+if missing: print("hax : persos absents des données", missing)
 T = open(os.path.join(ROOT, "template.html")).read()
 head = T[:T.index("</style>")] + """
 .ladder svg{min-width:640px}

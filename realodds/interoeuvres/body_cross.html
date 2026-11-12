@@ -27,11 +27,12 @@
       </div>
       <div class="bar" role="img" id="bar"><div id="ba" style="background:var(--a)"></div><div id="bd" style="background:var(--draw)"></div><div id="bb" style="background:var(--b)"></div></div>
       <p class="note" id="proj"></p>
+      <p class="note" id="haxw"></p>
     </div>
   </div>
   <div class="ev">
-    <div class="panel"><h3 id="ha">A</h3><p class="note" id="xa"></p><div id="fa"></div><h3 style="font:800 15px var(--f-display);margin:14px 0 6px">Ceux qu'il a battus</h3><div id="ka"></div></div>
-    <div class="panel"><h3 id="hb">B</h3><p class="note" id="xb"></p><div id="fb"></div><h3 style="font:800 15px var(--f-display);margin:14px 0 6px">Ceux qu'il a battus</h3><div id="kb"></div></div>
+    <div class="panel"><h3 id="ha">A</h3><p class="note" id="xa"></p><div id="ya"></div><div id="fa"></div><h3 style="font:800 15px var(--f-display);margin:14px 0 6px">Ceux qu'il a battus</h3><div id="ka"></div></div>
+    <div class="panel"><h3 id="hb">B</h3><p class="note" id="xb"></p><div id="yb"></div><div id="fb"></div><h3 style="font:800 15px var(--f-display);margin:14px 0 6px">Ceux qu'il a battus</h3><div id="kb"></div></div>
   </div>
 </section>
 
@@ -43,7 +44,7 @@
 
 <section id="v-exploits" hidden>
   <h2>Les exploits utilisés</h2>
-  <p class="lead">Chaque exploit est un ordre de grandeur calculé à partir du manga, avec ses hypothèses. L'écart dit si l'exploit colle au reste de l'œuvre : au-delà de ±2, il est « hors norme » et le modèle lui accorde moins de poids (vraisemblance robuste).</p>
+  <p class="lead">Chaque exploit est un ordre de grandeur calculé à partir du manga, avec ses hypothèses. L'écart dit si l'exploit colle au reste de l'œuvre : au-delà de ±2, il est « hors norme » et le modèle lui accorde moins de poids (vraisemblance robuste). Un coup encaissé, un entraînement ou un geste désinvolte ne dit que « au moins autant » : c'est une borne basse, qui ne pèse que si le modèle place le perso en dessous.</p>
   <div class="panel tw"><table><thead><tr><th>Œuvre</th><th>Personnage</th><th>Exploit</th><th>Valeur</th><th>Écart</th></tr></thead><tbody id="ft"></tbody></table></div>
 </section>
 
@@ -52,9 +53,9 @@
   <div class="panel">
     <p><b>Une échelle physique commune.</b> L'unité est un humain adulte normal (un coup de poing d'environ 125 joules). Un personnage « à 10<sup>12</sup> » frappe avec l'énergie de mille milliards d'humains. Dans chaque œuvre, la force estimée par le modèle de l'œuvre est reliée à cette échelle par une droite : un point de départ et une pente (combien de fois plus fort à chaque échelon). Ces deux nombres sont estimés pour chaque œuvre, avec leur incertitude.</p>
     <p><b>Trois sortes de preuves, toutes canon.</b> Les exploits chiffrés (une ville rasée, la Lune détruite, un lancer de poids) ; les simples humains armés qui se battent dans l'œuvre (soldats du Ruban rouge, Marines ordinaires, bandits) ; et les rencontres avec des êtres réels. Les niveaux de puissance officiels ne servent pas : ce ne sont pas des grandeurs physiques.</p>
-    <p><b>Les exploits contradictoires sont amortis.</b> La fiction n'est pas cohérente (Roshi qui détruit la Lune au début de Dragon Ball). Le modèle suppose qu'un exploit peut s'écarter fortement de la tendance (loi de Student) et estime lui-même l'ampleur de ces écarts. Soulever, courir et encaisser ont leur propre pente, estimée sur les données : dans la fiction, soulever une montagne grandit bien moins vite que la puissance des attaques.</p>
+    <p><b>Les exploits contradictoires sont amortis.</b> La fiction n'est pas cohérente (Roshi qui détruit la Lune au début de Dragon Ball). Le modèle suppose qu'un exploit peut s'écarter fortement de la tendance (loi de Student) et estime lui-même l'ampleur de ces écarts. Les coups encaissés, les entraînements et les gestes désinvoltes sont traités comme des bornes basses (« au moins autant »). Soulever et courir ont leur propre pente, estimée sur les données : dans la fiction, soulever une montagne grandit bien moins vite que la puissance des attaques.</p>
     <p><b>La cote : chacun dans les règles de l'autre.</b> Pour A contre B, on place B dans l'échelle de l'œuvre de A et on applique le modèle de cette œuvre, puis l'inverse ; la cote affichée est la moyenne des deux. Entre deux personnages de la même œuvre, on retrouve exactement la cote de l'œuvre. Quand les deux projections divergent, c'est que les deux œuvres n'ont pas la même « physique ».</p>
-    <p><b>Limites.</b> Version expérimentale : 7 à 10 exploits par œuvre, ce qui laisse une incertitude d'environ un facteur 20 sur le point de départ de chaque œuvre. Les pouvoirs à effet spécial (genjutsu, domaines, fruits du démon logia, immortalité) ne se convertissent pas en énergie : la cote compare la puissance de combat brute, pas les « hax ». Chaque nouvel exploit sourcé resserre la fourchette.</p>
+    <p><b>Limites.</b> Version expérimentale : 7 à 10 exploits par œuvre, ce qui laisse une incertitude d'environ un facteur 20 sur le point de départ de chaque œuvre. Les pouvoirs à effet spécial (genjutsu, domaines, fruits du démon logia, immortalité) ne se convertissent pas en énergie : la cote compare la puissance de combat brute, pas les « hax ». La page les liste à côté de chaque perso et prévient quand l'un d'eux peut décider du combat (l'Infini de Gojo, le Hakai de Beerus, le Kamui…). Chaque nouvel exploit sourcé resserre la fourchette.</p>
     <p class="note" id="meta"></p>
   </div>
 </section>
@@ -114,11 +115,13 @@ function side(k){const v=VI[sel('v'+k).value],c=sel('c'+k).value,arc=sel('a'+k).
   sel('x'+k).innerHTML=`Environ <b>${words(u)}</b> (fourchette à 80 % : 10<sup>${(u-1.28*us).toFixed(1)}</sup> à 10<sup>${(u+1.28*us).toFixed(1)}</sup>). Son coup type : <b>${energy(u)}</b>.`;
   const fs=featsOf(v,c);sel('f'+k).innerHTML=fs.length?fs.map(featHTML).join(''):'<p class="note">Pas d\'exploit chiffré pour ce personnage : sa place vient de ses combats et des exploits des autres.</p>';
   const bs=beaten(v,c,arc);sel('k'+k).innerHTML=bs.length?bs.map(b=>{const fo=featsOf(v,b.o);return `<div class="feat"><span><b>${esc(V.chars[b.o].n)}</b> <span class="note">(${esc(ANAME[v][b.arc])}${b.solo?'':', en équipe'})</span></span><span class="q">${words(b.u).replace(' de fois un humain','').replace(' fois un humain','')}</span>${fo.length?`<span class="c">qui a lui-même : ${fo.map(f=>esc(f.label)).join(' ; ')}</span>`:''}</div>`}).join(''):'<p class="note">Aucune victoire enregistrée jusqu\'à ce moment.</p>';
-  return {v,m:s[1],sd:s[2],u,us,name:V.chars[c].n}}
+  const hx=(D.hax[V.id]||{})[c]||[];sel('y'+k).innerHTML=hx.length?`<p class="note" style="margin:0 0 6px"><b>Pouvoirs spéciaux non comptés :</b></p>`+hx.map(h=>`<div class="feat"><span>${esc(h[0])}${h[2]?' <span class="pill">décisif</span>':''}</span><span></span><span class="c">${esc(h[1])}</span></div>`).join(''):'';
+  return {v,m:s[1],sd:s[2],u,us,name:V.chars[c].n,hx}}
 function duel(){const A=side('a'),B=side('b');const o=odds(A.v,A.m,A.sd,B.v,B.m,B.sd);
   sel('pa').textContent=pct(o.pa);sel('pb').textContent=pct(o.pb);sel('pd').textContent=pct(1-o.pa-o.pb);sel('na').textContent=A.name;sel('nb').textContent=B.name;
   sel('ba').style.flexBasis=(o.pa*100)+'%';sel('bd').style.flexBasis=((1-o.pa-o.pb)*100)+'%';sel('bb').style.flexBasis=(o.pb*100)+'%';
   sel('bar').setAttribute('aria-label',`${A.name} ${pct(o.pa)}, nul ${pct(1-o.pa-o.pb)}, ${B.name} ${pct(o.pb)}`);
+  const dec=[A,B].filter(x=>x.hx.some(h=>h[2])).map(x=>x.name);sel('haxw').innerHTML=dec.length?`<span class="warn">Cote en puissance brute.</span> ${dec.map(esc).join(' et ')} ${dec.length>1?'ont':'a'} des pouvoirs qui peuvent décider du combat indépendamment de la puissance (voir plus bas) : ils ne sont pas dans le calcul.`:'';
   const L=D.verses;sel('proj').innerHTML=A.v===B.v?'Même œuvre : c\'est la cote du modèle de l\'œuvre.':
     `Dans les règles de ${esc(L[A.v].label)} : ${esc(A.name)} ${pct(o.p[0][0])} ; dans les règles de ${esc(L[B.v].label)} : ${pct(o.p[1][0])}. Moyenne des deux. ${Math.abs(o.p[0][0]-o.p[1][0])>.1?'<span class="warn">Les deux œuvres ne racontent pas la même chose : à prendre avec prudence.</span>':''}`}
 // ---- échelle
@@ -138,7 +141,7 @@ function ladder(){const rows=[];D.verses.forEach((V,v)=>{Object.entries(V.chars)
   s+=`<line x1="${x(0)}" x2="${x(0)}" y1="30" y2="${Hh-10}" stroke="var(--ink3)" stroke-dasharray="3 3"/><text x="${x(0)+4}" y="${Hh-14}">humain normal</text></svg>`;sel('lad').innerHTML=s}
 // ---- exploits
 function feats(){const L=Object.fromEntries(D.verses.map(v=>[v.id,v]));const unit={energie:'J',resistance:'J',force:'kg',vitesse:'m/s'};
-  sel('ft').innerHTML=D.feats.map(f=>`<tr><td>${esc(L[f.verse].label)}</td><td>${esc(L[f.verse].chars[f.c].n)}<br><span class="note">${esc(ANAME[VI[f.verse]][f.arc])}</span></td><td>${esc(f.label)}<br><span class="note">${esc(f.ref)} · ${esc(f.calc)}</span></td><td class="mono">10^${f.y} ${unit[f.kind]}</td><td class="mono${Math.abs(f.z)>2?' warn':''}">${f.z>0?'+':''}${f.z.toFixed(1)}</td></tr>`).join('');
+  sel('ft').innerHTML=D.feats.map(f=>`<tr><td>${esc(L[f.verse].label)}</td><td>${esc(L[f.verse].chars[f.c].n)}<br><span class="note">${esc(ANAME[VI[f.verse]][f.arc])}</span></td><td>${esc(f.label)}<br><span class="note">${esc(f.ref)} · ${esc(f.calc)}</span></td><td class="mono">10^${f.y} ${unit[f.kind]}</td><td class="mono${Math.abs(f.z)>2?' warn':''}">${f.lb&&f.z===0?'borne basse ✓':(f.z>0?'+':'')+f.z.toFixed(1)}</td></tr>`).join('');
   sel('meta').textContent=`${D.feats.length} exploits chiffrés, ${D.verses.length} œuvres. Écart typique d'un exploit à la tendance : ${D.sigma.toFixed(1)} décade (un facteur ${Math.round(Math.pow(10,D.sigma))}).`}
 // ---- navigation
 const VIEWS=['duel','echelle','exploits','methode'];
